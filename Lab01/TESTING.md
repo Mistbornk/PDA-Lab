@@ -90,3 +90,13 @@ MPLBACKEND=Agg python3 Lab01/tests/tools/draw_block_layout.py \
 `ctest --test-dir build -R lab1_core --output-on-failure` 對兩種模式各測 100 seeds：每次插入後以幾何全掃描核對所有 stitches、鄰居集合，再查遍 16×12 網格。既有 Python raster oracle 另檢查最大水平空白 tiles、插入時點的查詢與四組正式測資。
 
 效能實驗：`python3 benchmarks/lab1_stitches.py --before /path/to/prior/Lab1`，包含 case7 與 400／1,600／3,600 個分離矩形；合成案例有獨立可計算的 tile 數與鄰居答案。更少的候選查詢需額外索引記憶體；同一邊界聚集大量 tiles 時仍可能線性掃描。
+
+## Spatial geometry queries
+
+The default `--geometry spatial` indexes live tile bounds. `--geometry scan`
+uses the reference full scans; both accept `--stitches indexed|scan`. `--stats`
+reports geometry queries/candidates separately from stitch repair candidates.
+`python3 benchmarks/lab1_geometry.py` compares three repetitions on 400, 3,600
+and 10,000 isolated blocks against known tile counts, neighbors and point outputs.
+The core test exercises all four mode combinations and checks overlap queries
+against an independent occupancy raster before every insertion.

@@ -3,8 +3,8 @@
 #include "pda/io.hpp"
 #include <algorithm>
 namespace lab1 {
-Result solve(const Input &input, bool indexed) {
-    TileList tiles(indexed);
+Result solve(const Input &input, bool indexed, bool spatial) {
+    TileList tiles(indexed, spatial);
     tiles.push_back(std::make_unique<Block>(0, 0, 0, input.width, input.height, false));
     Result result;
     for (const auto &c : input.commands) {
@@ -35,6 +35,8 @@ Result solve(const Input &input, bool indexed) {
     }
     result.stitch_queries = tiles.stitch_queries;
     result.candidate_visits = tiles.candidate_visits;
+    result.geometry_queries = tiles.geometry_queries;
+    result.geometry_candidates = tiles.geometry_candidates;
     return result;
 }
 } // namespace lab1

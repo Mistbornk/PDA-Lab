@@ -14,13 +14,9 @@ void SplitBottom(Block *newBlock, Block *spaceBlock, TileList &blocks);
 
 void Block_Creating(const int &idx, const int &x, const int &y, const int &width, const int &height,
                     TileList &blocks) {
-    // Reject overlap before any stitch mutation. The original course inputs promise
-    // this invariant; validating it costs one scan, as do the existing repairs.
-    for (const auto &block : blocks) {
-        pda::require(!block->isSolid || x >= block->x + block->width || block->x >= x + width ||
-                         y >= block->y + block->height || block->y >= y + height,
-                     "Inserted block overlaps an existing solid tile");
-    }
+    // Check legality before mutating any stitch or index.
+    pda::require(!blocks.overlaps_solid(x, y, width, height),
+                 "Inserted block overlaps an existing solid tile");
     // establish a new block
     auto newBlock_owner = std::make_unique<Block>(idx, x, y, width, height, true);
     Block *newBlock = newBlock_owner.get();
@@ -237,21 +233,7 @@ void UpdateNeighborBlocks(Block *newBlock, TileList &blocks) {
 }
 
 Block *FindBlockContainingTopEdge(Block *newBlock, TileList &blocks) {
-    for (auto &block : blocks) {
-        // skip solid tiles
-        if (block->isSolid)
-            continue;
-
-        // find the space tile containg the top edge
-        if (block->y < newBlock->y + newBlock->height &&
-            newBlock->y + newBlock->height < block->y + block->height) {
-            if (block->x <= newBlock->x &&
-                newBlock->x + newBlock->width <= block->x + block->width) {
-                return block.get();
-            }
-        }
-    }
-    return nullptr;
+    return blocks.find_space_edge(newBlock->x, newBlock->width, newBlock->y + newBlock->height);
 }
 
 void SplitTop(Block *newBlock, Block *spaceBlock, TileList &blocks) {
@@ -296,20 +278,7 @@ void SplitTop(Block *newBlock, Block *spaceBlock, TileList &blocks) {
 }
 
 Block *FindBlockContainingBottomEdge(Block *newBlock, TileList &blocks) {
-    for (auto &block : blocks) {
-        // skip solid tiles
-        if (block->isSolid)
-            continue;
-
-        // find the space tile containg the bottom edge
-        if (block->y < newBlock->y && newBlock->y < block->y + block->height) {
-            if (block->x <= newBlock->x &&
-                newBlock->x + newBlock->width <= block->x + block->width) {
-                return block.get();
-            }
-        }
-    }
-    return nullptr;
+    return blocks.find_space_edge(newBlock->x, newBlock->width, newBlock->y);
 }
 
 void SplitBottom(Block *newBlock, Block *spaceBlock, TileList &blocks) {

@@ -24,13 +24,19 @@ class TileList {
     std::array<Edges, 4> edges;
     std::uint64_t next_order = 0;
     bool indexed;
+    struct SpatialIndex;
+    std::unique_ptr<SpatialIndex> spatial;
     static std::array<int, 4> coordinates(const Block &b) {
         return {b.y, b.x, b.y + b.height, b.x + b.width};
     }
 
   public:
     std::uint64_t stitch_queries = 0, candidate_visits = 0;
-    explicit TileList(bool use_index = true) : indexed(use_index) {}
+    std::uint64_t geometry_queries = 0, geometry_candidates = 0;
+    explicit TileList(bool use_index = true, bool use_spatial = true);
+    ~TileList();
+    bool overlaps_solid(int x, int y, int width, int height);
+    Block *find_space_edge(int x, int width, int edge_y);
     auto begin() { return owners.begin(); }
     auto end() { return owners.end(); }
     auto begin() const { return owners.begin(); }
@@ -38,36 +44,8 @@ class TileList {
     const auto &front() const { return owners.front(); }
     auto size() const { return owners.size(); }
     bool uses_index() const { return indexed; }
-    void push_back(std::unique_ptr<Block> owner) {
-        Block *tile = owner.get();
-        const auto order = next_order++;
-        owners.push_back(std::move(owner));
-        positions.emplace(tile, Position{std::prev(owners.end()), order});
-        if (indexed) {
-            auto keys = coordinates(*tile);
-            for (std::size_t i = 0; i < edges.size(); ++i)
-                edges[i][keys[i]].emplace(order, tile);
-        }
-    }
-    std::unique_ptr<Block> extract(Block *tile) {
-        auto found = positions.find(tile);
-        if (found == positions.end())
-            return {};
-        auto position = found->second;
-        if (indexed) {
-            auto keys = coordinates(*tile);
-            for (std::size_t i = 0; i < edges.size(); ++i) {
-                auto bucket = edges[i].find(keys[i]);
-                bucket->second.erase(position.order);
-                if (bucket->second.empty())
-                    edges[i].erase(bucket);
-            }
-        }
-        auto owner = std::move(*position.iterator);
-        owners.erase(position.iterator);
-        positions.erase(found);
-        return owner;
-    }
+    void push_back(std::unique_ptr<Block> owner);
+    std::unique_ptr<Block> extract(Block *tile);
     void repair(Block *target) {
         ++stitch_queries;
         const std::array<int, 4> keys{target->y + target->height, target->x + target->width,

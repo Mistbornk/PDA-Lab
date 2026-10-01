@@ -45,8 +45,8 @@ def main():
     for name, path, expected in datasets:
         for repeat in range(args.repeat):
             for mode, exe, options in [('before', args.before, []),
-                                       ('scan', args.after, ['--stitches', 'scan', '--stats']),
-                                       ('indexed', args.after, ['--stitches', 'indexed', '--stats'])]:
+                                       ('scan', args.after, ['--stitches', 'scan', '--geometry', 'scan', '--stats']),
+                                       ('indexed', args.after, ['--stitches', 'indexed', '--geometry', 'scan', '--stats'])]:
                 case = work/f'{name}-{repeat}-{mode}'; case.mkdir()
                 output = case/'result.txt'
                 command = [exe.resolve(), path, output, *options]

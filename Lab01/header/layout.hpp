@@ -19,8 +19,9 @@ struct Result {
     std::vector<NeighborCount> neighbors;
     std::vector<std::pair<int, int>> points;
     std::uint64_t stitch_queries = 0, candidate_visits = 0;
+    std::uint64_t geometry_queries = 0, geometry_candidates = 0;
 };
 Input parse(std::istream &input);
-Result solve(const Input &input, bool indexed = true);
+Result solve(const Input &input, bool indexed = true, bool spatial = true);
 void write_report(std::ostream &output, const Result &result);
 } // namespace lab1

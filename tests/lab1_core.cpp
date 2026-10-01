@@ -52,29 +52,33 @@ void verify(TileList &tiles) {
 int main() {
     try {
         for (bool indexed : {false, true})
-            for (unsigned seed = 0; seed < 100; ++seed) {
-                std::mt19937 random(seed);
-                bool occupied[12][16]{};
-                TileList tiles(indexed);
-                tiles.push_back(std::make_unique<Block>(0, 0, 0, 16, 12, false));
-                for (int id = 1; id <= 100; ++id) {
-                    int x = random() % 16, y = random() % 12,
-                        w = 1 + random() % std::min(5, 16 - x),
-                        h = 1 + random() % std::min(5, 12 - y);
-                    bool overlap = false;
-                    for (int yy = y; yy < y + h; ++yy)
-                        for (int xx = x; xx < x + w; ++xx)
-                            overlap |= occupied[yy][xx];
-                    if (overlap)
-                        continue;
-                    Block_Creating(id, x, y, w, h, tiles);
-                    for (int yy = y; yy < y + h; ++yy)
-                        for (int xx = x; xx < x + w; ++xx)
-                            occupied[yy][xx] = true;
-                    verify(tiles);
+            for (bool spatial : {false, true})
+                for (unsigned seed = 0; seed < 100; ++seed) {
+                    std::mt19937 random(seed);
+                    bool occupied[12][16]{};
+                    TileList tiles(indexed, spatial);
+                    tiles.push_back(std::make_unique<Block>(0, 0, 0, 16, 12, false));
+                    for (int id = 1; id <= 100; ++id) {
+                        int x = random() % 16, y = random() % 12,
+                            w = 1 + random() % std::min(5, 16 - x),
+                            h = 1 + random() % std::min(5, 12 - y);
+                        bool overlap = false;
+                        for (int yy = y; yy < y + h; ++yy)
+                            for (int xx = x; xx < x + w; ++xx)
+                                overlap |= occupied[yy][xx];
+                        check(tiles.overlaps_solid(x, y, w, h) == overlap,
+                              "Overlap query differs from raster");
+                        if (overlap)
+                            continue;
+                        Block_Creating(id, x, y, w, h, tiles);
+                        for (int yy = y; yy < y + h; ++yy)
+                            for (int xx = x; xx < x + w; ++xx)
+                                occupied[yy][xx] = true;
+                        verify(tiles);
+                    }
                 }
-            }
-        std::cout << "100 seeds in both stitch modes: all live stitches, adjacency, and raster "
+        std::cout << "100 seeds in all four stitch/geometry modes: all live stitches, adjacency, "
+                     "and raster "
                      "points passed\n";
     } catch (const std::exception &error) {
         std::cerr << error.what() << '\n';

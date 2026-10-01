@@ -21,9 +21,10 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
 endif()
 find_package(Boost REQUIRED)
 find_package(Threads REQUIRED)
-add_library(lab1_core Lab01/src/Block_Creating.cpp Lab01/src/Point_Finding.cpp
+add_library(lab1_core Lab01/src/TileList.cpp Lab01/src/Block_Creating.cpp Lab01/src/Point_Finding.cpp
   Lab01/src/Neighbor_Finding.cpp Lab01/src/parser.cpp Lab01/src/layout.cpp Lab01/src/report.cpp)
 target_include_directories(lab1_core PUBLIC Lab01/header)
+target_include_directories(lab1_core SYSTEM PRIVATE ${Boost_INCLUDE_DIRS})
 target_link_libraries(lab1_core PUBLIC pda_options)
 add_executable(Lab1 Lab01/src/main.cpp)
 target_link_libraries(Lab1 PRIVATE lab1_core)
