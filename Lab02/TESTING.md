@@ -101,7 +101,7 @@ Lab02/tests/tools/verifier 0.5 Lab02/tests/data/ami33/ami33.block \
 
 `ctest --test-dir build -R lab2_core --output-on-failure` 會做 20,000 次 B*-tree 擾動，檢查唯一根、parent/child 對應、無環、全節點可達，並以 O(n²) 矩形參考演算法獨立核對 packing；另測 64-bit HPWL。檢查不受 Release NDEBUG 影響。
 
-為保留既有固定 seed 的解，退火保留 libc `rand()` 序列；同 process 不可同時呼叫 `solve`。多 seed 實驗使用獨立 process。
+退火現在使用 solver 私有、固定寬度的亂數狀態，保留 Linux libc 的 scalar 序列；同 process 可安全執行獨立的 `solve`。初始 shuffle 仍依賴標準函式庫，完整解的重現性限同工具鏈。詳見 [亂數契約](../docs/randomness.md) 與下方平行多起點操作。
 
 ## 多 seed 與工作量實驗
 

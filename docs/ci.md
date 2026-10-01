@@ -35,3 +35,10 @@ matrix successfully ([run 36851128857](https://github.com/Mistbornk/PDA-Lab/acti
 That run skipped the optional official job. Subsequent revisions use the stricter
 warning gate, PRNG/concurrency/journal tests and generated stress smoke cases.
 Current runs are available on [GitHub Actions](https://github.com/Mistbornk/PDA-Lab/actions/workflows/ci.yml).
+
+The stricter full [workflow_dispatch run 36856085884](https://github.com/Mistbornk/PDA-Lab/actions/runs/36856085884)
+at `7800201` succeeds in all four jobs, including official integrations, layered
+routing and large stress inputs. [Machine-readable remote evidence](remote-validation.json)
+records the exact head, jobs and step conclusions. Subsequent CLI regression
+validation and local source hashes are recorded separately in
+[completion-validation.json](completion-validation.json).

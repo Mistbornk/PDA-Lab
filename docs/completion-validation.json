@@ -1,0 +1,140 @@
+{
+  "source_sha256": {
+    ".github/workflows/ci.yml": "e5b7c7a83112c5f4ec6ad6eee6855f49f95061da2abefe3109474b49563a43cb",
+    "CMakeLists.txt": "f53ab66a4d40cba06eb41edf7b1ff864db124209b3df19ed0723bf77ff12e3e3",
+    "Lab01/Makefile": "24eca3bda29a556bab6cf1f1e3732ab85ad453ac3f4cd2a78366d86888c4c186",
+    "Lab01/header/Block.h": "a5e3658aa506c162cbbb1a58ba15f2e4bbe7a4017ee618982c07102bda831876",
+    "Lab01/header/Tile.h": "095b9781c033db5d722aadaaaea04854fdc24e13b265a800979655bd2000c9be",
+    "Lab01/header/TileList.h": "d03d1392f585ce9ac92f3cc112db01c673c0bde4f288636ec7ce61141006145b",
+    "Lab01/header/layout.hpp": "ac5fb5bcf2f55c0dbf1363495cbb9be698f9494c96850d2be3f46cac931a6a0e",
+    "Lab01/src/Block_Creating.cpp": "67a5a01c4e05fae588eb913b61e8be136166ae72be9f3c62275fd25a295cf302",
+    "Lab01/src/Neighbor_Finding.cpp": "8302f921416e23a7cc2943f3de0e7612e310eea4e97eab751689b799733af04d",
+    "Lab01/src/Point_Finding.cpp": "54b5a7292acdc3705aaeba42a8d5d0fccf929fad66f6a9bf6a05c5dc6fb5bc22",
+    "Lab01/src/TileList.cpp": "6cd4ceda1e915a0dfdf8e2fdf321f2c2ce1ad507ee7359b81b34c302358d5362",
+    "Lab01/src/layout.cpp": "1ec43d4289eeae97261301be89d88842f0ad61202cc7b6acd2bf179b31aefbde",
+    "Lab01/src/main.cpp": "bdbc53ee618fcff01f06addfc65a812d47aa8df95cc70f38e1b26e9d0126a13c",
+    "Lab01/src/parser.cpp": "3a948c02bd3c62402df3eb797c38fe4af1aab151ce697b7449fc285281ca3cb5",
+    "Lab01/src/report.cpp": "e71adfb87ad1f2ca64939545538caa17417307ddd613eb908bb716af25f82905",
+    "Lab02/Makefile": "675985d3fee51e2c8b55ff91e938418515c954e35402f31c1a7cf8b34b44c430",
+    "Lab02/include/annealer.hpp": "676f4eb59f26255300b18dfba88c808ce6fe32ce1837d940aa9abdeb09c7795b",
+    "Lab02/include/model.hpp": "14cb8c6c170a2965cea5b46d1d450e9392dcb5f4fc0ea9d8b8d0df8676393860",
+    "Lab02/include/packing.hpp": "f7a045e65caabe4f8da04aba5d40e60af3bf51cf61c6d8aa2065eabf5893ae78",
+    "Lab02/include/parallel.hpp": "de6f9e903e3aa81e640d7fbad0fdd3b41bc190e85781d6c040a3de1e85bdb42b",
+    "Lab02/include/parser.hpp": "b8241cb952d7952390df3cfc0a86a5d953e4506ab3e64c6790bb3363027a1023",
+    "Lab02/include/random.hpp": "82aef780ea94f6b0669427a128b1f18e8475a31c8a544dbb0ea6547cef424bd5",
+    "Lab02/include/timing.hpp": "b7b23ef2e0aa5a142665a5bdb607864200cd9ed8346b194d47cd822ff734a23c",
+    "Lab02/include/tree.hpp": "94bb9d27eb392466d3571b172f6bbd0b059c933be1a96f5f6e720b6dc05405d4",
+    "Lab02/include/undo.hpp": "b1ddc245b5a32f3ef3071e202c708038e1a4beee3b3ceaa19111869092a363eb",
+    "Lab02/main.cpp": "84b37b8365e66e720ae0338cc27741eac549f70b08317912f60bbb35c995811a",
+    "Lab02/src/annealer.cpp": "0adf64f641343440359c82f129ff1556f956a81f1c691cbac497d2445f26e178",
+    "Lab02/src/packing.cpp": "7ecfc6e9723d459b35bb17671ed02ff6eab17bcfdebc197a2d8eefba926d3c50",
+    "Lab02/src/parallel.cpp": "e72c3357e58cb8eec7a9bd5948957183be8010562738bfcc65eed050295568c0",
+    "Lab02/src/parser.cpp": "37a0f1761f490f470d05a7edea30838eefe59d6a128a8b88d721907f497ce195",
+    "Lab02/src/report.cpp": "46490e880fa8f2a403d69da7b122a974d2fff1e7f10f7c1b727f5e873486bb0b",
+    "Lab02/src/tree.cpp": "7a6c868126db9cabb021ba8d48d329f76dc5bee87ca9819eb04c08122f3ff634",
+    "Lab02/src/undo.cpp": "af87b0c81672c601363552a524be3626cc214771b0b1fbdb618dbdc2c9b345a7",
+    "Lab03/Makefile": "189c5df41e690cdd6df321fcd1a2d0237bb12b4b17ee9f0ec378f2de6cb19f9c",
+    "Lab03/include/legalizer.hpp": "29e2479730a733d3f4c95134a5fe68e1f82d41cb4f8fc20352e2f56975b47e09",
+    "Lab03/include/struct.hpp": "b1332af94efcba8f5c2cbfcf05bd86bb23a6f5446b030de975dde04090bc4371",
+    "Lab03/legalizer.cpp": "579e98010736a931c718af4fcda97b9de09833e9ee6b0295a98e81fa1e713137",
+    "Lab03/main.cpp": "e4c32db17c116e9aa08bca6b9e308e13d8ed6170ce987f50ce4744fe42ef79f1",
+    "Lab03/parser.cpp": "ce3de76c80e81339f1495129dc076eb597eba869b8159458ac02d3d66f88c999",
+    "Lab04/Makefile": "83132e629f946394ded7c932a9991917a99b8032e92da4a1bb4fbf6fdcfca121",
+    "Lab04/inc/input.hpp": "4006c59769398b2bc65df6929012ade7d0a2b7827e78ed738db8ae362a0bd059",
+    "Lab04/inc/router.hpp": "e29c73cf418be4e969b3a82d35a2d0c36dc359c0124ebe628f78b12428181ba1",
+    "Lab04/inc/struct.hpp": "9a498af2c1855a2d27cda43fe4905e3523669d6c955cc3a2f8551415aa472cf8",
+    "Lab04/layered_router.cpp": "307fbc393a89a3763e218cb1758896930524e9480e02565d5b09a11b9d2fb4c4",
+    "Lab04/legacy_router.cpp": "c05de98349e342bcdf17bc92ad8da61989f683a30b66ba8d75307193f22b7137",
+    "Lab04/main.cpp": "348f89b222fc53ba96c1c46a98523b2bfe47dcb9530dd96c271dae7159b65c5a",
+    "Lab04/parser.cpp": "d55240844e9a81a81f98919ab3fc0f5832901f8fd90dbadafd4385cdce5ceea8",
+    "benchmarks/build_baseline.py": "f9235054e206b3faef5651284ba518867b4fd8f101ec446196336029208c4112",
+    "benchmarks/build_revision.py": "258adc8943f19f237656ef0d7e77c4675d2c2dd999cd10ede04cce86f7be8e12",
+    "benchmarks/lab1_geometry.py": "d5a16d0738a05bfb20ed5cae4cf4d83e9e977af300be93d01ca4d09224441bb1",
+    "benchmarks/lab1_stitches.py": "afece070b7597ee1b3ef45840bc4acafb8178e4a8a403ef87ed5101e842e2bdc",
+    "benchmarks/lab2_comparison.py": "7cef04d87db7175b482da2ca15f5e6f26a4ac397fff4a309fe6dc27d4ec6095b",
+    "benchmarks/lab2_scaling.py": "38f639b7d36ee96ca9989a246e5023fddde687a9ff6f6ee915d28de0a11cee84",
+    "benchmarks/lab2_study.py": "e7c287956af0c1a591d8732f5856b5b5cdb6ee7c4bf93f13d2cf092294dfcc10",
+    "benchmarks/run.py": "f850f47a4a8ced3787a58a0ada860edce8d8ff6088125ee100c56b0920a633c5",
+    "include/pda/io.hpp": "5ba799b70e371799ff168965dbda821e678d51ec3d0dcafae5478629424e55cd",
+    "tests/fetch_resources.py": "1cc7a02e251888b53b41e2c2d36cff8629b2d1c88dba1d45d934806104fb80ed",
+    "tests/lab1_core.cpp": "ccb6b5630a60a1c8f019c794a36b7bb86bc788c710bf37f2f8544120c987e689",
+    "tests/lab2_core.cpp": "f0968b1656e46261398f41657988791ce8a98e2caf99d2ccb0a2edaec289f19b",
+    "tests/lab2_parallel.cpp": "803f07016626d3284dee39c51128683dcdc9924cd28543a3acd8e52ca70f8d35",
+    "tests/lab2_random.cpp": "5d5f962b205fb267082c7fa8eda9da4be00369b6d49c871fbcf4c6ed97a740da",
+    "tests/lab2_undo.cpp": "016c057fcaf80d5d1f433848c2f5493b3038b884dfce14843c2a299747187d4f",
+    "tests/lab4_oracle.py": "63898834bf21ef22db0d43b1af944e9484f5384d9ff3a34648eec09952299b6d",
+    "tests/regression.py": "da849360b3ccff5d05a8d3b2c54674c9bb4641ec3dc49c1414a90223b1f0563a",
+    "tests/run.py": "6a154783820c166e530549f52589949091fdaac72ec0d712be97ec30f3c0f6b3",
+    "tests/stress.py": "b1af0acfa3214849bc7b7f9f41211bbcfb68dd42171236987828fa64cd01812c"
+  },
+  "builds": {
+    "build": {
+      "metadata": {
+        "compiler": "c++ (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0",
+        "build_type": "Release",
+        "flags": {
+          "CMAKE_CXX_FLAGS": "",
+          "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG",
+          "CMAKE_CXX_FLAGS_DEBUG": "-g",
+          "PDA_SANITIZERS": "OFF",
+          "PDA_STRICT_WARNINGS": "ON",
+          "PDA_WARNINGS_AS_ERRORS": "ON"
+        }
+      },
+      "ctest_log": "Start testing: Oct 01 19:45 CST\n----------------------------------------------------------\n1/8 Testing: lab1_core\n1/8 Test: lab1_core\nCommand: \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/lab1_core_test\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build\n\"lab1_core\" start time: Oct 01 19:45 CST\nOutput:\n----------------------------------------------------------\n100 seeds in all four stitch/geometry modes: all live stitches, adjacency, and raster points passed\n<end of output>\nTest time =   0.79 sec\n----------------------------------------------------------\nTest Passed.\n\"lab1_core\" end time: Oct 01 19:45 CST\n\"lab1_core\" time elapsed: 00:00:00\n----------------------------------------------------------\n\n2/8 Testing: lab2_core\n2/8 Test: lab2_core\nCommand: \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/lab2_core_test\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build\n\"lab2_core\" start time: Oct 01 19:45 CST\nOutput:\n----------------------------------------------------------\n20,000 tree mutations and independent packing checks passed\n<end of output>\nTest time =   0.11 sec\n----------------------------------------------------------\nTest Passed.\n\"lab2_core\" end time: Oct 01 19:45 CST\n\"lab2_core\" time elapsed: 00:00:00\n----------------------------------------------------------\n\n3/8 Testing: lab2_undo\n3/8 Test: lab2_undo\nCommand: \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/lab2_undo_test\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build\n\"lab2_undo\" start time: Oct 01 19:45 CST\nOutput:\n----------------------------------------------------------\n10,000 multi-mutation journal transactions match full snapshots\n<end of output>\nTest time =   0.15 sec\n----------------------------------------------------------\nTest Passed.\n\"lab2_undo\" end time: Oct 01 19:45 CST\n\"lab2_undo\" time elapsed: 00:00:00\n----------------------------------------------------------\n\n4/8 Testing: lab2_parallel\n4/8 Test: lab2_parallel\nCommand: \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/lab2_parallel_test\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build\n\"lab2_parallel\" start time: Oct 01 19:45 CST\nOutput:\n----------------------------------------------------------\nMulti-start results stable at 1/2/4/8 threads; tie and failure checks passed\n<end of output>\nTest time =   0.17 sec\n----------------------------------------------------------\nTest Passed.\n\"lab2_parallel\" end time: Oct 01 19:45 CST\n\"lab2_parallel\" time elapsed: 00:00:00\n----------------------------------------------------------\n\n5/8 Testing: lab2_random\n5/8 Test: lab2_random\nCommand: \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/lab2_random_test\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build\n\"lab2_random\" start time: Oct 01 19:45 CST\nOutput:\n----------------------------------------------------------\n700,000 libc sequence checks and 8 concurrent searches passed\n<end of output>\nTest time =   0.05 sec\n----------------------------------------------------------\nTest Passed.\n\"lab2_random\" end time: Oct 01 19:45 CST\n\"lab2_random\" time elapsed: 00:00:00\n----------------------------------------------------------\n\n6/8 Testing: lab4_oracle\n6/8 Test: lab4_oracle\nCommand: \"/mnt/ec/ness/max/miniconda3/bin/python3.1\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/tests/lab4_oracle.py\" \"--bin-root\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build\n\"lab4_oracle\" start time: Oct 01 19:45 CST\nOutput:\n----------------------------------------------------------\n.\n----------------------------------------------------------------------\nRan 1 test in 0.425s\n\nOK\n<end of output>\nTest time =   0.57 sec\n----------------------------------------------------------\nTest Passed.\n\"lab4_oracle\" end time: Oct 01 19:45 CST\n\"lab4_oracle\" time elapsed: 00:00:00\n----------------------------------------------------------\n\n7/8 Testing: regression\n7/8 Test: regression\nCommand: \"/mnt/ec/ness/max/miniconda3/bin/python3.1\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/tests/regression.py\" \"--bin-root\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build\n\"regression\" start time: Oct 01 19:45 CST\nOutput:\n----------------------------------------------------------\n..........\n----------------------------------------------------------------------\nRan 10 tests in 0.350s\n\nOK\n<end of output>\nTest time =   0.47 sec\n----------------------------------------------------------\nTest Passed.\n\"regression\" end time: Oct 01 19:45 CST\n\"regression\" time elapsed: 00:00:00\n----------------------------------------------------------\n\n8/8 Testing: stress_smoke\n8/8 Test: stress_smoke\nCommand: \"/mnt/ec/ness/max/miniconda3/bin/python3.1\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/tests/stress.py\" \"--bin-root\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build\" \"--scale\" \"smoke\" \"--output\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/stress-smoke.json\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build\n\"stress_smoke\" start time: Oct 01 19:45 CST\nOutput:\n----------------------------------------------------------\nLab01 {'blocks': 144} True 0.01896799122914672\nLab02 {'macros': 40, 'outline': 2000000000} True 0.024343541357666254\nLab03 {'cells': 2000, 'banking_steps': 100} True 0.02055206010118127\nLab04 {'cols': 40, 'rows': 30, 'nets': 2} True 0.015653125941753387\n<end of output>\nTest time =   0.25 sec\n----------------------------------------------------------\nTest Passed.\n\"stress_smoke\" end time: Oct 01 19:45 CST\n\"stress_smoke\" time elapsed: 00:00:00\n----------------------------------------------------------\n\nEnd testing: Oct 01 19:45 CST\n",
+      "test_groups_passed": 8
+    },
+    "build-clang-strict": {
+      "metadata": {
+        "compiler": "Ubuntu clang version 14.0.0-1ubuntu1.1",
+        "build_type": "Release",
+        "flags": {
+          "CMAKE_CXX_FLAGS": "",
+          "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG",
+          "CMAKE_CXX_FLAGS_DEBUG": "-g",
+          "PDA_SANITIZERS": "OFF",
+          "PDA_STRICT_WARNINGS": "ON",
+          "PDA_WARNINGS_AS_ERRORS": "ON"
+        }
+      },
+      "ctest_log": "Start testing: Oct 01 19:46 CST\n----------------------------------------------------------\n1/8 Testing: lab1_core\n1/8 Test: lab1_core\nCommand: \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict/lab1_core_test\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict\n\"lab1_core\" start time: Oct 01 19:46 CST\nOutput:\n----------------------------------------------------------\n100 seeds in all four stitch/geometry modes: all live stitches, adjacency, and raster points passed\n<end of output>\nTest time =   0.67 sec\n----------------------------------------------------------\nTest Passed.\n\"lab1_core\" end time: Oct 01 19:46 CST\n\"lab1_core\" time elapsed: 00:00:00\n----------------------------------------------------------\n\n2/8 Testing: lab2_core\n2/8 Test: lab2_core\nCommand: \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict/lab2_core_test\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict\n\"lab2_core\" start time: Oct 01 19:46 CST\nOutput:\n----------------------------------------------------------\n20,000 tree mutations and independent packing checks passed\n<end of output>\nTest time =   0.13 sec\n----------------------------------------------------------\nTest Passed.\n\"lab2_core\" end time: Oct 01 19:46 CST\n\"lab2_core\" time elapsed: 00:00:00\n----------------------------------------------------------\n\n3/8 Testing: lab2_undo\n3/8 Test: lab2_undo\nCommand: \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict/lab2_undo_test\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict\n\"lab2_undo\" start time: Oct 01 19:46 CST\nOutput:\n----------------------------------------------------------\n10,000 multi-mutation journal transactions match full snapshots\n<end of output>\nTest time =   0.20 sec\n----------------------------------------------------------\nTest Passed.\n\"lab2_undo\" end time: Oct 01 19:46 CST\n\"lab2_undo\" time elapsed: 00:00:00\n----------------------------------------------------------\n\n4/8 Testing: lab2_parallel\n4/8 Test: lab2_parallel\nCommand: \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict/lab2_parallel_test\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict\n\"lab2_parallel\" start time: Oct 01 19:46 CST\nOutput:\n----------------------------------------------------------\nMulti-start results stable at 1/2/4/8 threads; tie and failure checks passed\n<end of output>\nTest time =   0.23 sec\n----------------------------------------------------------\nTest Passed.\n\"lab2_parallel\" end time: Oct 01 19:46 CST\n\"lab2_parallel\" time elapsed: 00:00:00\n----------------------------------------------------------\n\n5/8 Testing: lab2_random\n5/8 Test: lab2_random\nCommand: \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict/lab2_random_test\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict\n\"lab2_random\" start time: Oct 01 19:46 CST\nOutput:\n----------------------------------------------------------\n700,000 libc sequence checks and 8 concurrent searches passed\n<end of output>\nTest time =   0.07 sec\n----------------------------------------------------------\nTest Passed.\n\"lab2_random\" end time: Oct 01 19:46 CST\n\"lab2_random\" time elapsed: 00:00:00\n----------------------------------------------------------\n\n6/8 Testing: lab4_oracle\n6/8 Test: lab4_oracle\nCommand: \"/mnt/ec/ness/max/miniconda3/bin/python3.1\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/tests/lab4_oracle.py\" \"--bin-root\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict\n\"lab4_oracle\" start time: Oct 01 19:46 CST\nOutput:\n----------------------------------------------------------\n.\n----------------------------------------------------------------------\nRan 1 test in 0.437s\n\nOK\n<end of output>\nTest time =   0.63 sec\n----------------------------------------------------------\nTest Passed.\n\"lab4_oracle\" end time: Oct 01 19:46 CST\n\"lab4_oracle\" time elapsed: 00:00:00\n----------------------------------------------------------\n\n7/8 Testing: regression\n7/8 Test: regression\nCommand: \"/mnt/ec/ness/max/miniconda3/bin/python3.1\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/tests/regression.py\" \"--bin-root\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict\n\"regression\" start time: Oct 01 19:46 CST\nOutput:\n----------------------------------------------------------\n..........\n----------------------------------------------------------------------\nRan 10 tests in 0.617s\n\nOK\n<end of output>\nTest time =   0.74 sec\n----------------------------------------------------------\nTest Passed.\n\"regression\" end time: Oct 01 19:46 CST\n\"regression\" time elapsed: 00:00:00\n----------------------------------------------------------\n\n8/8 Testing: stress_smoke\n8/8 Test: stress_smoke\nCommand: \"/mnt/ec/ness/max/miniconda3/bin/python3.1\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/tests/stress.py\" \"--bin-root\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict\" \"--scale\" \"smoke\" \"--output\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict/stress-smoke.json\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict\n\"stress_smoke\" start time: Oct 01 19:46 CST\nOutput:\n----------------------------------------------------------\nLab01 {'blocks': 144} True 0.01910725887864828\nLab02 {'macros': 40, 'outline': 2000000000} True 0.024161284789443016\nLab03 {'cells': 2000, 'banking_steps': 100} True 0.018989181146025658\nLab04 {'cols': 40, 'rows': 30, 'nets': 2} True 0.015650508925318718\n<end of output>\nTest time =   0.29 sec\n----------------------------------------------------------\nTest Passed.\n\"stress_smoke\" end time: Oct 01 19:46 CST\n\"stress_smoke\" time elapsed: 00:00:00\n----------------------------------------------------------\n\nEnd testing: Oct 01 19:46 CST\n",
+      "test_groups_passed": 8
+    },
+    "build-asan": {
+      "metadata": {
+        "compiler": "c++ (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0",
+        "build_type": "Debug",
+        "flags": {
+          "CMAKE_CXX_FLAGS": "",
+          "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG",
+          "CMAKE_CXX_FLAGS_DEBUG": "-g",
+          "PDA_SANITIZERS": "ON",
+          "PDA_STRICT_WARNINGS": "ON",
+          "PDA_WARNINGS_AS_ERRORS": "ON"
+        }
+      },
+      "ctest_log": "Start testing: Oct 01 19:46 CST\n----------------------------------------------------------\n1/8 Testing: lab1_core\n1/8 Test: lab1_core\nCommand: \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan/lab1_core_test\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan\n\"lab1_core\" start time: Oct 01 19:46 CST\nOutput:\n----------------------------------------------------------\n100 seeds in all four stitch/geometry modes: all live stitches, adjacency, and raster points passed\n<end of output>\nTest time =  11.51 sec\n----------------------------------------------------------\nTest Passed.\n\"lab1_core\" end time: Oct 01 19:47 CST\n\"lab1_core\" time elapsed: 00:00:11\n----------------------------------------------------------\n\n2/8 Testing: lab2_core\n2/8 Test: lab2_core\nCommand: \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan/lab2_core_test\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan\n\"lab2_core\" start time: Oct 01 19:47 CST\nOutput:\n----------------------------------------------------------\n20,000 tree mutations and independent packing checks passed\n<end of output>\nTest time =   3.46 sec\n----------------------------------------------------------\nTest Passed.\n\"lab2_core\" end time: Oct 01 19:47 CST\n\"lab2_core\" time elapsed: 00:00:03\n----------------------------------------------------------\n\n3/8 Testing: lab2_undo\n3/8 Test: lab2_undo\nCommand: \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan/lab2_undo_test\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan\n\"lab2_undo\" start time: Oct 01 19:47 CST\nOutput:\n----------------------------------------------------------\n10,000 multi-mutation journal transactions match full snapshots\n<end of output>\nTest time =   5.99 sec\n----------------------------------------------------------\nTest Passed.\n\"lab2_undo\" end time: Oct 01 19:47 CST\n\"lab2_undo\" time elapsed: 00:00:05\n----------------------------------------------------------\n\n4/8 Testing: lab2_parallel\n4/8 Test: lab2_parallel\nCommand: \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan/lab2_parallel_test\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan\n\"lab2_parallel\" start time: Oct 01 19:47 CST\nOutput:\n----------------------------------------------------------\nMulti-start results stable at 1/2/4/8 threads; tie and failure checks passed\n<end of output>\nTest time =   5.16 sec\n----------------------------------------------------------\nTest Passed.\n\"lab2_parallel\" end time: Oct 01 19:47 CST\n\"lab2_parallel\" time elapsed: 00:00:05\n----------------------------------------------------------\n\n5/8 Testing: lab2_random\n5/8 Test: lab2_random\nCommand: \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan/lab2_random_test\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan\n\"lab2_random\" start time: Oct 01 19:47 CST\nOutput:\n----------------------------------------------------------\n700,000 libc sequence checks and 8 concurrent searches passed\n<end of output>\nTest time =   0.85 sec\n----------------------------------------------------------\nTest Passed.\n\"lab2_random\" end time: Oct 01 19:47 CST\n\"lab2_random\" time elapsed: 00:00:00\n----------------------------------------------------------\n\n6/8 Testing: lab4_oracle\n6/8 Test: lab4_oracle\nCommand: \"/mnt/ec/ness/max/miniconda3/bin/python3.1\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/tests/lab4_oracle.py\" \"--bin-root\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan\n\"lab4_oracle\" start time: Oct 01 19:47 CST\nOutput:\n----------------------------------------------------------\n.\n----------------------------------------------------------------------\nRan 1 test in 1.738s\n\nOK\n<end of output>\nTest time =   1.86 sec\n----------------------------------------------------------\nTest Passed.\n\"lab4_oracle\" end time: Oct 01 19:47 CST\n\"lab4_oracle\" time elapsed: 00:00:01\n----------------------------------------------------------\n\n7/8 Testing: regression\n7/8 Test: regression\nCommand: \"/mnt/ec/ness/max/miniconda3/bin/python3.1\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/tests/regression.py\" \"--bin-root\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan\n\"regression\" start time: Oct 01 19:47 CST\nOutput:\n----------------------------------------------------------\n..........\n----------------------------------------------------------------------\nRan 10 tests in 2.510s\n\nOK\n<end of output>\nTest time =   2.64 sec\n----------------------------------------------------------\nTest Passed.\n\"regression\" end time: Oct 01 19:47 CST\n\"regression\" time elapsed: 00:00:02\n----------------------------------------------------------\n\n8/8 Testing: stress_smoke\n8/8 Test: stress_smoke\nCommand: \"/mnt/ec/ness/max/miniconda3/bin/python3.1\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/tests/stress.py\" \"--bin-root\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan\" \"--scale\" \"smoke\" \"--output\" \"/mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan/stress-smoke.json\"\nDirectory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan\n\"stress_smoke\" start time: Oct 01 19:47 CST\nOutput:\n----------------------------------------------------------\nLab01 {'blocks': 144} True 0.1335347150452435\nLab02 {'macros': 40, 'outline': 2000000000} True 0.35378331132233143\nLab03 {'cells': 2000, 'banking_steps': 100} True 0.29526925506070256\nLab04 {'cols': 40, 'rows': 30, 'nets': 2} True 0.2932155136950314\n<end of output>\nTest time =   1.49 sec\n----------------------------------------------------------\nTest Passed.\n\"stress_smoke\" end time: Oct 01 19:47 CST\n\"stress_smoke\" time elapsed: 00:00:01\n----------------------------------------------------------\n\nEnd testing: Oct 01 19:47 CST\n",
+      "test_groups_passed": 8
+    }
+  },
+  "course_resource_integrity": "66 resources and Lab04 archive contents verified",
+  "official_ci_record": "docs/remote-validation.json",
+  "final_lab2_record": "benchmarks/results/final-lab2-validation.json",
+  "makefiles": {
+    "source_checkpoint": "7800201",
+    "work_dir": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/makecheck-_s0uxnhd",
+    "passed": [
+      "Lab01",
+      "Lab02",
+      "Lab03",
+      "Lab04"
+    ]
+  },
+  "notes": [
+    "All three final-source CTest runs pass 8/8 groups with strict compiler warnings and -Werror.",
+    "The full remote official run is pinned to 7800201. The later CLI guard rejects a malformed unsigned argument; final Lab02 official cases also match fixed-work baseline hashes.",
+    "The mounted local filesystem emitted millisecond make clock-skew notices during the final CLI-only rebuild. All changed targets were explicitly compiled/linked; the new rejection regressions pass. No compiler diagnostic was suppressed."
+  ],
+  "code_commit": "1334b55d032de155ac6333f6e77d684dfde18a17",
+  "note_on_revision": "Production code and tests match code_commit. The checksum map also includes the pending benchmark-report completeness/paired-summary update."
+}

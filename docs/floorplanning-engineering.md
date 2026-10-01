@@ -1,5 +1,25 @@
 # Lab02 packing and rollback engineering
 
+## Algorithm and invariants
+
+A B*-tree node is one rectangular macro. A left child starts at its parent's
+right edge; a right child starts at the parent's x coordinate. In preorder, place
+each macro at the maximum occupied height over its horizontal span and update
+the contour to its new top edge. This constructs non-overlapping rectangles;
+outline feasibility is a separate check on the resulting width and height.
+Rotation swaps width/height, move detaches and reinserts a node, and swap exchanges
+two node positions while repairing parents/children and the root.
+
+The retained annealer first searches with outline overflow as its objective. It
+then evaluates `alpha * bounding_box_area + (1-alpha) * total_net_HPWL`, preserving
+the course implementation's acceptance and cooling rules. It records the best
+legal placement; intermediate states need not all fit the outline. HPWL is each
+net's x-span plus y-span over terminal coordinates and macro centers, using the
+implementation's integer-center convention. Budget exhaustion can legitimately
+produce no legal result. This is a heuristic, not a proof of a global optimum.
+
+## Measured implementation changes
+
 The `89a0239` gprof baseline spent 70.83% of ami49 sampled time updating the dense
 coordinate contour. The new skyline stores `(x,height)` breakpoints and assigns
 half-open intervals. Packing walks the B*-tree iteratively in the same preorder;

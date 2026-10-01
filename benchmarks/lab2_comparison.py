@@ -11,6 +11,31 @@ from types import SimpleNamespace
 from run import ROOT, run, course, build_metadata
 
 
+def paired_quality(rows):
+    """Compare costs only for paired feasible seeds, retaining feasibility changes."""
+    summaries = []
+    reference = 'baseline' if any(r['mode']=='baseline' for r in rows) else 'dense-snapshot'
+    for dataset,budget in sorted({(r['dataset'],r['budget']) for r in rows}):
+        group = [r for r in rows if r['dataset']==dataset and r['budget']==budget]
+        pairs = []
+        for seed in sorted({r['seed'] for r in group}):
+            before = next(r for r in group if r['seed']==seed and r['mode']==reference)
+            after = next(r for r in group if r['seed']==seed and r['mode']=='skyline-journal')
+            pairs.append(dict(seed=seed, before_legal=before['valid'], after_legal=after['valid'],
+                              before_objective=before.get('objective'), after_objective=after.get('objective')))
+        both = [p for p in pairs if p['before_legal'] and p['after_legal']]
+        summaries.append(dict(dataset=dataset, budget_cpu_seconds=budget, pairs=pairs,
+                              baseline_legal=sum(p['before_legal'] for p in pairs),
+                              optimized_legal=sum(p['after_legal'] for p in pairs), both_legal=len(both),
+                              optimized_wins=sum(p['after_objective'] < p['before_objective'] for p in both),
+                              ties=sum(p['after_objective'] == p['before_objective'] for p in both),
+                              optimized_losses=sum(p['after_objective'] > p['before_objective'] for p in both),
+                              paired_median_cost_change_percent=statistics.median(
+                                  100*(p['after_objective']-p['before_objective'])/p['before_objective']
+                                  for p in both) if both else None))
+    return summaries
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--bin-root', type=Path, default=ROOT/'build')
@@ -51,6 +76,7 @@ def main():
                     report = dict(timestamp=datetime.now(timezone.utc).isoformat(), platform=platform.platform(),
                                   build={v[0]:build_metadata(v[1].resolve()) for v in variants}, jobs=1, solver_threads=1,
                                   suite=args.suite, seeds=seeds, budgets=budgets, alpha=.5, work_dir=str(work),
+                                  complete=False, expected_runs=len(cases)*len(budgets)*len(seeds)*len(variants),
                                   method='Serial paired runs; variant order alternates by seed. Timed runs budget CPU seconds per solve, not wall time. Include every failure; compare objectives only within a dataset.',
                                   results=rows)
                     args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -74,6 +100,8 @@ def main():
                                               median_wall_seconds=statistics.median(r['wall_seconds'] for r in group),
                                               median_peak_rss_kib=statistics.median(r['peak_rss_kib'] for r in group),
                                               valid_only_median_objective=statistics.median(r['objective'] for r in legal) if legal else None))
+    if args.suite == 'time': report['paired_quality'] = paired_quality(rows)
+    report['complete'] = True
     args.output.write_text(json.dumps(report, indent=2)+'\n')
     raise SystemExit(0 if all(r['outcome']!='unexpected-failure' for r in rows) and all(c['equal'] for c in checks) else 1)
 

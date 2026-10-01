@@ -103,7 +103,7 @@ python3 Lab03/tests/tools/testcase_checker.py \
 
 原始 parser 依名字開頭推定 fixed 且將輸出座標存成整數；工程版本已改為讀取 `FIX/NOTFIX` 與保留 double 精度，並驗證 banking 名稱、重複 ID 與輸入格式。`testcase2_100.lg` 這個**檔名字串**在預設 legacy 模式仍會觸發不同 legalization 分支，故重命名 input 可能改變結果。新的實驗應明確指定 `--strategy first-fit` 或 `--strategy nearest`。現有輸出永遠填 0 個其他 moved cells，反映實作的限制，不是規格禁止移動其他 cell。
 
-後續應建立非零 die/row 原點、site 對齊、多 row cell、banked FF 再次移動、每一步合法性、fixed 屬性與浮點精度測試。R-tree 查詢要區分邊界相碰與內部重疊，也要涵蓋包含與完全相同矩形。比較優化版本時需記錄合法性、Move Times、Total Distance、Total、solver runtime 及 peak memory；不要只看總執行時間，也不要將示範解視為唯一解。
+目前回歸已涵蓋非零 die/row 原點、site 對齊、多 row cell、逐步合法性、FIX 屬性與浮點精度；生成壓力測試另外驗證 20 萬 cells、5,000 次 banking 的每一步占用狀態。現有 solver 不會移動其他既有 cells，這仍是未實作的演算法擴充。R-tree 查詢要區分邊界相碰與內部重疊，也要涵蓋包含與完全相同矩形。比較優化版本時需記錄合法性、Move Times、Total Distance、Total、solver runtime 及 peak memory；不要只看總執行時間，也不要將示範解視為唯一解。
 
 ## 可比較的搜尋路徑
 

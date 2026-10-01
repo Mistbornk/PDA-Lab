@@ -5,7 +5,55 @@
 逐次保存 compiler、build flags、執行檔/input/output hash、參數、CPU time、wall time、
 peak RSS、objective 與官方 validator log。
 
-## 比較條件
+## 續作：空間索引、packing、rollback 與內部平行搜尋
+
+以下新實驗以已完成前四輪的 `89a0239` 為工程基準；更早 `364870c` 的測量保留於後段，
+不將不同階段的數字相乘作為未實測的總加速。
+
+| 實驗 | 結果 | 證據 |
+|---|---|---|
+| Lab01 10,000 方塊，geometry scan / spatial | 5.82 → 0.52 秒，11.19× | [三次配對／已知答案](results/lab1-geometry.json) |
+| Lab02 ami33，300,000 iterations | 2.222 → 1.346 秒，1.65× | [36 次固定工作量比較](results/lab2-engineering-fixed.json) |
+| Lab02 ami49，同預算 | 8.059 → 2.709 秒，2.98× | [packing／rollback 消融](../docs/floorplanning-engineering.md) |
+| Lab02 vda317b，同預算 | 19.370 → 5.473 秒，3.54× | [同上](results/lab2-engineering-fixed.json) |
+| Lab02 8 起點，1 / 2 / 4 / 8 threads | 21.128 / 10.761 / 5.488 / 3.040 秒，6.95× | [12 次固定總工作量](results/lab2-scaling.json) |
+
+Lab01 是 GNU time 秒數中位數；Lab02 是 wrapper wall time 中位數，固定工作量比較含三個配對
+seeds（1/7/19），scaling 則每個執行緒數重複三次。每個變體序列執行、交替先後順序，
+測量時不在本機同時跑 build 或其他 benchmark；未鎖 CPU 頻率／cache，沒有做顯著性推論。
+所有 36 次 Lab02 解都通過官方 verifier，各配對解完全相同；12 次 scaling 的每個起點結果
+及所選解也一致。原始 JSON 包含每筆 RSS，不將微小 RSS 波動解讀成穩定優勢。
+
+[profile](results/gaps-profile.json) 先定位 Lab01 插入的全掃描與 Lab02 dense contour，
+再量測 skyline 後的成本分布並加入增量 journal。沒有更動退火接受策略。
+[設計、複雜度與限制](../docs/floorplanning-engineering.md) 及
+[平行工作相依性／同步／CPU 預算](../docs/parallel-floorplanning.md) 可對照閱讀。
+
+```bash
+python3 benchmarks/build_revision.py 89a0239
+python3 benchmarks/lab1_geometry.py
+python3 benchmarks/lab2_comparison.py --suite fixed \
+  --before benchmarks/work/revision-89a023969a2d/build \
+  --output benchmarks/work/fixed.json
+python3 benchmarks/lab2_scaling.py
+# 10 seeds × 3 cases × 2 CPU budgets × 2 implementations
+python3 benchmarks/lab2_comparison.py --suite time \
+  --before benchmarks/work/revision-89a023969a2d/build \
+  --output benchmarks/work/equal-cpu.json
+python3 tests/stress.py --scale large --output benchmarks/work/stress.json
+```
+
+生成大型案例包含 10,000 方塊、499 macros／20 億 outline 座標、200,000 cells／5,000 banking
+steps 與 600,000 個 GCells。它們用獨立答案、幾何／HPWL、逐步 occupied sites 與已知最短路徑
+成本驗證；[large](results/stress-large.json)、[smoke](results/stress-smoke.json) 計時只作驗證紀錄，
+不是隔離負載的效能比較。`stress_smoke` 已納入 CTest，large 納入選配官方 CI job。
+
+等 CPU 時間的 120 次研究結果見 [品質研究](../docs/quality-study.md)；
+[raw JSON](results/lab2-equal-cpu.json) 同時保留 75 個合法結果與 45 次預算耗盡。
+共同合法 seed 的成本比較與整體合法率分開呈現，不丟棄失敗，也不跨資料集平均 objective。
+
+## 前四輪歷史實驗的比較條件
+
 
 - GCC 11.4.0、C++17、`-O3 -DNDEBUG`，動態連結；舊版從 revision `364870c` 取 source 編譯。
   Lab01 原 Makefile 的 `-O0` 不拿來作演算法 speedup 對照。
@@ -77,7 +125,7 @@ python3 benchmarks/run.py --lab Lab04 --case testcase2 --repeat 5 \
 
 ## 並行測試的界線
 
-只有獨立 solver process 可同時跑，每案有自己的 parser/solver 狀態與 output directory。
+前四輪僅平行執行獨立 solver process，每案有自己的 parser/solver 狀態與 output directory。
 父程序在 futures 完成後匯總 JSON，沒有共用 mutable solver data，沒有需要鎖住的
 capacity、placement 或 annealer state。這是工作流吞吐量測試，不是 solver 內部多執行緒。
 
@@ -116,7 +164,7 @@ Profiler 命令可參照原 source 快照，額外用 `-g -pg` 建置，於獨�
 | grid-1600 | 0.50 | 0.31 | 1.61× | 3.89 / 4.90 |
 | grid-3600 | 2.63 | 1.35 | 1.95× | 4.27 / 6.47 |
 
-[原始 JSON](results/lab1-stitches.json) 包含舊版、scan、indexed 三路。scan 路徑新增計數與 ownership 索引，不當成舊版時間；主表直接比較保存的前版 executable。小案例只有 0.01 秒精度，不以其倍率作強結論。此生成器是分離矩形，不代表所有幾何分布，最壞情況仍可能線性掃描邊界 bucket。Overlap 與 top/bottom 掃描尚未改成空間索引。
+[原始 JSON](results/lab1-stitches.json) 包含舊版、scan、indexed 三路。scan 路徑新增計數與 ownership 索引，不當成舊版時間；主表直接比較保存的前版 executable。小案例只有 0.01 秒精度，不以其倍率作強結論。此生成器是分離矩形，不代表所有幾何分布，最壞情況仍可能線性掃描邊界 bucket。當時 overlap 與 top/bottom 掃描尚未改成空間索引；續作已實作並另外量測。
 
 ```bash
 python3 benchmarks/lab1_stitches.py --before /path/to/previous/Lab1

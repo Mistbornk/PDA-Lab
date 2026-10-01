@@ -47,8 +47,22 @@ Lab03/04 同時比較原解 hash 和合法性，避免僅靠 solver exit code �
 - Lab02 三組各 100 萬 iterations 的模組拆分前後比較，六次官方驗證全通過，解相同。
 - Lab01 舊版／scan／indexed 共 36 次量測，比對官方或生成器的獨立答案。
 - Lab04 兩變體四組資料各三次共 24 次官方驗證通過，新成本總和與官方 evaluator 吻合。
-- CI YAML 使用 actionlint 1.7.12 驗證（shellcheck／pyflakes 未安裝，未執行其可選檢查）。本機已執行三個 core matrix 組合；尚未推送，無遠端 Actions run 可宣稱。
+- CI YAML 使用 actionlint 1.7.12 驗證（shellcheck／pyflakes 未安裝，未執行其可選檢查）。本機三個 core matrix 組合與 `89a0239` 的 [遠端 run](https://github.com/Mistbornk/PDA-Lab/actions/runs/36851128857) 皆通過（該輪 official job 未啟用）。
 
 後續結果以 [四輪紀錄](iterations.md)、[benchmark JSON](../benchmarks/results/) 為準；上面的 `validation.json` 保留為前一階段的歷史證據。
 
-最終本機三種建置的測試輸出與 source hash 見 [four-round-validation.json](four-round-validation.json)。
+該四輪本機三種建置的測試輸出與 source hash 見 [four-round-validation.json](four-round-validation.json)。
+
+## 續作完成驗證
+
+- 最終 GCC 11.4／Clang 14 Release、GCC ASan／UBSan，皆啟用 `-Wconversion -Wshadow -Werror`，8/8 CTest 通過。
+- 新增 700,000 次 PRNG 比對、10,000 次多操作 rollback、1/2/4/8-thread 一致性與失敗處理、四 Lab stress smoke。
+- 36 次固定工作量配對與 12 次 solver-internal scaling 全通過官方驗證，解與各起點結果一致。
+- 120 次等 CPU 時間研究含 75 合法解、45 次預期預算耗盡，沒有非預期錯誤。
+- 大型生成測試四案全通過；66 個資源與 archive 內容 checksum 正確。
+- 四份 Makefile 在獨立 source copy 強制建置通過。
+- [遠端完整 CI](https://github.com/Mistbornk/PDA-Lab/actions/runs/36856085884) 在 `7800201` 全四 jobs 成功，包括 16 原測資與 4 layered cases。
+- 後續 CLI 負數預算修復的最終 source 再測 Lab02 三個官方案例，全部合法且 fixed-work 解 hash 與 `89a0239` 一致。
+
+精確 source hash、編譯選項與最終 CTest log 見 [completion-validation.json](completion-validation.json)；
+GitHub job/step 結論見 [remote-validation.json](remote-validation.json)。

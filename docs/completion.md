@@ -65,3 +65,46 @@ shortest routing costs. Its smoke size runs by default in CTest; large mode cove
 10,000 inserted rectangles, 499 macros on a 2-billion-coordinate outline,
 200,000 cells / 5,000 banking steps, and a 1,000 × 600 routing grid. All pass.
 Stress timing records are validation evidence, not controlled speedup comparisons.
+
+## 6. Broader equal-time quality evidence
+
+Ten seeds × three cases × two CPU budgets × two implementations produce 120
+attempts. All 75 legal solutions pass the official verifier; 45 expected budget
+exhaustions remain in the record. Baseline/optimized feasibility is 31/60 versus
+44/60. Paired legal costs never regress in this sample, but this is not a general
+quality guarantee. See [per-dataset results and timing-policy caveat](quality-study.md).
+
+## 7. Verification, documentation and coherent history
+
+The new work is split into module/random-state ownership, Lab01 geometry indexing,
+Lab02 skyline/journal, internal parallel restarts, strict diagnostics/stress tests,
+and experiment/documentation commits. The earlier published history is retained.
+The README, architecture, per-lab test instructions and CI documentation now describe
+the current behavior; historical measurements are explicitly labeled.
+
+The full [remote run](https://github.com/Mistbornk/PDA-Lab/actions/runs/36856085884)
+at `7800201` passes GCC Release, Clang Release, GCC ASan/UBSan, all 16 official
+inputs, all four layered-routing inputs and generated large workloads. A later
+small CLI fix rejects whitespace-prefixed negative iteration budgets (previously
+accepted by `stoull` as an enormous unsigned value), with regression coverage for
+malformed and out-of-range new search options.
+
+## Mapping back to the requested gaps
+
+| Previously open item | Resolution / evidence |
+|---|---|
+| Lab02 process-global random state | Owned PRNG; 700,000 sequence checks, concurrent solves |
+| Lab01 / Lab04 module boundaries | Parsing/solving/reporting APIs; dedicated legacy routing module |
+| Remaining measured scans / dense contour / full trial copies | R-tree candidates, skyline and undo journal; controlled ablations |
+| Solver-internal parallelism | Independent multi-start; race analysis and 1/2/4/8-thread scaling |
+| Three-seed-only / no equal-time or scale study | Ten seeds, 120 timed runs, generated large cases in all labs |
+| Strict warning cleanup | GCC/Clang conversion + shadow diagnostics with -Werror in CI |
+| Stale CI and implementation documentation | Current docs plus linked remote run and JSON evidence |
+| One monolithic implementation commit | New work committed in coherent stages; no published-history rewrite |
+
+The example directory tree and choice of threading library are optional directions;
+the implementation keeps distinct lab domains and uses standard C++ tasks. Global
+optimality, moving existing Lab03 cells, and further HPWL/packing improvements remain
+algorithm research topics. Their limits are documented in the README.
+
+Final-source checksums and test logs: [completion-validation.json](completion-validation.json).

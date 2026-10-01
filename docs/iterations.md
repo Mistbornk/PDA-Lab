@@ -1,5 +1,9 @@
 # 四輪工程紀錄
 
+此頁保留前四輪的歷史紀錄。續作的狀態隔離、空間索引、skyline／journal、
+內部多起點平行與嚴格 CI 已完成，見 [completion](completion.md)。
+
+
 ## 第一輪：Lab02 模組邊界
 
 完成 model、parser、tree、packing、annealer、report 拆分，`main.cpp` 由約 600 行縮為 66 行 CLI，CMake 可獨立連結 `lab2_core`。保留退火順序與原有 libc 隨機序列。
@@ -36,7 +40,7 @@ Profiler 確認 65.82% samples 在 `UpdateCornerStitches`。新增 immutable til
 - 300,000 iterations 的 ami33、ami49 有約 3.16×、2.44× 配對中位加速；零 net 的 vda317b 沒有顯著收益。
 - 100,000 iterations 並非這些 seeds 的普遍足夠預算，不能把早停無解當作加速。完整合法率與品質分布見 [研究](../benchmarks/README.md#第四輪lab02-多-seed資料預算配對研究)。
 - 新增 GitHub Actions：GCC Release、Clang 14 Release、GCC ASan／UBSan 三種組合；預設四組 core CTest。手動選項可另跑完整官方測試與 layered router。
-- 本機三種 matrix 組合通過，actionlint 1.7.12 通過，66 個資源校驗通過。workflow 尚未推送，沒有宣稱遠端 Actions 已執行。
+- 本機三種 matrix 組合通過，actionlint 1.7.12 通過，66 個資源校驗通過。此 workflow 後續隨 `89a0239` 推送，並在 [遠端 run 36851128857](https://github.com/Mistbornk/PDA-Lab/actions/runs/36851128857) 通過三個 core jobs。
 - [原始研究 JSON](../benchmarks/results/lab2-study.json)、[CI 契約與本機驗證](ci.md)。
 
 最終三種建置的 CTest log、核心 source SHA256 與各輪 evidence 索引保存在 [four-round-validation.json](four-round-validation.json)。

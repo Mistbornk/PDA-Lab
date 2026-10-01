@@ -130,11 +130,11 @@ Lab04/tests/tools/upstream/Evaluator/Evaluator Lab04/tests/data/toycase example
 
 路徑可能有多種合法解，应比較合法性與線長、overflow、GCell cost、via cost、Total，再比較時間及記憶體。先分析 A* heuristic 與代價單位是否一致、layer 是否為搜尋狀態的一部分、更新 overflow 的時機，再做效能改善；目前沒有證據保證這份實作產生全域最優解。
 
-net 之間透過容量使用量相依，不應直接把逐 net loop 平行化。Guide 限制 solver 最多 4 threads；測試 runner 的 `--jobs` 是不同 case 的獨立 process，不是 router 內部平行化。後續應測非方形 grid（toycase 已有）、非零原點、起終 via、同 GCell 端點、零容量、共享邊 overflow 與所有 net 完整性。
+net 之間透過容量使用量相依，不應直接把逐 net loop 平行化。Guide 限制 solver 最多 4 threads；測試 runner 的 `--jobs` 是不同 case 的獨立 process，不是 router 內部平行化。回歸與獨立 Dijkstra oracle 已涵蓋非方形 grid、非零原點、起終 via、同 GCell 端點、零容量、共享邊 overflow 與所有 net 完整性；另有 1,000 × 600 網格的解析成本壓力測試。
 
 ## 目前工程版本
 
-解析拆至 `parser.cpp`，Router 擁有每次執行的狀態。搜尋節點與 closed flags 改為可重用的一維連續空間，direction lists 改成固定 array；priority queue tie ordering、cost 與 sequential capacity 更新保持相容。已處理起終點同 GCell 的單點路徑，並修正大座標下曼哈頓距離相加的整數溢位；增加 CLI、容量、幾何、cost 與不完整輸入檢查。四組公開／toycase 的輸出與原始程式逐字一致。本次不宣稱修正 layer-state 與 admissible heuristic 的既有演算法限制。
+解析拆至 `parser.cpp`，原 Router 位於 `legacy_router.cpp` 且擁有每次執行的狀態。搜尋節點與 closed flags 改為可重用的一維連續空間，direction lists 改成固定 array；priority queue tie ordering、cost 與 sequential capacity 更新保持相容。已處理起終點同 GCell 的單點路徑，並修正大座標下曼哈頓距離相加的整數溢位；增加 CLI、容量、幾何、cost 與不完整輸入檢查。四組公開／toycase 的輸出與原始程式逐字一致。legacy 模式保留 layer-state 與 heuristic 的既有限制；下方 layered 模式提供另一個明確成本圖模型。
 
 ## 分層搜尋與獨立最短路徑驗證
 
