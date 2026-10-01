@@ -1,0 +1,148 @@
+{
+  "scale": "large",
+  "build": {
+    "compiler": "c++ (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0",
+    "build_type": "Release",
+    "flags": {
+      "CMAKE_CXX_FLAGS": "",
+      "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG",
+      "CMAKE_CXX_FLAGS_DEBUG": "-g",
+      "PDA_SANITIZERS": "OFF"
+    }
+  },
+  "jobs": 1,
+  "work_dir": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv",
+  "oracle": "Known corner-stitch grid; pairwise floorplan overlap + HPWL; per-step occupied sites; analytic shortest routing costs.",
+  "results": [
+    {
+      "command": [
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab01/Lab1",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/grid-10000.txt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/Lab01/result.txt"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 0.537548117339611,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/Lab01/solver.log",
+      "time_wall_seconds": 0.53,
+      "user_seconds": 0.5,
+      "system_seconds": 0.02,
+      "peak_rss_kib": 13840.0,
+      "lab": "Lab01",
+      "dimensions": {
+        "blocks": 10000
+      },
+      "solver_threads": 1,
+      "executable_sha256": "ca1d0d2195903cc842d6538fec79916fe1e09a41dc753b3a90ed817ed3b163f5",
+      "inputs": {
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/grid-10000.txt": "999ad5c184af1bb20ce9fc7c322b2c93952fbf70650108395deb1351d696c650"
+      },
+      "output_sha256": "d372ca941c8e152afa93d73bd3f984461b97f86f3e5d6b9d5f31e0a44617268e",
+      "valid": true
+    },
+    {
+      "command": [
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+        "0.5",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/scale.block",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/scale.nets",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/Lab02/result.txt",
+        "--iterations",
+        "2000",
+        "--seed",
+        "43"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 0.08811972616240382,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/Lab02/solver.log",
+      "time_wall_seconds": 0.08,
+      "user_seconds": 0.07,
+      "system_seconds": 0.0,
+      "peak_rss_kib": 4096.0,
+      "lab": "Lab02",
+      "dimensions": {
+        "macros": 499,
+        "outline": 2000000000
+      },
+      "solver_threads": 1,
+      "executable_sha256": "e84ef69c22ffdf0a075321fa051bdb6f3d81e84743b6fcdc73c9c24818ab8a15",
+      "inputs": {
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/scale.block": "8ab070ecfc79a65df3b29a7431f02295bee32534e609c14901f86d0f962e5cd4",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/scale.nets": "c14e9341337fc7d986f9b00ce24168ec0bd60b68e22854a5b90ef8534821ced7"
+      },
+      "output_sha256": "e040479938c08dc6355587f2b4c8d30f27fa8ab0457b90ac60fbd371626b2a5e",
+      "valid": true,
+      "objective": 5089809398800,
+      "hpwl": 4535637600,
+      "area": 10175083160000
+    },
+    {
+      "command": [
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab03/Legalizer",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/cells.lg",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/cells.opt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/Lab03/result.txt",
+        "--strategy",
+        "first-fit"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 1.2488832334056497,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/Lab03/solver.log",
+      "time_wall_seconds": 1.24,
+      "user_seconds": 1.2,
+      "system_seconds": 0.03,
+      "peak_rss_kib": 54712.0,
+      "lab": "Lab03",
+      "dimensions": {
+        "cells": 200000,
+        "banking_steps": 5000
+      },
+      "solver_threads": 1,
+      "executable_sha256": "56b93143806993b16e8c6d97e3ecca87796069a846844485334e3010c88d6294",
+      "inputs": {
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/cells.lg": "1ab876967674f5a6525cb61bbc66bc629dee7e7ddc48d379344e35e6286fcd7b",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/cells.opt": "be6357cc60899227334b71e5a5f84ab034cc54d7651adcf2c0a569d12f9ad74e"
+      },
+      "output_sha256": "c19bc365a951de375e2c7d9fabae54650304cee4cdba0da0939947b3efcdcd17",
+      "valid": true
+    },
+    {
+      "command": [
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab04/D2DGRter",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/grid.gmp",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/grid.gcl",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/grid.cst",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/Lab04/result.txt",
+        "--router",
+        "layered",
+        "--stats"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 1.2869316739961505,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/Lab04/solver.log",
+      "time_wall_seconds": 1.28,
+      "user_seconds": 1.23,
+      "system_seconds": 0.03,
+      "peak_rss_kib": 45900.0,
+      "lab": "Lab04",
+      "dimensions": {
+        "cols": 1000,
+        "rows": 600,
+        "nets": 2
+      },
+      "solver_threads": 1,
+      "executable_sha256": "9f98b6f142055b4e2e1be3cda8ebe2492af73819c45abcbc77a28439757946d3",
+      "inputs": {
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/grid.gmp": "043c336c0d91d5bdd6751b62d2a869026870c53be8401aace236d64b07a94ce1",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/grid.gcl": "9e31e317273cff68246e218ca9505f0fc4147ec6cbe0c683e13d13f3324a6582",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-ay3y40uv/grid.cst": "fc0070e9f367d4358aae9146d2b9d6b9a7028f7691bf36a26ccdad98ba547efb"
+      },
+      "output_sha256": "320fa1394cba654ad6340772be60294f57d58f22410819d198b66d8a5654a278",
+      "valid": true,
+      "objective": 10800
+    }
+  ]
+}

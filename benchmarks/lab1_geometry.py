@@ -16,6 +16,7 @@ def main():
     p.add_argument('--repeat', type=int, default=3)
     p.add_argument('--output', type=Path, default=ROOT/'benchmarks/results/lab1-geometry.json')
     args = p.parse_args()
+    (ROOT/'benchmarks/work').mkdir(parents=True, exist_ok=True)
     work = Path(tempfile.mkdtemp(prefix='geometry-', dir=ROOT/'benchmarks/work'))
     exe = args.bin_root.resolve()/'Lab01/Lab1'
     rows = []

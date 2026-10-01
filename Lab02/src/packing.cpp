@@ -81,10 +81,12 @@ long long hpwl(const Problem &problem, const vector<Block> &blocks, bool integer
         int xmin = std::numeric_limits<int>::max(), ymin = xmin;
         int xmax = std::numeric_limits<int>::lowest(), ymax = xmax;
         const auto visit = [&](int id) {
-            const int x = id >= numBlocks ? problem.terminals[id - numBlocks].x
-                                          : blocks[id].x + blocks[id].width / 2;
-            const int y = id >= numBlocks ? problem.terminals[id - numBlocks].y
-                                          : blocks[id].y + blocks[id].height / 2;
+            // Parser validates IDs; terminals follow all block IDs in the pin table.
+            const auto pin = static_cast<std::size_t>(id);
+            const int x = id >= numBlocks ? problem.terminals[pin - blocks.size()].x
+                                          : blocks[pin].x + blocks[pin].width / 2;
+            const int y = id >= numBlocks ? problem.terminals[pin - blocks.size()].y
+                                          : blocks[pin].y + blocks[pin].height / 2;
             xmin = min(xmin, x);
             xmax = max(xmax, x);
             ymin = min(ymin, y);

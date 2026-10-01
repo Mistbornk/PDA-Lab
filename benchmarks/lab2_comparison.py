@@ -23,6 +23,8 @@ def main():
     args = p.parse_args()
     seeds = args.seeds or ([1, 7, 19] if args.suite == 'fixed' else [1, 7, 19, 31, 43, 59, 71, 83, 97, 109])
     budgets = args.budgets or ([300000] if args.suite == 'fixed' else [3, 8])
+    if any(s < 0 or s > 4294967295 for s in seeds) or any(b <= 0 for b in budgets): p.error('Invalid seed or budget')
+    if args.suite == 'fixed' and any(b != int(b) for b in budgets): p.error('Iterations must be integers')
     cases = [(n, paths) for n, paths in course.cases('Lab02') if not args.case or n in args.case]
     if not cases or any(n not in [c[0] for c in cases] for n in args.case): p.error('Missing selected case')
     variants = [('dense-snapshot', args.bin_root, ['--packing', 'dense', '--rollback', 'snapshot']),
@@ -30,6 +32,7 @@ def main():
                 ('skyline-journal', args.bin_root, ['--packing', 'skyline', '--rollback', 'journal'])]
     if args.before: variants.insert(0, ('baseline', args.before, []))
     if args.suite == 'time': variants = [variants[0], variants[-1]]
+    (ROOT/'benchmarks/work').mkdir(parents=True, exist_ok=True)
     work = Path(tempfile.mkdtemp(prefix='lab2-'+args.suite+'-', dir=ROOT/'benchmarks/work'))
     rows = []
     for name, inputs in cases:

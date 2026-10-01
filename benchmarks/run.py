@@ -84,7 +84,7 @@ def build_metadata(bin_root):
         compiler=values.get('CMAKE_CXX_COMPILER')
         metadata={'compiler':subprocess.check_output([compiler,'--version'],text=True).splitlines()[0] if compiler else 'unknown (no build metadata)',
                   'build_type':values.get('CMAKE_BUILD_TYPE','unknown'),
-                  'flags':{key:values.get(key) for key in ['CMAKE_CXX_FLAGS','CMAKE_CXX_FLAGS_RELEASE','CMAKE_CXX_FLAGS_DEBUG','PDA_SANITIZERS']}}
+                  'flags':{key:values.get(key) for key in ['CMAKE_CXX_FLAGS','CMAKE_CXX_FLAGS_RELEASE','CMAKE_CXX_FLAGS_DEBUG','PDA_SANITIZERS','PDA_STRICT_WARNINGS','PDA_WARNINGS_AS_ERRORS']}}
     return metadata
 
 

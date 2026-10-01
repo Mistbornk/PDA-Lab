@@ -44,8 +44,8 @@ Problem parse(const string &block_path, const string &net_path) {
         pda::expect(input, "NumNets:");
         pda::read(input, numNets);
         pda::require(numNets >= 0 && numNets < 500, "Invalid net count");
-        problem.nets.resize(numNets);
-        problem.net_ids.resize(numNets);
+        problem.nets.resize(static_cast<std::size_t>(numNets));
+        problem.net_ids.resize(static_cast<std::size_t>(numNets));
         for (auto &net : problem.nets) {
             int pins = 0;
             pda::expect(input, "NetDegree:");

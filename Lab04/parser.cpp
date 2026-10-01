@@ -73,12 +73,12 @@ Input parse(const std::string &gmp, const std::string &gcl, const std::string &c
     }
     auto capacity = pda::input_file(gcl);
     pda::expect(capacity, ".ec");
-    result.cells.resize(a.num_rows);
+    result.cells.resize(static_cast<std::size_t>(a.num_rows));
     for (int y = 0; y < a.num_rows; ++y) {
-        auto &row = result.cells[y];
-        row.resize(a.num_cols);
+        auto &row = result.cells[static_cast<std::size_t>(y)];
+        row.resize(static_cast<std::size_t>(a.num_cols));
         for (int x = 0; x < a.num_cols; ++x) {
-            auto &cell = row[x];
+            auto &cell = row[static_cast<std::size_t>(x)];
             pda::read(capacity, cell.left_capacity, cell.bottom_capacity);
             pda::require(cell.left_capacity >= 0 && cell.bottom_capacity >= 0,
                          "Negative edge capacity");
@@ -106,9 +106,9 @@ Input parse(const std::string &gmp, const std::string &gcl, const std::string &c
                  "Invalid cost weights");
     for (auto *layer : {&c.layer1_cost, &c.layer2_cost}) {
         pda::expect(costs, ".l");
-        layer->resize(a.num_rows);
+        layer->resize(static_cast<std::size_t>(a.num_rows));
         for (auto &row : *layer) {
-            row.resize(a.num_cols);
+            row.resize(static_cast<std::size_t>(a.num_cols));
             for (auto &value : row) {
                 pda::read(costs, value);
                 pda::require(pda::nonnegative(value), "Invalid cell cost");

@@ -1,4 +1,5 @@
 #pragma once
+#include <cassert>
 #include <cstdint>
 #include <ctime>
 #include <string>
@@ -33,6 +34,24 @@ struct Placement {
     int root = -1;
     std::vector<Block> blocks;
     std::vector<Node> tree;
+    // Tree links use -1 for absence. Callers check that sentinel before access;
+    // keep signed ID conversion and debug bounds checking at one boundary.
+    Node &node(int id) {
+        assert(id >= 0 && static_cast<std::size_t>(id) < tree.size());
+        return tree[static_cast<std::size_t>(id)];
+    }
+    const Node &node(int id) const {
+        assert(id >= 0 && static_cast<std::size_t>(id) < tree.size());
+        return tree[static_cast<std::size_t>(id)];
+    }
+    Block &block(int id) {
+        assert(id >= 0 && static_cast<std::size_t>(id) < blocks.size());
+        return blocks[static_cast<std::size_t>(id)];
+    }
+    const Block &block(int id) const {
+        assert(id >= 0 && static_cast<std::size_t>(id) < blocks.size());
+        return blocks[static_cast<std::size_t>(id)];
+    }
 };
 enum class PackingMode { Dense, Skyline };
 struct Options {

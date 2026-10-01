@@ -45,13 +45,14 @@ jobs:
       - name: Install build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential clang-14 cmake libboost-dev python3
+          sudo apt-get install -y build-essential clang-14 cmake libboost-dev python3 time
       - name: Configure
         run: >-
           cmake -S . -B build
           -DCMAKE_CXX_COMPILER=${{ matrix.compiler }}
           -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
           -DPDA_SANITIZERS=${{ matrix.sanitizers }}
+          -DPDA_STRICT_WARNINGS=ON -DPDA_WARNINGS_AS_ERRORS=ON
       - name: Build
         run: cmake --build build --parallel 2
       - name: Test independent oracles and regressions
@@ -85,6 +86,8 @@ jobs:
         run: |
           cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
           cmake --build build --parallel 2
+      - name: Validate generated large workloads
+        run: python3 tests/stress.py --bin-root build --scale large --output benchmarks/work/ci-stress.json
       - name: Validate all course cases
         run: python3 tests/run.py --bin-root build --jobs 2
       - name: Validate layered router
@@ -100,4 +103,5 @@ jobs:
           path: |
             tests/results/
             benchmarks/work/ci-layered.json
+            benchmarks/work/ci-stress.json
           retention-days: 7

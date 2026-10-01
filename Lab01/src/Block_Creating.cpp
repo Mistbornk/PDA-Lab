@@ -39,16 +39,16 @@ void Block_Creating(const int &idx, const int &x, const int &y, const int &width
                          currentBlock->x + currentBlock->width >= newBlock->x + newBlock->width,
                      "Inserted block overlaps an existing solid tile");
         // initialize
-        int width, height = currentBlock->height;
+        int piece_width, piece_height = currentBlock->height;
         Block *leftBlock = nullptr;
         Block *rightBlock = nullptr;
         Block *internalBlock = nullptr;
 
         // left tile
         if (currentBlock->x < newBlock->x) {
-            width = newBlock->x - currentBlock->x;
-            auto leftBlock_owner =
-                std::make_unique<Block>(0, currentBlock->x, currentBlock->y, width, height, false);
+            piece_width = newBlock->x - currentBlock->x;
+            auto leftBlock_owner = std::make_unique<Block>(0, currentBlock->x, currentBlock->y,
+                                                           piece_width, piece_height, false);
             leftBlock = leftBlock_owner.get();
             blocks.push_back(std::move(leftBlock_owner));
             UpdateCornerStitches(leftBlock, blocks);
@@ -57,9 +57,10 @@ void Block_Creating(const int &idx, const int &x, const int &y, const int &width
 
         // right tile
         if (currentBlock->x + currentBlock->width > newBlock->x + newBlock->width) {
-            width = (currentBlock->x + currentBlock->width) - (newBlock->x + newBlock->width);
-            auto rightBlock_owner = std::make_unique<Block>(0, newBlock->x + newBlock->width,
-                                                            currentBlock->y, width, height, false);
+            piece_width = (currentBlock->x + currentBlock->width) - (newBlock->x + newBlock->width);
+            auto rightBlock_owner =
+                std::make_unique<Block>(0, newBlock->x + newBlock->width, currentBlock->y,
+                                        piece_width, piece_height, false);
             rightBlock = rightBlock_owner.get();
             blocks.push_back(std::move(rightBlock_owner));
             UpdateCornerStitches(rightBlock, blocks);
@@ -68,7 +69,7 @@ void Block_Creating(const int &idx, const int &x, const int &y, const int &width
 
         // internal tile
         auto internalBlock_owner = std::make_unique<Block>(-1, newBlock->x, currentBlock->y,
-                                                           newBlock->width, height, true);
+                                                           newBlock->width, piece_height, true);
         internalBlock = internalBlock_owner.get();
         blocks.push_back(std::move(internalBlock_owner));
         remain_internalBlock.push_back(internalBlock);
@@ -100,9 +101,9 @@ void Block_Creating(const int &idx, const int &x, const int &y, const int &width
                         blocks.push_back(std::move(mergeBlock_temp_owner));
                         UpdateCornerStitches(mergeBlock_temp, blocks);
                         UpdateNeighborBlocks(mergeBlock_temp, blocks);
-                        Block *tempL = mergeBlock;
-                        auto retired_lower_space = ExtractTile(blocks, tempL->lb);
-                        auto retired_merged_left = ExtractTile(blocks, tempL);
+                        Block *merged_left = mergeBlock;
+                        auto retired_lower_space = ExtractTile(blocks, merged_left->lb);
+                        auto retired_merged_left = ExtractTile(blocks, merged_left);
                     }
                 }
             }
@@ -147,9 +148,9 @@ void Block_Creating(const int &idx, const int &x, const int &y, const int &width
                         blocks.push_back(std::move(mergeBlock_temp_owner));
                         UpdateCornerStitches(mergeBlock_temp, blocks);
                         UpdateNeighborBlocks(mergeBlock_temp, blocks);
-                        Block *tempR = mergeBlock;
-                        auto retired_lower_space = ExtractTile(blocks, tempR->lb);
-                        auto retired_merged_right = ExtractTile(blocks, tempR);
+                        Block *merged_right = mergeBlock;
+                        auto retired_lower_space = ExtractTile(blocks, merged_right->lb);
+                        auto retired_merged_right = ExtractTile(blocks, merged_right);
                     }
                 }
             }

@@ -59,9 +59,12 @@ int main() {
                     TileList tiles(indexed, spatial);
                     tiles.push_back(std::make_unique<Block>(0, 0, 0, 16, 12, false));
                     for (int id = 1; id <= 100; ++id) {
-                        int x = random() % 16, y = random() % 12,
-                            w = 1 + random() % std::min(5, 16 - x),
-                            h = 1 + random() % std::min(5, 12 - y);
+                        int x = static_cast<int>(random() % 16),
+                            y = static_cast<int>(random() % 12),
+                            w = 1 + static_cast<int>(random() %
+                                                     static_cast<unsigned>(std::min(5, 16 - x))),
+                            h = 1 + static_cast<int>(random() %
+                                                     static_cast<unsigned>(std::min(5, 12 - y)));
                         bool overlap = false;
                         for (int yy = y; yy < y + h; ++yy)
                             for (int xx = x; xx < x + w; ++xx)

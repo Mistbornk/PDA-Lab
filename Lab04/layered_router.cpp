@@ -48,8 +48,10 @@ class Search {
             return 0;
         // All remaining components are nonnegative. Each move reduces this lower
         // bound by at most its weighted wirelength, so the heuristic is consistent.
-        const double dx = std::abs(static_cast<double>(col(state)) - col(destination));
-        const double dy = std::abs(static_cast<double>(row(state)) - row(destination));
+        const double dx =
+            std::abs(static_cast<double>(col(state)) - static_cast<double>(col(destination)));
+        const double dy =
+            std::abs(static_cast<double>(row(state)) - static_cast<double>(row(destination)));
         return input.costs.alpha * (dx * input.grid.GridWidth + dy * input.grid.GridHeight);
     }
     std::size_t state_at(int x, int y) const {
@@ -89,7 +91,7 @@ class Search {
 
   public:
     explicit Search(Input &data)
-        : input(data), cols(data.area.num_cols),
+        : input(data), cols(static_cast<std::size_t>(data.area.num_cols)),
           count(static_cast<std::size_t>(data.area.num_rows) * cols), sink(count * 2),
           distance(sink + 1), parent(sink + 1) {}
     void route(const Net &net, std::ostream &output, std::ostream *statistics) {

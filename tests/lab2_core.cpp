@@ -18,12 +18,12 @@ void check_packing(const Placement &p) {
     while (!pending.empty()) {
         int id = pending.back();
         pending.pop_back();
-        const auto &b = p.blocks[id];
-        const auto &node = p.tree[id];
+        const auto &b = p.block(id);
+        const auto &node = p.node(id);
         int x = 0;
         if (node.parent != -1) {
-            const auto &parent = p.blocks[node.parent];
-            x = parent.x + (p.tree[node.parent].leftChild == id ? parent.width : 0);
+            const auto &parent = p.block(node.parent);
+            x = parent.x + (p.node(node.parent).leftChild == id ? parent.width : 0);
         }
         int y = 0;
         for (const auto &old : placed)
@@ -47,7 +47,8 @@ int main() {
         initialize_tree(p, rng);
         PackingWorkspace dense(PackingMode::Dense), skyline(PackingMode::Skyline);
         for (int i = 0; i < 20000; ++i) {
-            const int a = rng() % 20, b = (a + 1 + rng() % 19) % 20;
+            const int a = static_cast<int>(rng() % 20),
+                      b = (a + 1 + static_cast<int>(rng() % 19)) % 20;
             switch (i % 3) {
             case 0:
                 rotate_block(p, a);
@@ -80,10 +81,10 @@ int main() {
         check(skyline.skyline.size() <= 2 * wide.blocks.size() + 1,
               "Skyline exceeds segment bound");
         auto broken = p;
-        broken.tree[broken.root].leftChild = broken.root;
+        broken.node(broken.root).leftChild = broken.root;
         check(!valid_tree(broken), "Cycle accepted");
         broken = p;
-        broken.tree[broken.root].leftChild = 99;
+        broken.node(broken.root).leftChild = 99;
         check(!valid_tree(broken), "Out-of-range child accepted");
         Problem problem;
         problem.blocks = {{"a", 0, 0, 3, 5, false}};

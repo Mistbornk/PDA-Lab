@@ -1,0 +1,148 @@
+{
+  "scale": "smoke",
+  "build": {
+    "compiler": "c++ (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0",
+    "build_type": "Release",
+    "flags": {
+      "CMAKE_CXX_FLAGS": "",
+      "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG",
+      "CMAKE_CXX_FLAGS_DEBUG": "-g",
+      "PDA_SANITIZERS": "OFF"
+    }
+  },
+  "jobs": 1,
+  "work_dir": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu",
+  "oracle": "Known corner-stitch grid; pairwise floorplan overlap + HPWL; per-step occupied sites; analytic shortest routing costs.",
+  "results": [
+    {
+      "command": [
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab01/Lab1",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/grid-144.txt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/Lab01/result.txt"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 0.016925583127886057,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/Lab01/solver.log",
+      "time_wall_seconds": 0.0,
+      "user_seconds": 0.0,
+      "system_seconds": 0.0,
+      "peak_rss_kib": 3808.0,
+      "lab": "Lab01",
+      "dimensions": {
+        "blocks": 144
+      },
+      "solver_threads": 1,
+      "executable_sha256": "ca1d0d2195903cc842d6538fec79916fe1e09a41dc753b3a90ed817ed3b163f5",
+      "inputs": {
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/grid-144.txt": "60c845a60c8e2a687550417504837418a2284b635f8d3ec8ff878340777345a4"
+      },
+      "output_sha256": "257b5f0c38386c835bc8130386fc24cf44a7f16ef35b7f815bd2d0337d3ba9c7",
+      "valid": true
+    },
+    {
+      "command": [
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+        "0.5",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/scale.block",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/scale.nets",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/Lab02/result.txt",
+        "--iterations",
+        "2000",
+        "--seed",
+        "43"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 0.025793286971747875,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/Lab02/solver.log",
+      "time_wall_seconds": 0.01,
+      "user_seconds": 0.01,
+      "system_seconds": 0.0,
+      "peak_rss_kib": 4004.0,
+      "lab": "Lab02",
+      "dimensions": {
+        "macros": 40,
+        "outline": 2000000000
+      },
+      "solver_threads": 1,
+      "executable_sha256": "30d8141200f053f9985d931a4c792adf5863d1b9d1072d0644f14ba099946d93",
+      "inputs": {
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/scale.block": "02ab0f9b62d19fa07591e0cd19f1a23e08f616726bd8455f7febf26c920dea60",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/scale.nets": "ef3c64a63455807181cb6f18f825cc3a8f2b5f736f4cea375dcccc5f69fa677f"
+      },
+      "output_sha256": "acf0d815d998e49d41663a53500ab1aff41107059fdb59d5ba71862a4e08c6e7",
+      "valid": true,
+      "objective": 407679780000,
+      "hpwl": 112600000,
+      "area": 815246960000
+    },
+    {
+      "command": [
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab03/Legalizer",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/cells.lg",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/cells.opt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/Lab03/result.txt",
+        "--strategy",
+        "first-fit"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 0.02268314268440008,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/Lab03/solver.log",
+      "time_wall_seconds": 0.01,
+      "user_seconds": 0.0,
+      "system_seconds": 0.0,
+      "peak_rss_kib": 4112.0,
+      "lab": "Lab03",
+      "dimensions": {
+        "cells": 2000,
+        "banking_steps": 100
+      },
+      "solver_threads": 1,
+      "executable_sha256": "56b93143806993b16e8c6d97e3ecca87796069a846844485334e3010c88d6294",
+      "inputs": {
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/cells.lg": "044a1f859c3ffe775a2679590e7ce1aac4661af0c3864d00ad445d36c966c234",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/cells.opt": "03e669ca05bb98d05e8fff5316ec8d651850d18d9b4be75eb6e1e2baf423e56b"
+      },
+      "output_sha256": "20cadf83b57dc7888846215ef7324268b7289b42b1802afbacac473eb1f31c27",
+      "valid": true
+    },
+    {
+      "command": [
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab04/D2DGRter",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/grid.gmp",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/grid.gcl",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/grid.cst",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/Lab04/result.txt",
+        "--router",
+        "layered",
+        "--stats"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 0.0198110812343657,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/Lab04/solver.log",
+      "time_wall_seconds": 0.01,
+      "user_seconds": 0.0,
+      "system_seconds": 0.0,
+      "peak_rss_kib": 3984.0,
+      "lab": "Lab04",
+      "dimensions": {
+        "cols": 40,
+        "rows": 30,
+        "nets": 2
+      },
+      "solver_threads": 1,
+      "executable_sha256": "e90b46b77c0fa58982d416cc91644bcfa8c62912ec041a4c777ad2cb03dc4db5",
+      "inputs": {
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/grid.gmp": "f1c339a27ae8fe026eb39e1328424aecbc5db50ee5b3ce8f5ccb88f466f8441a",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/grid.gcl": "7e2591f6be7a6537187e4a8588131abb851da6468eb0651e71df04d9b536c00d",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/stress-eix2gvfu/grid.cst": "5dab94fd7e1c55258c7e45b128704c4b44397f0484e0b24345a6f3215721e1b2"
+      },
+      "output_sha256": "38641cd064f590728d2b686e4f98879a81013c78890bdc3014cbade6623af4d3",
+      "valid": true,
+      "objective": 480
+    }
+  ]
+}

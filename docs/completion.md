@@ -50,3 +50,18 @@ before deterministic legal-result selection. Failure and seed-range handling are
 tested. Eight fixed-work searches take median 21.128 / 10.761 / 5.488 / 3.040 s
 at 1 / 2 / 4 / 8 threads (6.95× at eight). All 12 official outputs and each seed's
 outcomes agree. See [parallelism design and raw evidence](parallel-floorplanning.md).
+
+## 5. Strict compiler gates and generated scale tests
+
+GCC 11.4 and Clang 14 build with conversion/shadow warnings and `-Werror` enabled.
+Signed IDs remain signed while carrying the -1 sentinel; checked access boundaries
+convert only valid IDs to vector indices. Grid neighbor arithmetic similarly stays
+signed until bounds checks. Shadowed locals and implicit narrowing were removed.
+CI now enforces these diagnostics for Release and sanitizer builds.
+
+The new stress suite independently checks known corner-stitch grids, pairwise
+floorplan overlap/HPWL, each banking step's occupied sites, and analytically known
+shortest routing costs. Its smoke size runs by default in CTest; large mode covers
+10,000 inserted rectangles, 499 macros on a 2-billion-coordinate outline,
+200,000 cells / 5,000 banking steps, and a 1,000 × 600 routing grid. All pass.
+Stress timing records are validation evidence, not controlled speedup comparisons.
