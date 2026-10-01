@@ -1,14 +1,14 @@
 GXX = g++
-GXXFLAG = -std=c++14 -Iinclude 
+GXXFLAG = -std=c++17 -I../include -Iinclude
 FLAG = -Wall -O3 -static
 
-SRC = main.cpp
+SRC = main.cpp parser.cpp legalizer.cpp
 EXE = Legalizer
 
 all::$(EXE)
 
-$(EXE): $(SRC)
-	$(GXX) $(GXXFLAG) $(FLAG) -o $@ $^
+$(EXE): $(SRC) ../include/pda/io.hpp $(wildcard include/*.hpp inc/*.hpp)
+	$(GXX) $(GXXFLAG) $(FLAG) -o $@ $(SRC)
 
 clean:
 	rm -rf $(EXE)

@@ -1,0 +1,188 @@
+{
+  "label": "original-release",
+  "timestamp": "2026-10-01T08:00:19.714121+00:00",
+  "platform": "Linux-5.15.0-130-generic-x86_64-with-glibc2.35",
+  "cpu": "Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz",
+  "build": {
+    "revision": "364870ca43b6f76cf138580a1c5bad1303dfb9b2",
+    "compiler": "g++ (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0",
+    "build_type": "Release",
+    "flags": "-std=c++17 -O3 -DNDEBUG; dynamic linking"
+  },
+  "jobs": 1,
+  "batch_wall_seconds": 2.6511097326874733,
+  "work_dir": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-atfcf2wl",
+  "note": "jobs measures independent case concurrency; each solver uses one thread. Validator time excluded from per-solver timing; included in batch timing.",
+  "results": [
+    {
+      "lab": "Lab04",
+      "dataset": "testcase2",
+      "repeat": 0,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/original-release/Lab04/D2DGRter",
+      "executable_sha256": "b5abaebefc0cd4b11d95d428474974cf14b7b97dca76a54b669aaea3b5a91d9e",
+      "input_sha256": {
+        "Lab04/tests/data/testcase2/testcase2.gmp": "40675837fa48e90b100a36688a0875c0a5a6fab3274bf3dbee2ebd1ed9093395",
+        "Lab04/tests/data/testcase2/testcase2.gcl": "a42fa98bd85345713580257c69b5b523f87738131e4395ea2627c4b36f9ffb9b",
+        "Lab04/tests/data/testcase2/testcase2.cst": "897a7a02a0dfc256f8ed60b93e1586b7dd0ae1bd926aa6bf9f4ae4e09bfe96ae"
+      },
+      "parameters": [],
+      "alpha": null,
+      "solver_threads": 1,
+      "command": [
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/original-release/Lab04/D2DGRter",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab04/tests/data/testcase2/testcase2.gmp",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab04/tests/data/testcase2/testcase2.gcl",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab04/tests/data/testcase2/testcase2.cst",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-atfcf2wl/Lab04-testcase2-0/testcase2.lg"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 0.4155795108526945,
+      "time_wall_seconds": 0.39,
+      "user_seconds": 0.22,
+      "system_seconds": 0.02,
+      "peak_rss_kib": 4872.0,
+      "valid": true,
+      "output_sha256": "3cd5fe050431973571e447b2a3a8e201ac55fd6cab33854e60505af2cda8231e",
+      "validator_log": "Pass routing direction check...\nPass routing area check...\nPass all-net-routed check...\nPass connecticity check...\nPass alignment check...\n+-------------+--------------+--------+---------------+---------------+\n|     Item    | Initial Cost | Weight | Weighted Cost | Percentage(%) |\n+-------------+--------------+--------+---------------+---------------+\n| Wire Length |   71010.00   |  1.10  |    78111.00   |    44.67(%)   |\n|   Overflow  |   27675.00   |  1.50  |    41512.50   |    23.74(%)   |\n|  GCell Cost |   49567.65   |  1.10  |    54524.41   |    31.18(%)   |\n|   Via Cost  |    987.00    |  0.70  |     690.89    |    0.39(%)    |\n|    Total    |      -       |   -    |   174838.81   |   100.00(%)   |\n+-------------+--------------+--------+---------------+---------------+\n\n",
+      "objective": 174838.81,
+      "solver_log": ""
+    },
+    {
+      "lab": "Lab04",
+      "dataset": "testcase2",
+      "repeat": 1,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/original-release/Lab04/D2DGRter",
+      "executable_sha256": "b5abaebefc0cd4b11d95d428474974cf14b7b97dca76a54b669aaea3b5a91d9e",
+      "input_sha256": {
+        "Lab04/tests/data/testcase2/testcase2.gmp": "40675837fa48e90b100a36688a0875c0a5a6fab3274bf3dbee2ebd1ed9093395",
+        "Lab04/tests/data/testcase2/testcase2.gcl": "a42fa98bd85345713580257c69b5b523f87738131e4395ea2627c4b36f9ffb9b",
+        "Lab04/tests/data/testcase2/testcase2.cst": "897a7a02a0dfc256f8ed60b93e1586b7dd0ae1bd926aa6bf9f4ae4e09bfe96ae"
+      },
+      "parameters": [],
+      "alpha": null,
+      "solver_threads": 1,
+      "command": [
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/original-release/Lab04/D2DGRter",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab04/tests/data/testcase2/testcase2.gmp",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab04/tests/data/testcase2/testcase2.gcl",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab04/tests/data/testcase2/testcase2.cst",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-atfcf2wl/Lab04-testcase2-1/testcase2.lg"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 0.36550673097372055,
+      "time_wall_seconds": 0.32,
+      "user_seconds": 0.21,
+      "system_seconds": 0.02,
+      "peak_rss_kib": 4996.0,
+      "valid": true,
+      "output_sha256": "3cd5fe050431973571e447b2a3a8e201ac55fd6cab33854e60505af2cda8231e",
+      "validator_log": "Pass routing direction check...\nPass routing area check...\nPass all-net-routed check...\nPass connecticity check...\nPass alignment check...\n+-------------+--------------+--------+---------------+---------------+\n|     Item    | Initial Cost | Weight | Weighted Cost | Percentage(%) |\n+-------------+--------------+--------+---------------+---------------+\n| Wire Length |   71010.00   |  1.10  |    78111.00   |    44.67(%)   |\n|   Overflow  |   27675.00   |  1.50  |    41512.50   |    23.74(%)   |\n|  GCell Cost |   49567.65   |  1.10  |    54524.41   |    31.18(%)   |\n|   Via Cost  |    987.00    |  0.70  |     690.89    |    0.39(%)    |\n|    Total    |      -       |   -    |   174838.81   |   100.00(%)   |\n+-------------+--------------+--------+---------------+---------------+\n\n",
+      "objective": 174838.81,
+      "solver_log": ""
+    },
+    {
+      "lab": "Lab04",
+      "dataset": "testcase2",
+      "repeat": 2,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/original-release/Lab04/D2DGRter",
+      "executable_sha256": "b5abaebefc0cd4b11d95d428474974cf14b7b97dca76a54b669aaea3b5a91d9e",
+      "input_sha256": {
+        "Lab04/tests/data/testcase2/testcase2.gmp": "40675837fa48e90b100a36688a0875c0a5a6fab3274bf3dbee2ebd1ed9093395",
+        "Lab04/tests/data/testcase2/testcase2.gcl": "a42fa98bd85345713580257c69b5b523f87738131e4395ea2627c4b36f9ffb9b",
+        "Lab04/tests/data/testcase2/testcase2.cst": "897a7a02a0dfc256f8ed60b93e1586b7dd0ae1bd926aa6bf9f4ae4e09bfe96ae"
+      },
+      "parameters": [],
+      "alpha": null,
+      "solver_threads": 1,
+      "command": [
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/original-release/Lab04/D2DGRter",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab04/tests/data/testcase2/testcase2.gmp",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab04/tests/data/testcase2/testcase2.gcl",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab04/tests/data/testcase2/testcase2.cst",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-atfcf2wl/Lab04-testcase2-2/testcase2.lg"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 0.4156249980442226,
+      "time_wall_seconds": 0.36,
+      "user_seconds": 0.2,
+      "system_seconds": 0.03,
+      "peak_rss_kib": 4956.0,
+      "valid": true,
+      "output_sha256": "3cd5fe050431973571e447b2a3a8e201ac55fd6cab33854e60505af2cda8231e",
+      "validator_log": "Pass routing direction check...\nPass routing area check...\nPass all-net-routed check...\nPass connecticity check...\nPass alignment check...\n+-------------+--------------+--------+---------------+---------------+\n|     Item    | Initial Cost | Weight | Weighted Cost | Percentage(%) |\n+-------------+--------------+--------+---------------+---------------+\n| Wire Length |   71010.00   |  1.10  |    78111.00   |    44.67(%)   |\n|   Overflow  |   27675.00   |  1.50  |    41512.50   |    23.74(%)   |\n|  GCell Cost |   49567.65   |  1.10  |    54524.41   |    31.18(%)   |\n|   Via Cost  |    987.00    |  0.70  |     690.89    |    0.39(%)    |\n|    Total    |      -       |   -    |   174838.81   |   100.00(%)   |\n+-------------+--------------+--------+---------------+---------------+\n\n",
+      "objective": 174838.81,
+      "solver_log": ""
+    },
+    {
+      "lab": "Lab04",
+      "dataset": "testcase2",
+      "repeat": 3,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/original-release/Lab04/D2DGRter",
+      "executable_sha256": "b5abaebefc0cd4b11d95d428474974cf14b7b97dca76a54b669aaea3b5a91d9e",
+      "input_sha256": {
+        "Lab04/tests/data/testcase2/testcase2.gmp": "40675837fa48e90b100a36688a0875c0a5a6fab3274bf3dbee2ebd1ed9093395",
+        "Lab04/tests/data/testcase2/testcase2.gcl": "a42fa98bd85345713580257c69b5b523f87738131e4395ea2627c4b36f9ffb9b",
+        "Lab04/tests/data/testcase2/testcase2.cst": "897a7a02a0dfc256f8ed60b93e1586b7dd0ae1bd926aa6bf9f4ae4e09bfe96ae"
+      },
+      "parameters": [],
+      "alpha": null,
+      "solver_threads": 1,
+      "command": [
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/original-release/Lab04/D2DGRter",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab04/tests/data/testcase2/testcase2.gmp",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab04/tests/data/testcase2/testcase2.gcl",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab04/tests/data/testcase2/testcase2.cst",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-atfcf2wl/Lab04-testcase2-3/testcase2.lg"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 0.41550383996218443,
+      "time_wall_seconds": 0.38,
+      "user_seconds": 0.21,
+      "system_seconds": 0.02,
+      "peak_rss_kib": 4912.0,
+      "valid": true,
+      "output_sha256": "3cd5fe050431973571e447b2a3a8e201ac55fd6cab33854e60505af2cda8231e",
+      "validator_log": "Pass routing direction check...\nPass routing area check...\nPass all-net-routed check...\nPass connecticity check...\nPass alignment check...\n+-------------+--------------+--------+---------------+---------------+\n|     Item    | Initial Cost | Weight | Weighted Cost | Percentage(%) |\n+-------------+--------------+--------+---------------+---------------+\n| Wire Length |   71010.00   |  1.10  |    78111.00   |    44.67(%)   |\n|   Overflow  |   27675.00   |  1.50  |    41512.50   |    23.74(%)   |\n|  GCell Cost |   49567.65   |  1.10  |    54524.41   |    31.18(%)   |\n|   Via Cost  |    987.00    |  0.70  |     690.89    |    0.39(%)    |\n|    Total    |      -       |   -    |   174838.81   |   100.00(%)   |\n+-------------+--------------+--------+---------------+---------------+\n\n",
+      "objective": 174838.81,
+      "solver_log": ""
+    },
+    {
+      "lab": "Lab04",
+      "dataset": "testcase2",
+      "repeat": 4,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/original-release/Lab04/D2DGRter",
+      "executable_sha256": "b5abaebefc0cd4b11d95d428474974cf14b7b97dca76a54b669aaea3b5a91d9e",
+      "input_sha256": {
+        "Lab04/tests/data/testcase2/testcase2.gmp": "40675837fa48e90b100a36688a0875c0a5a6fab3274bf3dbee2ebd1ed9093395",
+        "Lab04/tests/data/testcase2/testcase2.gcl": "a42fa98bd85345713580257c69b5b523f87738131e4395ea2627c4b36f9ffb9b",
+        "Lab04/tests/data/testcase2/testcase2.cst": "897a7a02a0dfc256f8ed60b93e1586b7dd0ae1bd926aa6bf9f4ae4e09bfe96ae"
+      },
+      "parameters": [],
+      "alpha": null,
+      "solver_threads": 1,
+      "command": [
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/original-release/Lab04/D2DGRter",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab04/tests/data/testcase2/testcase2.gmp",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab04/tests/data/testcase2/testcase2.gcl",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab04/tests/data/testcase2/testcase2.cst",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-atfcf2wl/Lab04-testcase2-4/testcase2.lg"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 0.4655799497850239,
+      "time_wall_seconds": 0.43,
+      "user_seconds": 0.22,
+      "system_seconds": 0.02,
+      "peak_rss_kib": 4912.0,
+      "valid": true,
+      "output_sha256": "3cd5fe050431973571e447b2a3a8e201ac55fd6cab33854e60505af2cda8231e",
+      "validator_log": "Pass routing direction check...\nPass routing area check...\nPass all-net-routed check...\nPass connecticity check...\nPass alignment check...\n+-------------+--------------+--------+---------------+---------------+\n|     Item    | Initial Cost | Weight | Weighted Cost | Percentage(%) |\n+-------------+--------------+--------+---------------+---------------+\n| Wire Length |   71010.00   |  1.10  |    78111.00   |    44.67(%)   |\n|   Overflow  |   27675.00   |  1.50  |    41512.50   |    23.74(%)   |\n|  GCell Cost |   49567.65   |  1.10  |    54524.41   |    31.18(%)   |\n|   Via Cost  |    987.00    |  0.70  |     690.89    |    0.39(%)    |\n|    Total    |      -       |   -    |   174838.81   |   100.00(%)   |\n+-------------+--------------+--------+---------------+---------------+\n\n",
+      "objective": 174838.81,
+      "solver_log": ""
+    }
+  ]
+}

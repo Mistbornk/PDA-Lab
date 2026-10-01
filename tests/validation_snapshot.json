@@ -1,0 +1,258 @@
+{
+  "created_utc": "2026-10-01T07:33:35.330244+00:00",
+  "platform": "Linux-5.15.0-130-generic-x86_64-with-glibc2.35",
+  "compiler": "11.4.0",
+  "build_flags": {
+    "Lab01": "-std=c++14 -Wall -O0 -g",
+    "Lab02": "-std=c++11 -Wall -O3",
+    "Lab03": "-std=c++14 -Wall -O3 -static",
+    "Lab04": "-std=c++14 -Wall -O3"
+  },
+  "jobs": 4,
+  "solver_timeout_seconds": 600,
+  "passed": 16,
+  "total": 16,
+  "warning": "One integration run, concurrent cases; not a controlled performance benchmark. Lab02 has unfixed random seeds. Costs are verifier/solver printed precision.",
+  "cases": [
+    {
+      "lab": "Lab01",
+      "case": "case0",
+      "passed": true,
+      "alpha": null,
+      "solver_wall_seconds": 0.00901536364108324,
+      "objective_as_reported": null,
+      "inputs": {
+        "Lab01/tests/data/case0.txt": "a937aae5c53786c4d1e0338e404b5e3ca7a9f63e714cf8a56e21edbff0857d72"
+      },
+      "executable_sha256": "af0fee5a4529aa4f0ed7d4ffea4e0dfb945ad789a8d4ed0030caf6cd25762da2",
+      "output_sha256": "61d083e48e1e8501fa454b15b23d482bada091e0f312b2eab3585db368d55b9e",
+      "validator_log": null
+    },
+    {
+      "lab": "Lab01",
+      "case": "case1",
+      "passed": true,
+      "alpha": null,
+      "solver_wall_seconds": 0.00884729903191328,
+      "objective_as_reported": null,
+      "inputs": {
+        "Lab01/tests/data/case1.txt": "b5b5931f1b7fc8529bdb37cf57d667331626eb181c57e677d862590ae1b7080e"
+      },
+      "executable_sha256": "af0fee5a4529aa4f0ed7d4ffea4e0dfb945ad789a8d4ed0030caf6cd25762da2",
+      "output_sha256": "5db605145f6d58284bf88c3fa8da51541fd11871f3e2ec5817ef55f92664a228",
+      "validator_log": null
+    },
+    {
+      "lab": "Lab01",
+      "case": "case2",
+      "passed": true,
+      "alpha": null,
+      "solver_wall_seconds": 0.016684253700077534,
+      "objective_as_reported": null,
+      "inputs": {
+        "Lab01/tests/data/case2.txt": "2fb0fa6d2692e26a9297e41b5445a09ebd97cb963776d0bd98930017ff8eb3f3"
+      },
+      "executable_sha256": "af0fee5a4529aa4f0ed7d4ffea4e0dfb945ad789a8d4ed0030caf6cd25762da2",
+      "output_sha256": "6cfc7bdc0815b09eed571c391b148b2f177e23d93b3addf6b25c0e8eee719c6a",
+      "validator_log": null
+    },
+    {
+      "lab": "Lab01",
+      "case": "case7",
+      "passed": true,
+      "alpha": null,
+      "solver_wall_seconds": 0.16587503114715219,
+      "objective_as_reported": null,
+      "inputs": {
+        "Lab01/tests/data/case7.txt": "a9cb55f30569ea8eba95a61884cc05388f89f707a75499c82b3bc625864f13b5"
+      },
+      "executable_sha256": "af0fee5a4529aa4f0ed7d4ffea4e0dfb945ad789a8d4ed0030caf6cd25762da2",
+      "output_sha256": "bcfdb440aab029f5fd6a510a2f8b1de6e5e871a260b81f20d08d25fbf8fe3a4d",
+      "validator_log": null
+    },
+    {
+      "lab": "Lab02",
+      "case": "ami33",
+      "passed": true,
+      "alpha": 0.5,
+      "solver_wall_seconds": 280.07409639423713,
+      "objective_as_reported": "675894",
+      "inputs": {
+        "Lab02/tests/data/ami33/ami33.block": "e53918e9761e9050b808ff6526505154125cc3264d3da9089050500a208f8ec6",
+        "Lab02/tests/data/ami33/ami33.nets": "be2e6f7c1e8056df46f92dee909fff6873bd6855ff1a7cc14479d9659e3cd963"
+      },
+      "executable_sha256": "7bce2a73a93f519545f956843bdf22881a35d106389e7b355b28fbac7690e5d8",
+      "output_sha256": "8c92e3e9db0c8ecb56a891c22f5800fed4a8fd94346aa12211cc266a6dd4d1d4",
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:1249500\nHPWL:102288\nCost:675894\nHeight:1050\nWidth:1190\n\nVerified\nArea:1249500\nHPWL:102288\nCost:675894\nHeight:1050\nWidth:1190\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/tests/results/resource-audit/Lab02/ami33/ami33.rpt.HPWL\n"
+    },
+    {
+      "lab": "Lab02",
+      "case": "ami49",
+      "passed": true,
+      "alpha": 0.5,
+      "solver_wall_seconds": 280.22615085029975,
+      "objective_as_reported": "19876111",
+      "inputs": {
+        "Lab02/tests/data/ami49/ami49.block": "8efc43bd41100580b3239072bbfa9c736f9fefacc46134cb1169f23826a4b35c",
+        "Lab02/tests/data/ami49/ami49.nets": "6f1bab715977f297987a7bae300db5ddb6cb90842cb3ba24d4bf7e7afe077230"
+      },
+      "executable_sha256": "7bce2a73a93f519545f956843bdf22881a35d106389e7b355b28fbac7690e5d8",
+      "output_sha256": "51276f6ed5c1ffc591832a59e8208fb296f13fc9310fe99b3115b7f46895536d",
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:38451672\nHPWL:1300551\nCost:1.98761e+07\nHeight:7266\nWidth:5292\n\nVerified\nArea:38451672\nHPWL:1300551\nCost:1.98761e+07\nHeight:7266\nWidth:5292\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/tests/results/resource-audit/Lab02/ami49/ami49.rpt.HPWL\n"
+    },
+    {
+      "lab": "Lab02",
+      "case": "vda317b",
+      "passed": true,
+      "alpha": 0.5,
+      "solver_wall_seconds": 280.21791516430676,
+      "objective_as_reported": "17306454",
+      "inputs": {
+        "Lab02/tests/data/vda317b/vda317b.block": "ec8b3b45efc35c1368590e2dc7c9d518071a3dbbd1434c1d6c542464bcc7e126",
+        "Lab02/tests/data/vda317b/vda317b.nets": "7bccf7ab59afd1a0dbf20f5a1a757e47f3a86a9bbc598bf8b0bd91c97e953ad6"
+      },
+      "executable_sha256": "7bce2a73a93f519545f956843bdf22881a35d106389e7b355b28fbac7690e5d8",
+      "output_sha256": "ede874e5d203451abd3e619bf8cde8722a3341f6b0bbbf6dbed2058d0a362bba",
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:34612908\nHPWL:0\nCost:1.73065e+07\nHeight:4103\nWidth:8436\n\nVerified\nArea:34612908\nHPWL:0\nCost:1.73065e+07\nHeight:4103\nWidth:8436\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/tests/results/resource-audit/Lab02/vda317b/vda317b.rpt.HPWL\n"
+    },
+    {
+      "lab": "Lab03",
+      "case": "testcase1_16900",
+      "passed": true,
+      "alpha": null,
+      "solver_wall_seconds": 40.667642975226045,
+      "objective_as_reported": "683367840.00",
+      "inputs": {
+        "Lab03/tests/data/testcase1_16900.lg": "2bcbe09841750ea5b82a0087c048d12235940fe08bee8523e26a4f2a2257cb97",
+        "Lab03/tests/data/testcase1_16900.opt": "78952a653196bd041c8c69d64f9bedfda129070de0464f1cfc181e7b2919d3a9"
+      },
+      "executable_sha256": "b9633f577e5e81d9f6093c9603ebb8514b3c0e73ba0af4c544932cd3782e4a41",
+      "output_sha256": "3125aeb32df76404aae708c0ca19b19ea4c47f1e72ab6ab88ee530a15c7cdd3d",
+      "validator_log": "+----------------+--------------+----------+--------------+---------------+\n|      Cost      |      -       |  Weight  |    Value     | Percentage(%) |\n+----------------+--------------+----------+--------------+---------------+\n|   Move Times   |     0.00     | 10000.00 |     0.00     |    0.00(%)    |\n| Total Distance | 683367840.00 |   1.00   | 683367840.00 |   100.00(%)   |\n|     Total      |      -       |    -     | 683367840.00 |   100.00(%)   |\n+----------------+--------------+----------+--------------+---------------+\n\n"
+    },
+    {
+      "lab": "Lab03",
+      "case": "testcase1_ALL0_5000",
+      "passed": true,
+      "alpha": null,
+      "solver_wall_seconds": 258.2959303711541,
+      "objective_as_reported": "49475212800.00",
+      "inputs": {
+        "Lab03/tests/data/testcase1_ALL0_5000.lg": "2bc23e3f637243836540e8a912e08c620ffc34e659ee8762847c290c0444372c",
+        "Lab03/tests/data/testcase1_ALL0_5000.opt": "c9cf98b370945469c98bd8ecdb542b0de819763506080ea380a385740d45a5c8"
+      },
+      "executable_sha256": "b9633f577e5e81d9f6093c9603ebb8514b3c0e73ba0af4c544932cd3782e4a41",
+      "output_sha256": "1361be8c20d39ca77687c8d5ef5ee40861db6aae35599ae3adf8da915d23ec16",
+      "validator_log": "+----------------+---------------+----------+----------------+---------------+\n|      Cost      |       -       |  Weight  |     Value      | Percentage(%) |\n+----------------+---------------+----------+----------------+---------------+\n|   Move Times   |      0.00     | 50000.00 |      0.00      |    0.00(%)    |\n| Total Distance | 2473760640.00 |  20.00   | 49475212800.00 |   100.00(%)   |\n|     Total      |       -       |    -     | 49475212800.00 |   100.00(%)   |\n+----------------+---------------+----------+----------------+---------------+\n\n"
+    },
+    {
+      "lab": "Lab03",
+      "case": "testcase1_MBFF_LIB_7000",
+      "passed": true,
+      "alpha": null,
+      "solver_wall_seconds": 170.9304812750779,
+      "objective_as_reported": "603995292000.00",
+      "inputs": {
+        "Lab03/tests/data/testcase1_MBFF_LIB_7000.lg": "49386c462719b8065ceeb8045783b39d12c1b053f650711d38468dec53922d6a",
+        "Lab03/tests/data/testcase1_MBFF_LIB_7000.opt": "9d9a9665a941f9197ee3e6e6583a9bc24a7be9388cbcce4cc3d9c6f9a7dc1ae4"
+      },
+      "executable_sha256": "b9633f577e5e81d9f6093c9603ebb8514b3c0e73ba0af4c544932cd3782e4a41",
+      "output_sha256": "a17ee70e70c0961fd4064f8610e00d35eb4c24e029f3886ae92e4be59c6d427d",
+      "validator_log": "+----------------+---------------+--------+-----------------+---------------+\n|      Cost      |       -       | Weight |      Value      | Percentage(%) |\n+----------------+---------------+--------+-----------------+---------------+\n|   Move Times   |      0.00     | 100.00 |       0.00      |    0.00(%)    |\n| Total Distance | 3019976460.00 | 200.00 | 603995292000.00 |   100.00(%)   |\n|     Total      |       -       |   -    | 603995292000.00 |   100.00(%)   |\n+----------------+---------------+--------+-----------------+---------------+\n\n"
+    },
+    {
+      "lab": "Lab03",
+      "case": "testcase2_100",
+      "passed": true,
+      "alpha": null,
+      "solver_wall_seconds": 13.253132883924991,
+      "objective_as_reported": "12566920200.00",
+      "inputs": {
+        "Lab03/tests/data/testcase2_100.lg": "72f669c888bfe588df64c9dbe63df1d8173f00ef350d78796b757d6961abc1d1",
+        "Lab03/tests/data/testcase2_100.opt": "cee0615c06d9678d41511488ba9e8760d9c79a2da018e79730a2677e98923d13"
+      },
+      "executable_sha256": "b9633f577e5e81d9f6093c9603ebb8514b3c0e73ba0af4c544932cd3782e4a41",
+      "output_sha256": "34da682b32363a6aa3f27749a9434c20d5b5c06e85e798fc4aca54c0751513e6",
+      "validator_log": "+----------------+--------------+----------+----------------+---------------+\n|      Cost      |      -       |  Weight  |     Value      | Percentage(%) |\n+----------------+--------------+----------+----------------+---------------+\n|   Move Times   |     0.00     | 50000.00 |      0.00      |    0.00(%)    |\n| Total Distance | 628346010.00 |  20.00   | 12566920200.00 |   100.00(%)   |\n|     Total      |      -       |    -     | 12566920200.00 |   100.00(%)   |\n+----------------+--------------+----------+----------------+---------------+\n\n"
+    },
+    {
+      "lab": "Lab03",
+      "case": "testcase3_4579",
+      "passed": true,
+      "alpha": null,
+      "solver_wall_seconds": 93.91268109995872,
+      "objective_as_reported": "352683618000.00",
+      "inputs": {
+        "Lab03/tests/data/testcase3_4579.lg": "4560a8d3500fc0d6ea411807d2577ed57696f9cb487a6d2118a396b3346190f9",
+        "Lab03/tests/data/testcase3_4579.opt": "a52cf1f84acb9cdd55dcb9cd28401e5601282a6101962bfc53cf5ed8ad992348"
+      },
+      "executable_sha256": "b9633f577e5e81d9f6093c9603ebb8514b3c0e73ba0af4c544932cd3782e4a41",
+      "output_sha256": "f4dba8ad1a0707559698482ebc2325029d1ab30ef00ce299f177d722827d7305",
+      "validator_log": "+----------------+---------------+--------+-----------------+---------------+\n|      Cost      |       -       | Weight |      Value      | Percentage(%) |\n+----------------+---------------+--------+-----------------+---------------+\n|   Move Times   |      0.00     | 100.00 |       0.00      |    0.00(%)    |\n| Total Distance | 1763418090.00 | 200.00 | 352683618000.00 |   100.00(%)   |\n|     Total      |       -       |   -    | 352683618000.00 |   100.00(%)   |\n+----------------+---------------+--------+-----------------+---------------+\n\n"
+    },
+    {
+      "lab": "Lab04",
+      "case": "testcase0",
+      "passed": true,
+      "alpha": null,
+      "solver_wall_seconds": 0.017256184946745634,
+      "objective_as_reported": "1796.74",
+      "inputs": {
+        "Lab04/tests/data/testcase0/testcase0.gmp": "fc8554cfe72713d4be067ed6c036158ce2342118e358844a80d1437e1fc5ecd0",
+        "Lab04/tests/data/testcase0/testcase0.gcl": "aee1899e757333b2358951d4112798d4b40d4373de64aa9e1fb6a68478bcac7e",
+        "Lab04/tests/data/testcase0/testcase0.cst": "a42292a2d17c25071f6ab43fb3e951f03b8185034e7b1d31c4af41e225b37604"
+      },
+      "executable_sha256": "11a1fd5157b3c156fa6755a30440c4bc6bcb3eddfde78f27965b9804e4574b4b",
+      "output_sha256": "8c427c03c6ce5924f674c64373dec01068b54c853f11f333bcb6b9e4013c6761",
+      "validator_log": "Pass routing direction check...\nPass routing area check...\nPass all-net-routed check...\nPass connecticity check...\nPass alignment check...\n+-------------+--------------+--------+---------------+---------------+\n|     Item    | Initial Cost | Weight | Weighted Cost | Percentage(%) |\n+-------------+--------------+--------+---------------+---------------+\n| Wire Length |    820.00    |  1.10  |     902.00    |    50.20(%)   |\n|   Overflow  |    17.00     |  1.50  |     25.50     |    1.41(%)    |\n|  GCell Cost |    772.40    |  1.10  |     849.64    |    47.28(%)   |\n|   Via Cost  |    28.00     |  0.70  |     19.60     |    1.09(%)    |\n|    Total    |      -       |   -    |    1796.74    |   100.00(%)   |\n+-------------+--------------+--------+---------------+---------------+\n\n"
+    },
+    {
+      "lab": "Lab04",
+      "case": "testcase1",
+      "passed": true,
+      "alpha": null,
+      "solver_wall_seconds": 0.03402812872081995,
+      "objective_as_reported": "6872.82",
+      "inputs": {
+        "Lab04/tests/data/testcase1/testcase1.gmp": "00b9e4a60d88962ec3fae5905969848f4afef88f1bd58fecf1779f036693cccb",
+        "Lab04/tests/data/testcase1/testcase1.gcl": "9b7e4ccd881195ad9ac7309e029661b9bc877e06d26df8b32c83f784e9d14dbe",
+        "Lab04/tests/data/testcase1/testcase1.cst": "048ca7c40731455314791113d34106f38f5b2b88b2b8c5cc7660f289bccc1793"
+      },
+      "executable_sha256": "11a1fd5157b3c156fa6755a30440c4bc6bcb3eddfde78f27965b9804e4574b4b",
+      "output_sha256": "f2a84dfc7605fef0083d609745ee5013fee2496fac87fd0581db0d39ae46376a",
+      "validator_log": "Pass routing direction check...\nPass routing area check...\nPass all-net-routed check...\nPass connecticity check...\nPass alignment check...\n+-------------+--------------+--------+---------------+---------------+\n|     Item    | Initial Cost | Weight | Weighted Cost | Percentage(%) |\n+-------------+--------------+--------+---------------+---------------+\n| Wire Length |   2310.00    |  1.10  |    2541.00    |    36.97(%)   |\n|   Overflow  |    441.00    |  1.50  |     661.50    |    9.62(%)    |\n|  GCell Cost |   3293.00    |  1.10  |    3622.30    |    52.70(%)   |\n|   Via Cost  |    68.60     |  0.70  |     48.01     |    0.69(%)    |\n|    Total    |      -       |   -    |    6872.82    |   100.00(%)   |\n+-------------+--------------+--------+---------------+---------------+\n\n"
+    },
+    {
+      "lab": "Lab04",
+      "case": "testcase2",
+      "passed": true,
+      "alpha": null,
+      "solver_wall_seconds": 0.3660955550149083,
+      "objective_as_reported": "174838.81",
+      "inputs": {
+        "Lab04/tests/data/testcase2/testcase2.gmp": "40675837fa48e90b100a36688a0875c0a5a6fab3274bf3dbee2ebd1ed9093395",
+        "Lab04/tests/data/testcase2/testcase2.gcl": "a42fa98bd85345713580257c69b5b523f87738131e4395ea2627c4b36f9ffb9b",
+        "Lab04/tests/data/testcase2/testcase2.cst": "897a7a02a0dfc256f8ed60b93e1586b7dd0ae1bd926aa6bf9f4ae4e09bfe96ae"
+      },
+      "executable_sha256": "11a1fd5157b3c156fa6755a30440c4bc6bcb3eddfde78f27965b9804e4574b4b",
+      "output_sha256": "3cd5fe050431973571e447b2a3a8e201ac55fd6cab33854e60505af2cda8231e",
+      "validator_log": "Pass routing direction check...\nPass routing area check...\nPass all-net-routed check...\nPass connecticity check...\nPass alignment check...\n+-------------+--------------+--------+---------------+---------------+\n|     Item    | Initial Cost | Weight | Weighted Cost | Percentage(%) |\n+-------------+--------------+--------+---------------+---------------+\n| Wire Length |   71010.00   |  1.10  |    78111.00   |    44.67(%)   |\n|   Overflow  |   27675.00   |  1.50  |    41512.50   |    23.74(%)   |\n|  GCell Cost |   49567.65   |  1.10  |    54524.41   |    31.18(%)   |\n|   Via Cost  |    987.00    |  0.70  |     690.89    |    0.39(%)    |\n|    Total    |      -       |   -    |   174838.81   |   100.00(%)   |\n+-------------+--------------+--------+---------------+---------------+\n\n"
+    },
+    {
+      "lab": "Lab04",
+      "case": "example",
+      "passed": true,
+      "alpha": null,
+      "solver_wall_seconds": 0.03358405642211437,
+      "objective_as_reported": "30526.50",
+      "inputs": {
+        "Lab04/tests/data/toycase/example.gmp": "4b516bd577ffa11cbf0a27e29d0b4596b6738772992833dcda2ef875ebc13d30",
+        "Lab04/tests/data/toycase/example.gcl": "d046b7347f9c14235e63e3f64869561b262acaa1bd8e7a57ee120d61230e523e",
+        "Lab04/tests/data/toycase/example.cst": "67dd9d8dbcfb99729e81668ccc265377c49cb9389fbea9de838fed1b91f35b5a"
+      },
+      "executable_sha256": "11a1fd5157b3c156fa6755a30440c4bc6bcb3eddfde78f27965b9804e4574b4b",
+      "output_sha256": "65f2f9b89ccb5b2f21832b07359e805bb557c76ff831a4e95f7a9004029b3a48",
+      "validator_log": "Pass routing direction check...\nPass routing area check...\nPass all-net-routed check...\nPass connecticity check...\nPass alignment check...\n+-------------+--------------+--------+---------------+---------------+\n|     Item    | Initial Cost | Weight | Weighted Cost | Percentage(%) |\n+-------------+--------------+--------+---------------+---------------+\n| Wire Length |   10609.00   |  1.10  |    11669.90   |    38.22(%)   |\n|   Overflow  |    972.00    |  1.50  |    1458.00    |    4.77(%)    |\n|  GCell Cost |   15700.65   |  1.10  |    17270.71   |    56.57(%)   |\n|   Via Cost  |    182.70    |  0.70  |     127.88    |    0.41(%)    |\n|    Total    |      -       |   -    |    30526.50   |   100.00(%)   |\n+-------------+--------------+--------+---------------+---------------+\n\n"
+    }
+  ]
+}

@@ -1,1 +1,15 @@
 *.DS_Store
+
+# Reproducible downloads: restore with python3 tests/fetch_resources.py.
+/Lab02/tests/tools/verifier
+/Lab03/tests/data/
+/Lab03/tests/tools/upstream/Evaluator
+/Lab04/tests/tools/upstream/Evaluator.tar
+/Lab04/tests/tools/upstream/Evaluator/
+
+# Test outputs and isolated builds.
+/tests/results/
+/tests/build/
+__pycache__/
+/build*/
+/benchmarks/work/

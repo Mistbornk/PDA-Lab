@@ -1,0 +1,103 @@
+name: C++ correctness
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      official:
+        description: Run downloaded course integrations (several minutes)
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pda-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  core:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: gcc-release
+            compiler: g++
+            build_type: Release
+            sanitizers: 'OFF'
+          - name: clang-release
+            compiler: clang++-14
+            build_type: Release
+            sanitizers: 'OFF'
+          - name: gcc-sanitizers
+            compiler: g++
+            build_type: Debug
+            sanitizers: 'ON'
+    name: ${{ matrix.name }}
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential clang-14 cmake libboost-dev python3
+      - name: Configure
+        run: >-
+          cmake -S . -B build
+          -DCMAKE_CXX_COMPILER=${{ matrix.compiler }}
+          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+          -DPDA_SANITIZERS=${{ matrix.sanitizers }}
+      - name: Build
+        run: cmake --build build --parallel 2
+      - name: Test independent oracles and regressions
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
+          UBSAN_OPTIONS: halt_on_error=1:print_stacktrace=1
+        run: ctest --test-dir build --output-on-failure
+      - name: Keep failure logs
+        if: failure()
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: ctest-${{ matrix.name }}
+          path: build/Testing/Temporary/
+          retention-days: 7
+
+  official:
+    if: github.event_name == 'workflow_dispatch' && inputs.official
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake libboost-dev python3 time
+      - name: Restore pinned course resources
+        run: python3 tests/fetch_resources.py
+      - name: Build
+        run: |
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+          cmake --build build --parallel 2
+      - name: Validate all course cases
+        run: python3 tests/run.py --bin-root build --jobs 2
+      - name: Validate layered router
+        run: >-
+          python3 benchmarks/run.py --lab Lab04 --repeat 1
+          --solver-arg=--router --solver-arg=layered --solver-arg=--stats
+          --label ci-layered --output benchmarks/work/ci-layered.json
+      - name: Keep integration records
+        if: always()
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: course-validation
+          path: |
+            tests/results/
+            benchmarks/work/ci-layered.json
+          retention-days: 7

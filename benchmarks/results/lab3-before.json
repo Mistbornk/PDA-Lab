@@ -1,0 +1,114 @@
+{
+  "label": "original-release",
+  "timestamp": "2026-10-01T07:58:20.079071+00:00",
+  "platform": "Linux-5.15.0-130-generic-x86_64-with-glibc2.35",
+  "cpu": "Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz",
+  "build": {
+    "revision": "364870ca43b6f76cf138580a1c5bad1303dfb9b2",
+    "compiler": "g++ (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0",
+    "build_type": "Release",
+    "flags": "-std=c++17 -O3 -DNDEBUG; dynamic linking"
+  },
+  "jobs": 1,
+  "batch_wall_seconds": 116.6019392060116,
+  "work_dir": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-hitvmlcb",
+  "note": "jobs measures independent case concurrency; each solver uses one thread. Validator time excluded from per-solver timing; included in batch timing.",
+  "results": [
+    {
+      "lab": "Lab03",
+      "dataset": "testcase1_16900",
+      "repeat": 0,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/original-release/Lab03/Legalizer",
+      "executable_sha256": "0a783f737a22eb11814c2571a70a39f360e558e70b12e32a3af2ed18908b809d",
+      "input_sha256": {
+        "Lab03/tests/data/testcase1_16900.lg": "2bcbe09841750ea5b82a0087c048d12235940fe08bee8523e26a4f2a2257cb97",
+        "Lab03/tests/data/testcase1_16900.opt": "78952a653196bd041c8c69d64f9bedfda129070de0464f1cfc181e7b2919d3a9"
+      },
+      "parameters": [],
+      "alpha": null,
+      "solver_threads": 1,
+      "command": [
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/original-release/Lab03/Legalizer",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab03/tests/data/testcase1_16900.lg",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab03/tests/data/testcase1_16900.opt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-hitvmlcb/Lab03-testcase1_16900-0/testcase1_16900.lg"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 38.12103044288233,
+      "time_wall_seconds": 38.07,
+      "user_seconds": 33.49,
+      "system_seconds": 0.22,
+      "peak_rss_kib": 36140.0,
+      "valid": true,
+      "output_sha256": "3125aeb32df76404aae708c0ca19b19ea4c47f1e72ab6ab88ee530a15c7cdd3d",
+      "validator_log": "+----------------+--------------+----------+--------------+---------------+\n|      Cost      |      -       |  Weight  |    Value     | Percentage(%) |\n+----------------+--------------+----------+--------------+---------------+\n|   Move Times   |     0.00     | 10000.00 |     0.00     |    0.00(%)    |\n| Total Distance | 683367840.00 |   1.00   | 683367840.00 |   100.00(%)   |\n|     Total      |      -       |    -     | 683367840.00 |   100.00(%)   |\n+----------------+--------------+----------+--------------+---------------+\n\n",
+      "objective": 683367840.0,
+      "solver_log": ""
+    },
+    {
+      "lab": "Lab03",
+      "dataset": "testcase1_16900",
+      "repeat": 1,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/original-release/Lab03/Legalizer",
+      "executable_sha256": "0a783f737a22eb11814c2571a70a39f360e558e70b12e32a3af2ed18908b809d",
+      "input_sha256": {
+        "Lab03/tests/data/testcase1_16900.lg": "2bcbe09841750ea5b82a0087c048d12235940fe08bee8523e26a4f2a2257cb97",
+        "Lab03/tests/data/testcase1_16900.opt": "78952a653196bd041c8c69d64f9bedfda129070de0464f1cfc181e7b2919d3a9"
+      },
+      "parameters": [],
+      "alpha": null,
+      "solver_threads": 1,
+      "command": [
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/original-release/Lab03/Legalizer",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab03/tests/data/testcase1_16900.lg",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab03/tests/data/testcase1_16900.opt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-hitvmlcb/Lab03-testcase1_16900-1/testcase1_16900.lg"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 38.98152062902227,
+      "time_wall_seconds": 38.96,
+      "user_seconds": 34.53,
+      "system_seconds": 0.2,
+      "peak_rss_kib": 35860.0,
+      "valid": true,
+      "output_sha256": "3125aeb32df76404aae708c0ca19b19ea4c47f1e72ab6ab88ee530a15c7cdd3d",
+      "validator_log": "+----------------+--------------+----------+--------------+---------------+\n|      Cost      |      -       |  Weight  |    Value     | Percentage(%) |\n+----------------+--------------+----------+--------------+---------------+\n|   Move Times   |     0.00     | 10000.00 |     0.00     |    0.00(%)    |\n| Total Distance | 683367840.00 |   1.00   | 683367840.00 |   100.00(%)   |\n|     Total      |      -       |    -     | 683367840.00 |   100.00(%)   |\n+----------------+--------------+----------+--------------+---------------+\n\n",
+      "objective": 683367840.0,
+      "solver_log": ""
+    },
+    {
+      "lab": "Lab03",
+      "dataset": "testcase1_16900",
+      "repeat": 2,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/original-release/Lab03/Legalizer",
+      "executable_sha256": "0a783f737a22eb11814c2571a70a39f360e558e70b12e32a3af2ed18908b809d",
+      "input_sha256": {
+        "Lab03/tests/data/testcase1_16900.lg": "2bcbe09841750ea5b82a0087c048d12235940fe08bee8523e26a4f2a2257cb97",
+        "Lab03/tests/data/testcase1_16900.opt": "78952a653196bd041c8c69d64f9bedfda129070de0464f1cfc181e7b2919d3a9"
+      },
+      "parameters": [],
+      "alpha": null,
+      "solver_threads": 1,
+      "command": [
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/original-release/Lab03/Legalizer",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab03/tests/data/testcase1_16900.lg",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab03/tests/data/testcase1_16900.opt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-hitvmlcb/Lab03-testcase1_16900-2/testcase1_16900.lg"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 37.962029546964914,
+      "time_wall_seconds": 37.91,
+      "user_seconds": 33.79,
+      "system_seconds": 0.2,
+      "peak_rss_kib": 36032.0,
+      "valid": true,
+      "output_sha256": "3125aeb32df76404aae708c0ca19b19ea4c47f1e72ab6ab88ee530a15c7cdd3d",
+      "validator_log": "+----------------+--------------+----------+--------------+---------------+\n|      Cost      |      -       |  Weight  |    Value     | Percentage(%) |\n+----------------+--------------+----------+--------------+---------------+\n|   Move Times   |     0.00     | 10000.00 |     0.00     |    0.00(%)    |\n| Total Distance | 683367840.00 |   1.00   | 683367840.00 |   100.00(%)   |\n|     Total      |      -       |    -     | 683367840.00 |   100.00(%)   |\n+----------------+--------------+----------+--------------+---------------+\n\n",
+      "objective": 683367840.0,
+      "solver_log": ""
+    }
+  ]
+}

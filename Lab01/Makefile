@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=c++14 -Wall -O0 -I./header -g
+CXXFLAGS = -std=c++17 -I../include -Wall -O0 -I./header -g -MMD -MP
 
 SRCDIR = src
 OBJDIR = obj
@@ -22,3 +22,4 @@ clean:
 
 debug: $(EXEC)
 	cgdb ./$(EXEC)
+-include $(OBJECTS:.o=.d)

@@ -1,0 +1,165 @@
+{
+  "description": "Engineering iteration correctness evidence; timing includes independent-case contention for Lab02. Performance evidence is in benchmarks/results.",
+  "platform": "Linux-5.15.0-130-generic-x86_64-with-glibc2.35",
+  "compiler": "g++ (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0",
+  "passed": 16,
+  "total": 16,
+  "tests": [
+    {
+      "lab": "Lab01",
+      "case": "case0",
+      "passed": true,
+      "method": "CTest independent/official regression, Release and ASan/UBSan"
+    },
+    {
+      "lab": "Lab01",
+      "case": "case1",
+      "passed": true,
+      "method": "CTest independent/official regression, Release and ASan/UBSan"
+    },
+    {
+      "lab": "Lab01",
+      "case": "case2",
+      "passed": true,
+      "method": "CTest independent/official regression, Release and ASan/UBSan"
+    },
+    {
+      "lab": "Lab01",
+      "case": "case7",
+      "passed": true,
+      "method": "CTest independent/official regression, Release and ASan/UBSan"
+    },
+    {
+      "lab": "Lab02",
+      "case": "ami33",
+      "passed": true,
+      "solver_wall_seconds": 280.09941909788176,
+      "output_sha256": "c50e1c83366a4056a9e16791b3d18db5ae4cd673311e1a14260d7201d029ec35",
+      "executable_sha256": "e006e7d9f32727e8bf012c643e83ba4c2424c632fd9ea30c269fb1e573d41250",
+      "matches_original_bytes": null,
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:1281056\nHPWL:97727\nCost:689391\nHeight:1064\nWidth:1204\n\nVerified\nArea:1281056\nHPWL:97727\nCost:689392\nHeight:1064\nWidth:1204\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/tests/results/modernized-lab2-default/Lab02/ami33/ami33.rpt.HPWL\n",
+      "mode": "default course CLI"
+    },
+    {
+      "lab": "Lab02",
+      "case": "ami49",
+      "passed": true,
+      "solver_wall_seconds": 280.0901596597396,
+      "output_sha256": "4e2735a52442aaa5aa967feaace4efbeca95c3ac7a54e27a7fc940c92d70cd00",
+      "executable_sha256": "e006e7d9f32727e8bf012c643e83ba4c2424c632fd9ea30c269fb1e573d41250",
+      "matches_original_bytes": null,
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:37980488\nHPWL:1444205\nCost:1.97123e+07\nHeight:7196\nWidth:5278\n\nVerified\nArea:37980488\nHPWL:1444205\nCost:1.97123e+07\nHeight:7196\nWidth:5278\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/tests/results/modernized-lab2-default/Lab02/ami49/ami49.rpt.HPWL\n",
+      "mode": "default course CLI"
+    },
+    {
+      "lab": "Lab02",
+      "case": "vda317b",
+      "passed": true,
+      "solver_wall_seconds": 280.08690250478685,
+      "output_sha256": "c6df69eb30438c88e2ef27d83099c14af03d4776813789c6d79407366663a56d",
+      "executable_sha256": "e006e7d9f32727e8bf012c643e83ba4c2424c632fd9ea30c269fb1e573d41250",
+      "matches_original_bytes": null,
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:34466925\nHPWL:0\nCost:1.72335e+07\nHeight:4525\nWidth:7617\n\nVerified\nArea:34466925\nHPWL:0\nCost:1.72335e+07\nHeight:4525\nWidth:7617\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/tests/results/modernized-lab2-default/Lab02/vda317b/vda317b.rpt.HPWL\n",
+      "mode": "default course CLI"
+    },
+    {
+      "lab": "Lab03",
+      "case": "testcase1_16900",
+      "passed": true,
+      "solver_wall_seconds": 7.787155939731747,
+      "output_sha256": "3125aeb32df76404aae708c0ca19b19ea4c47f1e72ab6ab88ee530a15c7cdd3d",
+      "executable_sha256": "56b93143806993b16e8c6d97e3ecca87796069a846844485334e3010c88d6294",
+      "matches_original_bytes": true,
+      "validator_log": "+----------------+--------------+----------+--------------+---------------+\n|      Cost      |      -       |  Weight  |    Value     | Percentage(%) |\n+----------------+--------------+----------+--------------+---------------+\n|   Move Times   |     0.00     | 10000.00 |     0.00     |    0.00(%)    |\n| Total Distance | 683367840.00 |   1.00   | 683367840.00 |   100.00(%)   |\n|     Total      |      -       |    -     | 683367840.00 |   100.00(%)   |\n+----------------+--------------+----------+--------------+---------------+\n\n",
+      "mode": "default course CLI"
+    },
+    {
+      "lab": "Lab03",
+      "case": "testcase1_ALL0_5000",
+      "passed": true,
+      "solver_wall_seconds": 53.35985808586702,
+      "output_sha256": "1361be8c20d39ca77687c8d5ef5ee40861db6aae35599ae3adf8da915d23ec16",
+      "executable_sha256": "56b93143806993b16e8c6d97e3ecca87796069a846844485334e3010c88d6294",
+      "matches_original_bytes": true,
+      "validator_log": "+----------------+---------------+----------+----------------+---------------+\n|      Cost      |       -       |  Weight  |     Value      | Percentage(%) |\n+----------------+---------------+----------+----------------+---------------+\n|   Move Times   |      0.00     | 50000.00 |      0.00      |    0.00(%)    |\n| Total Distance | 2473760640.00 |  20.00   | 49475212800.00 |   100.00(%)   |\n|     Total      |       -       |    -     | 49475212800.00 |   100.00(%)   |\n+----------------+---------------+----------+----------------+---------------+\n\n",
+      "mode": "default course CLI"
+    },
+    {
+      "lab": "Lab03",
+      "case": "testcase1_MBFF_LIB_7000",
+      "passed": true,
+      "solver_wall_seconds": 33.653749029152095,
+      "output_sha256": "a17ee70e70c0961fd4064f8610e00d35eb4c24e029f3886ae92e4be59c6d427d",
+      "executable_sha256": "56b93143806993b16e8c6d97e3ecca87796069a846844485334e3010c88d6294",
+      "matches_original_bytes": true,
+      "validator_log": "+----------------+---------------+--------+-----------------+---------------+\n|      Cost      |       -       | Weight |      Value      | Percentage(%) |\n+----------------+---------------+--------+-----------------+---------------+\n|   Move Times   |      0.00     | 100.00 |       0.00      |    0.00(%)    |\n| Total Distance | 3019976460.00 | 200.00 | 603995292000.00 |   100.00(%)   |\n|     Total      |       -       |   -    | 603995292000.00 |   100.00(%)   |\n+----------------+---------------+--------+-----------------+---------------+\n\n",
+      "mode": "default course CLI"
+    },
+    {
+      "lab": "Lab03",
+      "case": "testcase2_100",
+      "passed": true,
+      "solver_wall_seconds": 1.0193407288752496,
+      "output_sha256": "34da682b32363a6aa3f27749a9434c20d5b5c06e85e798fc4aca54c0751513e6",
+      "executable_sha256": "56b93143806993b16e8c6d97e3ecca87796069a846844485334e3010c88d6294",
+      "matches_original_bytes": true,
+      "validator_log": "+----------------+--------------+----------+----------------+---------------+\n|      Cost      |      -       |  Weight  |     Value      | Percentage(%) |\n+----------------+--------------+----------+----------------+---------------+\n|   Move Times   |     0.00     | 50000.00 |      0.00      |    0.00(%)    |\n| Total Distance | 628346010.00 |  20.00   | 12566920200.00 |   100.00(%)   |\n|     Total      |      -       |    -     | 12566920200.00 |   100.00(%)   |\n+----------------+--------------+----------+----------------+---------------+\n\n",
+      "mode": "default course CLI"
+    },
+    {
+      "lab": "Lab03",
+      "case": "testcase3_4579",
+      "passed": true,
+      "solver_wall_seconds": 17.31957124406472,
+      "output_sha256": "f4dba8ad1a0707559698482ebc2325029d1ab30ef00ce299f177d722827d7305",
+      "executable_sha256": "56b93143806993b16e8c6d97e3ecca87796069a846844485334e3010c88d6294",
+      "matches_original_bytes": true,
+      "validator_log": "+----------------+---------------+--------+-----------------+---------------+\n|      Cost      |       -       | Weight |      Value      | Percentage(%) |\n+----------------+---------------+--------+-----------------+---------------+\n|   Move Times   |      0.00     | 100.00 |       0.00      |    0.00(%)    |\n| Total Distance | 1763418090.00 | 200.00 | 352683618000.00 |   100.00(%)   |\n|     Total      |       -       |   -    | 352683618000.00 |   100.00(%)   |\n+----------------+---------------+--------+-----------------+---------------+\n\n",
+      "mode": "default course CLI"
+    },
+    {
+      "lab": "Lab04",
+      "case": "example",
+      "passed": true,
+      "solver_wall_seconds": 0.018214643001556396,
+      "output_sha256": "65f2f9b89ccb5b2f21832b07359e805bb557c76ff831a4e95f7a9004029b3a48",
+      "executable_sha256": "3af1691a04717f35e7306bfcec65c405904fa983325db37aea770f22f7f0c323",
+      "matches_original_bytes": true,
+      "validator_log": "\u001b[32mPass\u001b[0m routing direction check...\n\u001b[32mPass\u001b[0m routing area check...\n\u001b[32mPass\u001b[0m all-net-routed check...\n\u001b[32mPass\u001b[0m connecticity check...\n\u001b[32mPass\u001b[0m alignment check...\n+-------------+--------------+--------+---------------+---------------+\n|     Item    | Initial Cost | Weight | Weighted Cost | Percentage(%) |\n+-------------+--------------+--------+---------------+---------------+\n| Wire Length |   10609.00   |  1.10  |    11669.90   |    38.22(%)   |\n|   Overflow  |    972.00    |  1.50  |    1458.00    |    4.77(%)    |\n|  GCell Cost |   15700.65   |  1.10  |    17270.71   |    56.57(%)   |\n|   Via Cost  |    182.70    |  0.70  |     127.88    |    0.41(%)    |\n|    Total    |      -       |   -    |    30526.50   |   100.00(%)   |\n+-------------+--------------+--------+---------------+---------------+\n\n",
+      "mode": "default course CLI"
+    },
+    {
+      "lab": "Lab04",
+      "case": "testcase0",
+      "passed": true,
+      "solver_wall_seconds": 0.017951718997210264,
+      "output_sha256": "8c427c03c6ce5924f674c64373dec01068b54c853f11f333bcb6b9e4013c6761",
+      "executable_sha256": "3af1691a04717f35e7306bfcec65c405904fa983325db37aea770f22f7f0c323",
+      "matches_original_bytes": true,
+      "validator_log": "\u001b[32mPass\u001b[0m routing direction check...\n\u001b[32mPass\u001b[0m routing area check...\n\u001b[32mPass\u001b[0m all-net-routed check...\n\u001b[32mPass\u001b[0m connecticity check...\n\u001b[32mPass\u001b[0m alignment check...\n+-------------+--------------+--------+---------------+---------------+\n|     Item    | Initial Cost | Weight | Weighted Cost | Percentage(%) |\n+-------------+--------------+--------+---------------+---------------+\n| Wire Length |    820.00    |  1.10  |     902.00    |    50.20(%)   |\n|   Overflow  |    17.00     |  1.50  |     25.50     |    1.41(%)    |\n|  GCell Cost |    772.40    |  1.10  |     849.64    |    47.28(%)   |\n|   Via Cost  |    28.00     |  0.70  |     19.60     |    1.09(%)    |\n|    Total    |      -       |   -    |    1796.74    |   100.00(%)   |\n+-------------+--------------+--------+---------------+---------------+\n\n",
+      "mode": "default course CLI"
+    },
+    {
+      "lab": "Lab04",
+      "case": "testcase1",
+      "passed": true,
+      "solver_wall_seconds": 0.017447866033762693,
+      "output_sha256": "f2a84dfc7605fef0083d609745ee5013fee2496fac87fd0581db0d39ae46376a",
+      "executable_sha256": "3af1691a04717f35e7306bfcec65c405904fa983325db37aea770f22f7f0c323",
+      "matches_original_bytes": true,
+      "validator_log": "\u001b[32mPass\u001b[0m routing direction check...\n\u001b[32mPass\u001b[0m routing area check...\n\u001b[32mPass\u001b[0m all-net-routed check...\n\u001b[32mPass\u001b[0m connecticity check...\n\u001b[32mPass\u001b[0m alignment check...\n+-------------+--------------+--------+---------------+---------------+\n|     Item    | Initial Cost | Weight | Weighted Cost | Percentage(%) |\n+-------------+--------------+--------+---------------+---------------+\n| Wire Length |   2310.00    |  1.10  |    2541.00    |    36.97(%)   |\n|   Overflow  |    441.00    |  1.50  |     661.50    |    9.62(%)    |\n|  GCell Cost |   3293.00    |  1.10  |    3622.30    |    52.70(%)   |\n|   Via Cost  |    68.60     |  0.70  |     48.01     |    0.69(%)    |\n|    Total    |      -       |   -    |    6872.82    |   100.00(%)   |\n+-------------+--------------+--------+---------------+---------------+\n\n",
+      "mode": "default course CLI"
+    },
+    {
+      "lab": "Lab04",
+      "case": "testcase2",
+      "passed": true,
+      "solver_wall_seconds": 0.16645509516820312,
+      "output_sha256": "3cd5fe050431973571e447b2a3a8e201ac55fd6cab33854e60505af2cda8231e",
+      "executable_sha256": "3af1691a04717f35e7306bfcec65c405904fa983325db37aea770f22f7f0c323",
+      "matches_original_bytes": true,
+      "validator_log": "\u001b[32mPass\u001b[0m routing direction check...\n\u001b[32mPass\u001b[0m routing area check...\n\u001b[32mPass\u001b[0m all-net-routed check...\n\u001b[32mPass\u001b[0m connecticity check...\n\u001b[32mPass\u001b[0m alignment check...\n+-------------+--------------+--------+---------------+---------------+\n|     Item    | Initial Cost | Weight | Weighted Cost | Percentage(%) |\n+-------------+--------------+--------+---------------+---------------+\n| Wire Length |   71010.00   |  1.10  |    78111.00   |    44.67(%)   |\n|   Overflow  |   27675.00   |  1.50  |    41512.50   |    23.74(%)   |\n|  GCell Cost |   49567.65   |  1.10  |    54524.41   |    31.18(%)   |\n|   Via Cost  |    987.00    |  0.70  |     690.89    |    0.39(%)    |\n|    Total    |      -       |   -    |   174838.81   |   100.00(%)   |\n+-------------+--------------+--------+---------------+---------------+\n\n",
+      "mode": "default course CLI"
+    }
+  ]
+}

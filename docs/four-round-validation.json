@@ -1,0 +1,71 @@
+{
+  "timestamp": "2026-10-01T10:27:04.517781+00:00",
+  "ctest": [
+    {
+      "build": "build",
+      "returncode": 0,
+      "log": "tests/results/four-rounds/build.log",
+      "output": "Internal ctest changing into directory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build\nTest project /mnt/ec/ness/max/Side-Projects/PDA-Lab/build\n    Start 1: lab1_core\n1/4 Test #1: lab1_core ........................   Passed    0.38 sec\n    Start 2: lab2_core\n2/4 Test #2: lab2_core ........................   Passed    0.08 sec\n    Start 3: lab4_oracle\n3/4 Test #3: lab4_oracle ......................   Passed    0.54 sec\n    Start 4: regression\n4/4 Test #4: regression .......................   Passed    0.46 sec\n\n100% tests passed, 0 tests failed out of 4\n\nTotal Test time (real) =   1.47 sec\n"
+    },
+    {
+      "build": "build-clang",
+      "returncode": 0,
+      "log": "tests/results/four-rounds/build-clang.log",
+      "output": "Internal ctest changing into directory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang\nTest project /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang\n    Start 1: lab1_core\n1/4 Test #1: lab1_core ........................   Passed    0.52 sec\n    Start 2: lab2_core\n2/4 Test #2: lab2_core ........................   Passed    0.07 sec\n    Start 3: lab4_oracle\n3/4 Test #3: lab4_oracle ......................   Passed    0.63 sec\n    Start 4: regression\n4/4 Test #4: regression .......................   Passed    0.47 sec\n\n100% tests passed, 0 tests failed out of 4\n\nTotal Test time (real) =   1.81 sec\n"
+    },
+    {
+      "build": "build-asan",
+      "returncode": 0,
+      "log": "tests/results/four-rounds/build-asan.log",
+      "output": "Internal ctest changing into directory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan\nTest project /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan\n    Start 1: lab1_core\n1/4 Test #1: lab1_core ........................   Passed    5.01 sec\n    Start 2: lab2_core\n2/4 Test #2: lab2_core ........................   Passed    1.43 sec\n    Start 3: lab4_oracle\n3/4 Test #3: lab4_oracle ......................   Passed    1.99 sec\n    Start 4: regression\n4/4 Test #4: regression .......................   Passed    2.29 sec\n\n100% tests passed, 0 tests failed out of 4\n\nTotal Test time (real) =  10.75 sec\n"
+    }
+  ],
+  "source_sha256": {
+    ".github/workflows/ci.yml": "418a2696d9fbd69ab7a211cae73c5441180b75894d5bb90adaf4f09275c41fd7",
+    "CMakeLists.txt": "1e1db94143d603d107b5b561b55b29be29024edae798384d01634f4a503a8c45",
+    "Lab01/header/Block.h": "a5e3658aa506c162cbbb1a58ba15f2e4bbe7a4017ee618982c07102bda831876",
+    "Lab01/header/Tile.h": "095b9781c033db5d722aadaaaea04854fdc24e13b265a800979655bd2000c9be",
+    "Lab01/header/TileList.h": "e6d9a70c30113cbe296aea2f04c2249eff44ee123a843f548fa128785ead8122",
+    "Lab01/src/Block_Creating.cpp": "5aecdfe381dc21281ba44ff9f896a3ecb89fb3498e2487caffded9caeb899a39",
+    "Lab01/src/Neighbor_Finding.cpp": "8302f921416e23a7cc2943f3de0e7612e310eea4e97eab751689b799733af04d",
+    "Lab01/src/Point_Finding.cpp": "54b5a7292acdc3705aaeba42a8d5d0fccf929fad66f6a9bf6a05c5dc6fb5bc22",
+    "Lab01/src/main.cpp": "31b52a953d14e35de378b379cc691a2b9016d5cf35ed30e57285312588c46cef",
+    "Lab02/include/annealer.hpp": "f59c810e916c387407e7b182c04aa33c6d1cfbe524d4f803fef7ce353b1a55d2",
+    "Lab02/include/model.hpp": "4c33c8cb5d4729c7646e9470f4ef29c09d4381ca8e1c8870aaeb1711b3f0090e",
+    "Lab02/include/packing.hpp": "f90eeda1d5331cc34447bf95cd824113d99426dbc6edc89c4dd9ddc19269b071",
+    "Lab02/include/parser.hpp": "b8241cb952d7952390df3cfc0a86a5d953e4506ab3e64c6790bb3363027a1023",
+    "Lab02/include/tree.hpp": "3833d60d2ad6ff29427244fa78715581ade4dd4ae9ce22b30ed829676d8222b2",
+    "Lab02/main.cpp": "4f30cf06fe6d39518eacbb8beb9a52d6acd87409e82333e88dae6413a24f4728",
+    "Lab02/src/annealer.cpp": "8ec071471416ba0aa6ff6559a9cf02be0c5a4ba38a91595add22c9c807392031",
+    "Lab02/src/packing.cpp": "d79ff4dd24bf5715aaa03eeca89c95cf65a6a0d5e55cd9e43461cca3d709a973",
+    "Lab02/src/parser.cpp": "9ad89ce6bd7ffca1b811d86b084d232279ca7f01c3911b76d0a9053be16593e5",
+    "Lab02/src/report.cpp": "46490e880fa8f2a403d69da7b122a974d2fff1e7f10f7c1b727f5e873486bb0b",
+    "Lab02/src/tree.cpp": "5819f96c8985b5e9b9039410f13061d94e3bfea2b6eb732e6429381d2dcffc92",
+    "Lab03/include/legalizer.hpp": "29e2479730a733d3f4c95134a5fe68e1f82d41cb4f8fc20352e2f56975b47e09",
+    "Lab03/include/struct.hpp": "b1332af94efcba8f5c2cbfcf05bd86bb23a6f5446b030de975dde04090bc4371",
+    "Lab03/legalizer.cpp": "579e98010736a931c718af4fcda97b9de09833e9ee6b0295a98e81fa1e713137",
+    "Lab03/main.cpp": "e4c32db17c116e9aa08bca6b9e308e13d8ed6170ce987f50ce4744fe42ef79f1",
+    "Lab03/parser.cpp": "ce3de76c80e81339f1495129dc076eb597eba869b8159458ac02d3d66f88c999",
+    "Lab04/inc/input.hpp": "4006c59769398b2bc65df6929012ade7d0a2b7827e78ed738db8ae362a0bd059",
+    "Lab04/inc/router.hpp": "5cf368d2948f445d0309603e0b3869f32225a211ca139f5988089b566ccfcd56",
+    "Lab04/inc/struct.hpp": "9a498af2c1855a2d27cda43fe4905e3523669d6c955cc3a2f8551415aa472cf8",
+    "Lab04/layered_router.cpp": "eb7ffd061cd3d8bac3ef3b3b977b352655048e3f8a769dcef6f52cb4a54e003c",
+    "Lab04/main.cpp": "df0598d65384df64bd1a0fc740a1d337871ec4c83ff3d91238c42aaf1b4119b2",
+    "Lab04/parser.cpp": "61d4c5ee27d04e9bff14e1f465a24eb8af8282f3918c8f948f77b3bf60da7e53",
+    "include/pda/io.hpp": "5ba799b70e371799ff168965dbda821e678d51ec3d0dcafae5478629424e55cd",
+    "tests/lab1_core.cpp": "8219d05d4262436ca9d64f70ff6af728a28af865a4e590d0450f968f84a92e9e",
+    "tests/lab2_core.cpp": "bee1efee7cd03df97bbd3554049845a2a6a1d067feb736af4f9119032ccb18c0",
+    "tests/lab4_oracle.py": "63898834bf21ef22db0d43b1af944e9484f5384d9ff3a34648eec09952299b6d",
+    "tests/regression.py": "ce05501c5e2aeec954ef9739eda5cd3d1da2848b390c00fab8fb1df24ad0a7c9"
+  },
+  "round1_equivalence": "benchmarks/results/round1-equivalence.json",
+  "round2_performance": "benchmarks/results/lab1-stitches.json",
+  "round3_quality": [
+    "benchmarks/results/round3-legacy.json",
+    "benchmarks/results/round3-layered.json"
+  ],
+  "round4_study": "benchmarks/results/lab2-study.json",
+  "ci_lint": "actionlint 1.7.12 passed; optional shellcheck/pyflakes disabled",
+  "resources": "66 manifest entries and archive contents verified",
+  "remote_ci_executed": false
+}

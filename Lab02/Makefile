@@ -1,14 +1,14 @@
 GXX = g++
-GXXFLAG = -std=c++11
+GXXFLAG = -std=c++17 -I../include -Iinclude
 FLAG = -Wall -O3
 
-SRC = main.cpp
+SRC = main.cpp $(wildcard src/*.cpp)
 EXE = Lab2
 
 all::$(EXE)
 
-$(EXE): $(SRC)
-	$(GXX) $(GXXFLAG) $(FLAG) -o $@ $^
+$(EXE): $(SRC) ../include/pda/io.hpp $(wildcard include/*.hpp inc/*.hpp)
+	$(GXX) $(GXXFLAG) $(FLAG) -o $@ $(SRC)
 
 clean:
 	rm -rf $(EXE)

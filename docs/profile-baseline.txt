@@ -1,0 +1,14 @@
+GCC 11.4 -O3 -g -pg, original Lab03, testcase1_16900
+ 56.71     13.86    13.86 10918065     0.00     0.00  boost::geometry::index::detail::rtree::visitors::spatial_query<boost::geometry::index::rtree<std::pair<boost::geometry::model::box<boost::geometry::model::point<double, 2ul, boost::geometry::cs::cartesian> 
+ 20.09     18.77     4.91 95608880     0.00     0.00  void std::vector<std::pair<boost::geometry::model::box<boost::geometry::model::point<double, 2ul, boost::geometry::cs::cartesian> >, Cell>, std::allocator<std::pair<boost::geometry::model::box<boost::geomet
+ 11.54     21.59     2.82 10918065     0.00     0.00  canPlaceCell(Cell const&, std::vector<std::pair<boost::geometry::model::box<boost::geometry::model::point<double, 2ul, boost::geometry::cs::cartesian> >, Cell>, std::allocator<std::pair<boost::geometry::mod
+  8.63     23.70     2.11                             main
+  1.15     23.98     0.28     1781     0.16    12.29  Legalize(Cell&)
+  0.82     24.18     0.20                             _init
+  0.33     24.26     0.08   111286     0.00     0.00  boost::geometry::index::detail::rtree::visitors::insert<std::pair<boost::geometry::model::box<boost::geometry::model::point<double, 2ul, boost::geometry::cs::cartesian> >, Cell>, boost::geometry::index::rtr
+  0.33     24.34     0.08    19554     0.00     0.00  boost::geometry::index::detail::rtree::visitors::remove<boost::geometry::index::rtree<std::pair<boost::geometry::model::box<boost::geometry::model::point<double, 2ul, boost::geometry::cs::cartesian> >, Cell
+  0.25     24.40     0.06     7122     0.01     0.01  boost::geometry::index::detail::rtree::visitors::remove<boost::geometry::index::rtree<std::pair<boost::geometry::model::box<boost::geometry::model::point<double, 2ul, boost::geometry::cs::cartesian> >, Cell
+  0.08     24.42     0.02       18     1.11     1.11  void std::vector<Cell, std::allocator<Cell> >::_M_realloc_insert<Cell const&>(__gnu_cxx::__normal_iterator<Cell*, std::vector<Cell, std::allocator<Cell> > >, Cell const&)
+  0.04     24.43     0.01    10570     0.00     0.00  readlgFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+  0.04     24.44     0.01     1781     0.01     0.01  void std::__introsort_loop<__gnu_cxx::__normal_iterator<PlacementRow*, std::vector<PlacementRow, std::allocator<PlacementRow> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<Legalize(Cell&)::{lambda(PlacementR
+Full profile: benchmarks/work/profile/lab3-gprof.txt

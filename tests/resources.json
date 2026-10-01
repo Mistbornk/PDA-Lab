@@ -1,0 +1,587 @@
+{
+  "description": "Course resources; existing Guide files are preserved. Downloaded resources pinned to upstream revisions.",
+  "resources": [
+    {
+      "path": "Lab01/tests/data/case0.txt",
+      "source": "Lab01/Lab1_Guide/testcase/case0.txt",
+      "kind": "input",
+      "bytes": 92,
+      "sha256": "a937aae5c53786c4d1e0338e404b5e3ca7a9f63e714cf8a56e21edbff0857d72"
+    },
+    {
+      "path": "Lab01/tests/data/case1.txt",
+      "source": "Lab01/Lab1_Guide/testcase/case1.txt",
+      "kind": "input",
+      "bytes": 238,
+      "sha256": "b5b5931f1b7fc8529bdb37cf57d667331626eb181c57e677d862590ae1b7080e"
+    },
+    {
+      "path": "Lab01/tests/data/case2.txt",
+      "source": "Lab01/Lab1_Guide/testcase/case2.txt",
+      "kind": "input",
+      "bytes": 587,
+      "sha256": "2fb0fa6d2692e26a9297e41b5445a09ebd97cb963776d0bd98930017ff8eb3f3"
+    },
+    {
+      "path": "Lab01/tests/data/case7.txt",
+      "source": "Lab01/Lab1_Guide/testcase/case7.txt",
+      "kind": "input",
+      "bytes": 8060,
+      "sha256": "a9cb55f30569ea8eba95a61884cc05388f89f707a75499c82b3bc625864f13b5"
+    },
+    {
+      "path": "Lab01/tests/expected/output0.txt",
+      "source": "Lab01/Lab1_Guide/output/output0.txt",
+      "kind": "expected",
+      "bytes": 43,
+      "sha256": "61d083e48e1e8501fa454b15b23d482bada091e0f312b2eab3585db368d55b9e"
+    },
+    {
+      "path": "Lab01/tests/expected/output1.txt",
+      "source": "Lab01/Lab1_Guide/output/output1.txt",
+      "kind": "expected",
+      "bytes": 107,
+      "sha256": "5db605145f6d58284bf88c3fa8da51541fd11871f3e2ec5817ef55f92664a228"
+    },
+    {
+      "path": "Lab01/tests/expected/output2.txt",
+      "source": "Lab01/Lab1_Guide/output/output2.txt",
+      "kind": "expected",
+      "bytes": 247,
+      "sha256": "6cfc7bdc0815b09eed571c391b148b2f177e23d93b3addf6b25c0e8eee719c6a"
+    },
+    {
+      "path": "Lab01/tests/expected/output7.txt",
+      "source": "Lab01/Lab1_Guide/output/output7.txt",
+      "kind": "expected",
+      "bytes": 3055,
+      "sha256": "bcfdb440aab029f5fd6a510a2f8b1de6e5e871a260b81f20d08d25fbf8fe3a4d"
+    },
+    {
+      "path": "Lab01/tests/examples/layout0.txt",
+      "source": "Lab01/Lab1_Guide/layout/layout0.txt",
+      "kind": "visualization_example",
+      "bytes": 193,
+      "sha256": "f275d5e2ed5fef610d4fb9018847c599af18eae3958224e0dcfe69efb870a213"
+    },
+    {
+      "path": "Lab01/tests/examples/layout0.png",
+      "source": "Lab01/Lab1_Guide/drawing/layout0.png",
+      "kind": "visualization_example",
+      "bytes": 17393,
+      "sha256": "ced1039fad9f3dcfb632087df6923d57aeb872dc81b93754d912ae0f7b716173"
+    },
+    {
+      "path": "Lab01/tests/tools/draw_block_layout.py",
+      "source": "Lab01/Lab1_Guide/draw_block_layout.py",
+      "kind": "visualizer",
+      "bytes": 1126,
+      "sha256": "aa8b2a941dc20ede3e312bf11bd184edb721edd8e1f92f67a68bde7b9e5911d2"
+    },
+    {
+      "path": "Lab02/tests/data/ami33/ami33.block",
+      "source": "Lab02/Lab2_Guide/ami33/ami33.block",
+      "kind": "input",
+      "bytes": 2008,
+      "sha256": "e53918e9761e9050b808ff6526505154125cc3264d3da9089050500a208f8ec6"
+    },
+    {
+      "path": "Lab02/tests/data/ami33/ami33.nets",
+      "source": "Lab02/Lab2_Guide/ami33/ami33.nets",
+      "kind": "input",
+      "bytes": 4248,
+      "sha256": "be2e6f7c1e8056df46f92dee909fff6873bd6855ff1a7cc14479d9659e3cd963"
+    },
+    {
+      "path": "Lab02/tests/data/ami49/ami49.block",
+      "source": "Lab02/Lab2_Guide/ami49/ami49.block",
+      "kind": "input",
+      "bytes": 1614,
+      "sha256": "8efc43bd41100580b3239072bbfa9c736f9fefacc46134cb1169f23826a4b35c"
+    },
+    {
+      "path": "Lab02/tests/data/ami49/ami49.nets",
+      "source": "Lab02/Lab2_Guide/ami49/ami49.nets",
+      "kind": "input",
+      "bytes": 11091,
+      "sha256": "6f1bab715977f297987a7bae300db5ddb6cb90842cb3ba24d4bf7e7afe077230"
+    },
+    {
+      "path": "Lab02/tests/data/vda317b/vda317b.block",
+      "source": "Lab02/Lab2_Guide/vda317b/vda317b.block",
+      "kind": "input",
+      "bytes": 4066,
+      "sha256": "ec8b3b45efc35c1368590e2dc7c9d518071a3dbbd1434c1d6c542464bcc7e126"
+    },
+    {
+      "path": "Lab02/tests/data/vda317b/vda317b.nets",
+      "source": "Lab02/Lab2_Guide/vda317b/vda317b.nets",
+      "kind": "input",
+      "bytes": 12,
+      "sha256": "7bccf7ab59afd1a0dbf20f5a1a757e47f3a86a9bbc598bf8b0bd91c97e953ad6"
+    },
+    {
+      "path": "Lab02/tests/tools/verifier",
+      "source": "Lab02/Lab2_Guide/verifier",
+      "kind": "verifier_binary",
+      "bytes": 1343405,
+      "sha256": "40a664e6a183b3ea9a7113412295ba7bc727d3eb224f1b0e2f91056d317ea51e"
+    },
+    {
+      "path": "Lab04/tests/data/testcase0/M1.png",
+      "source": "Lab04/Lab4_Guide/publicCase/testcase0/M1.png",
+      "kind": "visualization_example",
+      "bytes": 76815,
+      "sha256": "9b4ce394525f7dabc5e81f8f3b02ecf90db9927d555e707139204dd77bf1027e"
+    },
+    {
+      "path": "Lab04/tests/data/testcase0/M2.png",
+      "source": "Lab04/Lab4_Guide/publicCase/testcase0/M2.png",
+      "kind": "visualization_example",
+      "bytes": 76340,
+      "sha256": "f6c976c1b53036b78e86669b11da2f063f0d44f8b60a65ab1880367837720154"
+    },
+    {
+      "path": "Lab04/tests/data/testcase0/placement.png",
+      "source": "Lab04/Lab4_Guide/publicCase/testcase0/placement.png",
+      "kind": "visualization_example",
+      "bytes": 135873,
+      "sha256": "5888cfc635801e9110317d660fc2ca3a41ee3e3f0cf951c4626f3663e77f8019"
+    },
+    {
+      "path": "Lab04/tests/data/testcase0/testcase0.cst",
+      "source": "Lab04/Lab4_Guide/publicCase/testcase0/testcase0.cst",
+      "kind": "input",
+      "bytes": 1506,
+      "sha256": "a42292a2d17c25071f6ab43fb3e951f03b8185034e7b1d31c4af41e225b37604"
+    },
+    {
+      "path": "Lab04/tests/data/testcase0/testcase0.gcl",
+      "source": "Lab04/Lab4_Guide/publicCase/testcase0/testcase0.gcl",
+      "kind": "input",
+      "bytes": 868,
+      "sha256": "aee1899e757333b2358951d4112798d4b40d4373de64aa9e1fb6a68478bcac7e"
+    },
+    {
+      "path": "Lab04/tests/data/testcase0/testcase0.gmp",
+      "source": "Lab04/Lab4_Guide/publicCase/testcase0/testcase0.gmp",
+      "kind": "input",
+      "bytes": 155,
+      "sha256": "fc8554cfe72713d4be067ed6c036158ce2342118e358844a80d1437e1fc5ecd0"
+    },
+    {
+      "path": "Lab04/tests/data/testcase1/M1.png",
+      "source": "Lab04/Lab4_Guide/publicCase/testcase1/M1.png",
+      "kind": "visualization_example",
+      "bytes": 80449,
+      "sha256": "7d97a44f5ca8436be8311636b874da8dd6d8ccc14f839dee2870fc1ba1636dd4"
+    },
+    {
+      "path": "Lab04/tests/data/testcase1/M2.png",
+      "source": "Lab04/Lab4_Guide/publicCase/testcase1/M2.png",
+      "kind": "visualization_example",
+      "bytes": 87338,
+      "sha256": "b417e5f771005df49eba0fe031f0e63d7ba0ecc9c3ef8ec1650866f529322c74"
+    },
+    {
+      "path": "Lab04/tests/data/testcase1/placement.png",
+      "source": "Lab04/Lab4_Guide/publicCase/testcase1/placement.png",
+      "kind": "visualization_example",
+      "bytes": 141944,
+      "sha256": "2efc14bee3deb370e94f2b26d292bd5f339bcbae6aaa00304d281baef392ffb6"
+    },
+    {
+      "path": "Lab04/tests/data/testcase1/testcase1.cst",
+      "source": "Lab04/Lab4_Guide/publicCase/testcase1/testcase1.cst",
+      "kind": "input",
+      "bytes": 4016,
+      "sha256": "048ca7c40731455314791113d34106f38f5b2b88b2b8c5cc7660f289bccc1793"
+    },
+    {
+      "path": "Lab04/tests/data/testcase1/testcase1.gcl",
+      "source": "Lab04/Lab4_Guide/publicCase/testcase1/testcase1.gcl",
+      "kind": "input",
+      "bytes": 2404,
+      "sha256": "9b7e4ccd881195ad9ac7309e029661b9bc877e06d26df8b32c83f784e9d14dbe"
+    },
+    {
+      "path": "Lab04/tests/data/testcase1/testcase1.gmp",
+      "source": "Lab04/Lab4_Guide/publicCase/testcase1/testcase1.gmp",
+      "kind": "input",
+      "bytes": 226,
+      "sha256": "00b9e4a60d88962ec3fae5905969848f4afef88f1bd58fecf1779f036693cccb"
+    },
+    {
+      "path": "Lab04/tests/data/testcase2/M1.png",
+      "source": "Lab04/Lab4_Guide/publicCase/testcase2/M1.png",
+      "kind": "visualization_example",
+      "bytes": 96971,
+      "sha256": "33ffba69c95155b9b4a2064242a059e8963ea822008c8a9810ee155de2759843"
+    },
+    {
+      "path": "Lab04/tests/data/testcase2/M2.png",
+      "source": "Lab04/Lab4_Guide/publicCase/testcase2/M2.png",
+      "kind": "visualization_example",
+      "bytes": 106034,
+      "sha256": "15ed364c47bc0150245c917ed0b74113e2cb5749c415a64c9f3ed4201db457e5"
+    },
+    {
+      "path": "Lab04/tests/data/testcase2/placement.png",
+      "source": "Lab04/Lab4_Guide/publicCase/testcase2/placement.png",
+      "kind": "visualization_example",
+      "bytes": 163077,
+      "sha256": "4d013d1180345ca0054ce7559b5c585772c6f24081d090c7ec2086ecb68a743a"
+    },
+    {
+      "path": "Lab04/tests/data/testcase2/testcase2.cst",
+      "source": "Lab04/Lab4_Guide/publicCase/testcase2/testcase2.cst",
+      "kind": "input",
+      "bytes": 101451,
+      "sha256": "897a7a02a0dfc256f8ed60b93e1586b7dd0ae1bd926aa6bf9f4ae4e09bfe96ae"
+    },
+    {
+      "path": "Lab04/tests/data/testcase2/testcase2.gcl",
+      "source": "Lab04/Lab4_Guide/publicCase/testcase2/testcase2.gcl",
+      "kind": "input",
+      "bytes": 77980,
+      "sha256": "a42fa98bd85345713580257c69b5b523f87738131e4395ea2627c4b36f9ffb9b"
+    },
+    {
+      "path": "Lab04/tests/data/testcase2/testcase2.gmp",
+      "source": "Lab04/Lab4_Guide/publicCase/testcase2/testcase2.gmp",
+      "kind": "input",
+      "bytes": 1246,
+      "sha256": "40675837fa48e90b100a36688a0875c0a5a6fab3274bf3dbee2ebd1ed9093395"
+    },
+    {
+      "path": "Lab03/tests/tools/upstream/Evaluator",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/Evaluator",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "Evaluator",
+      "git_blob_sha1": "d86866f5f61077a2016631382c31c01688623d0b",
+      "bytes": 6615944,
+      "kind": "download",
+      "sha256": "0ed0b1bce61cb4a784323071edea98518b2e0e53d7474983d568b806a94e4518"
+    },
+    {
+      "path": "Lab03/tests/tools/upstream/LICENSE",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/LICENSE",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "LICENSE",
+      "git_blob_sha1": "787e41a336dae004a7d0bd61377a62bf3f57937f",
+      "bytes": 1067,
+      "kind": "download",
+      "sha256": "d8f8ce1e211b264aa4ddaaa4d4c729f1e0e0e58fbff3a18aca1fb406257d8fcf"
+    },
+    {
+      "path": "Lab03/tests/tools/upstream/Makefile",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/Makefile",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "Makefile",
+      "git_blob_sha1": "4e77a4287638f36f9a51fc38b38886baac3c8149",
+      "bytes": 1052,
+      "kind": "download",
+      "sha256": "5200a1773a843032c96cb043a6d8befbc9beed4f093d175076480a5c3b437bc3"
+    },
+    {
+      "path": "Lab03/tests/tools/upstream/README.md",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/README.md",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "README.md",
+      "git_blob_sha1": "c4ac28e5b21853acaca9e6d09a24039a7e8f91af",
+      "bytes": 20872,
+      "kind": "download",
+      "sha256": "b06081c6757b9582760ab41e20517af7018bf1e760d37ade5e87ad051bc8f9fe"
+    },
+    {
+      "path": "Lab03/tests/tools/upstream/evaluator/PrettyTable.cpp",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/evaluator/PrettyTable.cpp",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "evaluator/PrettyTable.cpp",
+      "git_blob_sha1": "86d1bbfabae0cfb3a5a2357103a4b8d19546eea2",
+      "bytes": 9338,
+      "kind": "download",
+      "sha256": "e2062f860813b8eeae2b2431b109ec81f25ecdf439579e06292636471a1130d0"
+    },
+    {
+      "path": "Lab03/tests/tools/upstream/evaluator/PrettyTable.h",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/evaluator/PrettyTable.h",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "evaluator/PrettyTable.h",
+      "git_blob_sha1": "3c360a245fa7ce86200cb669b7eff8c7a09d02f2",
+      "bytes": 5314,
+      "kind": "download",
+      "sha256": "a4718ba83930dfe19c38583e29a17b16f40fcbb968faffa454c1b0009f3c9892"
+    },
+    {
+      "path": "Lab03/tests/tools/upstream/evaluator/evaluator.cpp",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/evaluator/evaluator.cpp",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "evaluator/evaluator.cpp",
+      "git_blob_sha1": "934b26b840389abfb23ee213b7b902d41f8ab54f",
+      "bytes": 18549,
+      "kind": "download",
+      "sha256": "aca6d79878c99b6eeea59d7568bdfb14f5d8e55a24c0850894447baeb988d937"
+    },
+    {
+      "path": "Lab03/tests/tools/upstream/evaluator/evaluator.h",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/evaluator/evaluator.h",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "evaluator/evaluator.h",
+      "git_blob_sha1": "bfe7c1b4273fd6fc5b5384ba70bb02868db5bd75",
+      "bytes": 4780,
+      "kind": "download",
+      "sha256": "b28be8b3f778842ff82a90c92739b94d1c8254c5700a235e599d0cf70b2debd5"
+    },
+    {
+      "path": "Lab03/tests/data/testcase1_16900.lg",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/testcase/testcase1_16900.lg",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "testcase/testcase1_16900.lg",
+      "git_blob_sha1": "8a31d52002d83227393ae15931c2c6962bd34ad0",
+      "bytes": 3984118,
+      "kind": "download",
+      "sha256": "2bcbe09841750ea5b82a0087c048d12235940fe08bee8523e26a4f2a2257cb97"
+    },
+    {
+      "path": "Lab03/tests/data/testcase1_16900.opt",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/testcase/testcase1_16900.opt",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "testcase/testcase1_16900.opt",
+      "git_blob_sha1": "3095eab4c23580d727e6573d8ebfd3cce670e6d6",
+      "bytes": 166788,
+      "kind": "download",
+      "sha256": "78952a653196bd041c8c69d64f9bedfda129070de0464f1cfc181e7b2919d3a9"
+    },
+    {
+      "path": "Lab03/tests/data/testcase1_ALL0_5000.lg",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/testcase/testcase1_ALL0_5000.lg",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "testcase/testcase1_ALL0_5000.lg",
+      "git_blob_sha1": "de941910aa6ca026fdaa74a469b04f42bbc324c5",
+      "bytes": 3973700,
+      "kind": "download",
+      "sha256": "2bc23e3f637243836540e8a912e08c620ffc34e659ee8762847c290c0444372c"
+    },
+    {
+      "path": "Lab03/tests/data/testcase1_ALL0_5000.opt",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/testcase/testcase1_ALL0_5000.opt",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "testcase/testcase1_ALL0_5000.opt",
+      "git_blob_sha1": "8d1ce03a3774c399f2ae13209c88a6bb0aa14f3f",
+      "bytes": 319974,
+      "kind": "download",
+      "sha256": "c9cf98b370945469c98bd8ecdb542b0de819763506080ea380a385740d45a5c8"
+    },
+    {
+      "path": "Lab03/tests/data/testcase1_MBFF_LIB_7000.lg",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/testcase/testcase1_MBFF_LIB_7000.lg",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "testcase/testcase1_MBFF_LIB_7000.lg",
+      "git_blob_sha1": "9b78e4d19172e1a0a9ae462f2022473cdb87d776",
+      "bytes": 3984118,
+      "kind": "download",
+      "sha256": "49386c462719b8065ceeb8045783b39d12c1b053f650711d38468dec53922d6a"
+    },
+    {
+      "path": "Lab03/tests/data/testcase1_MBFF_LIB_7000.opt",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/testcase/testcase1_MBFF_LIB_7000.opt",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "testcase/testcase1_MBFF_LIB_7000.opt",
+      "git_blob_sha1": "809f01672c2ebeb82e9918b7e2d2aa0f09adca3b",
+      "bytes": 773925,
+      "kind": "download",
+      "sha256": "9d9a9665a941f9197ee3e6e6583a9bc24a7be9388cbcce4cc3d9c6f9a7dc1ae4"
+    },
+    {
+      "path": "Lab03/tests/data/testcase2_100.lg",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/testcase/testcase2_100.lg",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "testcase/testcase2_100.lg",
+      "git_blob_sha1": "fd121d03c5ced3d4106c8ad0431dc579312aa842",
+      "bytes": 5770834,
+      "kind": "download",
+      "sha256": "72f669c888bfe588df64c9dbe63df1d8173f00ef350d78796b757d6961abc1d1"
+    },
+    {
+      "path": "Lab03/tests/data/testcase2_100.opt",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/testcase/testcase2_100.opt",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "testcase/testcase2_100.opt",
+      "git_blob_sha1": "540a9b4844b6559b664786958ffd207cbb2a15db",
+      "bytes": 283016,
+      "kind": "download",
+      "sha256": "cee0615c06d9678d41511488ba9e8760d9c79a2da018e79730a2677e98923d13"
+    },
+    {
+      "path": "Lab03/tests/data/testcase3_4579.lg",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/testcase/testcase3_4579.lg",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "testcase/testcase3_4579.lg",
+      "git_blob_sha1": "96d94f4ab61b4d1dfd5ea1d50c9221f16c1f3156",
+      "bytes": 3954476,
+      "kind": "download",
+      "sha256": "4560a8d3500fc0d6ea411807d2577ed57696f9cb487a6d2118a396b3346190f9"
+    },
+    {
+      "path": "Lab03/tests/data/testcase3_4579.opt",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/testcase/testcase3_4579.opt",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "testcase/testcase3_4579.opt",
+      "git_blob_sha1": "0a60847804b1af1f0c685f2dbe94aebfc5f2c3af",
+      "bytes": 479961,
+      "kind": "download",
+      "sha256": "a52cf1f84acb9cdd55dcb9cd28401e5601282a6101962bfc53cf5ed8ad992348"
+    },
+    {
+      "path": "Lab03/tests/tools/testcase_checker.py",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/testcase/testcase_checker.py",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "testcase/testcase_checker.py",
+      "git_blob_sha1": "c69a13601c506338aeee606670b4f19e9e0fb859",
+      "bytes": 5895,
+      "kind": "download",
+      "sha256": "42244b8157d442f5e7c9d1361310d6eca447bb2d4ace753455da476ed3105cbf"
+    },
+    {
+      "path": "Lab04/tests/tools/upstream/Evaluator.tar",
+      "url": "https://raw.githubusercontent.com/YubiYubi719/NYCU-PDA-Lab4-Evaluator/652fce633585336ba76a2e3931831e5f0a34acb5/Evaluator.tar",
+      "repository": "https://github.com/YubiYubi719/NYCU-PDA-Lab4-Evaluator",
+      "revision": "652fce633585336ba76a2e3931831e5f0a34acb5",
+      "upstream_path": "Evaluator.tar",
+      "git_blob_sha1": "26b5602984ce4f24439d9efd64be8f6c78262ee5",
+      "bytes": 8151040,
+      "kind": "download",
+      "sha256": "aef969d6480034ff1a11dcb0e2e76dd67ec4d2bcfc6e180fbd501a3c19522212"
+    },
+    {
+      "path": "Lab04/tests/tools/upstream/README.md",
+      "url": "https://raw.githubusercontent.com/YubiYubi719/NYCU-PDA-Lab4-Evaluator/652fce633585336ba76a2e3931831e5f0a34acb5/README.md",
+      "repository": "https://github.com/YubiYubi719/NYCU-PDA-Lab4-Evaluator",
+      "revision": "652fce633585336ba76a2e3931831e5f0a34acb5",
+      "upstream_path": "README.md",
+      "git_blob_sha1": "c7b61225da5c345d1032ce75f69f91c32c09f62a",
+      "bytes": 1016,
+      "kind": "download",
+      "sha256": "53ed698b4344c6b5a1589a365fb06637b2ed6ba1989a3b33b71392eb7685c00c"
+    },
+    {
+      "path": "Lab04/tests/data/toycase/example.cst",
+      "url": "https://raw.githubusercontent.com/YubiYubi719/NYCU-PDA-Lab4-Evaluator/652fce633585336ba76a2e3931831e5f0a34acb5/toycase/example.cst",
+      "repository": "https://github.com/YubiYubi719/NYCU-PDA-Lab4-Evaluator",
+      "revision": "652fce633585336ba76a2e3931831e5f0a34acb5",
+      "upstream_path": "toycase/example.cst",
+      "git_blob_sha1": "704d96f262311a89765b1bebe7926e32bc336f22",
+      "bytes": 15350,
+      "kind": "download",
+      "sha256": "67dd9d8dbcfb99729e81668ccc265377c49cb9389fbea9de838fed1b91f35b5a"
+    },
+    {
+      "path": "Lab04/tests/data/toycase/example.gcl",
+      "url": "https://raw.githubusercontent.com/YubiYubi719/NYCU-PDA-Lab4-Evaluator/652fce633585336ba76a2e3931831e5f0a34acb5/toycase/example.gcl",
+      "repository": "https://github.com/YubiYubi719/NYCU-PDA-Lab4-Evaluator",
+      "revision": "652fce633585336ba76a2e3931831e5f0a34acb5",
+      "upstream_path": "toycase/example.gcl",
+      "git_blob_sha1": "e62da5992cd5842c189839ac7ff4dc4c0b537999",
+      "bytes": 9604,
+      "kind": "download",
+      "sha256": "d046b7347f9c14235e63e3f64869561b262acaa1bd8e7a57ee120d61230e523e"
+    },
+    {
+      "path": "Lab04/tests/data/toycase/example.gmp",
+      "url": "https://raw.githubusercontent.com/YubiYubi719/NYCU-PDA-Lab4-Evaluator/652fce633585336ba76a2e3931831e5f0a34acb5/toycase/example.gmp",
+      "repository": "https://github.com/YubiYubi719/NYCU-PDA-Lab4-Evaluator",
+      "revision": "652fce633585336ba76a2e3931831e5f0a34acb5",
+      "upstream_path": "toycase/example.gmp",
+      "git_blob_sha1": "f999c4ee04d04b29c8064aa3d96be07adc9cc552",
+      "bytes": 455,
+      "kind": "download",
+      "sha256": "4b516bd577ffa11cbf0a27e29d0b4596b6738772992833dcda2ef875ebc13d30"
+    },
+    {
+      "path": "Lab04/tests/data/toycase/example.lg",
+      "url": "https://raw.githubusercontent.com/YubiYubi719/NYCU-PDA-Lab4-Evaluator/652fce633585336ba76a2e3931831e5f0a34acb5/toycase/example.lg",
+      "repository": "https://github.com/YubiYubi719/NYCU-PDA-Lab4-Evaluator",
+      "revision": "652fce633585336ba76a2e3931831e5f0a34acb5",
+      "upstream_path": "toycase/example.lg",
+      "git_blob_sha1": "21affadbdc23ff63472d2fff28635c5407a5a932",
+      "bytes": 1437,
+      "kind": "download",
+      "sha256": "59f30b5aae7c2c27e8a53933809b5a0e3b5c960570f9841ca181ba87fcf97571"
+    },
+    {
+      "path": "Lab03/tests/examples/testcase1_16900_post.lg",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/WebCanvas/data/testcase1_16900_post.lg",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "WebCanvas/data/testcase1_16900_post.lg",
+      "git_blob_sha1": "d5b709fb1e600b93cf2649eb5320a8316934d8c0",
+      "bytes": 119080,
+      "kind": "upstream_sample_output_not_golden",
+      "sha256": "43b7fcedb66ee5d27d37301cbef39a9dcbeaa6d96fa6ad1c0ee773634dc5973e"
+    },
+    {
+      "path": "Lab03/tests/examples/testcase1_ALL0_5000_post.lg",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/WebCanvas/data/testcase1_ALL0_5000_post.lg",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "WebCanvas/data/testcase1_ALL0_5000_post.lg",
+      "git_blob_sha1": "12070e1f1c06e8c2d4f2760fd887872efe2c7ae6",
+      "bytes": 297888,
+      "kind": "upstream_sample_output_not_golden",
+      "sha256": "244b6745528eddca91b6d2cc8e3d2b84306e5f53603cae13966311dc049fcc24"
+    },
+    {
+      "path": "Lab03/tests/examples/testcase1_MBFF_LIB_7000_post.lg",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/WebCanvas/data/testcase1_MBFF_LIB_7000_post.lg",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "WebCanvas/data/testcase1_MBFF_LIB_7000_post.lg",
+      "git_blob_sha1": "67ca90201d7d521160e69b035a5d0fc2e10f4243",
+      "bytes": 495911,
+      "kind": "upstream_sample_output_not_golden",
+      "sha256": "df36c4fd817b83cc435b650425af058ce2086ba9cf8fd31035f7d5e26e9a3ef9"
+    },
+    {
+      "path": "Lab03/tests/examples/testcase2_100_post.lg",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/WebCanvas/data/testcase2_100_post.lg",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "WebCanvas/data/testcase2_100_post.lg",
+      "git_blob_sha1": "315ecd6e12e644e3cee1ef1e89190b30789d1ee0",
+      "bytes": 51134,
+      "kind": "upstream_sample_output_not_golden",
+      "sha256": "100b2ad2dd59edc46b3ebe755f0c985f33d2f5c56cd8a61ac29e160dfb2eb9f7"
+    },
+    {
+      "path": "Lab03/tests/examples/testcase3_4579_post.lg",
+      "url": "https://raw.githubusercontent.com/coherent17/Optimizer-and-Legalizer-Co-optimization/3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71/WebCanvas/data/testcase3_4579_post.lg",
+      "repository": "https://github.com/coherent17/Optimizer-and-Legalizer-Co-optimization",
+      "revision": "3851e8cf8044b3eb2a0c352ba5dc6731fd6a5e71",
+      "upstream_path": "WebCanvas/data/testcase3_4579_post.lg",
+      "git_blob_sha1": "818591ddd12449511d0514e730f9748617843258",
+      "bytes": 219091,
+      "kind": "upstream_sample_output_not_golden",
+      "sha256": "7aaed6bee04fa69022da355d76961e53ce59939009fd34e041607a657a4e78bb"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+Round 2 profile: modernized scan version, before edge indexing
+Compiler: g++ 11.4, -std=c++17 -O3 -DNDEBUG -pg
+Input: 3,600 spaced 2x2 rectangles in a 240x240 outline, random insertion seed 1761.
+Generator: benchmarks/lab1_stitches.py grid(60, work)
+Command: ./Lab1-profile grid-3600.txt profile.out; gprof Lab1-profile gmon.out
+Profile time is diagnostic, not benchmark timing.
+
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  us/call  us/call  name    
+ 65.82      1.56     1.56    65568    23.79    23.79  UpdateCornerStitches(Block*, std::__cxx11::list<std::unique_ptr<Block, std::default_delete<Block> >, std::allocator<std::unique_ptr<Block, std::default_delete<Block> > > >&)
+ 32.49      2.33     0.77     3600   213.89   652.78  Block_Creating(int const&, int const&, int const&, int const&, int const&, std::__cxx11::list<std::unique_ptr<Block, std::default_delete<Block> >, std::allocator<std::unique_ptr<Block, std::default_delete<Block> > > >&)
+  1.27      2.36     0.03    10800     2.78     2.78  Point_Finding(Block*, int const&, int const&)
+  0.42      2.37     0.01                             _init
+  0.00      2.37     0.00    18240     0.00     0.00  Neighbor_Finding[abi:cxx11](Block*)
+  0.00      2.37     0.00    18240     0.00     0.00  Find_Top_Neighbor[abi:cxx11](Block*)
+  0.00      2.37     0.00    18240     0.00     0.00  Find_Left_Neighbor[abi:cxx11](Block*)
+  0.00      2.37     0.00    18240     0.00     0.00  Find_Right_Neighbor[abi:cxx11](Block*)
+  0.00      2.37     0.00    18240     0.00     0.00  Find_Bottom_Neighbor[abi:cxx11](Block*)
+  0.00      2.37     0.00     7202     0.00     0.00  std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(char const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  0.00      2.37     0.00     7200     0.00     0.00  void pda::read<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(std::istream&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+  0.00      2.37     0.00     3601     0.00     0.00  void pda::read<int, int>(std::istream&, int&, int&)
+  0.00      2.37     0.00     3600     0.00     0.00  void pda::read<int, int, int, int>(std::istream&, int&, int&, int&, int&)
