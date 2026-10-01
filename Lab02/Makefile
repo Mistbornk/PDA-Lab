@@ -1,5 +1,5 @@
 GXX = g++
-GXXFLAG = -std=c++17 -I../include -Iinclude
+GXXFLAG = -std=c++17 -pthread -I../include -Iinclude
 FLAG = -Wall -O3
 
 SRC = main.cpp $(wildcard src/*.cpp)

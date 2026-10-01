@@ -117,3 +117,12 @@ Lab02/tests/tools/verifier 0.5 Lab02/tests/data/ami33/ami33.block \
 `ctest --test-dir build -R 'lab2_core|lab2_undo' --output-on-failure`
 驗證 packing oracle 與增量回復；完整實測與複雜度見
 [工程說明](../docs/floorplanning-engineering.md)。
+
+## 單一 solver 內的多起點平行搜尋
+
+`--seed 1 --iterations 300000 --restarts 8 --threads 4 --stats` 會執行 seed 1–8，
+每個起點各 300,000 次迭代。所有工作完成後，從合法解中選最小 objective；
+同分選較早的起點。`--seconds` 也是每個起點的 CPU 預算，不是整批 wall time。
+`--stats` 保留各 seed 的合法性、迭代數、CPU 時間與成本。
+固定迭代數下，1／2／4／8 threads 的每個解与選出的解相同。
+詳見 [狀態隔離、同步與 scaling](../docs/parallel-floorplanning.md)。

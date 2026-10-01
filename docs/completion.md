@@ -41,3 +41,12 @@ records touched nodes/rotations instead of copying every macro and name. Dense
 packing and complete snapshots remain selectable references. All 36 paired
 official runs are legal; all nine fixed-work groups produce identical solutions.
 See [design, complexity and measurements](floorplanning-engineering.md).
+
+## 4. Solver-internal parallel independent restarts
+
+Lab02 adds a bounded worker pool over independent seed trajectories. Ownership
+and disjoint result slots remove shared mutable optimizer state; futures join
+before deterministic legal-result selection. Failure and seed-range handling are
+tested. Eight fixed-work searches take median 21.128 / 10.761 / 5.488 / 3.040 s
+at 1 / 2 / 4 / 8 threads (6.95× at eight). All 12 official outputs and each seed's
+outcomes agree. See [parallelism design and raw evidence](parallel-floorplanning.md).

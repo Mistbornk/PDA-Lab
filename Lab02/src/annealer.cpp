@@ -203,8 +203,8 @@ class Annealer {
           time_limit(settings.seconds) {}
     Result run() {
         SimulatedAnneling();
-        pda::require(bestcost.width <= outline_width && bestcost.height <= outline_height,
-                     "No legal floorplan found within budget");
+        if (bestcost.width > outline_width || bestcost.height > outline_height)
+            throw NoLegalPlacement(iterations);
         bestcost.cost =
             static_cast<long long>(options.alpha * static_cast<double>(bestcost.area) +
                                    (1 - options.alpha) * static_cast<double>(bestcost.wirelength));

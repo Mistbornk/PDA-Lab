@@ -64,6 +64,11 @@ def run(task,args,root):
                 for row in message.splitlines():
                     if re.match(r'\|\s*Total\s*\|',row): result['objective']=float(row.split('|')[4].strip())
     result['solver_log']=(work/'solver.log').read_text(errors='replace')
+    if lab=='Lab02':
+        for line in result['solver_log'].splitlines():
+            if line.startswith('{'):
+                result['diagnostics']=json.loads(line)
+                result['solver_threads']=result['diagnostics'].get('threads',1)
     print(f'{lab}/{name} #{repeat}: {result["status"]}, valid={result["valid"]}, {result["wall_seconds"]:.3f}s',flush=True)
     return result
 
@@ -109,7 +114,7 @@ def main():
     report={'label':args.label,'timestamp':datetime.now(timezone.utc).isoformat(),'platform':platform.platform(),
             'cpu':next((line.split(':',1)[1].strip() for line in Path('/proc/cpuinfo').read_text().splitlines() if line.startswith('model name')),None),
             'build':metadata,'jobs':args.jobs,'batch_wall_seconds':time.perf_counter()-started,'work_dir':str(work),
-            'note':'jobs measures independent case concurrency; each solver uses one thread. Validator time excluded from per-solver timing; included in batch timing.',
+            'note':'jobs measures independent case concurrency; solver_threads records internal parallelism. Validator time excluded from per-solver timing; included in batch timing.',
             'results':results}
     args.output.parent.mkdir(parents=True,exist_ok=True);args.output.write_text(json.dumps(report,indent=2)+'\n')
     raise SystemExit(0 if all(r['valid'] for r in results) else 1)

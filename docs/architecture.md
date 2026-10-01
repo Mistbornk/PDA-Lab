@@ -68,19 +68,27 @@ limitations (including unchanged heuristic restrictions) explicitly.
   lookup as a reference. Given B candidates on a coordinate, indexed lookup is
   O(B) worst case, insertion/removal O(log B) per ordered bucket plus expected O(1)
   hash lookup; it is not an interval-tree or a worst-case O(log T) point index.
-  Overlap validation and top/bottom split discovery still scan O(T). This measured
-  step reduces repair scope without replacing the corner-stitch insertion algorithm.
+  A separate R-tree selects solid-overlap and top/bottom split candidates; exact
+  integer half-open predicates filter intersections. All insertion/extraction
+  paths update both indexes. `--geometry scan` preserves the reference. Spatial
+  queries remain O(T) worst case. `parser.cpp`, `layout.cpp`, `report.cpp` separate
+  input, algorithm orchestration and output from the CLI.
 - Lab02 now builds a reusable `lab2_core` library. `include/model.hpp` defines
   immutable problem data separately from mutable placement and search options.
   `src/parser.cpp`, `tree.cpp`, `packing.cpp`, `annealer.cpp`, and `report.cpp`
   separate parsing, B*-tree mutations, geometry/HPWL, search policy, and formatting.
   The CLI only parses options and coordinates these APIs. Tree and packing can be
-  tested without running annealing or opening files. The dense contour and trial
-  snapshots remain. Pin IDs avoid hot-loop hash lookups; `--hpwl strings` is the
-  comparison path. Fixed iterations disable time-dependent reheating decisions.
-  The legacy C `rand()` sequence is retained to preserve seeded results; `solve`
-  calls must be serialized within one process. Benchmark parallelism uses isolated
-  processes. This is a documented exception to eliminating shared random state.
+  tested without running annealing or opening files. A reusable skyline uses at
+  most 2*n+1 breakpoints, O(n) space independent of coordinates, and O(n²) worst-case
+  packing. An undo journal restores touched structural nodes/rotations; derived
+  coordinates are repacked. Dense packing and full snapshots remain selectable
+  ablations. Pin IDs avoid hot-loop hash lookups; `--hpwl strings` is the comparison
+  path. Fixed iterations disable time-dependent reheating decisions. Each solve
+  owns its random state, including a fixed-width generator preserving Linux libc's
+  seeded scalar sequence; the initialization shuffle still depends on the standard
+  library. See [packing/journal evidence](floorplanning-engineering.md) and
+  [randomness contract](randomness.md). `parallel.cpp` schedules independent
+  restarts and deterministically selects a legal result after joining workers.
 - Lab03 separates `parser.cpp`, `legalizer.cpp`, and CLI. A solver owns stable cell
   slots, a name-to-slot map, compact `(Box, ID)` R-tree entries and row order.
   Removed slots are retained for stable IDs (O(initial cells + banking steps)
@@ -90,8 +98,9 @@ limitations (including unchanged heuristic restrictions) explicitly.
   Input FIX attributes, floating-point output and output truncation are respected.
   Legacy filename heuristic dispatch remains only as a compatibility default;
   explicit strategies make new experiments independent of paths.
-- Lab04 keeps the contiguous legacy Router for compatibility and adds
-  `layered_router.cpp`. Its state is `(GCell, arrival layer)`; cell costs are charged
+- Lab04 separates parsing, CLI and two routing modules: `legacy_router.cpp` keeps
+  the contiguous legacy Router for compatibility; `layered_router.cpp` supplies
+  the layer-aware alternative. Its state is `(GCell, arrival layer)`; cell costs are charged
   on departure, with an explicit sink for destination M1/via accounting. Edge cost
   uses marginal overflow, and A* uses weighted Manhattan distance. Workspace is
   reused but each net still depends on previous capacity usage. See
@@ -117,8 +126,11 @@ Lab04 outputs match all four public/toy historical outputs; Lab02 reference and
 ID paths match at a fixed seed and iteration budget, excluding the runtime line.
 This does not prove global optimality or complete coverage of hidden inputs.
 
-Only independent benchmark/test processes are parallelized. Each process owns
-its parsed state, random state, output directory and logs. Workers synchronize by
-joining before writing the aggregate JSON; shared inputs/evaluator binaries are
-read-only. Per-net routing, banking and annealing remain sequential because their
-state transitions are dependent. See `benchmarks/README.md` for scaling measurements.
+Independent benchmark/test processes own separate output directories and logs.
+Lab02 additionally parallelizes independent seed trajectories inside one solver:
+immutable input is shared, mutable state is per search, and result slots are
+pre-sized and disjoint. An atomic index assigns work; futures join before selecting
+and emitting a result. A single annealing trajectory, per-net routing and banking
+remain sequential because their state transitions are dependent. See
+[parallel floorplanning](parallel-floorplanning.md) for budgets, tie-breaking,
+exception handling, race analysis and fixed-total-work scaling.

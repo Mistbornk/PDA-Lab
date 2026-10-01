@@ -1,0 +1,1567 @@
+{
+  "platform": "Linux-5.15.0-130-generic-x86_64-with-glibc2.35",
+  "build": {
+    "compiler": "c++ (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0",
+    "build_type": "Release",
+    "flags": {
+      "CMAKE_CXX_FLAGS": "",
+      "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG",
+      "CMAKE_CXX_FLAGS_DEBUG": "-g",
+      "PDA_SANITIZERS": "OFF"
+    }
+  },
+  "jobs": 1,
+  "restarts": 8,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "iterations_per_restart": 300000,
+  "method": "Fixed total work; serial benchmark runs; alternating worker-count order. Every restart outcome and selected placement identical across thread counts.",
+  "results": [
+    {
+      "lab": "Lab02",
+      "dataset": "ami49",
+      "repeat": 0,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+      "executable_sha256": "30d8141200f053f9985d931a4c792adf5863d1b9d1072d0644f14ba099946d93",
+      "input_sha256": {
+        "Lab02/tests/data/ami49/ami49.block": "8efc43bd41100580b3239072bbfa9c736f9fefacc46134cb1169f23826a4b35c",
+        "Lab02/tests/data/ami49/ami49.nets": "6f1bab715977f297987a7bae300db5ddb6cb90842cb3ba24d4bf7e7afe077230"
+      },
+      "parameters": [
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "1",
+        "--stats"
+      ],
+      "alpha": 0.5,
+      "solver_threads": 1,
+      "command": [
+        "/usr/bin/time",
+        "-f",
+        "%e %U %S %M",
+        "-o",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-0/time.txt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+        "0.5",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.block",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.nets",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-0/ami49.rpt",
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "1",
+        "--stats"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 20.74901079805568,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-0/solver.log",
+      "time_wall_seconds": 20.74,
+      "user_seconds": 20.03,
+      "system_seconds": 0.69,
+      "peak_rss_kib": 4128.0,
+      "valid": true,
+      "output_sha256": "3fcdc34c56166e2957f4e9e949e0e63a3be788588907e67667b772fc69bda20b",
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nVerified\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-0/ami49.rpt.HPWL\n",
+      "objective": 19713610,
+      "hpwl": 1293460,
+      "area": 38133760,
+      "solution_sha256": "edc91fa616f413b2c771e76d54fb37c3b3a218a077b48628472ff7cfffde57e2",
+      "solver_log": "{\"seed\":6,\"iterations\":300000,\"total_iterations\":2400000,\"threads\":1,\"restarts\":8,\"attempts\":[{\"seed\":1,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.65991,\"objective\":19950913},{\"seed\":2,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.58635,\"objective\":20410386},{\"seed\":3,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.55334,\"objective\":19795590},{\"seed\":4,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.5515,\"objective\":19966530},{\"seed\":5,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.54669,\"objective\":19984293},{\"seed\":6,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.55533,\"objective\":19713610},{\"seed\":7,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.67556,\"objective\":20237987},{\"seed\":8,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.5993,\"objective\":20209451}]}\n",
+      "diagnostics": {
+        "seed": 6,
+        "iterations": 300000,
+        "total_iterations": 2400000,
+        "threads": 1,
+        "restarts": 8,
+        "attempts": [
+          {
+            "seed": 1,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.65991,
+            "objective": 19950913
+          },
+          {
+            "seed": 2,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.58635,
+            "objective": 20410386
+          },
+          {
+            "seed": 3,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.55334,
+            "objective": 19795590
+          },
+          {
+            "seed": 4,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.5515,
+            "objective": 19966530
+          },
+          {
+            "seed": 5,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.54669,
+            "objective": 19984293
+          },
+          {
+            "seed": 6,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.55533,
+            "objective": 19713610
+          },
+          {
+            "seed": 7,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.67556,
+            "objective": 20237987
+          },
+          {
+            "seed": 8,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.5993,
+            "objective": 20209451
+          }
+        ]
+      }
+    },
+    {
+      "lab": "Lab02",
+      "dataset": "ami49",
+      "repeat": 0,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+      "executable_sha256": "30d8141200f053f9985d931a4c792adf5863d1b9d1072d0644f14ba099946d93",
+      "input_sha256": {
+        "Lab02/tests/data/ami49/ami49.block": "8efc43bd41100580b3239072bbfa9c736f9fefacc46134cb1169f23826a4b35c",
+        "Lab02/tests/data/ami49/ami49.nets": "6f1bab715977f297987a7bae300db5ddb6cb90842cb3ba24d4bf7e7afe077230"
+      },
+      "parameters": [
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "2",
+        "--stats"
+      ],
+      "alpha": 0.5,
+      "solver_threads": 2,
+      "command": [
+        "/usr/bin/time",
+        "-f",
+        "%e %U %S %M",
+        "-o",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-1/time.txt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+        "0.5",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.block",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.nets",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-1/ami49.rpt",
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "2",
+        "--stats"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 10.761000385973603,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-1/solver.log",
+      "time_wall_seconds": 10.75,
+      "user_seconds": 20.76,
+      "system_seconds": 0.68,
+      "peak_rss_kib": 4456.0,
+      "valid": true,
+      "output_sha256": "f9a18e99b2e4363f389be2592d97af8aff3968cf5b3275be0c0fb133530c6c5c",
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nVerified\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-1/ami49.rpt.HPWL\n",
+      "objective": 19713610,
+      "hpwl": 1293460,
+      "area": 38133760,
+      "solution_sha256": "edc91fa616f413b2c771e76d54fb37c3b3a218a077b48628472ff7cfffde57e2",
+      "solver_log": "{\"seed\":6,\"iterations\":300000,\"total_iterations\":2400000,\"threads\":2,\"restarts\":8,\"attempts\":[{\"seed\":1,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.70264,\"objective\":19950913},{\"seed\":2,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.70504,\"objective\":20410386},{\"seed\":3,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.67815,\"objective\":19795590},{\"seed\":4,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.68056,\"objective\":19966530},{\"seed\":5,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.65133,\"objective\":19984293},{\"seed\":6,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.65771,\"objective\":19713610},{\"seed\":7,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.66973,\"objective\":20237987},{\"seed\":8,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.69931,\"objective\":20209451}]}\n",
+      "diagnostics": {
+        "seed": 6,
+        "iterations": 300000,
+        "total_iterations": 2400000,
+        "threads": 2,
+        "restarts": 8,
+        "attempts": [
+          {
+            "seed": 1,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.70264,
+            "objective": 19950913
+          },
+          {
+            "seed": 2,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.70504,
+            "objective": 20410386
+          },
+          {
+            "seed": 3,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.67815,
+            "objective": 19795590
+          },
+          {
+            "seed": 4,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.68056,
+            "objective": 19966530
+          },
+          {
+            "seed": 5,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.65133,
+            "objective": 19984293
+          },
+          {
+            "seed": 6,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.65771,
+            "objective": 19713610
+          },
+          {
+            "seed": 7,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.66973,
+            "objective": 20237987
+          },
+          {
+            "seed": 8,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.69931,
+            "objective": 20209451
+          }
+        ]
+      }
+    },
+    {
+      "lab": "Lab02",
+      "dataset": "ami49",
+      "repeat": 0,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+      "executable_sha256": "30d8141200f053f9985d931a4c792adf5863d1b9d1072d0644f14ba099946d93",
+      "input_sha256": {
+        "Lab02/tests/data/ami49/ami49.block": "8efc43bd41100580b3239072bbfa9c736f9fefacc46134cb1169f23826a4b35c",
+        "Lab02/tests/data/ami49/ami49.nets": "6f1bab715977f297987a7bae300db5ddb6cb90842cb3ba24d4bf7e7afe077230"
+      },
+      "parameters": [
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "4",
+        "--stats"
+      ],
+      "alpha": 0.5,
+      "solver_threads": 4,
+      "command": [
+        "/usr/bin/time",
+        "-f",
+        "%e %U %S %M",
+        "-o",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-2/time.txt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+        "0.5",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.block",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.nets",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-2/ami49.rpt",
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "4",
+        "--stats"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 5.545455711893737,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-2/solver.log",
+      "time_wall_seconds": 5.53,
+      "user_seconds": 20.84,
+      "system_seconds": 0.72,
+      "peak_rss_kib": 4500.0,
+      "valid": true,
+      "output_sha256": "6711f1264b9ee16e7bd1896373699ecc5705914c10cf66caeb7810ea6ff7b5c2",
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nVerified\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-2/ami49.rpt.HPWL\n",
+      "objective": 19713610,
+      "hpwl": 1293460,
+      "area": 38133760,
+      "solution_sha256": "edc91fa616f413b2c771e76d54fb37c3b3a218a077b48628472ff7cfffde57e2",
+      "solver_log": "{\"seed\":6,\"iterations\":300000,\"total_iterations\":2400000,\"threads\":4,\"restarts\":8,\"attempts\":[{\"seed\":1,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.68986,\"objective\":19950913},{\"seed\":2,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.81863,\"objective\":20410386},{\"seed\":3,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.67947,\"objective\":19795590},{\"seed\":4,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.69326,\"objective\":19966530},{\"seed\":5,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.64824,\"objective\":19984293},{\"seed\":6,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.6817,\"objective\":19713610},{\"seed\":7,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.64462,\"objective\":20237987},{\"seed\":8,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.71012,\"objective\":20209451}]}\n",
+      "diagnostics": {
+        "seed": 6,
+        "iterations": 300000,
+        "total_iterations": 2400000,
+        "threads": 4,
+        "restarts": 8,
+        "attempts": [
+          {
+            "seed": 1,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.68986,
+            "objective": 19950913
+          },
+          {
+            "seed": 2,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.81863,
+            "objective": 20410386
+          },
+          {
+            "seed": 3,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.67947,
+            "objective": 19795590
+          },
+          {
+            "seed": 4,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.69326,
+            "objective": 19966530
+          },
+          {
+            "seed": 5,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.64824,
+            "objective": 19984293
+          },
+          {
+            "seed": 6,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.6817,
+            "objective": 19713610
+          },
+          {
+            "seed": 7,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.64462,
+            "objective": 20237987
+          },
+          {
+            "seed": 8,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.71012,
+            "objective": 20209451
+          }
+        ]
+      }
+    },
+    {
+      "lab": "Lab02",
+      "dataset": "ami49",
+      "repeat": 0,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+      "executable_sha256": "30d8141200f053f9985d931a4c792adf5863d1b9d1072d0644f14ba099946d93",
+      "input_sha256": {
+        "Lab02/tests/data/ami49/ami49.block": "8efc43bd41100580b3239072bbfa9c736f9fefacc46134cb1169f23826a4b35c",
+        "Lab02/tests/data/ami49/ami49.nets": "6f1bab715977f297987a7bae300db5ddb6cb90842cb3ba24d4bf7e7afe077230"
+      },
+      "parameters": [
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "8",
+        "--stats"
+      ],
+      "alpha": 0.5,
+      "solver_threads": 8,
+      "command": [
+        "/usr/bin/time",
+        "-f",
+        "%e %U %S %M",
+        "-o",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-3/time.txt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+        "0.5",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.block",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.nets",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-3/ami49.rpt",
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "8",
+        "--stats"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 3.045446910895407,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-3/solver.log",
+      "time_wall_seconds": 3.03,
+      "user_seconds": 22.79,
+      "system_seconds": 0.8,
+      "peak_rss_kib": 4320.0,
+      "valid": true,
+      "output_sha256": "8626e7ff387a556b00b9e23bb0ea6fc1e526c42a254bfe0bb94f228ee1fd427c",
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nVerified\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-3/ami49.rpt.HPWL\n",
+      "objective": 19713610,
+      "hpwl": 1293460,
+      "area": 38133760,
+      "solution_sha256": "edc91fa616f413b2c771e76d54fb37c3b3a218a077b48628472ff7cfffde57e2",
+      "solver_log": "{\"seed\":6,\"iterations\":300000,\"total_iterations\":2400000,\"threads\":8,\"restarts\":8,\"attempts\":[{\"seed\":1,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.95237,\"objective\":19950913},{\"seed\":2,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.97156,\"objective\":20410386},{\"seed\":3,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.92969,\"objective\":19795590},{\"seed\":4,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.8969,\"objective\":19966530},{\"seed\":5,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.94873,\"objective\":19984293},{\"seed\":6,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.95383,\"objective\":19713610},{\"seed\":7,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.96587,\"objective\":20237987},{\"seed\":8,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.9786,\"objective\":20209451}]}\n",
+      "diagnostics": {
+        "seed": 6,
+        "iterations": 300000,
+        "total_iterations": 2400000,
+        "threads": 8,
+        "restarts": 8,
+        "attempts": [
+          {
+            "seed": 1,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.95237,
+            "objective": 19950913
+          },
+          {
+            "seed": 2,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.97156,
+            "objective": 20410386
+          },
+          {
+            "seed": 3,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.92969,
+            "objective": 19795590
+          },
+          {
+            "seed": 4,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.8969,
+            "objective": 19966530
+          },
+          {
+            "seed": 5,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.94873,
+            "objective": 19984293
+          },
+          {
+            "seed": 6,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.95383,
+            "objective": 19713610
+          },
+          {
+            "seed": 7,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.96587,
+            "objective": 20237987
+          },
+          {
+            "seed": 8,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.9786,
+            "objective": 20209451
+          }
+        ]
+      }
+    },
+    {
+      "lab": "Lab02",
+      "dataset": "ami49",
+      "repeat": 1,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+      "executable_sha256": "30d8141200f053f9985d931a4c792adf5863d1b9d1072d0644f14ba099946d93",
+      "input_sha256": {
+        "Lab02/tests/data/ami49/ami49.block": "8efc43bd41100580b3239072bbfa9c736f9fefacc46134cb1169f23826a4b35c",
+        "Lab02/tests/data/ami49/ami49.nets": "6f1bab715977f297987a7bae300db5ddb6cb90842cb3ba24d4bf7e7afe077230"
+      },
+      "parameters": [
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "8",
+        "--stats"
+      ],
+      "alpha": 0.5,
+      "solver_threads": 8,
+      "command": [
+        "/usr/bin/time",
+        "-f",
+        "%e %U %S %M",
+        "-o",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-4/time.txt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+        "0.5",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.block",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.nets",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-4/ami49.rpt",
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "8",
+        "--stats"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 3.007170578930527,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-4/solver.log",
+      "time_wall_seconds": 2.99,
+      "user_seconds": 22.54,
+      "system_seconds": 0.74,
+      "peak_rss_kib": 4408.0,
+      "valid": true,
+      "output_sha256": "dacfba31ecc68c39ff288f701a3eee532d0b325fc491d419d05c21fdeb3d0e2a",
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nVerified\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-4/ami49.rpt.HPWL\n",
+      "objective": 19713610,
+      "hpwl": 1293460,
+      "area": 38133760,
+      "solution_sha256": "edc91fa616f413b2c771e76d54fb37c3b3a218a077b48628472ff7cfffde57e2",
+      "solver_log": "{\"seed\":6,\"iterations\":300000,\"total_iterations\":2400000,\"threads\":8,\"restarts\":8,\"attempts\":[{\"seed\":1,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.90031,\"objective\":19950913},{\"seed\":2,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.9131,\"objective\":20410386},{\"seed\":3,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.88093,\"objective\":19795590},{\"seed\":4,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.86618,\"objective\":19966530},{\"seed\":5,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.86904,\"objective\":19984293},{\"seed\":6,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.97746,\"objective\":19713610},{\"seed\":7,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.88609,\"objective\":20237987},{\"seed\":8,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.98919,\"objective\":20209451}]}\n",
+      "diagnostics": {
+        "seed": 6,
+        "iterations": 300000,
+        "total_iterations": 2400000,
+        "threads": 8,
+        "restarts": 8,
+        "attempts": [
+          {
+            "seed": 1,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.90031,
+            "objective": 19950913
+          },
+          {
+            "seed": 2,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.9131,
+            "objective": 20410386
+          },
+          {
+            "seed": 3,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.88093,
+            "objective": 19795590
+          },
+          {
+            "seed": 4,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.86618,
+            "objective": 19966530
+          },
+          {
+            "seed": 5,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.86904,
+            "objective": 19984293
+          },
+          {
+            "seed": 6,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.97746,
+            "objective": 19713610
+          },
+          {
+            "seed": 7,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.88609,
+            "objective": 20237987
+          },
+          {
+            "seed": 8,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.98919,
+            "objective": 20209451
+          }
+        ]
+      }
+    },
+    {
+      "lab": "Lab02",
+      "dataset": "ami49",
+      "repeat": 1,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+      "executable_sha256": "30d8141200f053f9985d931a4c792adf5863d1b9d1072d0644f14ba099946d93",
+      "input_sha256": {
+        "Lab02/tests/data/ami49/ami49.block": "8efc43bd41100580b3239072bbfa9c736f9fefacc46134cb1169f23826a4b35c",
+        "Lab02/tests/data/ami49/ami49.nets": "6f1bab715977f297987a7bae300db5ddb6cb90842cb3ba24d4bf7e7afe077230"
+      },
+      "parameters": [
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "4",
+        "--stats"
+      ],
+      "alpha": 0.5,
+      "solver_threads": 4,
+      "command": [
+        "/usr/bin/time",
+        "-f",
+        "%e %U %S %M",
+        "-o",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-5/time.txt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+        "0.5",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.block",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.nets",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-5/ami49.rpt",
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "4",
+        "--stats"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 5.367361273150891,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-5/solver.log",
+      "time_wall_seconds": 5.36,
+      "user_seconds": 20.61,
+      "system_seconds": 0.68,
+      "peak_rss_kib": 4500.0,
+      "valid": true,
+      "output_sha256": "fca644f865cd0f1b44a514e62626012689cda0ad7c285e47c4ab3e5fc5469de9",
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nVerified\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-5/ami49.rpt.HPWL\n",
+      "objective": 19713610,
+      "hpwl": 1293460,
+      "area": 38133760,
+      "solution_sha256": "edc91fa616f413b2c771e76d54fb37c3b3a218a077b48628472ff7cfffde57e2",
+      "solver_log": "{\"seed\":6,\"iterations\":300000,\"total_iterations\":2400000,\"threads\":4,\"restarts\":8,\"attempts\":[{\"seed\":1,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.66851,\"objective\":19950913},{\"seed\":2,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.65623,\"objective\":20410386},{\"seed\":3,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.65831,\"objective\":19795590},{\"seed\":4,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.68352,\"objective\":19966530},{\"seed\":5,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.65329,\"objective\":19984293},{\"seed\":6,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.64158,\"objective\":19713610},{\"seed\":7,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.66523,\"objective\":20237987},{\"seed\":8,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.66656,\"objective\":20209451}]}\n",
+      "diagnostics": {
+        "seed": 6,
+        "iterations": 300000,
+        "total_iterations": 2400000,
+        "threads": 4,
+        "restarts": 8,
+        "attempts": [
+          {
+            "seed": 1,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.66851,
+            "objective": 19950913
+          },
+          {
+            "seed": 2,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.65623,
+            "objective": 20410386
+          },
+          {
+            "seed": 3,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.65831,
+            "objective": 19795590
+          },
+          {
+            "seed": 4,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.68352,
+            "objective": 19966530
+          },
+          {
+            "seed": 5,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.65329,
+            "objective": 19984293
+          },
+          {
+            "seed": 6,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.64158,
+            "objective": 19713610
+          },
+          {
+            "seed": 7,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.66523,
+            "objective": 20237987
+          },
+          {
+            "seed": 8,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.66656,
+            "objective": 20209451
+          }
+        ]
+      }
+    },
+    {
+      "lab": "Lab02",
+      "dataset": "ami49",
+      "repeat": 1,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+      "executable_sha256": "30d8141200f053f9985d931a4c792adf5863d1b9d1072d0644f14ba099946d93",
+      "input_sha256": {
+        "Lab02/tests/data/ami49/ami49.block": "8efc43bd41100580b3239072bbfa9c736f9fefacc46134cb1169f23826a4b35c",
+        "Lab02/tests/data/ami49/ami49.nets": "6f1bab715977f297987a7bae300db5ddb6cb90842cb3ba24d4bf7e7afe077230"
+      },
+      "parameters": [
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "2",
+        "--stats"
+      ],
+      "alpha": 0.5,
+      "solver_threads": 2,
+      "command": [
+        "/usr/bin/time",
+        "-f",
+        "%e %U %S %M",
+        "-o",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-6/time.txt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+        "0.5",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.block",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.nets",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-6/ami49.rpt",
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "2",
+        "--stats"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 10.804762389976531,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-6/solver.log",
+      "time_wall_seconds": 10.79,
+      "user_seconds": 20.81,
+      "system_seconds": 0.68,
+      "peak_rss_kib": 4376.0,
+      "valid": true,
+      "output_sha256": "dd04fb1937d1879644d22e171669abee67437877169e923138de3ec79764aa85",
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nVerified\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-6/ami49.rpt.HPWL\n",
+      "objective": 19713610,
+      "hpwl": 1293460,
+      "area": 38133760,
+      "solution_sha256": "edc91fa616f413b2c771e76d54fb37c3b3a218a077b48628472ff7cfffde57e2",
+      "solver_log": "{\"seed\":6,\"iterations\":300000,\"total_iterations\":2400000,\"threads\":2,\"restarts\":8,\"attempts\":[{\"seed\":1,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.68169,\"objective\":19950913},{\"seed\":2,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.72901,\"objective\":20410386},{\"seed\":3,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.67042,\"objective\":19795590},{\"seed\":4,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.68325,\"objective\":19966530},{\"seed\":5,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.67824,\"objective\":19984293},{\"seed\":6,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.68517,\"objective\":19713610},{\"seed\":7,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.6793,\"objective\":20237987},{\"seed\":8,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.69084,\"objective\":20209451}]}\n",
+      "diagnostics": {
+        "seed": 6,
+        "iterations": 300000,
+        "total_iterations": 2400000,
+        "threads": 2,
+        "restarts": 8,
+        "attempts": [
+          {
+            "seed": 1,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.68169,
+            "objective": 19950913
+          },
+          {
+            "seed": 2,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.72901,
+            "objective": 20410386
+          },
+          {
+            "seed": 3,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.67042,
+            "objective": 19795590
+          },
+          {
+            "seed": 4,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.68325,
+            "objective": 19966530
+          },
+          {
+            "seed": 5,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.67824,
+            "objective": 19984293
+          },
+          {
+            "seed": 6,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.68517,
+            "objective": 19713610
+          },
+          {
+            "seed": 7,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.6793,
+            "objective": 20237987
+          },
+          {
+            "seed": 8,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.69084,
+            "objective": 20209451
+          }
+        ]
+      }
+    },
+    {
+      "lab": "Lab02",
+      "dataset": "ami49",
+      "repeat": 1,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+      "executable_sha256": "30d8141200f053f9985d931a4c792adf5863d1b9d1072d0644f14ba099946d93",
+      "input_sha256": {
+        "Lab02/tests/data/ami49/ami49.block": "8efc43bd41100580b3239072bbfa9c736f9fefacc46134cb1169f23826a4b35c",
+        "Lab02/tests/data/ami49/ami49.nets": "6f1bab715977f297987a7bae300db5ddb6cb90842cb3ba24d4bf7e7afe077230"
+      },
+      "parameters": [
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "1",
+        "--stats"
+      ],
+      "alpha": 0.5,
+      "solver_threads": 1,
+      "command": [
+        "/usr/bin/time",
+        "-f",
+        "%e %U %S %M",
+        "-o",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-7/time.txt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+        "0.5",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.block",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.nets",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-7/ami49.rpt",
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "1",
+        "--stats"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 21.12813862832263,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-7/solver.log",
+      "time_wall_seconds": 21.12,
+      "user_seconds": 20.46,
+      "system_seconds": 0.65,
+      "peak_rss_kib": 4128.0,
+      "valid": true,
+      "output_sha256": "92817ed2dc418ff705acf900268b9467e454568c360aec1dd9e31efd7a06b191",
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nVerified\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-7/ami49.rpt.HPWL\n",
+      "objective": 19713610,
+      "hpwl": 1293460,
+      "area": 38133760,
+      "solution_sha256": "edc91fa616f413b2c771e76d54fb37c3b3a218a077b48628472ff7cfffde57e2",
+      "solver_log": "{\"seed\":6,\"iterations\":300000,\"total_iterations\":2400000,\"threads\":1,\"restarts\":8,\"attempts\":[{\"seed\":1,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.6321,\"objective\":19950913},{\"seed\":2,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.60349,\"objective\":20410386},{\"seed\":3,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.65122,\"objective\":19795590},{\"seed\":4,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.61842,\"objective\":19966530},{\"seed\":5,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.63504,\"objective\":19984293},{\"seed\":6,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.61079,\"objective\":19713610},{\"seed\":7,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.68541,\"objective\":20237987},{\"seed\":8,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.67397,\"objective\":20209451}]}\n",
+      "diagnostics": {
+        "seed": 6,
+        "iterations": 300000,
+        "total_iterations": 2400000,
+        "threads": 1,
+        "restarts": 8,
+        "attempts": [
+          {
+            "seed": 1,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.6321,
+            "objective": 19950913
+          },
+          {
+            "seed": 2,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.60349,
+            "objective": 20410386
+          },
+          {
+            "seed": 3,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.65122,
+            "objective": 19795590
+          },
+          {
+            "seed": 4,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.61842,
+            "objective": 19966530
+          },
+          {
+            "seed": 5,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.63504,
+            "objective": 19984293
+          },
+          {
+            "seed": 6,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.61079,
+            "objective": 19713610
+          },
+          {
+            "seed": 7,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.68541,
+            "objective": 20237987
+          },
+          {
+            "seed": 8,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.67397,
+            "objective": 20209451
+          }
+        ]
+      }
+    },
+    {
+      "lab": "Lab02",
+      "dataset": "ami49",
+      "repeat": 2,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+      "executable_sha256": "30d8141200f053f9985d931a4c792adf5863d1b9d1072d0644f14ba099946d93",
+      "input_sha256": {
+        "Lab02/tests/data/ami49/ami49.block": "8efc43bd41100580b3239072bbfa9c736f9fefacc46134cb1169f23826a4b35c",
+        "Lab02/tests/data/ami49/ami49.nets": "6f1bab715977f297987a7bae300db5ddb6cb90842cb3ba24d4bf7e7afe077230"
+      },
+      "parameters": [
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "1",
+        "--stats"
+      ],
+      "alpha": 0.5,
+      "solver_threads": 1,
+      "command": [
+        "/usr/bin/time",
+        "-f",
+        "%e %U %S %M",
+        "-o",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-8/time.txt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+        "0.5",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.block",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.nets",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-8/ami49.rpt",
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "1",
+        "--stats"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 21.186982835642993,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-8/solver.log",
+      "time_wall_seconds": 21.17,
+      "user_seconds": 20.52,
+      "system_seconds": 0.65,
+      "peak_rss_kib": 4284.0,
+      "valid": true,
+      "output_sha256": "11cd47fc5e07d394a7b921b498423a1f006b9370c8e4d26fd2e2793344ed47b3",
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nVerified\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-8/ami49.rpt.HPWL\n",
+      "objective": 19713610,
+      "hpwl": 1293460,
+      "area": 38133760,
+      "solution_sha256": "edc91fa616f413b2c771e76d54fb37c3b3a218a077b48628472ff7cfffde57e2",
+      "solver_log": "{\"seed\":6,\"iterations\":300000,\"total_iterations\":2400000,\"threads\":1,\"restarts\":8,\"attempts\":[{\"seed\":1,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.64881,\"objective\":19950913},{\"seed\":2,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.62209,\"objective\":20410386},{\"seed\":3,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.66519,\"objective\":19795590},{\"seed\":4,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.62435,\"objective\":19966530},{\"seed\":5,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.66988,\"objective\":19984293},{\"seed\":6,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.61751,\"objective\":19713610},{\"seed\":7,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.6566,\"objective\":20237987},{\"seed\":8,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.66404,\"objective\":20209451}]}\n",
+      "diagnostics": {
+        "seed": 6,
+        "iterations": 300000,
+        "total_iterations": 2400000,
+        "threads": 1,
+        "restarts": 8,
+        "attempts": [
+          {
+            "seed": 1,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.64881,
+            "objective": 19950913
+          },
+          {
+            "seed": 2,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.62209,
+            "objective": 20410386
+          },
+          {
+            "seed": 3,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.66519,
+            "objective": 19795590
+          },
+          {
+            "seed": 4,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.62435,
+            "objective": 19966530
+          },
+          {
+            "seed": 5,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.66988,
+            "objective": 19984293
+          },
+          {
+            "seed": 6,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.61751,
+            "objective": 19713610
+          },
+          {
+            "seed": 7,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.6566,
+            "objective": 20237987
+          },
+          {
+            "seed": 8,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.66404,
+            "objective": 20209451
+          }
+        ]
+      }
+    },
+    {
+      "lab": "Lab02",
+      "dataset": "ami49",
+      "repeat": 2,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+      "executable_sha256": "30d8141200f053f9985d931a4c792adf5863d1b9d1072d0644f14ba099946d93",
+      "input_sha256": {
+        "Lab02/tests/data/ami49/ami49.block": "8efc43bd41100580b3239072bbfa9c736f9fefacc46134cb1169f23826a4b35c",
+        "Lab02/tests/data/ami49/ami49.nets": "6f1bab715977f297987a7bae300db5ddb6cb90842cb3ba24d4bf7e7afe077230"
+      },
+      "parameters": [
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "2",
+        "--stats"
+      ],
+      "alpha": 0.5,
+      "solver_threads": 2,
+      "command": [
+        "/usr/bin/time",
+        "-f",
+        "%e %U %S %M",
+        "-o",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-9/time.txt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+        "0.5",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.block",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.nets",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-9/ami49.rpt",
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "2",
+        "--stats"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 10.723117840941995,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-9/solver.log",
+      "time_wall_seconds": 10.71,
+      "user_seconds": 20.65,
+      "system_seconds": 0.7,
+      "peak_rss_kib": 4372.0,
+      "valid": true,
+      "output_sha256": "8aee78c8e8d09ebf74c7e2bf8b9d8dd2859022d8dce6e4d8c48763a61d57e181",
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nVerified\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-9/ami49.rpt.HPWL\n",
+      "objective": 19713610,
+      "hpwl": 1293460,
+      "area": 38133760,
+      "solution_sha256": "edc91fa616f413b2c771e76d54fb37c3b3a218a077b48628472ff7cfffde57e2",
+      "solver_log": "{\"seed\":6,\"iterations\":300000,\"total_iterations\":2400000,\"threads\":2,\"restarts\":8,\"attempts\":[{\"seed\":1,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.68657,\"objective\":19950913},{\"seed\":2,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.64682,\"objective\":20410386},{\"seed\":3,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.66012,\"objective\":19795590},{\"seed\":4,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.65456,\"objective\":19966530},{\"seed\":5,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.67284,\"objective\":19984293},{\"seed\":6,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.67328,\"objective\":19713610},{\"seed\":7,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.66735,\"objective\":20237987},{\"seed\":8,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.69006,\"objective\":20209451}]}\n",
+      "diagnostics": {
+        "seed": 6,
+        "iterations": 300000,
+        "total_iterations": 2400000,
+        "threads": 2,
+        "restarts": 8,
+        "attempts": [
+          {
+            "seed": 1,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.68657,
+            "objective": 19950913
+          },
+          {
+            "seed": 2,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.64682,
+            "objective": 20410386
+          },
+          {
+            "seed": 3,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.66012,
+            "objective": 19795590
+          },
+          {
+            "seed": 4,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.65456,
+            "objective": 19966530
+          },
+          {
+            "seed": 5,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.67284,
+            "objective": 19984293
+          },
+          {
+            "seed": 6,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.67328,
+            "objective": 19713610
+          },
+          {
+            "seed": 7,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.66735,
+            "objective": 20237987
+          },
+          {
+            "seed": 8,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.69006,
+            "objective": 20209451
+          }
+        ]
+      }
+    },
+    {
+      "lab": "Lab02",
+      "dataset": "ami49",
+      "repeat": 2,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+      "executable_sha256": "30d8141200f053f9985d931a4c792adf5863d1b9d1072d0644f14ba099946d93",
+      "input_sha256": {
+        "Lab02/tests/data/ami49/ami49.block": "8efc43bd41100580b3239072bbfa9c736f9fefacc46134cb1169f23826a4b35c",
+        "Lab02/tests/data/ami49/ami49.nets": "6f1bab715977f297987a7bae300db5ddb6cb90842cb3ba24d4bf7e7afe077230"
+      },
+      "parameters": [
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "4",
+        "--stats"
+      ],
+      "alpha": 0.5,
+      "solver_threads": 4,
+      "command": [
+        "/usr/bin/time",
+        "-f",
+        "%e %U %S %M",
+        "-o",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-10/time.txt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+        "0.5",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.block",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.nets",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-10/ami49.rpt",
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "4",
+        "--stats"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 5.488477836828679,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-10/solver.log",
+      "time_wall_seconds": 5.47,
+      "user_seconds": 20.84,
+      "system_seconds": 0.83,
+      "peak_rss_kib": 4288.0,
+      "valid": true,
+      "output_sha256": "bb4a0a8e6edcc4990b8447edb83f6e449c6a9a9b17c3caf0c452204c5097b570",
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nVerified\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-10/ami49.rpt.HPWL\n",
+      "objective": 19713610,
+      "hpwl": 1293460,
+      "area": 38133760,
+      "solution_sha256": "edc91fa616f413b2c771e76d54fb37c3b3a218a077b48628472ff7cfffde57e2",
+      "solver_log": "{\"seed\":6,\"iterations\":300000,\"total_iterations\":2400000,\"threads\":4,\"restarts\":8,\"attempts\":[{\"seed\":1,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.77014,\"objective\":19950913},{\"seed\":2,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.73834,\"objective\":20410386},{\"seed\":3,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.78488,\"objective\":19795590},{\"seed\":4,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.71393,\"objective\":19966530},{\"seed\":5,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.65111,\"objective\":19984293},{\"seed\":6,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.67452,\"objective\":19713610},{\"seed\":7,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.68987,\"objective\":20237987},{\"seed\":8,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.65211,\"objective\":20209451}]}\n",
+      "diagnostics": {
+        "seed": 6,
+        "iterations": 300000,
+        "total_iterations": 2400000,
+        "threads": 4,
+        "restarts": 8,
+        "attempts": [
+          {
+            "seed": 1,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.77014,
+            "objective": 19950913
+          },
+          {
+            "seed": 2,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.73834,
+            "objective": 20410386
+          },
+          {
+            "seed": 3,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.78488,
+            "objective": 19795590
+          },
+          {
+            "seed": 4,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.71393,
+            "objective": 19966530
+          },
+          {
+            "seed": 5,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.65111,
+            "objective": 19984293
+          },
+          {
+            "seed": 6,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.67452,
+            "objective": 19713610
+          },
+          {
+            "seed": 7,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.68987,
+            "objective": 20237987
+          },
+          {
+            "seed": 8,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.65211,
+            "objective": 20209451
+          }
+        ]
+      }
+    },
+    {
+      "lab": "Lab02",
+      "dataset": "ami49",
+      "repeat": 2,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+      "executable_sha256": "30d8141200f053f9985d931a4c792adf5863d1b9d1072d0644f14ba099946d93",
+      "input_sha256": {
+        "Lab02/tests/data/ami49/ami49.block": "8efc43bd41100580b3239072bbfa9c736f9fefacc46134cb1169f23826a4b35c",
+        "Lab02/tests/data/ami49/ami49.nets": "6f1bab715977f297987a7bae300db5ddb6cb90842cb3ba24d4bf7e7afe077230"
+      },
+      "parameters": [
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "8",
+        "--stats"
+      ],
+      "alpha": 0.5,
+      "solver_threads": 8,
+      "command": [
+        "/usr/bin/time",
+        "-f",
+        "%e %U %S %M",
+        "-o",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-11/time.txt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+        "0.5",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.block",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.nets",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-11/ami49.rpt",
+        "--seed",
+        "1",
+        "--iterations",
+        "300000",
+        "--restarts",
+        "8",
+        "--threads",
+        "8",
+        "--stats"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 3.0403628987260163,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-11/solver.log",
+      "time_wall_seconds": 3.03,
+      "user_seconds": 22.69,
+      "system_seconds": 0.83,
+      "peak_rss_kib": 4388.0,
+      "valid": true,
+      "output_sha256": "a6753aa800c89f713292b7fbb45e302a514904a3e9f58930ee5f57cc5fafacb5",
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nVerified\nArea:38133760\nHPWL:1293460\nCost:1.97136e+07\nHeight:7168\nWidth:5320\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/multistart-d_49b1sf/Lab02-ami49-11/ami49.rpt.HPWL\n",
+      "objective": 19713610,
+      "hpwl": 1293460,
+      "area": 38133760,
+      "solution_sha256": "edc91fa616f413b2c771e76d54fb37c3b3a218a077b48628472ff7cfffde57e2",
+      "solver_log": "{\"seed\":6,\"iterations\":300000,\"total_iterations\":2400000,\"threads\":8,\"restarts\":8,\"attempts\":[{\"seed\":1,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.97985,\"objective\":19950913},{\"seed\":2,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.8904,\"objective\":20410386},{\"seed\":3,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.89569,\"objective\":19795590},{\"seed\":4,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.96234,\"objective\":19966530},{\"seed\":5,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.89158,\"objective\":19984293},{\"seed\":6,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":3.02014,\"objective\":19713610},{\"seed\":7,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.90255,\"objective\":20237987},{\"seed\":8,\"legal\":true,\"iterations\":300000,\"cpu_seconds\":2.98297,\"objective\":20209451}]}\n",
+      "diagnostics": {
+        "seed": 6,
+        "iterations": 300000,
+        "total_iterations": 2400000,
+        "threads": 8,
+        "restarts": 8,
+        "attempts": [
+          {
+            "seed": 1,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.97985,
+            "objective": 19950913
+          },
+          {
+            "seed": 2,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.8904,
+            "objective": 20410386
+          },
+          {
+            "seed": 3,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.89569,
+            "objective": 19795590
+          },
+          {
+            "seed": 4,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.96234,
+            "objective": 19966530
+          },
+          {
+            "seed": 5,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.89158,
+            "objective": 19984293
+          },
+          {
+            "seed": 6,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 3.02014,
+            "objective": 19713610
+          },
+          {
+            "seed": 7,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.90255,
+            "objective": 20237987
+          },
+          {
+            "seed": 8,
+            "legal": true,
+            "iterations": 300000,
+            "cpu_seconds": 2.98297,
+            "objective": 20209451
+          }
+        ]
+      }
+    }
+  ],
+  "summary": [
+    {
+      "threads": 1,
+      "median_wall_seconds": 21.12813862832263,
+      "speedup": 1.0,
+      "median_peak_rss_kib": 4128.0
+    },
+    {
+      "threads": 2,
+      "median_wall_seconds": 10.761000385973603,
+      "speedup": 1.9633991144412604,
+      "median_peak_rss_kib": 4376.0
+    },
+    {
+      "threads": 4,
+      "median_wall_seconds": 5.488477836828679,
+      "speedup": 3.8495443101817775,
+      "median_peak_rss_kib": 4500.0
+    },
+    {
+      "threads": 8,
+      "median_wall_seconds": 3.0403628987260163,
+      "speedup": 6.949216041669176,
+      "median_peak_rss_kib": 4388.0
+    }
+  ]
+}
