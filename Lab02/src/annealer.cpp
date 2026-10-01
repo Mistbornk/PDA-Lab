@@ -1,9 +1,9 @@
 #include "annealer.hpp"
 #include "packing.hpp"
 #include "pda/io.hpp"
+#include "timing.hpp"
 #include "tree.hpp"
 #include <cmath>
-#include <cstdlib>
 #include <random>
 using namespace std;
 namespace lab2 {
@@ -15,7 +15,8 @@ class Annealer {
     int numBlocks, outline_width, outline_height;
     vector<Block> bestblocks;
     Cost bestcost;
-    clock_t start;
+    double start;
+    Random random;
     mt19937 g;
     uint64_t iteration_limit, iterations = 0;
     double time_limit;
@@ -23,30 +24,30 @@ class Annealer {
         return evaluate(problem, placement, options.alpha, penalty, options.integer_pins);
     }
     bool isAccept(const double &T, const double &diff) {
-        double RandNum = (double)rand() / (RAND_MAX);
+        double RandNum = static_cast<double>(random()) / Random::maximum;
         return T > 0 && exp(-diff / T) > RandNum;
     }
     Cost Perturb(bool findOutline) {
-        int op = numBlocks == 1 ? 0 : rand() % 3;
+        int op = numBlocks == 1 ? 0 : random() % 3;
         switch (op) {
         case 0: {
-            int randID = rand() % numBlocks;
+            int randID = random() % numBlocks;
             rotate_block(placement, randID);
             break;
         }
         case 1: {
-            int randID1 = rand() % numBlocks;
-            int randID2 = rand() % numBlocks;
+            int randID1 = random() % numBlocks;
+            int randID2 = random() % numBlocks;
             while (randID1 == randID2)
-                randID2 = rand() % numBlocks;
-            move_node(placement, randID1, randID2, std::rand);
+                randID2 = random() % numBlocks;
+            move_node(placement, randID1, randID2, random);
             break;
         }
         case 2: {
-            int randID1 = rand() % numBlocks;
-            int randID2 = rand() % numBlocks;
+            int randID1 = random() % numBlocks;
+            int randID2 = random() % numBlocks;
             while (randID1 == randID2)
-                randID2 = rand() % numBlocks;
+                randID2 = random() % numBlocks;
             swap_nodes(placement, randID1, randID2);
             break;
         }
@@ -76,9 +77,9 @@ class Annealer {
         int uphill = 0;
         Cost old_cost = bestcost;
 
-        clock_t init_time = clock();
-        clock_t seconds_to_fit_outline_time = init_time;
-        clock_t round_count_start = clock();
+        double init_time = search_seconds();
+        double seconds_to_fit_outline_time = init_time;
+        double round_count_start = search_seconds();
         int max_seconds_to_fit_outline = numBlocks / 2;
 
         int seconds_to_fit_outline = 0;
@@ -87,16 +88,14 @@ class Annealer {
         total_move = 0;
         uphill = 0;
 
-        while (iteration_limit
-                   ? iterations < iteration_limit
-                   : static_cast<double>(clock() - start) / CLOCKS_PER_SEC < time_limit) {
+        while (iteration_limit ? iterations < iteration_limit
+                               : search_seconds() - start < time_limit) {
             total_move = 0;
             uphill = 0;
 
             while (uphill <= N && total_move <= 2 * N &&
-                   (iteration_limit
-                        ? iterations < iteration_limit
-                        : static_cast<double>(clock() - start) / CLOCKS_PER_SEC < time_limit)) {
+                   (iteration_limit ? iterations < iteration_limit
+                                    : search_seconds() - start < time_limit)) {
                 vector<Block> tempblocks(placement.blocks);
                 vector<Node> tempbstartree(placement.tree);
                 int prev_root_block = placement.root;
@@ -106,10 +105,10 @@ class Annealer {
                 int count_time = 0;
 
                 if (random_expanded) {
-                    count_time = (clock() - round_count_start) / CLOCKS_PER_SEC;
+                    count_time = static_cast<int>(search_seconds() - round_count_start);
                     if (!iteration_limit && count_time > 1.5) {
                         i = i % 4 + 1;
-                        round_count_start = clock();
+                        round_count_start = search_seconds();
                     }
                     int tmp = iteration_limit ? 1 : i;
                     while (tmp--)
@@ -170,25 +169,25 @@ class Annealer {
 
             T *= r;
 
-            seconds_to_fit_outline = (clock() - seconds_to_fit_outline_time) / CLOCKS_PER_SEC;
+            seconds_to_fit_outline =
+                static_cast<int>(search_seconds() - seconds_to_fit_outline_time);
 
             if (!iteration_limit &&
                 checkTime(seconds_to_fit_outline, max_seconds_to_fit_outline, in_fixed_outline)) {
                 seconds_to_fit_outline = 0;
-                seconds_to_fit_outline_time = clock();
+                seconds_to_fit_outline_time = search_seconds();
                 T = T0;
             }
         }
     }
 
   public:
-    Annealer(const Problem &input, const Options &settings, clock_t began)
+    Annealer(const Problem &input, const Options &settings, double began)
         : problem(input), options(settings), placement{-1, input.blocks, {}},
           numBlocks(static_cast<int>(input.blocks.size())), outline_width(input.outline_width),
-          outline_height(input.outline_height), start(began), g(settings.seed),
-          iteration_limit(settings.iterations), time_limit(settings.seconds) {}
+          outline_height(input.outline_height), start(began), random(settings.seed),
+          g(settings.seed), iteration_limit(settings.iterations), time_limit(settings.seconds) {}
     Result run() {
-        srand(options.seed);
         SimulatedAnneling();
         pda::require(bestcost.width <= outline_width && bestcost.height <= outline_height,
                      "No legal floorplan found within budget");
@@ -199,7 +198,7 @@ class Annealer {
     }
 };
 } // namespace
-Result solve(const Problem &problem, const Options &options, clock_t start) {
+Result solve(const Problem &problem, const Options &options, double start) {
     return Annealer(problem, options, start).run();
 }
 } // namespace lab2

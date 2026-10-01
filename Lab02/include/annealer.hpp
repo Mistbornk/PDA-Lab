@@ -1,8 +1,8 @@
 #pragma once
 #include "model.hpp"
+#include "timing.hpp"
 namespace lab2 {
-// Keeps the original libc rand sequence for course-result compatibility.
-// Calls must be serialized within a process; benchmark workers use separate processes.
-Result solve(const Problem &problem, const Options &options, std::clock_t start = std::clock());
+// Each invocation owns its random state, placement, and thread CPU budget.
+Result solve(const Problem &problem, const Options &options, double start = search_seconds());
 void write_report(const std::string &path, const Result &result, double elapsed_seconds);
 } // namespace lab2

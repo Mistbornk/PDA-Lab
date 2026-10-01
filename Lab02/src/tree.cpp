@@ -64,7 +64,7 @@ void swap_nodes(Placement &p, int node1, int node2) {
     else if (p.root == node2)
         p.root = node1;
 }
-void move_node(Placement &p, int from, int to, int (*random)()) {
+void move_node(Placement &p, int from, int to, Random &random) {
     // delete the node
     if (p.tree[from].leftChild == -1 && p.tree[from].rightChild == -1) {
         // if no child then directly remove

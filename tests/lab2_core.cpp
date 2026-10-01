@@ -40,7 +40,7 @@ void check_packing(const Placement &p) {
 int main() {
     try {
         std::mt19937 rng(73);
-        std::srand(19);
+        lab2::Random mutation_random(19);
         Placement p;
         for (int i = 0; i < 20; ++i)
             p.blocks.push_back({std::to_string(i), 0, 0, 1 + i % 7, 1 + i % 5, false});
@@ -55,7 +55,7 @@ int main() {
                 swap_nodes(p, a, b);
                 break;
             case 2:
-                move_node(p, a, b, std::rand);
+                move_node(p, a, b, mutation_random);
                 break;
             }
             check(valid_tree(p), "Mutation broke root/parent/reachability invariant");

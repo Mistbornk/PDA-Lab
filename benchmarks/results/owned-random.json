@@ -1,0 +1,198 @@
+{
+  "label": "isolated-random",
+  "timestamp": "2026-10-01T11:05:29.835119+00:00",
+  "platform": "Linux-5.15.0-130-generic-x86_64-with-glibc2.35",
+  "cpu": "Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz",
+  "build": {
+    "compiler": "c++ (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0",
+    "build_type": "Release",
+    "flags": {
+      "CMAKE_CXX_FLAGS": "",
+      "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG",
+      "CMAKE_CXX_FLAGS_DEBUG": "-g",
+      "PDA_SANITIZERS": "OFF"
+    }
+  },
+  "jobs": 1,
+  "batch_wall_seconds": 30.276172793004662,
+  "work_dir": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-k_ieh2xg",
+  "note": "jobs measures independent case concurrency; each solver uses one thread. Validator time excluded from per-solver timing; included in batch timing.",
+  "results": [
+    {
+      "lab": "Lab02",
+      "dataset": "ami33",
+      "repeat": 0,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+      "executable_sha256": "53da5061e10d2733ba72fc9285918e92a60e7f111e7e81902a1f704eee5322f0",
+      "input_sha256": {
+        "Lab02/tests/data/ami33/ami33.block": "e53918e9761e9050b808ff6526505154125cc3264d3da9089050500a208f8ec6",
+        "Lab02/tests/data/ami33/ami33.nets": "be2e6f7c1e8056df46f92dee909fff6873bd6855ff1a7cc14479d9659e3cd963"
+      },
+      "parameters": [
+        "--seed",
+        "1",
+        "--iterations",
+        "300000"
+      ],
+      "alpha": 0.5,
+      "solver_threads": 1,
+      "command": [
+        "/usr/bin/time",
+        "-f",
+        "%e %U %S %M",
+        "-o",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-k_ieh2xg/Lab02-ami33-0/time.txt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+        "0.5",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami33/ami33.block",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami33/ami33.nets",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-k_ieh2xg/Lab02-ami33-0/ami33.rpt",
+        "--seed",
+        "1",
+        "--iterations",
+        "300000"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 2.2992362258955836,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-k_ieh2xg/Lab02-ami33-0/solver.log",
+      "time_wall_seconds": 2.29,
+      "user_seconds": 2.23,
+      "system_seconds": 0.05,
+      "peak_rss_kib": 4048.0,
+      "valid": true,
+      "output_sha256": "081ed16a2e05e255c0b98a874a6f1b96925418400cbad2e947db0684e9770d1d",
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:1228920\nHPWL:97154\nCost:663037\nHeight:1064\nWidth:1155\n\nVerified\nArea:1228920\nHPWL:97154\nCost:663037\nHeight:1064\nWidth:1155\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-k_ieh2xg/Lab02-ami33-0/ami33.rpt.HPWL\n",
+      "objective": 663037,
+      "hpwl": 97154,
+      "area": 1228920,
+      "solution_sha256": "101e2d49ed2130db6b8b6582594fed5eb776437386acb83f95780938f426d653",
+      "solver_log": ""
+    },
+    {
+      "lab": "Lab02",
+      "dataset": "ami49",
+      "repeat": 0,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+      "executable_sha256": "53da5061e10d2733ba72fc9285918e92a60e7f111e7e81902a1f704eee5322f0",
+      "input_sha256": {
+        "Lab02/tests/data/ami49/ami49.block": "8efc43bd41100580b3239072bbfa9c736f9fefacc46134cb1169f23826a4b35c",
+        "Lab02/tests/data/ami49/ami49.nets": "6f1bab715977f297987a7bae300db5ddb6cb90842cb3ba24d4bf7e7afe077230"
+      },
+      "parameters": [
+        "--seed",
+        "1",
+        "--iterations",
+        "300000"
+      ],
+      "alpha": 0.5,
+      "solver_threads": 1,
+      "command": [
+        "/usr/bin/time",
+        "-f",
+        "%e %U %S %M",
+        "-o",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-k_ieh2xg/Lab02-ami49-0/time.txt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+        "0.5",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.block",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/ami49/ami49.nets",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-k_ieh2xg/Lab02-ami49-0/ami49.rpt",
+        "--seed",
+        "1",
+        "--iterations",
+        "300000"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 8.102576562203467,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-k_ieh2xg/Lab02-ami49-0/solver.log",
+      "time_wall_seconds": 8.09,
+      "user_seconds": 7.93,
+      "system_seconds": 0.15,
+      "peak_rss_kib": 4360.0,
+      "valid": true,
+      "output_sha256": "2a61f2a878968c6cfb365ab7b3d0c0bec686bd97d1baf94926b4ce9aab1894f7",
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:38704512\nHPWL:1197315\nCost:1.99509e+07\nHeight:7392\nWidth:5236\n\nVerified\nArea:38704512\nHPWL:1197315\nCost:1.99509e+07\nHeight:7392\nWidth:5236\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-k_ieh2xg/Lab02-ami49-0/ami49.rpt.HPWL\n",
+      "objective": 19950913,
+      "hpwl": 1197315,
+      "area": 38704512,
+      "solution_sha256": "9fda8937399357b9d3a683ff79bd459df3b2c1c36ef47ec9adafc87ab7af1053",
+      "solver_log": ""
+    },
+    {
+      "lab": "Lab02",
+      "dataset": "vda317b",
+      "repeat": 0,
+      "executable": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+      "executable_sha256": "53da5061e10d2733ba72fc9285918e92a60e7f111e7e81902a1f704eee5322f0",
+      "input_sha256": {
+        "Lab02/tests/data/vda317b/vda317b.block": "ec8b3b45efc35c1368590e2dc7c9d518071a3dbbd1434c1d6c542464bcc7e126",
+        "Lab02/tests/data/vda317b/vda317b.nets": "7bccf7ab59afd1a0dbf20f5a1a757e47f3a86a9bbc598bf8b0bd91c97e953ad6"
+      },
+      "parameters": [
+        "--seed",
+        "1",
+        "--iterations",
+        "300000"
+      ],
+      "alpha": 0.5,
+      "solver_threads": 1,
+      "command": [
+        "/usr/bin/time",
+        "-f",
+        "%e %U %S %M",
+        "-o",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-k_ieh2xg/Lab02-vda317b-0/time.txt",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/build/Lab02/Lab2",
+        "0.5",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/vda317b/vda317b.block",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab02/tests/data/vda317b/vda317b.nets",
+        "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-k_ieh2xg/Lab02-vda317b-0/vda317b.rpt",
+        "--seed",
+        "1",
+        "--iterations",
+        "300000"
+      ],
+      "returncode": 0,
+      "status": "completed",
+      "wall_seconds": 19.79338835272938,
+      "log": "/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-k_ieh2xg/Lab02-vda317b-0/solver.log",
+      "time_wall_seconds": 19.78,
+      "user_seconds": 19.65,
+      "system_seconds": 0.12,
+      "peak_rss_kib": 4296.0,
+      "valid": true,
+      "output_sha256": "cfdf1f7bbb7446f4b152d4937c2ae38ea8c6e37b2a3d9b154194a98084232f28",
+      "validator_log": "HPWL:         Pass\nAREA:         Pass\nCOST:         Pass\nOVERLAP:      Pass\nOUT_OF_RANGE: Pass\n\nYour solution\nArea:37041032\nHPWL:0\nCost:1.85205e+07\nHeight:4492\nWidth:8246\n\nVerified\nArea:37041032\nHPWL:0\nCost:1.85205e+07\nHeight:4492\nWidth:8246\n\nHPWL file generated /mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/run-k_ieh2xg/Lab02-vda317b-0/vda317b.rpt.HPWL\n",
+      "objective": 18520516,
+      "hpwl": 0,
+      "area": 37041032,
+      "solution_sha256": "235bb98ac7b207112a8c009db30692e3f11cbf072d971b690ba8b4bafa49e6f2",
+      "solver_log": ""
+    }
+  ],
+  "comparison": {
+    "baseline": "benchmarks/results/lab2-study.json",
+    "seed": 1,
+    "iterations": 300000,
+    "checks": [
+      {
+        "dataset": "ami33",
+        "solution_sha256": "101e2d49ed2130db6b8b6582594fed5eb776437386acb83f95780938f426d653",
+        "equal": true
+      },
+      {
+        "dataset": "ami49",
+        "solution_sha256": "9fda8937399357b9d3a683ff79bd459df3b2c1c36ef47ec9adafc87ab7af1053",
+        "equal": true
+      },
+      {
+        "dataset": "vda317b",
+        "solution_sha256": "235bb98ac7b207112a8c009db30692e3f11cbf072d971b690ba8b4bafa49e6f2",
+        "equal": true
+      }
+    ],
+    "note": "Timing is not an optimization claim: profiling ran concurrently."
+  }
+}

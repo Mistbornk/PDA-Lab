@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
                                 "[--iterations N | --seconds S] [--hpwl ids|strings] [--stats]");
         lab2::Options options;
         bool print_stats = false;
-        const auto start = clock();
+        const auto start = lab2::search_seconds();
         options.seed = static_cast<unsigned>(time(nullptr));
         bool seconds_set = false;
         for (int i = 5; i < argc; ++i) {
@@ -55,7 +55,7 @@ int main(int argc, char *argv[]) {
 
         auto problem = lab2::parse(argv[2], argv[3]);
         auto result = lab2::solve(problem, options, start);
-        lab2::write_report(argv[4], result, static_cast<double>(clock() - start) / CLOCKS_PER_SEC);
+        lab2::write_report(argv[4], result, lab2::search_seconds() - start);
         if (print_stats)
             cerr << "{\"seed\":" << options.seed << ",\"iterations\":" << result.iterations
                  << "}\n";
