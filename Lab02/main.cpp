@@ -50,7 +50,8 @@ int main(int argc, char *argv[]) {
                 pda::require(pda::positive(options.seconds), "Invalid time budget");
             } else if (option == "--iterations" || option == "--seed" || option == "--restarts" ||
                        option == "--threads") {
-                pda::require(!value.empty() && value[0] != '-', "Expected unsigned integer");
+                pda::require(!value.empty() && value.find('-') == string::npos,
+                             "Expected unsigned integer");
                 auto n = stoull(value, &used);
                 if (option == "--iterations") {
                     options.iterations = n;

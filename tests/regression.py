@@ -134,6 +134,10 @@ class Regression(unittest.TestCase):
                 self.assertEqual(int(lines[0]),int(alpha*X*Y+(1-alpha)*hpwl))
                 outputs.append(lines[:4]+lines[5:])
             self.assertEqual(*outputs)
+        for flags in [ ['--iterations',' -1'], ['--iterations','1.5'],
+                       ['--threads','0'], ['--restarts','1025'],
+                       ['--seed','4294967295','--restarts','2'] ]:
+            self.run_solver('Lab02',[0.5,block,nets,self.work/'out',*flags],False)
         self.run_solver('Lab02',['nan',block,nets,self.work/'out'],False)
         self.run_solver('Lab02',[0.5,block,self.file('bad.nets','NumNets: 1\nNetDegree: 1\nunknown\n'),self.work/'out'],False)
         self.run_solver('Lab02',[0.5,self.file('bad.block','Outline: 10 10\nNumBlocks: 0\nNumTerminals: 0\n'),nets,self.work/'out'],False)
