@@ -8,7 +8,8 @@ using namespace std;
 int main(int argc, char *argv[]) {
     try {
         pda::require(argc >= 5, "Usage: Lab2 alpha input.block input.nets output.rpt [--seed N] "
-                                "[--iterations N | --seconds S] [--hpwl ids|strings] [--stats]");
+                                "[--iterations N | --seconds S] [--hpwl ids|strings] [--packing "
+                                "dense|skyline] [--stats]");
         lab2::Options options;
         bool print_stats = false;
         const auto start = lab2::search_seconds();
@@ -23,6 +24,17 @@ int main(int argc, char *argv[]) {
             pda::require(i + 1 < argc, "Missing option value");
             const string value = argv[++i];
             std::size_t used = 0;
+            if (option == "--rollback") {
+                pda::require(value == "snapshot" || value == "journal", "Invalid rollback mode");
+                options.undo_journal = value == "journal";
+                continue;
+            }
+            if (option == "--packing") {
+                pda::require(value == "dense" || value == "skyline", "Invalid packing mode");
+                options.packing =
+                    value == "dense" ? lab2::PackingMode::Dense : lab2::PackingMode::Skyline;
+                continue;
+            }
             if (option == "--hpwl") {
                 pda::require(value == "ids" || value == "strings", "Invalid HPWL mode");
                 options.integer_pins = value == "ids";

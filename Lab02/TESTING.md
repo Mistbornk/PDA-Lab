@@ -108,3 +108,12 @@ Lab02/tests/tools/verifier 0.5 Lab02/tests/data/ami33/ami33.block \
 執行 `python3 benchmarks/lab2_study.py` 會以三組正式資料、seeds 1／7／19、10 萬與 30 萬 iterations 配對比較 strings／IDs。報告保存預算用盡的案例，並分別列出合法率與合法解成本，不只取成功 seed。已測樣本中 ami33／ami49 在 10 萬 iterations 均無解，30 萬才全數合法；vda317b 的 10 萬次也不是每個 seed 成功。需自行擴大預算，不能把一次成功當成保證。
 
 兩條 HPWL 路徑在相同 seed／工作量下產生相同結果；若換 seed 或改時間預算，應比較官方合法性、cost／area／HPWL 與 runtime 分布。詳見 [完整研究](../benchmarks/README.md)。
+
+## Packing / rollback 對照
+
+預設 `--packing skyline --rollback journal`。可指定 `--packing dense` 與
+`--rollback snapshot` 做相同 seed／迭代數的對照；兩種選項互相獨立。
+所有路徑保留相同 B*-tree、接受策略、HPWL 與課程輸出格式。
+`ctest --test-dir build -R 'lab2_core|lab2_undo' --output-on-failure`
+驗證 packing oracle 與增量回復；完整實測與複雜度見
+[工程說明](../docs/floorplanning-engineering.md)。

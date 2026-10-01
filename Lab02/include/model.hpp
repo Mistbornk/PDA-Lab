@@ -34,11 +34,14 @@ struct Placement {
     std::vector<Block> blocks;
     std::vector<Node> tree;
 };
+enum class PackingMode { Dense, Skyline };
 struct Options {
     double alpha = 0.5, seconds = 280.0;
     unsigned seed = 1;
     std::uint64_t iterations = 0;
     bool integer_pins = true;
+    PackingMode packing = PackingMode::Skyline;
+    bool undo_journal = true;
 };
 struct Result {
     std::vector<Block> blocks;

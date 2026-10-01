@@ -12,6 +12,8 @@ class Annealer {
     const Problem &problem;
     const Options &options;
     Placement placement;
+    PackingWorkspace packing;
+    UndoJournal journal;
     int numBlocks, outline_width, outline_height;
     vector<Block> bestblocks;
     Cost bestcost;
@@ -21,7 +23,7 @@ class Annealer {
     uint64_t iteration_limit, iterations = 0;
     double time_limit;
     Cost CalCost(bool penalty) {
-        return evaluate(problem, placement, options.alpha, penalty, options.integer_pins);
+        return evaluate(problem, placement, options.alpha, penalty, options.integer_pins, &packing);
     }
     bool isAccept(const double &T, const double &diff) {
         double RandNum = static_cast<double>(random()) / Random::maximum;
@@ -32,7 +34,7 @@ class Annealer {
         switch (op) {
         case 0: {
             int randID = random() % numBlocks;
-            rotate_block(placement, randID);
+            rotate_block(placement, randID, options.undo_journal ? &journal : nullptr);
             break;
         }
         case 1: {
@@ -40,7 +42,8 @@ class Annealer {
             int randID2 = random() % numBlocks;
             while (randID1 == randID2)
                 randID2 = random() % numBlocks;
-            move_node(placement, randID1, randID2, random);
+            move_node(placement, randID1, randID2, random,
+                      options.undo_journal ? &journal : nullptr);
             break;
         }
         case 2: {
@@ -48,7 +51,7 @@ class Annealer {
             int randID2 = random() % numBlocks;
             while (randID1 == randID2)
                 randID2 = random() % numBlocks;
-            swap_nodes(placement, randID1, randID2);
+            swap_nodes(placement, randID1, randID2, options.undo_journal ? &journal : nullptr);
             break;
         }
         }
@@ -96,8 +99,14 @@ class Annealer {
             while (uphill <= N && total_move <= 2 * N &&
                    (iteration_limit ? iterations < iteration_limit
                                     : search_seconds() - start < time_limit)) {
-                vector<Block> tempblocks(placement.blocks);
-                vector<Node> tempbstartree(placement.tree);
+                vector<Block> tempblocks;
+                vector<Node> tempbstartree;
+                if (options.undo_journal)
+                    journal.begin(placement);
+                else {
+                    tempblocks = placement.blocks;
+                    tempbstartree = placement.tree;
+                }
                 int prev_root_block = placement.root;
 
                 Cost cur_cost = old_cost;
@@ -161,9 +170,13 @@ class Annealer {
                     if (delta_cost > 0)
                         uphill++;
                 } else {
-                    placement.root = prev_root_block;
-                    placement.blocks = tempblocks;
-                    placement.tree = tempbstartree;
+                    if (options.undo_journal)
+                        journal.rollback(placement);
+                    else {
+                        placement.root = prev_root_block;
+                        placement.blocks = std::move(tempblocks);
+                        placement.tree = std::move(tempbstartree);
+                    }
                 }
             }
 
@@ -184,9 +197,10 @@ class Annealer {
   public:
     Annealer(const Problem &input, const Options &settings, double began)
         : problem(input), options(settings), placement{-1, input.blocks, {}},
-          numBlocks(static_cast<int>(input.blocks.size())), outline_width(input.outline_width),
-          outline_height(input.outline_height), start(began), random(settings.seed),
-          g(settings.seed), iteration_limit(settings.iterations), time_limit(settings.seconds) {}
+          packing(settings.packing), numBlocks(static_cast<int>(input.blocks.size())),
+          outline_width(input.outline_width), outline_height(input.outline_height), start(began),
+          random(settings.seed), g(settings.seed), iteration_limit(settings.iterations),
+          time_limit(settings.seconds) {}
     Result run() {
         SimulatedAnneling();
         pda::require(bestcost.width <= outline_width && bestcost.height <= outline_height,

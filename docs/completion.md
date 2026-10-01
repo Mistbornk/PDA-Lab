@@ -33,3 +33,11 @@ and overlap result against geometry/raster oracles. See
 [raw measurements](../benchmarks/results/lab1-geometry.json). Small cases may not
 benefit from the extra index; R-tree queries and edge buckets still have linear
 worst cases. This is candidate selection, not a new corner-stitching algorithm.
+
+## 3. Lab02 coordinate-independent packing and incremental rollback
+
+The measured contour hotspot now uses a reusable vector skyline. Trial rollback
+records touched nodes/rotations instead of copying every macro and name. Dense
+packing and complete snapshots remain selectable references. All 36 paired
+official runs are legal; all nine fixed-work groups produce identical solutions.
+See [design, complexity and measurements](floorplanning-engineering.md).

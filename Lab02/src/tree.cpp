@@ -3,7 +3,9 @@
 #include <numeric>
 using namespace std;
 namespace lab2 {
-void rotate_block(Placement &p, int current) {
+void rotate_block(Placement &p, int current, UndoJournal *undo) {
+    if (undo)
+        undo->remember(p, current);
     swap(p.blocks[current].height, p.blocks[current].width);
     p.blocks[current].rotate = (p.blocks[current].rotate) ? false : true;
 }
@@ -36,7 +38,11 @@ static void swapChild(Placement &p, int node1, int node2) {
     if (p.tree[node2].rightChild != -1)
         p.tree[p.tree[node2].rightChild].parent = node2;
 }
-void swap_nodes(Placement &p, int node1, int node2) {
+void swap_nodes(Placement &p, int node1, int node2, UndoJournal *undo) {
+    if (undo) {
+        undo->neighborhood(p, node1);
+        undo->neighborhood(p, node2);
+    }
     // swap parent
     swapParent(p, node1, node2);
 
@@ -64,7 +70,9 @@ void swap_nodes(Placement &p, int node1, int node2) {
     else if (p.root == node2)
         p.root = node1;
 }
-void move_node(Placement &p, int from, int to, Random &random) {
+void move_node(Placement &p, int from, int to, Random &random, UndoJournal *undo) {
+    if (undo)
+        undo->neighborhood(p, from);
     // delete the node
     if (p.tree[from].leftChild == -1 && p.tree[from].rightChild == -1) {
         // if no child then directly remove
@@ -83,9 +91,9 @@ void move_node(Placement &p, int from, int to, Random &random) {
                 swapLeft = true;
 
             if (swapLeft) {
-                swap_nodes(p, from, p.tree[from].leftChild);
+                swap_nodes(p, from, p.tree[from].leftChild, undo);
             } else {
-                swap_nodes(p, from, p.tree[from].rightChild);
+                swap_nodes(p, from, p.tree[from].rightChild, undo);
             }
             if (p.tree[from].leftChild == -1 && p.tree[from].rightChild == -1)
                 break;
@@ -112,6 +120,8 @@ void move_node(Placement &p, int from, int to, Random &random) {
     }
 
     // insert the node
+    if (undo)
+        undo->neighborhood(p, to);
     int op = random() % 2;
     int toChild = (op == 0) ? p.tree[to].leftChild : p.tree[to].rightChild;
     switch (op) {

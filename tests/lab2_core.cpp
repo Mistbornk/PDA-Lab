@@ -45,6 +45,7 @@ int main() {
         for (int i = 0; i < 20; ++i)
             p.blocks.push_back({std::to_string(i), 0, 0, 1 + i % 7, 1 + i % 5, false});
         initialize_tree(p, rng);
+        PackingWorkspace dense(PackingMode::Dense), skyline(PackingMode::Skyline);
         for (int i = 0; i < 20000; ++i) {
             const int a = rng() % 20, b = (a + 1 + rng() % 19) % 20;
             switch (i % 3) {
@@ -59,9 +60,25 @@ int main() {
                 break;
             }
             check(valid_tree(p), "Mutation broke root/parent/reachability invariant");
-            pack(p, 1);
+            pack(p, 1, dense);
             check_packing(p);
+            const auto before = p.blocks;
+            pack(p, 1, skyline);
+            check_packing(p);
+            for (std::size_t j = 0; j < before.size(); ++j)
+                check(before[j].x == p.blocks[j].x && before[j].y == p.blocks[j].y,
+                      "Dense and skyline packing differ");
         }
+        // The skyline size depends on macro count, not coordinate magnitude.
+        auto wide = p;
+        for (auto &b : wide.blocks) {
+            b.width *= 1000000;
+            b.height *= 1000000;
+        }
+        pack(wide, 2000000000, skyline);
+        check_packing(wide);
+        check(skyline.skyline.size() <= 2 * wide.blocks.size() + 1,
+              "Skyline exceeds segment bound");
         auto broken = p;
         broken.tree[broken.root].leftChild = broken.root;
         check(!valid_tree(broken), "Cycle accepted");

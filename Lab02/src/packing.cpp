@@ -4,53 +4,74 @@
 using namespace std;
 namespace lab2 {
 namespace {
-void updateContour(Placement &p, int current, vector<int> &contour, bool isLeft) {
-    if (current < 0)
-        return;
-
-    int parent = p.tree[current].parent;
-
-    // left or right child of parent
-    p.blocks[current].x = p.blocks[parent].x + (isLeft ? p.blocks[parent].width : 0);
-
-    int x_start = p.blocks[current].x;
-    int x_end = x_start + p.blocks[current].width;
-    int y_max = 0;
-    int contour_size = contour.size();
-    if (x_end > contour_size)
-        contour.insert(contour.end(), x_end - contour.size(), 0);
-
-    for (int i = x_start; i < x_end; i++) {
-        if (contour[i] > y_max)
-            y_max = contour[i];
-    }
-
-    p.blocks[current].y = y_max;
-
-    y_max += p.blocks[current].height;
-    for (int i = x_start; i < x_end; i++)
-        contour[i] = y_max;
-
-    // Recursively update the left and right children of the current block
-    if (p.tree[current].leftChild != -1)
-        updateContour(p, p.tree[current].leftChild, contour, true);
-    if (p.tree[current].rightChild != -1)
-        updateContour(p, p.tree[current].rightChild, contour, false);
+int skyline_height(PackingWorkspace &w, int left, int right, int height) {
+    auto &skyline = w.skyline;
+    const auto less_x = [](const PackingWorkspace::Segment &s, int x) { return s.x < x; };
+    auto first = std::lower_bound(skyline.begin(), skyline.end(), left, less_x);
+    auto last = std::lower_bound(first, skyline.end(), right, less_x);
+    const auto covering = first != skyline.end() && first->x == left ? first : std::prev(first);
+    int y = covering->height;
+    for (auto it = covering; it != last; ++it)
+        y = std::max(y, it->height);
+    const int end_height =
+        last != skyline.end() && last->x == right ? last->height : std::prev(last)->height;
+    const bool has_end = last != skyline.end() && last->x == right;
+    auto position = skyline.erase(first, last);
+    if (has_end)
+        skyline.insert(position, {left, y + height});
+    else
+        skyline.insert(position, {{left, y + height}, {right, end_height}});
+    return y;
+}
+int dense_height(PackingWorkspace &w, int left, int right, int height) {
+    const auto end = static_cast<std::size_t>(right);
+    if (end > w.dense.size())
+        w.dense.resize(end, 0);
+    int y = 0;
+    for (auto x = static_cast<std::size_t>(left); x < end; ++x)
+        y = std::max(y, w.dense[x]);
+    for (auto x = static_cast<std::size_t>(left); x < end; ++x)
+        w.dense[x] = y + height;
+    return y;
 }
 } // namespace
+void pack(Placement &p, int initial_contour_width, PackingWorkspace &w) {
+    // Geometry uses half-open intervals. Iterative preorder also handles deep trees
+    // without consuming one call-stack frame per macro.
+    w.pending.clear();
+    w.pending.reserve(p.blocks.size());
+    w.pending.push_back(p.root);
+    if (w.mode == PackingMode::Dense) {
+        w.dense.assign(static_cast<std::size_t>(initial_contour_width), 0);
+    } else {
+        w.skyline.clear();
+        w.skyline.reserve(2 * p.blocks.size() + 1);
+        w.skyline.push_back({0, 0});
+    }
+    while (!w.pending.empty()) {
+        const auto id = static_cast<std::size_t>(w.pending.back());
+        w.pending.pop_back();
+        auto &block = p.blocks[id];
+        const auto &node = p.tree[id];
+        block.x = 0;
+        if (node.parent != -1) {
+            const auto parent = static_cast<std::size_t>(node.parent);
+            block.x =
+                p.blocks[parent].x +
+                (p.tree[parent].leftChild == static_cast<int>(id) ? p.blocks[parent].width : 0);
+        }
+        block.y = w.mode == PackingMode::Dense
+                      ? dense_height(w, block.x, block.x + block.width, block.height)
+                      : skyline_height(w, block.x, block.x + block.width, block.height);
+        if (node.rightChild != -1)
+            w.pending.push_back(node.rightChild);
+        if (node.leftChild != -1)
+            w.pending.push_back(node.leftChild);
+    }
+}
 void pack(Placement &p, int initial_contour_width) {
-
-    vector<int> contour(max(initial_contour_width, p.blocks[p.root].width), 0);
-    p.blocks[p.root].x = 0;
-    p.blocks[p.root].y = 0;
-
-    for (int i = 0; i < p.blocks[p.root].width; i++)
-        contour[i] = p.blocks[p.root].height;
-
-    if (p.tree[p.root].leftChild != -1)
-        updateContour(p, p.tree[p.root].leftChild, contour, true);
-    if (p.tree[p.root].rightChild != -1)
-        updateContour(p, p.tree[p.root].rightChild, contour, false);
+    PackingWorkspace workspace;
+    pack(p, initial_contour_width, workspace);
 }
 long long hpwl(const Problem &problem, const vector<Block> &blocks, bool integer_pins) {
     const int numBlocks = static_cast<int>(blocks.size());
@@ -81,8 +102,11 @@ long long hpwl(const Problem &problem, const vector<Block> &blocks, bool integer
     return total;
 }
 Cost evaluate(const Problem &problem, Placement &placement, double alpha, bool outline_penalty,
-              bool integer_pins) {
-    pack(placement, max(problem.outline_width, problem.outline_height));
+              bool integer_pins, PackingWorkspace *workspace) {
+    if (workspace)
+        pack(placement, max(problem.outline_width, problem.outline_height), *workspace);
+    else
+        pack(placement, max(problem.outline_width, problem.outline_height));
     Cost c;
     for (const auto &b : placement.blocks) {
         c.width = max(c.width, b.x + b.width);
