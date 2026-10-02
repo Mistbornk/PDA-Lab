@@ -64,6 +64,7 @@ def run(task,args,root):
                 for row in message.splitlines():
                     if re.match(r'\|\s*Total\s*\|',row): result['objective']=float(row.split('|')[4].strip())
     result['solver_log']=(work/'solver.log').read_text(errors='replace')
+    result['diagnostic_records'] = [json.loads(line) for line in result['solver_log'].splitlines() if line.startswith('{')]
     if lab=='Lab02':
         for line in result['solver_log'].splitlines():
             if line.startswith('{'):

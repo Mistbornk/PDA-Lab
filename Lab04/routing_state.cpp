@@ -156,6 +156,25 @@ void write_report(std::ostream &output, const Input &input, const Result &result
     }
 }
 void write_stats(std::ostream &output, const Result &result) {
+    if (!result.iterations.empty()) {
+        for (const auto &iteration : result.iterations)
+            output << std::setprecision(17)
+                   << "{\"kind\":\"iteration\",\"round\":" << iteration.round
+                   << ",\"objective\":" << iteration.metrics.objective
+                   << ",\"overflow\":" << iteration.metrics.overflow
+                   << ",\"max_overflow\":" << iteration.metrics.max_overflow
+                   << ",\"wirelength\":" << iteration.metrics.wirelength
+                   << ",\"vias\":" << iteration.metrics.vias
+                   << ",\"elapsed_seconds\":" << iteration.elapsed_seconds
+                   << ",\"rerouted\":" << iteration.rerouted << "}\n";
+        output << "{\"kind\":\"summary\",\"objective\":" << result.metrics.objective
+               << ",\"overflow\":" << result.metrics.overflow
+               << ",\"max_overflow\":" << result.metrics.max_overflow
+               << ",\"wirelength\":" << result.metrics.wirelength
+               << ",\"vias\":" << result.metrics.vias
+               << ",\"budget_exhausted\":" << (result.budget_exhausted ? "true" : "false") << "}\n";
+        return;
+    }
     for (const auto &route : result.routes)
         output << std::setprecision(17) << "{\"net\":" << route.net.value + 1
                << ",\"incremental_cost\":" << route.incremental_cost

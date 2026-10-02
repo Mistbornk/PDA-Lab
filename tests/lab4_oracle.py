@@ -157,6 +157,31 @@ class LayeredOracle(unittest.TestCase):
                         for (a, _), (b, _) in zip(path, path[1:]):
                             key = edge_key(a, b); usage[key] = usage.get(key, 0)+1
 
+                    # The negotiated search has history costs, but the emitted
+                    # solution must report the original aggregate objective.
+                    negotiated = subprocess.run([str(ARGS.bin_root/'Lab04/D2DGRter'),
+                        *[str(work/f'case.{ext}') for ext in ['gmp', 'gcl', 'cst', 'lg']],
+                        '--router', 'negotiated', '--rounds', '6', '--stats'],
+                        capture_output=True, text=True, timeout=20)
+                    self.assertEqual(negotiated.returncode, 0, negotiated.stderr)
+                    rerouted = parse_paths((work/'case.lg').read_text(), sources, targets,
+                                           rows, cols, pitch, origin)
+                    total = 0; final_usage = {}
+                    for path in rerouted:
+                        for (a, arrival), (b, departure) in zip(path, path[1:]):
+                            total += cell_cost(costs, weights, a, arrival, departure)
+                            total += weights[0]*pitch[departure]
+                            key = edge_key(a, b)
+                            final_usage[key] = final_usage.get(key, 0)+1
+                        total += cell_cost(costs, weights, path[-1][0], path[-1][1], 0)
+                    overflow = sum(max(0, value-capacity[key]) for key, value in final_usage.items())
+                    total += weights[1]*max(map(max, costs))/2*overflow
+                    records = [json.loads(line) for line in negotiated.stderr.splitlines()]
+                    self.assertEqual(records[-1]['kind'], 'summary')
+                    self.assertEqual(records[-1]['overflow'], overflow)
+                    self.assertTrue(math.isclose(records[-1]['objective'], total, rel_tol=1e-10, abs_tol=1e-8))
+                    self.assertLessEqual(total, sum(item['incremental_cost'] for item in stats)+1e-5)
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

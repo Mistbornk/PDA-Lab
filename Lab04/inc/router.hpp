@@ -2,6 +2,7 @@
 #include "input.hpp"
 #include <cstdint>
 #include <iosfwd>
+#include <stdexcept>
 namespace lab4 {
 struct NetId {
     std::size_t value;
@@ -17,9 +18,25 @@ struct Metrics {
     double objective = 0, wirelength = 0, cell_cost = 0;
     std::uint64_t vias = 0, overflow = 0, max_overflow = 0;
 };
+struct Iteration {
+    unsigned round = 0;
+    Metrics metrics;
+    double elapsed_seconds = 0;
+    std::size_t rerouted = 0;
+};
 struct Result {
     std::vector<Route> routes;
     Metrics metrics;
+    std::vector<Iteration> iterations{};
+    bool budget_exhausted = false;
+};
+struct RerouteOptions {
+    unsigned rounds = 10, stagnation = 3;
+    double history = 1, seconds = 0; // seconds: total wall budget, including initial routing
+};
+class RoutingBudgetExceeded : public std::runtime_error {
+  public:
+    RoutingBudgetExceeded() : std::runtime_error("Routing search budget exhausted") {}
 };
 // Borrows a validated, immutable Input which must outlive this session.
 class RoutingState {
@@ -44,6 +61,7 @@ class RoutingState {
 };
 Result solve_legacy(const Input &input);
 Result solve_layered(const Input &input);
+Result solve_negotiated(const Input &input, const RerouteOptions &options);
 void write_report(std::ostream &output, const Input &input, const Result &result);
 void write_stats(std::ostream &output, const Result &result);
 void route_legacy(Input input, std::ostream &output);

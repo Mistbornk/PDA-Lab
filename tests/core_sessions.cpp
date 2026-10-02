@@ -2,6 +2,7 @@
 #include "router.hpp"
 #include <algorithm>
 #include <cmath>
+#include <random>
 #include <sstream>
 #include <stdexcept>
 void check(bool value, const char *message) {
@@ -107,4 +108,44 @@ int main() {
     lab4::write_report(first, grid, routed);
     lab4::write_report(second, grid, routed);
     check(first.str() == second.str() && state.usage() == usage, "Reporting mutated routing");
+    std::mt19937 random(19);
+    std::size_t improvements = 0;
+    for (int sample = 0; sample < 80; ++sample) {
+        auto problem = routing_input();
+        problem.costs.beta = 20;
+        problem.nets.clear();
+        for (int n = 1; n <= 5; ++n) {
+            const auto a = random() % 9, b = random() % 9;
+            problem.nets.push_back(
+                {n, 11 + static_cast<int>(a % 3) * 2, 23 + static_cast<int>(a / 3) * 3,
+                 11 + static_cast<int>(b % 3) * 2, 23 + static_cast<int>(b / 3) * 3});
+        }
+        for (auto &row : problem.cells)
+            for (auto &cell : row) {
+                cell.left_capacity = static_cast<int>(random() % 3);
+                cell.bottom_capacity = static_cast<int>(random() % 3);
+            }
+        const auto reference = lab4::solve_layered(problem);
+        for (double penalty : {0., 1.}) {
+            const auto improved = lab4::solve_negotiated(problem, {5, 3, penalty, 0});
+            check(improved.metrics.objective <= reference.metrics.objective + 1e-9,
+                  "Rerouting discarded the best complete solution");
+            improvements += improved.metrics.objective < reference.metrics.objective;
+            lab4::RoutingState checked(problem);
+            for (const auto &route : improved.routes)
+                checked.replace(route);
+            checked.validate();
+            check(checked.metrics().objective == improved.metrics.objective,
+                  "Stale selected score");
+            const auto repeat = lab4::solve_negotiated(problem, {5, 3, penalty, 0});
+            for (std::size_t i = 0; i < improved.routes.size(); ++i)
+                check(improved.routes[i].states == repeat.routes[i].states,
+                      "Nondeterministic rerouting");
+        }
+    }
+    check(improvements > 0, "Generated congestion cases never improve");
+    const auto unchanged = lab4::solve_negotiated(grid, {0, 1, 0, 0});
+    check(unchanged.metrics.objective == routed.metrics.objective, "Zero-round behavior changed");
+    rejects([&] { (void)lab4::solve_negotiated(grid, {1, 0, 1, 0}); });
+    rejects([&] { (void)lab4::solve_negotiated(grid, {1, 1, 1, 1e-12}); });
 }
