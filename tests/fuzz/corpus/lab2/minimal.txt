@@ -1,0 +1,8 @@
+Outline: 8 8
+NumBlocks: 1
+NumTerminals: 1
+b 2 3
+p terminal 0 0
+---
+NumNets: 1
+NetDegree: 2 b p

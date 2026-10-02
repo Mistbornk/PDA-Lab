@@ -88,9 +88,6 @@ class Annealer {
         int seconds_to_fit_outline = 0;
         int i = 1;
 
-        total_move = 0;
-        uphill = 0;
-
         while (iteration_limit ? iterations < iteration_limit
                                : search_seconds() - start < time_limit) {
             total_move = 0;
@@ -187,7 +184,6 @@ class Annealer {
 
             if (!iteration_limit &&
                 checkTime(seconds_to_fit_outline, max_seconds_to_fit_outline, in_fixed_outline)) {
-                seconds_to_fit_outline = 0;
                 seconds_to_fit_outline_time = search_seconds();
                 T = T0;
             }

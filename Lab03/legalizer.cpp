@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <boost/geometry.hpp>
 #include <boost/geometry/index/rtree.hpp>
+#include <cstdint>
 #include <iomanip>
 #include <limits>
 #include <numeric>
@@ -36,6 +37,9 @@ struct Legalizer::Impl {
     std::unordered_map<std::string, CellId> ids;
     std::vector<std::size_t> row_order;
     std::unordered_set<std::size_t> excluded;
+    std::vector<std::uint64_t> exclusion_epoch;
+    std::uint64_t epoch = 0;
+    bool is_excluded(std::size_t id) const { return exclusion_epoch[id] == epoch; }
     bool poisoned = false;
     Stats counters;
     struct Collision {
@@ -48,7 +52,7 @@ struct Legalizer::Impl {
         const Box query = box(c);
         Collision result;
         for (auto it = tree.qbegin(bgi::intersects(query)); it != tree.qend(); ++it) {
-            if (excluded.count(it->second.value) || !overlaps(query, it->first))
+            if (is_excluded(it->second.value) || !overlaps(query, it->first))
                 continue;
             result.hit = true;
             result.left = std::min(result.left, it->first.min_corner().get<0>());
@@ -72,7 +76,7 @@ struct Legalizer::Impl {
             const Box strip(Point(row.startX, c.y), Point(right, c.y + c.height));
             std::vector<std::pair<double, double>> intervals;
             for (auto it = tree.qbegin(bgi::intersects(strip)); it != tree.qend(); ++it) {
-                if (!excluded.count(it->second.value) && overlaps(strip, it->first))
+                if (!is_excluded(it->second.value) && overlaps(strip, it->first))
                     intervals.emplace_back(it->first.min_corner().get<0>(),
                                            it->first.max_corner().get<0>());
             }
@@ -129,6 +133,7 @@ struct Legalizer::Impl {
     }
     Impl(Input input, Options opts) : data(std::move(input)), options(opts) {
         ids.reserve(data.cells.size());
+        exclusion_epoch.resize(data.cells.size());
         row_order.resize(data.rows.size());
         std::iota(row_order.begin(), row_order.end(), 0);
         for (std::size_t i = 0; i < data.cells.size(); ++i) {
@@ -139,12 +144,17 @@ struct Legalizer::Impl {
     StepResult apply(const Step &step) {
         pda::require(!poisoned, "Discard legalizer after an internal commit failure");
         excluded.clear();
+        if (++epoch == 0) {
+            std::fill(exclusion_epoch.begin(), exclusion_epoch.end(), 0);
+            epoch = 1;
+        }
         pda::require(!step.remove.empty(), "Empty banking list");
         for (const auto &name : step.remove) {
             const auto it = ids.find(name);
             pda::require(it != ids.end(), "Unknown banked cell: " + name);
             pda::require(!data.cells[it->second.value].fixed, "Cannot bank a FIX cell: " + name);
             pda::require(excluded.insert(it->second.value).second, "Duplicate banked cell");
+            exclusion_epoch[it->second.value] = epoch;
         }
         const auto existing = ids.find(step.cell.name);
         pda::require(existing == ids.end() || excluded.count(existing->second.value),
@@ -193,6 +203,7 @@ struct Legalizer::Impl {
         }
         const CellId id{data.cells.size()};
         data.cells.push_back(result.placed);
+        exclusion_epoch.push_back(0);
         ids.emplace(result.placed.name, id);
         tree.insert({box(result.placed), id});
         row_order = std::move(order);

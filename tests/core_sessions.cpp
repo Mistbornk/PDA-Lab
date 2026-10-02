@@ -67,6 +67,25 @@ int main() {
     check(std::abs(routed.metrics.objective - 19) < 1e-12 && routed.metrics.overflow == 2 &&
               routed.metrics.vias == 4,
           "Wrong known routing objective");
+    auto translated = grid;
+    translated.area.Routing_Area_X += 101;
+    translated.area.Routing_Area_Y -= 50;
+    for (auto &row : translated.cells)
+        for (auto &cell : row) {
+            cell.x += 101;
+            cell.y -= 50;
+        }
+    for (auto &net : translated.nets) {
+        net.bump1_x += 101;
+        net.bump2_x += 101;
+        net.bump1_y -= 50;
+        net.bump2_y -= 50;
+    }
+    const auto shifted = lab4::solve_layered(translated);
+    check(shifted.metrics.objective == routed.metrics.objective, "Translation changed cost");
+    for (std::size_t i = 0; i < shifted.routes.size(); ++i)
+        check(shifted.routes[i].states == routed.routes[i].states,
+              "Translation changed grid paths");
     lab4::RoutingState state(grid);
     for (const auto &route : routed.routes)
         state.replace(route);

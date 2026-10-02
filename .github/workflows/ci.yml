@@ -68,6 +68,55 @@ jobs:
           path: build/Testing/Temporary/
           retention-days: 7
 
+  thread-sanitizer:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+      - name: Install build dependencies
+        run: sudo apt-get update && sudo apt-get install -y clang-14 cmake libboost-dev python3
+      - name: Build concurrency tests with TSan
+        run: |
+          cmake -S . -B build-tsan -DCMAKE_CXX_COMPILER=clang++-14 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DPDA_THREAD_SANITIZER=ON -DPDA_STRICT_WARNINGS=ON -DPDA_WARNINGS_AS_ERRORS=ON
+          cmake --build build-tsan --parallel 2 --target lab2_parallel_test lab2_random_test
+      - name: Check concurrency and failure paths
+        env:
+          TSAN_OPTIONS: halt_on_error=1
+        run: ctest --test-dir build-tsan -R 'lab2_(parallel|random)' --output-on-failure
+      - name: Keep TSan logs
+        if: always()
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: tsan-logs
+          path: build-tsan/Testing/Temporary/
+
+  parser-fuzzing:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+      - name: Install build dependencies
+        run: sudo apt-get update && sudo apt-get install -y clang-14 cmake libboost-dev python3
+      - name: Build instrumented parsers
+        run: |
+          cmake -S . -B build-fuzz -DCMAKE_CXX_COMPILER=clang++-14 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DPDA_FUZZING=ON -DPDA_STRICT_WARNINGS=ON -DPDA_WARNINGS_AS_ERRORS=ON -DBUILD_TESTING=OFF
+          cmake --build build-fuzz --parallel 2 --target fuzz_lab1 fuzz_lab2 fuzz_lab3 fuzz_lab4
+      - name: Bounded fuzz campaigns
+        run: python3 tests/fuzz/run.py --runs 10000 --seconds 15 --output benchmarks/work/ci-fuzz.json
+      - name: Static analysis
+        run: python3 tests/analyze.py --build build-fuzz --output benchmarks/work/ci-analysis.json
+      - name: Keep diagnostics and failure inputs
+        if: always()
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: fuzz-and-analysis
+          path: benchmarks/work/
+          retention-days: 7
+
   official:
     if: github.event_name == 'workflow_dispatch' && inputs.official
     runs-on: ubuntu-22.04

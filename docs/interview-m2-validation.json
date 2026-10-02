@@ -1,0 +1,67 @@
+{
+  "checkpoint": "M2",
+  "prior_commit": "129fc85",
+  "source_hashes": {
+    "CMakeLists.txt": "77ceefa6e19dd09ea65873f91c34ff34516a8cc43e59a6f3f97b016b8c67b06b",
+    "Lab01/header/layout.hpp": "ac5fb5bcf2f55c0dbf1363495cbb9be698f9494c96850d2be3f46cac931a6a0e",
+    "Lab01/src/Block_Creating.cpp": "67a5a01c4e05fae588eb913b61e8be136166ae72be9f3c62275fd25a295cf302",
+    "Lab01/src/Neighbor_Finding.cpp": "8302f921416e23a7cc2943f3de0e7612e310eea4e97eab751689b799733af04d",
+    "Lab01/src/Point_Finding.cpp": "54b5a7292acdc3705aaeba42a8d5d0fccf929fad66f6a9bf6a05c5dc6fb5bc22",
+    "Lab01/src/TileList.cpp": "6cd4ceda1e915a0dfdf8e2fdf321f2c2ce1ad507ee7359b81b34c302358d5362",
+    "Lab01/src/layout.cpp": "1ec43d4289eeae97261301be89d88842f0ad61202cc7b6acd2bf179b31aefbde",
+    "Lab01/src/main.cpp": "bdbc53ee618fcff01f06addfc65a812d47aa8df95cc70f38e1b26e9d0126a13c",
+    "Lab01/src/parser.cpp": "8d396cd93839fbc2535cf46580003426c75ef017d09a6291e32102e1c24a1862",
+    "Lab01/src/report.cpp": "e71adfb87ad1f2ca64939545538caa17417307ddd613eb908bb716af25f82905",
+    "Lab02/include/annealer.hpp": "676f4eb59f26255300b18dfba88c808ce6fe32ce1837d940aa9abdeb09c7795b",
+    "Lab02/include/model.hpp": "14cb8c6c170a2965cea5b46d1d450e9392dcb5f4fc0ea9d8b8d0df8676393860",
+    "Lab02/include/packing.hpp": "f7a045e65caabe4f8da04aba5d40e60af3bf51cf61c6d8aa2065eabf5893ae78",
+    "Lab02/include/parallel.hpp": "de6f9e903e3aa81e640d7fbad0fdd3b41bc190e85781d6c040a3de1e85bdb42b",
+    "Lab02/include/parser.hpp": "c5ff75996386443421cf64965708fda8c2deaa59afdadda732a50c739fe5fe69",
+    "Lab02/include/random.hpp": "82aef780ea94f6b0669427a128b1f18e8475a31c8a544dbb0ea6547cef424bd5",
+    "Lab02/include/timing.hpp": "b7b23ef2e0aa5a142665a5bdb607864200cd9ed8346b194d47cd822ff734a23c",
+    "Lab02/include/tree.hpp": "94bb9d27eb392466d3571b172f6bbd0b059c933be1a96f5f6e720b6dc05405d4",
+    "Lab02/include/undo.hpp": "b1ddc245b5a32f3ef3071e202c708038e1a4beee3b3ceaa19111869092a363eb",
+    "Lab02/src/annealer.cpp": "68a3674bc680e90c7560121bd1e2b4d692afd51d86cc1951c5074eb8c904b49b",
+    "Lab02/src/packing.cpp": "7ecfc6e9723d459b35bb17671ed02ff6eab17bcfdebc197a2d8eefba926d3c50",
+    "Lab02/src/parallel.cpp": "e72c3357e58cb8eec7a9bd5948957183be8010562738bfcc65eed050295568c0",
+    "Lab02/src/parser.cpp": "ff720f09e28b7e2c4c99b9f47ff15e925e06cb9811ee0886deda55cd002542df",
+    "Lab02/src/report.cpp": "46490e880fa8f2a403d69da7b122a974d2fff1e7f10f7c1b727f5e873486bb0b",
+    "Lab02/src/tree.cpp": "7a6c868126db9cabb021ba8d48d329f76dc5bee87ca9819eb04c08122f3ff634",
+    "Lab02/src/undo.cpp": "af87b0c81672c601363552a524be3626cc214771b0b1fbdb618dbdc2c9b345a7",
+    "Lab03/include/legalizer.hpp": "4f6a4a51780d23fede732c11d22464f25430c4ab1b78e78285dd03c02cbd41d1",
+    "Lab03/include/struct.hpp": "649e358344bff14b0a4b86b53fc4ec4facdf3895031a22696d35c0e8116a268d",
+    "Lab03/legalizer.cpp": "70fc7b0148500a1a08b2bf2899bd8dbc1414cfa9e37ebac46884704cf830869c",
+    "Lab03/main.cpp": "7fae6828b35428f6ed5f8fbbc59f9de48065cba7ede22c243bbd2172574d682e",
+    "Lab03/parser.cpp": "d5db45f0f5d6a49f7068cf75627e7548d7166f284a9434cd85926262c3e10786",
+    "Lab04/inc/input.hpp": "f62779e15aa8adc2e417d4f60c6c5e52539bef59bfe2f6cebd751256ae79d8a3",
+    "Lab04/inc/router.hpp": "ab1b2fbd1726404cefea46a779612b7c33877874e5c8b38369b9eed40422889c",
+    "Lab04/inc/struct.hpp": "f73d918922612617c61a0c7cda8f0d1040301baac9d2267800df5c252771efc3",
+    "Lab04/layered_router.cpp": "920394325cf88bac197e9b7f2dbe38bfec061e485964c94e4a6e8f0e3fa8dd31",
+    "Lab04/legacy_router.cpp": "4fe7c8d8d5029a1b1eb7278494a1d2e6763be098d2179e186e8619a61ef6781c",
+    "Lab04/main.cpp": "f44d74f8fc53e5ce2a0a626a3f872b2f02d1ee7752b2ba31a5247b0ad10f7c23",
+    "Lab04/parser.cpp": "e657e25bc7ed5e46a56823b6d25778283dc4522d8d050b28ab4cc29d781de4f8",
+    "Lab04/routing_state.cpp": "3c983e18c2cf3b912a2aa8ade29ed49a1e035eec6f1d9ef46466214a5df03074",
+    "include/pda/io.hpp": "e2efdaadc904cefc77a574d4b80c4a774d4930791a437691f0fa12da245a6b4f"
+  },
+  "checks": {
+    "gcc": {
+      "status": "passed",
+      "log": "Internal ctest changing into directory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build\nTest project /mnt/ec/ness/max/Side-Projects/PDA-Lab/build\n    Start 1: core_sessions\n1/9 Test #1: core_sessions ....................   Passed    0.01 sec\n    Start 2: lab1_core\n2/9 Test #2: lab1_core ........................   Passed    0.93 sec\n    Start 3: lab2_core\n3/9 Test #3: lab2_core ........................   Passed    0.13 sec\n    Start 4: lab2_undo\n4/9 Test #4: lab2_undo ........................   Passed    0.20 sec\n    Start 5: lab2_parallel\n5/9 Test #5: lab2_parallel ....................   Passed    0.21 sec\n    Start 6: lab2_random\n6/9 Test #6: lab2_random ......................   Passed    0.06 sec\n    Start 7: lab4_oracle\n7/9 Test #7: lab4_oracle ......................   Passed    0.92 sec\n    Start 8: regression\n8/9 Test #8: regression .......................   Passed    1.30 sec\n    Start 9: stress_smoke\n9/9 Test #9: stress_smoke .....................   Passed    0.28 sec\n\n100% tests passed, 0 tests failed out of 9\n\nTotal Test time (real) =   4.06 sec\n"
+    },
+    "clang": {
+      "status": "passed",
+      "log": "Internal ctest changing into directory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict\nTest project /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict\n    Start 1: core_sessions\n1/9 Test #1: core_sessions ....................   Passed    0.01 sec\n    Start 2: lab1_core\n2/9 Test #2: lab1_core ........................   Passed    0.85 sec\n    Start 3: lab2_core\n3/9 Test #3: lab2_core ........................   Passed    0.17 sec\n    Start 4: lab2_undo\n4/9 Test #4: lab2_undo ........................   Passed    0.26 sec\n    Start 5: lab2_parallel\n5/9 Test #5: lab2_parallel ....................   Passed    0.26 sec\n    Start 6: lab2_random\n6/9 Test #6: lab2_random ......................   Passed    0.07 sec\n    Start 7: lab4_oracle\n7/9 Test #7: lab4_oracle ......................   Passed    5.61 sec\n    Start 8: regression\n8/9 Test #8: regression .......................   Passed    1.61 sec\n    Start 9: stress_smoke\n9/9 Test #9: stress_smoke .....................   Passed    0.35 sec\n\n100% tests passed, 0 tests failed out of 9\n\nTotal Test time (real) =   9.25 sec\n"
+    },
+    "asan-ubsan": {
+      "status": "passed",
+      "log": "Internal ctest changing into directory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan\nTest project /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan\n    Start 1: core_sessions\n1/9 Test #1: core_sessions ....................   Passed    0.12 sec\n    Start 2: lab1_core\n2/9 Test #2: lab1_core ........................   Passed   16.15 sec\n    Start 3: lab2_core\n3/9 Test #3: lab2_core ........................   Passed    4.60 sec\n    Start 4: lab2_undo\n4/9 Test #4: lab2_undo ........................   Passed    8.03 sec\n    Start 5: lab2_parallel\n5/9 Test #5: lab2_parallel ....................   Passed    7.21 sec\n    Start 6: lab2_random\n6/9 Test #6: lab2_random ......................   Passed    1.12 sec\n    Start 7: lab4_oracle\n7/9 Test #7: lab4_oracle ......................   Passed    5.17 sec\n    Start 8: regression\n8/9 Test #8: regression .......................   Passed    3.62 sec\n    Start 9: stress_smoke\n9/9 Test #9: stress_smoke .....................   Passed    1.37 sec\n\n100% tests passed, 0 tests failed out of 9\n\nTotal Test time (real) =  47.43 sec\n"
+    },
+    "tsan": {
+      "status": "passed",
+      "log": "Internal ctest changing into directory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-tsan\nTest project /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-tsan\n    Start 5: lab2_parallel\n1/2 Test #5: lab2_parallel ....................   Passed    1.16 sec\n    Start 6: lab2_random\n2/2 Test #6: lab2_random ......................   Passed    0.21 sec\n\n100% tests passed, 0 tests failed out of 2\n\nTotal Test time (real) =   1.38 sec\n",
+      "note": "Built before removal of three dead stores in annealer.cpp; no concurrency behavior changed."
+    }
+  },
+  "fuzz": "../benchmarks/results/interview-fuzz.json",
+  "static_analysis": "../benchmarks/results/interview-static-analysis.json"
+}

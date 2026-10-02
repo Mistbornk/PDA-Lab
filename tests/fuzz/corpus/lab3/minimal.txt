@@ -1,0 +1,6 @@
+Alpha 10 Beta 1 DieSize 0 0 8 2
+f 0 0 1 1 NOTFIX
+PlacementRows 0 0 1 1 8
+PlacementRows 0 1 1 1 8
+---
+Banking_Cell: f --> new 1 0 2 1
