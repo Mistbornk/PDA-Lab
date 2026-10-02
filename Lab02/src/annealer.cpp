@@ -18,12 +18,14 @@ class Annealer {
     vector<Block> bestblocks;
     Cost bestcost;
     double start;
+    SearchStats stats;
     Random random;
     mt19937 g;
     uint64_t iteration_limit, iterations = 0;
     double time_limit;
     Cost CalCost(bool penalty) {
-        return evaluate(problem, placement, options.alpha, penalty, options.integer_pins, &packing);
+        return evaluate(problem, placement, options.alpha, penalty, options.integer_pins, &packing,
+                        options.diagnostics && iterations % 256 == 0 ? &stats.evaluation : nullptr);
     }
     bool isAccept(const double &T, const double &diff) {
         double RandNum = static_cast<double>(random()) / Random::maximum;
@@ -69,6 +71,14 @@ class Annealer {
         bestcost = CalCost(random_expanded);
 
         bestblocks = placement.blocks;
+        if (options.diagnostics)
+            observe(stats, problem, bestcost, 0, start,
+                    bestcost.width <= outline_width && bestcost.height <= outline_height
+                        ? static_cast<long long>(
+                              options.alpha * static_cast<double>(bestcost.area) +
+                              (1 - options.alpha) * static_cast<double>(bestcost.wirelength))
+                        : -1,
+                    options.trace_every);
 
         double P = 0.95;
         double r = 0.9;
@@ -128,6 +138,9 @@ class Annealer {
 
                 double delta_cost =
                     static_cast<double>(cur_cost.cost) - static_cast<double>(old_cost.cost);
+                if (options.diagnostics)
+                    observe(stats, problem, cur_cost, iterations, start,
+                            in_fixed_outline ? bestcost.cost : -1, options.trace_every);
                 bool in_outline_after_perturb = false;
                 bool acceptPoor = isAccept(T, delta_cost);
                 if (delta_cost <= 0 || old_cost.cost == 0 || ((acceptPoor) && random_expanded)) {
@@ -163,6 +176,10 @@ class Annealer {
                         cur_cost.cost != 0) {
 
                         old_cost = cur_cost;
+                    }
+                    if (options.diagnostics) {
+                        ++stats.accepted;
+                        stats.uphill_accepted += delta_cost > 0;
                     }
                     if (delta_cost > 0)
                         uphill++;
@@ -200,15 +217,19 @@ class Annealer {
     Result run() {
         SimulatedAnneling();
         if (bestcost.width > outline_width || bestcost.height > outline_height)
-            throw NoLegalPlacement(iterations);
+            throw NoLegalPlacement(iterations, std::move(stats));
         bestcost.cost =
             static_cast<long long>(options.alpha * static_cast<double>(bestcost.area) +
                                    (1 - options.alpha) * static_cast<double>(bestcost.wirelength));
-        return {std::move(bestblocks), bestcost, iterations};
+        if (options.diagnostics && options.trace_every)
+            observe(stats, problem, bestcost, iterations, start, bestcost.cost, 1);
+        return {std::move(bestblocks), bestcost, iterations, std::move(stats)};
     }
 };
 } // namespace
 Result solve(const Problem &problem, const Options &options, double start) {
+    if (options.policy != SearchPolicy::Legacy)
+        return solve_progress(problem, options, start);
     return Annealer(problem, options, start).run();
 }
 } // namespace lab2

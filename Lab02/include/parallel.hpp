@@ -11,6 +11,7 @@ struct Attempt {
     std::uint64_t iterations = 0;
     double cpu_seconds = 0;
     Cost cost;
+    SearchStats stats{};
 };
 struct MultiResult {
     Result best;

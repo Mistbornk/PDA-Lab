@@ -35,8 +35,10 @@ MultiResult solve_multi(const Problem &problem, const Options &options, const Mu
                 attempt.legal = true;
                 attempt.iterations = solutions[id]->iterations;
                 attempt.cost = solutions[id]->cost;
+                attempt.stats = solutions[id]->stats;
             } catch (const NoLegalPlacement &failure) {
                 attempt.iterations = failure.iterations;
+                attempt.stats = failure.stats;
             } catch (...) {
                 errors[id] = std::current_exception();
             }

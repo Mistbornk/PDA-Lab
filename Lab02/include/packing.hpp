@@ -15,5 +15,6 @@ void pack(Placement &placement, int initial_contour_width);
 void pack(Placement &placement, int initial_contour_width, PackingWorkspace &workspace);
 long long hpwl(const Problem &problem, const std::vector<Block> &blocks, bool integer_pins = true);
 Cost evaluate(const Problem &problem, Placement &placement, double alpha, bool outline_penalty,
-              bool integer_pins = true, PackingWorkspace *workspace = nullptr);
+              bool integer_pins = true, PackingWorkspace *workspace = nullptr,
+              EvaluationProfile *profile = nullptr);
 } // namespace lab2

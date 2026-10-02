@@ -80,11 +80,11 @@ jobs:
       - name: Build concurrency tests with TSan
         run: |
           cmake -S . -B build-tsan -DCMAKE_CXX_COMPILER=clang++-14 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DPDA_THREAD_SANITIZER=ON -DPDA_STRICT_WARNINGS=ON -DPDA_WARNINGS_AS_ERRORS=ON
-          cmake --build build-tsan --parallel 2 --target lab2_parallel_test lab2_random_test
+          cmake --build build-tsan --parallel 2 --target lab2_parallel_test lab2_random_test lab2_policy_test
       - name: Check concurrency and failure paths
         env:
           TSAN_OPTIONS: halt_on_error=1
-        run: ctest --test-dir build-tsan -R 'lab2_(parallel|random)' --output-on-failure
+        run: ctest --test-dir build-tsan -R 'lab2_(parallel|random|policy)' --output-on-failure
       - name: Keep TSan logs
         if: always()
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0

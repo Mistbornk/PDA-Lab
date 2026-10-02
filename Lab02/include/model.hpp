@@ -54,6 +54,27 @@ struct Placement {
     }
 };
 enum class PackingMode { Dense, Skyline };
+enum class SearchPolicy { Legacy, Progress, FeasibilityFirst };
+struct PolicyOptions {
+    double temperature = 0.05, cooling = 0.9, outline_weight = 10;
+    unsigned epoch_moves = 20, reheat_epochs = 100;
+};
+struct EvaluationProfile {
+    std::uint64_t samples = 0;
+    double packing_seconds = 0, hpwl_seconds = 0;
+};
+struct TracePoint {
+    std::uint64_t iteration = 0;
+    double cpu_seconds = 0, outline_excess = 0;
+    long long best_objective = -1;
+};
+struct SearchStats {
+    double first_legal_cpu_seconds = -1, minimum_outline_excess = -1;
+    std::uint64_t first_legal_iteration = 0, accepted = 0, uphill_accepted = 0;
+    EvaluationProfile evaluation;
+    std::vector<TracePoint> trace{};
+    bool trace_truncated = false;
+};
 struct Options {
     double alpha = 0.5, seconds = 280.0;
     unsigned seed = 1;
@@ -61,10 +82,15 @@ struct Options {
     bool integer_pins = true;
     PackingMode packing = PackingMode::Skyline;
     bool undo_journal = true;
+    SearchPolicy policy = SearchPolicy::Legacy;
+    PolicyOptions schedule;
+    bool diagnostics = false;
+    std::uint64_t trace_every = 0;
 };
 struct Result {
     std::vector<Block> blocks;
     Cost cost;
     std::uint64_t iterations = 0;
+    SearchStats stats{};
 };
 } // namespace lab2

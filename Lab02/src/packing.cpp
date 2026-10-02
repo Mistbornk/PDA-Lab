@@ -1,4 +1,5 @@
 #include "packing.hpp"
+#include "timing.hpp"
 #include <algorithm>
 #include <limits>
 using namespace std;
@@ -104,7 +105,8 @@ long long hpwl(const Problem &problem, const vector<Block> &blocks, bool integer
     return total;
 }
 Cost evaluate(const Problem &problem, Placement &placement, double alpha, bool outline_penalty,
-              bool integer_pins, PackingWorkspace *workspace) {
+              bool integer_pins, PackingWorkspace *workspace, EvaluationProfile *profile) {
+    const double began = profile ? search_seconds() : 0;
     if (workspace)
         pack(placement, max(problem.outline_width, problem.outline_height), *workspace);
     else
@@ -115,7 +117,13 @@ Cost evaluate(const Problem &problem, Placement &placement, double alpha, bool o
         c.height = max(c.height, b.y + b.height);
     }
     c.area = static_cast<long long>(c.width) * c.height;
+    const double packed = profile ? search_seconds() : 0;
     c.wirelength = hpwl(problem, placement.blocks, integer_pins);
+    if (profile) {
+        ++profile->samples;
+        profile->packing_seconds += packed - began;
+        profile->hpwl_seconds += search_seconds() - packed;
+    }
     c.cost =
         outline_penalty
             ? max(0, c.width - problem.outline_width) + max(0, c.height - problem.outline_height)

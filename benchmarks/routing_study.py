@@ -8,6 +8,7 @@ import statistics
 import subprocess
 import tempfile
 from types import SimpleNamespace
+from generated import routing
 from run import ROOT, build_metadata, course, run
 
 
@@ -15,6 +16,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--budgets', type=float, nargs='+', default=[.5, 2.])
     parser.add_argument('--repeat', type=int, default=3)
+    parser.add_argument('--generated', action='store_true', help='Use held-out generated congestion cases')
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     if args.repeat < 1 or any(value <= 0 for value in args.budgets):
@@ -24,7 +26,8 @@ def main():
                 ('history', ['--router', 'negotiated', '--history', '1'])]
     work = Path(tempfile.mkdtemp(prefix='routing-study-', dir=ROOT/'benchmarks/work'))
     rows = []
-    for name, inputs in course.cases('Lab04'):
+    cases = [routing(work/'inputs', seed) for seed in [101,211,307,409]] if args.generated else course.cases('Lab04')
+    for name, inputs in cases:
         for budget in args.budgets:
             for repeat in range(args.repeat):
                 for variant, flags in variants[repeat % 3:]+variants[:repeat % 3]:
@@ -39,6 +42,9 @@ def main():
                         row['metrics'] = summaries[-1]
                         if row['valid']:
                             row['cost_agrees'] = abs(row['objective']-row['metrics']['objective']) <= .011
+                    row['outcome'] = 'valid' if row['valid'] else (
+                        'budget-exhausted' if row['status'] == 'failed' and 'Routing search budget exhausted' in row['solver_log']
+                        else 'unexpected-failure')
                     rows.append(row)
     groups = sorted({(r['dataset'], r['budget_wall_seconds'], r['variant']) for r in rows})
     summary = []
@@ -54,11 +60,12 @@ def main():
         revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
         dirty=bool(subprocess.check_output(['git','status','--porcelain'],cwd=ROOT)),
         platform=platform.platform(), build=build_metadata(ROOT/'build'),
-        method='Serial rotating variant order. Same maximum total wall budget including initialization; solvers may finish early. Failures retained.',
+        method='Serial rotating variant order. Equal maximum routing wall budgets include initial routing, exclude parsing/reporting. Wrapper wall time recorded separately. Solvers may finish early; failures retained.',
+        dataset_family='held-out-generated-congestion' if args.generated else 'course',
         threads=1, results=rows, summary=summary)
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(report,indent=2)+'\n')
-    raise SystemExit(0 if all(not r['valid'] or r.get('cost_agrees',False) for r in rows) else 1)
+    raise SystemExit(0 if all(r['outcome'] != 'unexpected-failure' and (not r['valid'] or r.get('cost_agrees',False)) for r in rows) else 1)
 
 
 if __name__ == '__main__':
