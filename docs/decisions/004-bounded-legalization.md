@@ -63,3 +63,11 @@ it does not prove the entire problem infeasible. Because the CLI streams complet
 steps, a failure can leave a valid prefix in the output file. Callers must check
 the exit status before treating it as a complete solution. The structured core
 allows callers to choose their own buffering/atomic publication policy.
+
+The five official cases show 22.3–84.1% lower total cost for minimum versus legacy,
+with additional runtime (especially the original filename-dispatched nearest-row
+case). At the declared default radius of 20 physical coordinate units, repair
+makes no extra official-case score improvement. It is not an adaptive DBU-scaled
+window: use explicit radius/cell/candidate settings for another workload, and
+re-measure both quality and cost. Generated cases and the gap-creation example
+exercise actual moved-cell output.

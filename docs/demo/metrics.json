@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "floorplan": {
+    "objective": 5667,
+    "hpwl": 4934,
+    "area": 6400,
+    "macros": 12,
+    "nets": 36
+  },
+  "routing": {
+    "objective": 1922.8500000000006,
+    "wirelength": 391,
+    "vias": 148,
+    "overflow": 20,
+    "max_overflow": 2,
+    "nets": 24
+  },
+  "parameters": {
+    "floorplan": [
+      "--seed",
+      "41",
+      "--iterations",
+      "100000",
+      "--policy",
+      "feasibility"
+    ],
+    "routing": [
+      "--router",
+      "negotiated",
+      "--history",
+      "0",
+      "--rounds",
+      "10",
+      "--stats"
+    ]
+  },
+  "validation": "Independent report geometry/HPWL and emitted-path aggregate-cost checks; no downloaded evaluator required.",
+  "executable_sha256": {
+    "Lab02/Lab2": "2e493ebf4690bda19a73196ec6a7e2a5d7e5975d101da03cd467bcb2b748f3ee",
+    "Lab04/D2DGRter": "eace3e0802f34439fd8c3f271955fed76489938a0c51b7380f6845aacb229754"
+  },
+  "input_sha256": {
+    "inputs/generated-12-701.block": "17b947ee2960324ab8a581b249f8b010f6bb7398168b87df13d0a46ba5bb89c4",
+    "inputs/generated-12-701.nets": "4cf326f6427c9edcf25531721958752107c8f20018ceea6fdcddc5deac7e6832",
+    "inputs/congestion-12x12-24-101.gmp": "631eb183414636413d912ccf6e013ed364cea001de12fd5d941123116622c7f1",
+    "inputs/congestion-12x12-24-101.gcl": "6614532e9c4a1a586fa99cc37aa3fce09b26bddcbb31e85cb4be2853f463d98e",
+    "inputs/congestion-12x12-24-101.cst": "1a15c4360a488726edcce1f0c573f7d68020cf4bb26b1357738edede17e592fa"
+  }
+}

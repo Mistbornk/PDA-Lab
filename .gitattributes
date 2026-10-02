@@ -1,0 +1,2 @@
+# The course geometry format uses blank lines to terminate bump sections.
+docs/demo/inputs/*.gmp whitespace=-blank-at-eof

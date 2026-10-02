@@ -148,3 +148,26 @@ ctest --test-dir build -R lab4_oracle --output-on-failure
 ```
 
 Python oracle 使用 entry/exit × layer 四狀態圖的 Dijkstra，獨立比對 C++ 雙狀態 A*，80 組隨機網格共 400 nets，另逐一核對輸出路徑。詳細 [成本模型](../docs/layered-routing.md)。每 net 的最佳性是在先前容量固定時的圖模型內成立；逐 net 的 greedy 順序不保證全域多 net 最佳解。官方驗證與速度／品質取捨見 benchmark。
+
+## 有預算的多 net 重繞
+
+```bash
+build/Lab04/D2DGRter input.gmp input.gcl input.cst output.lg \
+  --router negotiated --history 0 --rounds 10 --stagnation 3 --seconds 2 --stats
+python3 benchmarks/routing_study.py --output benchmarks/work/routing-study.json
+python3 benchmarks/routing_study.py --generated --budgets 1 --output benchmarks/work/congestion.json
+```
+
+`--history 0` 是以原始增量成本重繞的對照，正值另加搜尋用 history penalty（預設 1）；
+報告只計 Guide 的原始 objective。每輪以壅塞程度、net ordinal 排序，保留 best-so-far
+完整解。`--stats` 輸出逐輪 cost / overflow / max overflow / wirelength / via / elapsed
+以及最後 summary。壅塞 overflow 是成本項，並非自動判定不合法。
+
+`--seconds` 包含第一個 layered 解的 routing wall time，不含 parsing / reporting，
+且為定期檢查的 cooperative deadline；配置和評分可能超過指定時間。首個完整解之前
+到期為 exit 3、不新建 report；之後到期回傳最佳完整解並標示 budget_exhausted。
+未給時間時由輪數和停滯停止控制。legacy 不支援此預算選項。
+
+官方案例成本持平、耗時增加；生成壅塞案例對簡單重繞有改善，但 history=1 並未全面更好。
+詳見 [狀態與成本設計](../docs/decisions/002-negotiated-routing.md)、
+[全部實驗](../docs/experiments/README.md)。

@@ -54,3 +54,13 @@ All 12 selected results pass the official verifier, and all individual restart
 outcomes and solution hashes agree across worker counts. This is a fixed-total-work
 speedup, not evidence that eight searches cost as little CPU as one search. Small
 budgets may be dominated by task-launch overhead. [Raw record](../benchmarks/results/lab2-scaling.json).
+
+## Dynamic race checks
+
+A separate Clang 14 ThreadSanitizer build now runs the private-RNG, parallel-restart
+and policy groups, including successful, partially failed and all-failed searches.
+The new policies own sampled timers and bounded traces per attempt. Tests compare
+fixed-work winners at 1/2/4/8 workers; the TSan CI job executes rather than marking
+unsupported runtimes as successful skips. Reproduction and final records are in
+[the validation runner](../scripts/validate_portfolio.py) and
+[final validation](interview-final-validation.json).

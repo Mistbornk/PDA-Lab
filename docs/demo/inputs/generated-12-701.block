@@ -1,0 +1,19 @@
+Outline: 96 96
+NumBlocks: 12
+NumTerminals: 4
+b0 17 43
+b1 17 37
+b2 14 30
+b3 14 50
+b4 27 13
+b5 27 28
+b6 27 19
+b7 27 20
+b8 22 19
+b9 22 24
+b10 22 16
+b11 22 21
+t0 terminal 0 0
+t1 terminal 96 0
+t2 terminal 0 96
+t3 terminal 96 96

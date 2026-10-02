@@ -126,3 +126,28 @@ Lab02/tests/tools/verifier 0.5 Lab02/tests/data/ami33/ami33.block \
 `--stats` 保留各 seed 的合法性、迭代數、CPU 時間與成本。
 固定迭代數下，1／2／4／8 threads 的每個解与選出的解相同。
 詳見 [狀態隔離、同步與 scaling](../docs/parallel-floorplanning.md)。
+
+## 搜尋政策與有界診斷
+
+`--policy legacy` 保留相容策略；`progress` 以 normalized area/HPWL 加 outline excess
+搜尋；`feasibility` 先找可行配置，再於合法解中退火。後兩者的溫度依 iteration epochs
+變化，支援 `--temperature 0.05 --cooling 0.9 --outline-weight 10 --epoch-moves 20
+--reheat-epochs 100`。legacy 不接受這些只屬新政策的參數。
+
+```bash
+build/Lab02/Lab2 0.5 Lab02/tests/data/ami33/ami33.block \
+  Lab02/tests/data/ami33/ami33.nets /tmp/policy.rpt \
+  --policy feasibility --seed 101 --seconds 3 --trace-every 5000
+python3 benchmarks/policy_study.py --suite evaluation --output benchmarks/work/policies.json
+python3 benchmarks/policy_study.py --suite instrumentation --output benchmarks/work/diagnostics.json
+```
+
+`--stats` 開啟首次合法解 CPU 時間、minimum outline excess、accepted / uphill 次數，
+packing / HPWL 每 256 次 evaluation 取樣。`--trace-every N` 同時開啟 stats 和 best-cost trace；
+trace 上限 10,000 點，超出後設 `trace_truncated`。失敗仍保留診斷，不能只看成功樣本。
+時間預算是每個 restart 的 CPU 時間；多 restart 的總 CPU 資源會增加。固定 iterations
+可重現每條 trajectory；CPU 秒數相同不保證迭代數相同。
+
+新政策在目前短預算評估較容易找到合法解，但部分案例成本明顯退步；預設不改成新政策。
+詳見 [設計與反例](../docs/decisions/003-floorplanning-policies.md) 及
+[完整品質／時間報告](../docs/experiments/README.md)。

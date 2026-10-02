@@ -8,9 +8,24 @@
 | Lab | 問題與既有演算法 | 本次工程改善 | 格式／操作 |
 |---|---|---|---|
 | 01 | Corner stitching；插入矩形、point finding、鄰居枚舉 | RAII、模組拆分、邊界與空間索引、scan 對照、stitch／raster oracle | [Lab01](Lab01/TESTING.md) |
-| 02 | Fixed-outline floorplanning；B*-tree、simulated annealing | 獨立模組、pin ID、skyline、undo journal、獨立亂數、平行多起點、64-bit 成本 | [Lab02](Lab02/TESTING.md) |
-| 03 | Incremental FF banking legalization；nearest-row、R-tree | 每列區間 first-fit、compact cell ID、直接刪除索引、parser/core 分離、策略與查詢統計 | [Lab03](Lab03/TESTING.md) |
-| 04 | Die-to-die global routing；逐 net A* heuristic search | 連續 workspace、可選 layer-state A*、Guide 成本模型、獨立 Dijkstra oracle | [Lab04](Lab04/TESTING.md) |
+| 02 | Fixed-outline floorplanning；B*-tree、simulated annealing | 核心 library、skyline / journal、私有亂數與平行多起點、可比較退火政策、首次合法解診斷 | [Lab02](Lab02/TESTING.md) |
+| 03 | Incremental FF banking legalization；nearest-row、R-tree | 交易式 core session、跨 row 最小位移、有限局部修復、逐步官方成本與查詢統計 | [Lab03](Lab03/TESTING.md) |
+| 04 | Die-to-die global routing；逐 net A* heuristic search | layer-state A*、結構化路徑與 usage、預算式重繞、最佳完整解、Dijkstra / 成本 oracle | [Lab04](Lab04/TESTING.md) |
+
+## 面試展示入口
+
+[英文技術摘要](docs/portfolio.md) · [六輪交付紀錄](docs/interview-progress.md) ·
+[統一實驗報告與圖表](docs/experiments/README.md) · [設計決策](docs/decisions/001-state-transactions.md)
+
+```bash
+# 完成下方建置後，不需網路或下載 evaluator
+python3 scripts/demo.py --bin-root build --output build/demo
+# 用瀏覽器開啟 build/demo/index.html；可切換 routing net 與壅塞標示
+```
+
+Demo 從 solver 輸出產生 SVG / HTML，獨立重算 floorplan 的合法性、HPWL、area，
+以及 routing 的連通性、edge usage、overflow、via 與原始成本。輸入由固定 seed 生成。
+[已產生的 floorplan](docs/demo/floorplan.svg) 與 [routing](docs/demo/routing.svg) 可直接預覽。
 
 ## 建置
 
@@ -29,7 +44,7 @@ ctest --test-dir build --output-on-failure
 
 預設測試不依賴網路或課程 evaluator，包含已保存的 Lab01 回歸、獨立 raster oracle、
 B*-tree 小型幾何／HPWL 驗證、兩種 legalization 搜尋等價性及 routing path 檢查。
-新增 PRNG、rollback、多起點一致性與四個 Lab 的生成壓力測試，共 8 組 CTest。
+新增 PRNG、rollback、多起點一致性、狀態交易、政策品質、逐步修復與離線 demo，共 12 組 CTest。
 Python 與 C++ 核心測試的檢查均不受 Release 的 `NDEBUG` 影響。
 
 ```bash
@@ -83,6 +98,19 @@ Lab02 預設仍使用約 280 CPU 秒，新增 `--iterations` 供公平比較固�
 多起點以 objective 選合法最佳解，同分保留較早起點；固定迭代數時解不受執行緒數影響。
 使用不同時間預算或 seed 的結果不能只比較 runtime。
 
+Lab02 新增 `--policy progress|feasibility`，以迭代數控制溫度與可行性階段；
+`--trace-every 5000` 輸出首次合法解、outline excess 與 best-cost trace。
+120 次短預算比較中，新策略各 40/40 合法，legacy 為 12/40；但 `vda317b` 的合法成本
+顯著較差，因此預設仍為 legacy。成功率與成本必須一起比較。
+
+Lab03 新增 `--strategy minimum`，在不移動其他 cells 的單次插入問題求最小曼哈頓位移；
+`--strategy repair --repair-cells 2 --repair-candidates 16 --repair-radius 20` 可移動有限數量
+非 FIX cells。修復只保證候選中的當步分數選擇，整段 banking 成本可能退步。
+
+Lab04 新增 `--router negotiated --history 0 --rounds 10 --stagnation 3 --seconds 2 --stats`。
+初始解與重繞共用 wall budget，保留原始成本最低的完整結果；history penalty 不算入原始分數。
+官方案例未改善成本，生成壅塞案例的簡單重繞改善約 1.58–6.81%，但花更多時間。
+
 Lab03 的 `--search point` 是逐候選碰撞查詢的對照路徑；`interval` 為預設。
 `--strategy nearest` 保留另一個原始 heuristic，**並非全域最近或最佳合法化的保證**。
 為兼容原課程解，未指定策略時保留 legacy 的 `testcase2_100.lg` 檔名分派；
@@ -91,7 +119,8 @@ Lab03 的 `--search point` 是逐候選碰撞查詢的對照路徑；`interval` 
 ## 演算法與架構
 
 [架構文件](docs/architecture.md) 記錄每個 Lab 的資料結構、複雜度、原始風險與保留限制。
-共用部分僅有 checked I/O 與實驗工具；沒有將不相關的演算法強制套入同一 framework。
+四個 `lab1_core`–`lab4_core` libraries 分開解析、求解、結構化結果與輸出。
+共用部分僅有 typed checked I/O 與實驗工具；沒有將不相關的演算法強制套入同一 framework。
 
 Lab03 的 first-fit 改善來自搜尋次數，而非改變放置目標：原程式從 row 左端開始，遇到重疊就跳到
 障礙物右端，再重新查 R-tree。現在對該 row 與 cell 高度查一次障礙物，排序其 x 區間，直接跳過被占用的區間。
@@ -111,9 +140,10 @@ include/pda/io.hpp            共用 checked I/O
 Lab01/header/, src/          parsing／layout／report、tile ownership 與兩種索引
 Lab02/include/, src/          parser／tree／packing／annealer／undo／parallel／report
 Lab03/parser.cpp, legalizer.cpp
-Lab04/parser.cpp, legacy_router.cpp, layered_router.cpp
+Lab04/parser.cpp, legacy_router.cpp, layered_router.cpp, routing_state.cpp
 tests/                       C++ 核心不變條件與 Python oracle
-benchmarks/                  配對量測、多 seed／預算研究
+benchmarks/                  配對量測、多 seed／預算研究、統一報告
+scripts/                     已驗證的離線 demo、完整本機驗證
 .github/workflows/ci.yml      GCC／Clang／sanitizer CI
 ```
 
@@ -148,11 +178,13 @@ Lab01 的索引以額外記憶體減少候選走訪；各大小的 RSS 與所有
 相同 8 次搜尋在 1／2／4／8 threads 為 21.128／10.761／5.488／3.040 秒，
 8 threads 為 **6.95×**，每個起點結果與所選解一致。
 [同步、CPU 預算與 scaling](docs/parallel-floorplanning.md) 與獨立案例 process 的吞吐量測分開記錄。
+新增 [Lab01 容量與分布研究](docs/lab1-capacity.md)，涵蓋密集、長條、共邊與碎片化資料，保留候選走訪數與 RSS。
 
 ## 持續驗證
 
 [CI workflow](.github/workflows/ci.yml) 在 push／PR 執行 GCC Release、Clang 14 Release 與 GCC ASan／UBSan，
-預設不下載大型資源。手動 workflow dispatch 可選擇官方完整整合測試與 layered routing 驗證。
+另外執行獨立 TSan 與四個 libFuzzer parser / Clang Static Analyzer 工作；不下載大型資源。
+手動 workflow dispatch 可選擇官方完整整合測試與 layered routing 驗證。
 本機三種嚴格警告組合均已通過，四份原始 Makefile 亦在獨立副本建置成功。
 遠端結果見 [GitHub Actions](https://github.com/Mistbornk/PDA-Lab/actions/workflows/ci.yml)。
 
@@ -176,8 +208,8 @@ python3 benchmarks/lab2_comparison.py --suite time \
 - Lab01 的邊界 bucket 與 R-tree 候選搜尋仍有線性最壞情況；不宣稱任意分布皆有相同加速。
 - Lab02 skyline 最壞 packing 仍為 `O(n²)`，所有 nets 的 HPWL 仍重新計算；沒有全域最優性保證。
   scalar PRNG 有固定序列契約，但初始 `std::shuffle` 仍依賴標準函式庫，完整解的可重現性限同工具鏈。
-- Lab03 不會移動既有 cells 騰出空間，假設連續等高且同寬的 placement rows；
-  只支援此課程範圍。更好的擾動／位移品質仍是演算法研究方向。
+- Lab03 假設連續等高且同寬的 rows。minimum 只保證固定其他 cells 的單次最小位移；
+  repair 只搜尋有限 blockers / 候選，可能無法找到存在的解，也可能使後續 banking 總分退步。
 - Lab04 預設 legacy 仍是原 heuristic；可選 layered 在既有容量固定時搜尋每 net 的最短成本路徑，
   會花更多時間，且依然不保證多 net 全域最佳。
 - 本 repo 尚未為原始課程內容取得統一再授權；Lab03 upstream MIT LICENSE 有保留，其他資產依來源歸屬。

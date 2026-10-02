@@ -134,3 +134,38 @@ and emitting a result. A single annealing trajectory, per-net routing and bankin
 remain sequential because their state transitions are dependent. See
 [parallel floorplanning](parallel-floorplanning.md) for budgets, tie-breaking,
 exception handling, race analysis and fixed-total-work scaling.
+
+## Interview milestones: reusable sessions and policy boundaries
+
+All four solvers are CMake core libraries with thin compatibility CLIs. Lab03 and
+Lab04 models live in separate namespaces; their headers can be included together.
+`pda::InputError` distinguishes expected input rejection for bounded parser fuzzing.
+The core algorithms retain their own models rather than sharing an artificial graph
+or optimization superclass.
+
+Lab03 `Legalizer` owns placement, name/score maps, stable cell slots, row order and
+R-tree. `apply(Step)` plans virtual removals/relocations, then returns a structured
+`StepResult`; formatting is separate. Epoch-stamped virtual exclusions avoid a hash
+probe at every spatial candidate. Minimum displacement is exact for insertion with
+other cells fixed; bounded repair is an immediate-score heuristic. Failure and
+scoring semantics are in [ADR 001](decisions/001-state-transactions.md) and
+[ADR 004](decisions/004-bounded-legalization.md).
+
+Lab04 `RoutingState` borrows an immutable validated input, owns route/usage state,
+and validates route replacements before committing signed edge deltas. Formatting
+and metrics are read-only. Search can virtually subtract an old route, allowing
+rerouting deadline failures without removing the complete incumbent. Iteration
+metrics always use the original objective; history penalties only guide search.
+See [ADR 002](decisions/002-negotiated-routing.md).
+
+Lab02 policy selection changes scoring and temperature schedules while retaining
+the existing tree, packer, journal, HPWL and per-worker RNG. Diagnostics live in
+per-attempt results and do not change fixed-work trajectories. Policies are
+experimental quality/runtime choices; [ADR 003](decisions/003-floorplanning-policies.md)
+records legal-rate gains and quality regressions.
+
+The offline demo parses emitted reports, independently verifies geometry and
+cost, then draws SVG/HTML. It has no alternate optimization implementation or
+network dependency. Tests use direct core APIs, independent oracles, bounded
+parser fuzzing, static analysis and a separate TSan build. These are complementary
+evidence, not proofs of global optimality or complete input coverage.

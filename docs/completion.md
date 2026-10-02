@@ -1,5 +1,7 @@
 # Remaining AGENTS work: implementation record
 
+Historical checkpoint before the interview roadmap (baseline `616d52e`). Current delivery and validation are recorded in [interview-progress.md](interview-progress.md).
+
 Baseline: commit `89a0239`. Earlier evidence is retained as historical measurement.
 This sequence adds cohesive commits without rewriting the already-pushed history.
 

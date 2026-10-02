@@ -1,0 +1,350 @@
+n1
+M1 0 4 0 3
+via
+M2 0 3 1 3
+via
+M1 1 3 1 0
+via
+M2 1 0 2 0
+via
+M1 2 0 2 1
+via
+M2 2 1 3 1
+via
+M1 3 1 3 2
+via
+M2 3 2 4 2
+via
+M1 4 2 4 4
+via
+M2 4 4 5 4
+via
+M1 5 4 5 5
+via
+M2 5 5 7 5
+via
+M1 7 5 7 7
+via
+M2 7 7 11 7
+via
+.end
+n2
+M1 1 11 1 10
+via
+M2 1 10 6 10
+via
+M1 6 10 6 8
+via
+M2 6 8 9 8
+via
+M1 9 8 9 4
+.end
+n3
+M1 1 7 1 8
+via
+M2 1 8 4 8
+via
+M1 4 8 4 10
+via
+M2 4 10 9 10
+via
+.end
+n4
+M1 2 9 2 5
+via
+M2 2 5 11 5
+via
+M1 11 5 11 6
+.end
+n5
+M1 0 1 0 2
+via
+M2 0 2 7 2
+via
+M1 7 2 7 6
+via
+M2 7 6 9 6
+via
+M1 9 6 9 5
+.end
+n6
+M1 0 7 0 11
+via
+M2 0 11 11 11
+via
+M1 11 11 11 10
+.end
+n7
+via
+M2 1 5 6 5
+via
+M1 6 5 6 6
+via
+M2 6 6 10 6
+via
+M1 10 6 10 8
+.end
+n8
+M1 0 2 0 4
+via
+M2 0 4 10 4
+via
+M1 10 4 10 11
+.end
+n9
+M1 1 6 1 2
+via
+M2 1 2 10 2
+via
+M1 10 2 10 4
+.end
+n10
+M1 1 2 1 1
+via
+M2 1 1 9 1
+via
+M1 9 1 9 2
+.end
+n11
+via
+M2 0 3 4 3
+via
+M1 4 3 4 1
+via
+M2 4 1 7 1
+via
+M1 7 1 7 0
+via
+M2 7 0 11 0
+via
+.end
+n12
+M1 0 5 0 6
+via
+M2 0 6 5 6
+via
+M1 5 6 5 8
+via
+M2 5 8 6 8
+via
+M1 6 8 6 9
+via
+M2 6 9 9 9
+via
+.end
+n13
+via
+M2 0 11 3 11
+via
+M1 3 11 3 4
+via
+M2 3 4 6 4
+via
+M1 6 4 6 3
+via
+M2 6 3 11 3
+via
+M1 11 3 11 4
+.end
+n14
+via
+M2 1 9 4 9
+via
+M1 4 9 4 7
+via
+M2 4 7 6 7
+via
+M1 6 7 6 6
+via
+M2 6 6 8 6
+via
+M1 8 6 8 3
+via
+M2 8 3 9 3
+via
+.end
+n15
+via
+M2 1 3 2 3
+via
+M1 2 3 2 6
+via
+M2 2 6 5 6
+via
+M1 5 6 5 10
+via
+M2 5 10 8 10
+via
+M1 8 10 8 9
+via
+M2 8 9 11 9
+via
+M1 11 9 11 8
+.end
+n16
+M1 2 4 2 5
+via
+M2 2 5 1 5
+via
+M1 1 5 1 9
+via
+M2 1 9 2 9
+via
+M1 2 9 2 10
+via
+M2 2 10 4 10
+via
+M1 4 10 4 11
+via
+M2 4 11 6 11
+via
+M1 6 11 6 10
+via
+M2 6 10 7 10
+via
+M1 7 10 7 9
+via
+M2 7 9 9 9
+via
+M1 9 9 9 7
+via
+M2 9 7 10 7
+via
+M1 10 7 10 5
+via
+M2 10 5 11 5
+via
+M1 11 5 11 1
+via
+M2 11 1 9 1
+via
+.end
+n17
+M1 2 0 2 2
+via
+M2 2 2 8 2
+via
+M1 8 2 8 11
+via
+M2 8 11 9 11
+via
+M1 9 11 9 10
+via
+M2 9 10 11 10
+via
+M1 11 10 11 6
+via
+M2 11 6 10 6
+via
+.end
+n18
+M1 2 2 2 0
+via
+M2 2 0 10 0
+via
+M1 10 0 10 3
+.end
+n19
+via
+M2 2 7 4 7
+via
+M1 4 7 4 3
+via
+M2 4 3 6 3
+via
+M1 6 3 6 1
+via
+M2 6 1 8 1
+via
+M1 8 1 8 2
+via
+M2 8 2 11 2
+via
+.end
+n20
+M1 2 1 2 4
+via
+M2 2 4 3 4
+via
+M1 3 4 3 6
+via
+M2 3 6 6 6
+via
+M1 6 6 6 8
+via
+M2 6 8 7 8
+via
+M1 7 8 7 9
+via
+M2 7 9 9 9
+via
+M1 9 9 9 10
+via
+M2 9 10 10 10
+via
+M1 10 10 10 9
+.end
+n21
+via
+M2 0 9 1 9
+via
+M1 1 9 1 8
+via
+M2 1 8 7 8
+via
+M1 7 8 7 7
+via
+M2 7 7 8 7
+via
+M1 8 7 8 6
+via
+M2 8 6 10 6
+via
+M1 10 6 10 5
+.end
+n22
+via
+M2 2 8 3 8
+via
+M1 3 8 3 7
+via
+M2 3 7 6 7
+via
+M1 6 7 6 11
+via
+M2 6 11 9 11
+via
+.end
+n23
+M1 2 11 2 10
+via
+M2 2 10 4 10
+via
+M1 4 10 4 9
+via
+M2 4 9 5 9
+via
+M1 5 9 5 7
+via
+M2 5 7 9 7
+via
+.end
+n24
+M1 0 6 0 1
+via
+M2 0 1 3 1
+via
+M1 3 1 3 3
+via
+M2 3 3 5 3
+via
+M1 5 3 5 0
+via
+M2 5 0 7 0
+via
+M1 7 0 7 1
+via
+M2 7 1 10 1
+via
+M1 10 1 10 0
+.end

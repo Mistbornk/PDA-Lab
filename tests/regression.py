@@ -147,6 +147,38 @@ class Regression(unittest.TestCase):
                          'a 10 20 2 1 NOTFIX\nb 14 20 2 1 NOTFIX\nwall 18 20 2 2 FIX\n'+
                          ''.join(f'PlacementRows 10 {y} 1 1 20\n' for y in range(20,24)))
 
+    def test_policy_repair_and_budget_contracts(self):
+        block=self.file('policy.block','Outline: 10 10\nNumBlocks: 1\nNumTerminals: 0\nb 2 2\n')
+        nets=self.file('policy.nets','NumNets: 0\n')
+        for flags in [['--policy','unknown'], ['--temperature','.1'],
+                      ['--policy','progress','--cooling','1'],
+                      ['--policy','feasibility','--epoch-moves','1001'],
+                      ['--policy','progress','--temperature','nan'], ['--trace-every','0']]:
+            with self.subTest(flags=flags):
+                self.run_solver('Lab02',[.5,block,nets,self.work/'bad.rpt','--iterations','10',*flags],False)
+        lg=self.placement()
+        opt=self.file('repair.opt','Banking_Cell: a --> new 10 20 1 1\n')
+        for flags in [['--repair-cells','2'], ['--strategy','repair','--repair-cells','9'],
+                      ['--strategy','repair','--repair-candidates','0'],
+                      ['--strategy','repair','--repair-radius','-1'],
+                      ['--strategy','repair','--repair-radius','nan']]:
+            with self.subTest(flags=flags):
+                self.run_solver('Lab03',[lg,opt,self.work/'bad.lg',*flags],False)
+        huge=self.file('huge.opt','Banking_Cell: a --> new 0 0 100 100\n')
+        result=self.run_solver('Lab03',[lg,huge,self.work/'prefix.lg','--strategy','repair'],False)
+        self.assertEqual(result.returncode,3)
+        inputs=self.route_input('15 10')
+        for flags in [['--seconds','1'], ['--router','layered','--history','1'],
+                      ['--router','negotiated','--rounds','1001'],
+                      ['--router','negotiated','--seconds','1e308'],
+                      ['--router','negotiated','--history','nan']]:
+            with self.subTest(flags=flags):
+                self.run_solver('Lab04',[*inputs,self.work/'bad.route',*flags],False)
+        sentinel=self.file('preserved.route','PREVIOUS COMPLETE REPORT\n')
+        expired=self.run_solver('Lab04',[*inputs,sentinel,'--router','negotiated','--seconds','1e-20'],False)
+        self.assertEqual(expired.returncode,3)
+        self.assertEqual(sentinel.read_text(),'PREVIOUS COMPLETE REPORT\n')
+
     def test_lab2_tree_moves_and_large_area(self):
         sizes={'a':(3,5),'b':(5,7),'c':(4,4),'d':(3,1)}
         block=self.file('small.block','Outline: 50 50\nNumBlocks: 4\nNumTerminals: 1\n'+

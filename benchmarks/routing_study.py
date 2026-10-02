@@ -3,12 +3,11 @@
 import argparse
 import json
 from pathlib import Path
-import platform
 import statistics
-import subprocess
 import tempfile
 from types import SimpleNamespace
 from generated import routing
+from provenance import provenance
 from run import ROOT, build_metadata, course, run
 
 
@@ -26,6 +25,7 @@ def main():
                 ('history', ['--router', 'negotiated', '--history', '1'])]
     work = Path(tempfile.mkdtemp(prefix='routing-study-', dir=ROOT/'benchmarks/work'))
     rows = []
+    environment = provenance(ROOT)
     cases = [routing(work/'inputs', seed) for seed in [101,211,307,409]] if args.generated else course.cases('Lab04')
     for name, inputs in cases:
         for budget in args.budgets:
@@ -57,9 +57,7 @@ def main():
             median_wall_seconds=statistics.median(r['wall_seconds'] for r in group),
             median_peak_rss_kib=statistics.median(r['peak_rss_kib'] for r in group)))
     report = dict(schema_version=1, complete=True,
-        revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
-        dirty=bool(subprocess.check_output(['git','status','--porcelain'],cwd=ROOT)),
-        platform=platform.platform(), build=build_metadata(ROOT/'build'),
+        **environment, build=build_metadata(ROOT/'build'),
         method='Serial rotating variant order. Equal maximum routing wall budgets include initial routing, exclude parsing/reporting. Wrapper wall time recorded separately. Solvers may finish early; failures retained.',
         dataset_family='held-out-generated-congestion' if args.generated else 'course',
         threads=1, results=rows, summary=summary)

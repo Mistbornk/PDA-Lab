@@ -218,3 +218,47 @@ python3 benchmarks/lab2_study.py --seeds 1 7 19 31 43 \
 ```
 
 CI 只負責正確性，不在共享 runner 上設硬性時間門檻；詳見 [CI 文件](../docs/ci.md)。
+
+## Interview roadmap studies
+
+The consolidated [report](../docs/experiments/README.md) links complete machine-readable
+records and standalone SVG plots. New experiments preserve invalid/budget-exhausted
+attempts and distinguish timing repetitions from solver-seed variation. Defaults
+are not silently changed when a policy wins only a subset of workloads.
+
+```bash
+python3 benchmarks/routing_study.py --output benchmarks/work/routing.json
+python3 benchmarks/routing_study.py --generated --budgets 1 --output benchmarks/work/congestion.json
+python3 benchmarks/policy_study.py --suite tuning --output benchmarks/work/tuning.json
+python3 benchmarks/policy_study.py --suite evaluation --output benchmarks/work/policies.json
+python3 benchmarks/policy_study.py --suite instrumentation --output benchmarks/work/instrumentation.json
+python3 benchmarks/legalizer_study.py --output benchmarks/work/legalization.json
+python3 benchmarks/legalizer_study.py --generated --output benchmarks/work/legalization-generated.json
+python3 benchmarks/lab1_distributions.py --output benchmarks/work/distributions.json
+# Aggregate the checked-in final study filenames; matplotlib is needed only here.
+python3 benchmarks/report.py
+```
+
+`policy_study.py` declares tuning seeds 1/7 on ami33; evaluation seeds 101/211/307/409
+on three official and two known-feasible generated floorplans. `generated.py` uses
+self-authored deterministic generators; no extra downloaded benchmark licensing is
+assumed. `routing_study.py` uses four generated congestion seeds. Lab03 uses 40/70/90%
+occupancy targets and single/double-height cells, with 80 sequential banking steps.
+Raw outputs and validator logs remain in ignored per-run directories; hashes, metrics,
+commands, failure reasons and solver diagnostic records are retained in JSON.
+
+Run studies serially without concurrent builds. Cooperative routing wall budgets
+include initial routing but exclude parse/report; floorplanning budgets are per-restart
+CPU seconds. Wrapper wall and GNU user/system CPU time are separate fields. The host
+is shared: reported ranges are samples, not calibrated performance gates.
+
+For local GCC/Clang/ASan/UBSan/TSan/fuzz/static-analysis validation:
+
+```bash
+python3 scripts/validate_portfolio.py --jobs 4
+```
+
+TSan requires a supported runtime and is not considered passed if skipped. Fuzz
+corpora are copied before mutation; four parser targets have explicit input, grid,
+RSS, mutation and time bounds. Compiler/runtime tools are development dependencies
+(`clang-14`, `libclang-rt-14-dev` on Ubuntu 22.04), not production dependencies.

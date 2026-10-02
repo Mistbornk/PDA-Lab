@@ -105,6 +105,9 @@ if(BUILD_TESTING)
   target_link_libraries(lab2_random_test PRIVATE lab2_core Threads::Threads)
   add_test(NAME lab2_random COMMAND lab2_random_test)
   find_package(Python3 REQUIRED COMPONENTS Interpreter)
+  add_test(NAME offline_demo COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/scripts/demo.py
+    --bin-root ${CMAKE_BINARY_DIR} --output ${CMAKE_BINARY_DIR}/demo)
+  set_tests_properties(offline_demo PROPERTIES TIMEOUT 120)
   add_test(NAME lab4_oracle COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/tests/lab4_oracle.py
     --bin-root ${CMAKE_BINARY_DIR})
   set_tests_properties(lab4_oracle PROPERTIES TIMEOUT 120)

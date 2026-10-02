@@ -1,0 +1,360 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-10-02T10:11:47.992026+00:00",
+  "platform": "Linux-5.15.0-130-generic-x86_64-with-glibc2.35",
+  "cpu": "Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz",
+  "revision": "16a1b2c689462a92267a06801267c1aed6c28ff9",
+  "dirty": true,
+  "source_sha256": {
+    "CMakeLists.txt": "7a612852f494cbfefdb07d4421c8770a92895f7d20868ce300a2a1e8d9893fea",
+    "Lab01/header/Block.h": "a5e3658aa506c162cbbb1a58ba15f2e4bbe7a4017ee618982c07102bda831876",
+    "Lab01/header/Tile.h": "095b9781c033db5d722aadaaaea04854fdc24e13b265a800979655bd2000c9be",
+    "Lab01/header/TileList.h": "d03d1392f585ce9ac92f3cc112db01c673c0bde4f288636ec7ce61141006145b",
+    "Lab01/header/layout.hpp": "ac5fb5bcf2f55c0dbf1363495cbb9be698f9494c96850d2be3f46cac931a6a0e",
+    "Lab01/src/Block_Creating.cpp": "67a5a01c4e05fae588eb913b61e8be136166ae72be9f3c62275fd25a295cf302",
+    "Lab01/src/Neighbor_Finding.cpp": "8302f921416e23a7cc2943f3de0e7612e310eea4e97eab751689b799733af04d",
+    "Lab01/src/Point_Finding.cpp": "54b5a7292acdc3705aaeba42a8d5d0fccf929fad66f6a9bf6a05c5dc6fb5bc22",
+    "Lab01/src/TileList.cpp": "6cd4ceda1e915a0dfdf8e2fdf321f2c2ce1ad507ee7359b81b34c302358d5362",
+    "Lab01/src/layout.cpp": "1ec43d4289eeae97261301be89d88842f0ad61202cc7b6acd2bf179b31aefbde",
+    "Lab01/src/main.cpp": "bdbc53ee618fcff01f06addfc65a812d47aa8df95cc70f38e1b26e9d0126a13c",
+    "Lab01/src/parser.cpp": "8d396cd93839fbc2535cf46580003426c75ef017d09a6291e32102e1c24a1862",
+    "Lab01/src/report.cpp": "e71adfb87ad1f2ca64939545538caa17417307ddd613eb908bb716af25f82905",
+    "Lab02/include/annealer.hpp": "68e3b40b1b2a1493fae86a771c6297a373eb6f98f64763bd4fe125af0c134cda",
+    "Lab02/include/model.hpp": "f6dcfc01e56b47e00e4edd3ad98b892a4e2e744f2ec82befc57384f4f1797a2d",
+    "Lab02/include/packing.hpp": "5d6034d39bb03891e4cd884eceb4db405fe4934e35ea28c32d47b4f4667be5db",
+    "Lab02/include/parallel.hpp": "93ed72bb4cf24cfacd032cc8ce136b376d3f32d6ed9b39a2c9a2f90434a75cf6",
+    "Lab02/include/parser.hpp": "c5ff75996386443421cf64965708fda8c2deaa59afdadda732a50c739fe5fe69",
+    "Lab02/include/random.hpp": "82aef780ea94f6b0669427a128b1f18e8475a31c8a544dbb0ea6547cef424bd5",
+    "Lab02/include/timing.hpp": "b7b23ef2e0aa5a142665a5bdb607864200cd9ed8346b194d47cd822ff734a23c",
+    "Lab02/include/tree.hpp": "94bb9d27eb392466d3571b172f6bbd0b059c933be1a96f5f6e720b6dc05405d4",
+    "Lab02/include/undo.hpp": "b1ddc245b5a32f3ef3071e202c708038e1a4beee3b3ceaa19111869092a363eb",
+    "Lab02/main.cpp": "1de32f0bdaf8c24872551c2de99caa7c0b3ade3d289b21092734ddaad1269180",
+    "Lab02/src/annealer.cpp": "6ace0ca6dd6b69ccfde23261b82cc2cae1bfffbbe536ef9a319972d3e539c781",
+    "Lab02/src/diagnostics.cpp": "496f7c961648e2bbafd580189a773a57b884d6fb0bacdf5c10be4d0276e502f7",
+    "Lab02/src/packing.cpp": "0f543cfcc7b5ec325e4682f2f6689fd3a4355d31c540f4abeed497ada74a27d3",
+    "Lab02/src/parallel.cpp": "555438d334cbdc9acad88e2cb6a91cb02f85bebb9406a9fd1930608ce35df7ae",
+    "Lab02/src/parser.cpp": "ff720f09e28b7e2c4c99b9f47ff15e925e06cb9811ee0886deda55cd002542df",
+    "Lab02/src/progress_annealer.cpp": "7bca1bb26991fa31208b03999bca3b99b74413e9cf67a07c106798c07f2dbe8d",
+    "Lab02/src/report.cpp": "46490e880fa8f2a403d69da7b122a974d2fff1e7f10f7c1b727f5e873486bb0b",
+    "Lab02/src/tree.cpp": "7a6c868126db9cabb021ba8d48d329f76dc5bee87ca9819eb04c08122f3ff634",
+    "Lab02/src/undo.cpp": "af87b0c81672c601363552a524be3626cc214771b0b1fbdb618dbdc2c9b345a7",
+    "Lab03/include/legalizer.hpp": "a16f7118fde828ba78755a3487ee8be11588e62dd4164e131b8ff52d1a48a0d2",
+    "Lab03/include/struct.hpp": "649e358344bff14b0a4b86b53fc4ec4facdf3895031a22696d35c0e8116a268d",
+    "Lab03/legalizer.cpp": "53f80a790115f38238ac275d68664cab2d027d7fc260a7a8aac7d67325e45941",
+    "Lab03/main.cpp": "71f364e273ff969a0c84d66e2c87461e96c25b5ee72046db151b8985f9c38ec7",
+    "Lab03/parser.cpp": "d5db45f0f5d6a49f7068cf75627e7548d7166f284a9434cd85926262c3e10786",
+    "Lab04/inc/input.hpp": "f62779e15aa8adc2e417d4f60c6c5e52539bef59bfe2f6cebd751256ae79d8a3",
+    "Lab04/inc/router.hpp": "cef61f49915cd20e21d086536fcbcc39803d17ca71c6193ef86514c574d76e57",
+    "Lab04/inc/struct.hpp": "f73d918922612617c61a0c7cda8f0d1040301baac9d2267800df5c252771efc3",
+    "Lab04/layered_router.cpp": "3ec1894cea80ea3b5dd46dc962163143b32d0761097732f9f80299245349f487",
+    "Lab04/legacy_router.cpp": "4fe7c8d8d5029a1b1eb7278494a1d2e6763be098d2179e186e8619a61ef6781c",
+    "Lab04/main.cpp": "0cbd77a26544c84d934192f59ac607c9691b2811a9b0cdda38bd2111fff62528",
+    "Lab04/parser.cpp": "e657e25bc7ed5e46a56823b6d25778283dc4522d8d050b28ab4cc29d781de4f8",
+    "Lab04/routing_state.cpp": "24266d711e76fd77b8e233533c2f73a0d599f40306435613cb637c57b5a47152",
+    "include/pda/io.hpp": "e2efdaadc904cefc77a574d4b80c4a774d4930791a437691f0fa12da245a6b4f"
+  },
+  "checks": [
+    {
+      "name": "build-configure",
+      "command": [
+        "cmake",
+        "-S",
+        ".",
+        "-B",
+        "build",
+        "-DCMAKE_CXX_COMPILER=c++",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPDA_STRICT_WARNINGS=ON",
+        "-DPDA_WARNINGS_AS_ERRORS=ON"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 1.5195083091966808,
+      "log": "benchmarks/work/final-validation-cfv1skht/build-configure.log",
+      "log_tail": "-- Configuring done\n-- Generating done\n-- Build files have been written to: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build\n"
+    },
+    {
+      "name": "build-compile",
+      "command": [
+        "cmake",
+        "--build",
+        "build",
+        "--parallel",
+        "4"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 0.46692733373492956,
+      "log": "benchmarks/work/final-validation-cfv1skht/build-compile.log",
+      "log_tail": "Consolidate compiler generated dependencies of target lab3_core\nConsolidate compiler generated dependencies of target lab4_core\nConsolidate compiler generated dependencies of target lab2_core\n[ 10%] Built target lab4_core\nConsolidate compiler generated dependencies of target lab1_core\n[ 16%] Built target lab3_core\n[ 36%] Built target lab2_core\nConsolidate compiler generated dependencies of target D2DGRter\nConsolidate compiler generated dependencies of target Legalizer\nConsolidate compiler generated dependencies of target lab3_quality_test\n[ 44%] Built target D2DGRter\n[ 52%] Built target Legalizer\n[ 60%] Built target lab1_core\n[ 64%] Built target lab3_quality_test\nConsolidate compiler generated dependencies of target lab2_policy_test\nConsolidate compiler generated dependencies of target core_sessions_test\n[ 68%] Built target lab2_policy_test\nConsolidate compiler generated dependencies of target lab2_core_test\n[ 70%] Linking CXX executable core_sessions_test\nConsolidate compiler generated dependencies of target lab2_undo_test\n[ 74%] Built target lab2_core_test\nConsolidate compiler generated dependencies of target lab2_parallel_test\n[ 78%] Built target lab2_undo_test\n[ 82%] Built target lab2_parallel_test\nConsolidate compiler generated dependencies of target lab2_random_test\nConsolidate compiler generated dependencies of target Lab1\nConsolidate compiler generated dependencies of target Lab2\n[ 86%] Built target lab2_random_test\n[ 90%] Built target Lab1\n[ 94%] Built target Lab2\nConsolidate compiler generated dependencies of target lab1_core_test\n[ 98%] Built target lab1_core_test\n[100%] Built target core_sessions_test\n"
+    },
+    {
+      "name": "build-test",
+      "command": [
+        "ctest",
+        "--test-dir",
+        "build",
+        "--output-on-failure"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 3.573694332037121,
+      "log": "benchmarks/work/final-validation-cfv1skht/build-test.log",
+      "log_tail": "Internal ctest changing into directory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build\nTest project /mnt/ec/ness/max/Side-Projects/PDA-Lab/build\n      Start  1: lab3_quality\n 1/12 Test  #1: lab3_quality .....................   Passed    0.06 sec\n      Start  2: lab2_policy\n 2/12 Test  #2: lab2_policy ......................   Passed    0.19 sec\n      Start  3: core_sessions\n 3/12 Test  #3: core_sessions ....................   Passed    0.03 sec\n      Start  4: lab1_core\n 4/12 Test  #4: lab1_core ........................   Passed    0.74 sec\n      Start  5: lab2_core\n 5/12 Test  #5: lab2_core ........................   Passed    0.10 sec\n      Start  6: lab2_undo\n 6/12 Test  #6: lab2_undo ........................   Passed    0.19 sec\n      Start  7: lab2_parallel\n 7/12 Test  #7: lab2_parallel ....................   Passed    0.20 sec\n      Start  8: lab2_random\n 8/12 Test  #8: lab2_random ......................   Passed    0.06 sec\n      Start  9: offline_demo\n 9/12 Test  #9: offline_demo .....................   Passed    0.36 sec\n      Start 10: lab4_oracle\n10/12 Test #10: lab4_oracle ......................   Passed    0.77 sec\n      Start 11: regression\n11/12 Test #11: regression .......................   Passed    0.51 sec\n      Start 12: stress_smoke\n12/12 Test #12: stress_smoke .....................   Passed    0.27 sec\n\n100% tests passed, 0 tests failed out of 12\n\nTotal Test time (real) =   3.52 sec\n"
+    },
+    {
+      "name": "build-clang-strict-configure",
+      "command": [
+        "cmake",
+        "-S",
+        ".",
+        "-B",
+        "build-clang-strict",
+        "-DCMAKE_CXX_COMPILER=clang++-14",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPDA_STRICT_WARNINGS=ON",
+        "-DPDA_WARNINGS_AS_ERRORS=ON"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 1.519577322062105,
+      "log": "benchmarks/work/final-validation-cfv1skht/build-clang-strict-configure.log",
+      "log_tail": "-- Configuring done\n-- Generating done\n-- Build files have been written to: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict\n"
+    },
+    {
+      "name": "build-clang-strict-compile",
+      "command": [
+        "cmake",
+        "--build",
+        "build-clang-strict",
+        "--parallel",
+        "4"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 12.599988570902497,
+      "log": "benchmarks/work/final-validation-cfv1skht/build-clang-strict-compile.log",
+      "log_tail": "Consolidate compiler generated dependencies of target lab4_core\nConsolidate compiler generated dependencies of target lab3_core\n[  2%] Building CXX object CMakeFiles/lab4_core.dir/Lab04/legacy_router.cpp.o\nConsolidate compiler generated dependencies of target lab1_core\n[  4%] Building CXX object CMakeFiles/lab3_core.dir/Lab03/parser.cpp.o\nConsolidate compiler generated dependencies of target lab2_core\n[  6%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/parser.cpp.o\n[ 22%] Built target lab1_core\n[ 24%] Building CXX object CMakeFiles/lab4_core.dir/Lab04/layered_router.cpp.o\n[ 26%] Building CXX object CMakeFiles/lab4_core.dir/Lab04/routing_state.cpp.o\n[ 28%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/packing.cpp.o\n[ 30%] Building CXX object CMakeFiles/lab3_core.dir/Lab03/legalizer.cpp.o\n[ 32%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/tree.cpp.o\n[ 34%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/annealer.cpp.o\n[ 36%] Linking CXX static library liblab4_core.a\n[ 38%] Built target lab4_core\nConsolidate compiler generated dependencies of target Lab1\n[ 42%] Built target Lab1\nConsolidate compiler generated dependencies of target D2DGRter\n[ 44%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/progress_annealer.cpp.o\n[ 46%] Building CXX object CMakeFiles/D2DGRter.dir/Lab04/main.cpp.o\n[ 48%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/diagnostics.cpp.o\n[ 50%] Linking CXX executable Lab04/D2DGRter\n[ 50%] Built target D2DGRter\nConsolidate compiler generated dependencies of target lab1_core_test\n[ 54%] Built target lab1_core_test\n[ 56%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/parallel.cpp.o\n[ 58%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/undo.cpp.o\n[ 60%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/report.cpp.o\n[ 62%] Linking CXX static library liblab2_core.a\n[ 62%] Built target lab2_core\nConsolidate compiler generated dependencies of target Lab2\nConsolidate compiler generated dependencies of target lab2_core_test\n[ 64%] Building CXX object CMakeFiles/lab2_policy_test.dir/tests/lab2_policy.cpp.o\n[ 68%] Building CXX object CMakeFiles/Lab2.dir/Lab02/main.cpp.o\n[ 68%] Building CXX object CMakeFiles/lab2_core_test.dir/tests/lab2_core.cpp.o\n[ 70%] Linking CXX executable lab2_policy_test\n[ 72%] Linking CXX executable Lab02/Lab2\n[ 72%] Built target lab2_policy_test\nConsolidate compiler generated dependencies of target lab2_undo_test\n[ 72%] Built target Lab2\n[ 74%] Building CXX object CMakeFiles/lab2_undo_test.dir/tests/lab2_undo.cpp.o\nConsolidate compiler generated dependencies of target lab2_parallel_test\n[ 76%] Building CXX object CMakeFiles/lab2_parallel_test.dir/tests/lab2_parallel.cpp.o\n[ 78%] Linking CXX executable lab2_core_test\n[ 78%] Built target lab2_core_test\nConsolidate compiler generated dependencies of target lab2_random_test\n[ 80%] Building CXX object CMakeFiles/lab2_random_test.dir/tests/lab2_random.cpp.o\n[ 82%] Linking CXX executable lab2_parallel_test\n[ 84%] Linking CXX executable lab2_undo_test\n[ 84%] Built target lab2_parallel_test\n[ 84%] Built target lab2_undo_test\n[ 86%] Linking CXX static library liblab3_core.a\n[ 86%] Built target lab3_core\n[ 88%] Linking CXX executable lab2_random_test\nConsolidate compiler generated dependencies of target Legalizer\nConsolidate compiler generated dependencies of target core_sessions_test\n[ 90%] Building CXX object CMakeFiles/lab3_quality_test.dir/tests/lab3_quality.cpp.o\n[ 94%] Building CXX object CMakeFiles/core_sessions_test.dir/tests/core_sessions.cpp.o\n[ 94%] Building CXX object CMakeFiles/Legalizer.dir/Lab03/main.cpp.o\n[ 94%] Built target lab2_random_test\n[ 96%] Linking CXX executable Lab03/Legalizer\n[ 96%] Built target Legalizer\n[ 98%] Linking CXX executable lab3_quality_test\n[100%] Linking CXX executable core_sessions_test\n[100%] Built target lab3_quality_test\n[100%] Built target core_sessions_test\n"
+    },
+    {
+      "name": "build-clang-strict-test",
+      "command": [
+        "ctest",
+        "--test-dir",
+        "build-clang-strict",
+        "--output-on-failure"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 3.7251079427078366,
+      "log": "benchmarks/work/final-validation-cfv1skht/build-clang-strict-test.log",
+      "log_tail": "Internal ctest changing into directory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict\nTest project /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-clang-strict\n      Start  1: lab3_quality\n 1/12 Test  #1: lab3_quality .....................   Passed    0.06 sec\n      Start  2: lab2_policy\n 2/12 Test  #2: lab2_policy ......................   Passed    0.24 sec\n      Start  3: core_sessions\n 3/12 Test  #3: core_sessions ....................   Passed    0.03 sec\n      Start  4: lab1_core\n 4/12 Test  #4: lab1_core ........................   Passed    0.71 sec\n      Start  5: lab2_core\n 5/12 Test  #5: lab2_core ........................   Passed    0.12 sec\n      Start  6: lab2_undo\n 6/12 Test  #6: lab2_undo ........................   Passed    0.21 sec\n      Start  7: lab2_parallel\n 7/12 Test  #7: lab2_parallel ....................   Passed    0.21 sec\n      Start  8: lab2_random\n 8/12 Test  #8: lab2_random ......................   Passed    0.07 sec\n      Start  9: offline_demo\n 9/12 Test  #9: offline_demo .....................   Passed    0.34 sec\n      Start 10: lab4_oracle\n10/12 Test #10: lab4_oracle ......................   Passed    0.75 sec\n      Start 11: regression\n11/12 Test #11: regression .......................   Passed    0.58 sec\n      Start 12: stress_smoke\n12/12 Test #12: stress_smoke .....................   Passed    0.31 sec\n\n100% tests passed, 0 tests failed out of 12\n\nTotal Test time (real) =   3.67 sec\n"
+    },
+    {
+      "name": "build-asan-configure",
+      "command": [
+        "cmake",
+        "-S",
+        ".",
+        "-B",
+        "build-asan",
+        "-DCMAKE_CXX_COMPILER=c++",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DPDA_STRICT_WARNINGS=ON",
+        "-DPDA_WARNINGS_AS_ERRORS=ON",
+        "-DPDA_SANITIZERS=ON"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 1.5709043270908296,
+      "log": "benchmarks/work/final-validation-cfv1skht/build-asan-configure.log",
+      "log_tail": "-- Configuring done\n-- Generating done\n-- Build files have been written to: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan\n"
+    },
+    {
+      "name": "build-asan-compile",
+      "command": [
+        "cmake",
+        "--build",
+        "build-asan",
+        "--parallel",
+        "4"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 15.107948301825672,
+      "log": "benchmarks/work/final-validation-cfv1skht/build-asan-compile.log",
+      "log_tail": "Consolidate compiler generated dependencies of target lab4_core\nConsolidate compiler generated dependencies of target lab3_core\n[ 10%] Built target lab4_core\nConsolidate compiler generated dependencies of target lab2_core\n[ 12%] Building CXX object CMakeFiles/lab3_core.dir/Lab03/parser.cpp.o\nConsolidate compiler generated dependencies of target D2DGRter\n[ 14%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/parser.cpp.o\n[ 18%] Built target D2DGRter\nConsolidate compiler generated dependencies of target lab1_core\n[ 20%] Building CXX object CMakeFiles/lab3_core.dir/Lab03/legalizer.cpp.o\n[ 36%] Built target lab1_core\n[ 38%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/packing.cpp.o\n[ 40%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/tree.cpp.o\n[ 42%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/annealer.cpp.o\n[ 44%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/progress_annealer.cpp.o\n[ 46%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/diagnostics.cpp.o\nIn file included from /usr/include/boost/math/tools/cxx03_warn.hpp:9,\n                 from /usr/include/boost/math/constants/constants.hpp:11,\n                 from /usr/include/boost/geometry/util/math.hpp:29,\n                 from /usr/include/boost/geometry/core/radian_access.hpp:33,\n                 from /usr/include/boost/geometry/geometry.hpp:51,\n                 from /usr/include/boost/geometry.hpp:17,\n                 from /mnt/ec/ness/max/Side-Projects/PDA-Lab/Lab03/legalizer.cpp:4:\n/usr/include/boost/detail/no_exceptions_support.hpp:17:1: note: \u2018#pragma message: This header is deprecated. Use <boost/core/no_exceptions_support.hpp> instead.\u2019\n   17 | BOOST_HEADER_DEPRECATED(\"<boost/core/no_exceptions_support.hpp>\")\n      | ^~~~~~~~~~~~~~~~~~~~~~~\n[ 48%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/parallel.cpp.o\n[ 50%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/undo.cpp.o\nConsolidate compiler generated dependencies of target Lab1\n[ 54%] Built target Lab1\nConsolidate compiler generated dependencies of target lab1_core_test\n[ 58%] Built target lab1_core_test\n[ 60%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/report.cpp.o\n[ 62%] Linking CXX static library liblab2_core.a\n[ 62%] Built target lab2_core\nConsolidate compiler generated dependencies of target Lab2\nConsolidate compiler generated dependencies of target lab2_core_test\n[ 64%] Building CXX object CMakeFiles/lab2_policy_test.dir/tests/lab2_policy.cpp.o\n[ 68%] Building CXX object CMakeFiles/lab2_core_test.dir/tests/lab2_core.cpp.o\n[ 68%] Building CXX object CMakeFiles/Lab2.dir/Lab02/main.cpp.o\n[ 70%] Linking CXX executable Lab02/Lab2\n[ 70%] Built target Lab2\nConsolidate compiler generated dependencies of target lab2_undo_test\n[ 72%] Building CXX object CMakeFiles/lab2_undo_test.dir/tests/lab2_undo.cpp.o\n[ 74%] Linking CXX executable lab2_policy_test\n[ 74%] Built target lab2_policy_test\nConsolidate compiler generated dependencies of target lab2_parallel_test\n[ 76%] Building CXX object CMakeFiles/lab2_parallel_test.dir/tests/lab2_parallel.cpp.o\n[ 78%] Linking CXX executable lab2_core_test\n[ 80%] Linking CXX executable lab2_undo_test\n[ 80%] Built target lab2_core_test\nConsolidate compiler generated dependencies of target lab2_random_test\n[ 82%] Building CXX object CMakeFiles/lab2_random_test.dir/tests/lab2_random.cpp.o\n[ 84%] Linking CXX static library liblab3_core.a\n[ 84%] Built target lab2_undo_test\n[ 86%] Linking CXX executable lab2_parallel_test\n[ 86%] Built target lab3_core\nConsolidate compiler generated dependencies of target Legalizer\n[ 88%] Building CXX object CMakeFiles/lab3_quality_test.dir/tests/lab3_quality.cpp.o\n[ 90%] Building CXX object CMakeFiles/Legalizer.dir/Lab03/main.cpp.o\n[ 90%] Built target lab2_parallel_test\nConsolidate compiler generated dependencies of target core_sessions_test\n[ 92%] Building CXX object CMakeFiles/core_sessions_test.dir/tests/core_sessions.cpp.o\n[ 94%] Linking CXX executable Lab03/Legalizer\n[ 94%] Built target Legalizer\n[ 96%] Linking CXX executable lab2_random_test\n[ 96%] Built target lab2_random_test\n[ 98%] Linking CXX executable lab3_quality_test\n[ 98%] Built target lab3_quality_test\n[100%] Linking CXX executable core_sessions_test\n[100%] Built target core_sessions_test\n"
+    },
+    {
+      "name": "build-asan-test",
+      "command": [
+        "ctest",
+        "--test-dir",
+        "build-asan",
+        "--output-on-failure"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 50.38564027613029,
+      "log": "benchmarks/work/final-validation-cfv1skht/build-asan-test.log",
+      "log_tail": "Internal ctest changing into directory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan\nTest project /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-asan\n      Start  1: lab3_quality\n 1/12 Test  #1: lab3_quality .....................   Passed    1.39 sec\n      Start  2: lab2_policy\n 2/12 Test  #2: lab2_policy ......................   Passed    4.92 sec\n      Start  3: core_sessions\n 3/12 Test  #3: core_sessions ....................   Passed    0.60 sec\n      Start  4: lab1_core\n 4/12 Test  #4: lab1_core ........................   Passed   10.95 sec\n      Start  5: lab2_core\n 5/12 Test  #5: lab2_core ........................   Passed    3.15 sec\n      Start  6: lab2_undo\n 6/12 Test  #6: lab2_undo ........................   Passed    6.21 sec\n      Start  7: lab2_parallel\n 7/12 Test  #7: lab2_parallel ....................   Passed    5.89 sec\n      Start  8: lab2_random\n 8/12 Test  #8: lab2_random ......................   Passed    0.84 sec\n      Start  9: offline_demo\n 9/12 Test  #9: offline_demo .....................   Passed    8.21 sec\n      Start 10: lab4_oracle\n10/12 Test #10: lab4_oracle ......................   Passed    3.83 sec\n      Start 11: regression\n11/12 Test #11: regression .......................   Passed    3.12 sec\n      Start 12: stress_smoke\n12/12 Test #12: stress_smoke .....................   Passed    1.19 sec\n\n100% tests passed, 0 tests failed out of 12\n\nTotal Test time (real) =  50.36 sec\n"
+    },
+    {
+      "name": "tsan-configure",
+      "command": [
+        "cmake",
+        "-S",
+        ".",
+        "-B",
+        "build-tsan",
+        "-DCMAKE_CXX_COMPILER=clang++-14",
+        "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+        "-DPDA_THREAD_SANITIZER=ON",
+        "-DPDA_STRICT_WARNINGS=ON",
+        "-DPDA_WARNINGS_AS_ERRORS=ON"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 1.5703611108474433,
+      "log": "benchmarks/work/final-validation-cfv1skht/tsan-configure.log",
+      "log_tail": "-- Configuring done\n-- Generating done\n-- Build files have been written to: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-tsan\n"
+    },
+    {
+      "name": "tsan-build",
+      "command": [
+        "cmake",
+        "--build",
+        "build-tsan",
+        "--parallel",
+        "4",
+        "--target",
+        "lab2_parallel_test",
+        "lab2_random_test",
+        "lab2_policy_test"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 10.496257313061506,
+      "log": "benchmarks/work/final-validation-cfv1skht/tsan-build.log",
+      "log_tail": "Consolidate compiler generated dependencies of target lab2_core\n[ 25%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/parser.cpp.o\n[ 33%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/tree.cpp.o\n[ 33%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/packing.cpp.o\n[ 33%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/annealer.cpp.o\n[ 41%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/progress_annealer.cpp.o\n[ 50%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/diagnostics.cpp.o\n[ 58%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/parallel.cpp.o\n[ 66%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/undo.cpp.o\n[ 75%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/report.cpp.o\n[ 83%] Linking CXX static library liblab2_core.a\n[ 83%] Built target lab2_core\nConsolidate compiler generated dependencies of target lab2_parallel_test\n[ 91%] Building CXX object CMakeFiles/lab2_parallel_test.dir/tests/lab2_parallel.cpp.o\n[100%] Linking CXX executable lab2_parallel_test\n[100%] Built target lab2_parallel_test\nConsolidate compiler generated dependencies of target lab2_core\n[ 83%] Built target lab2_core\nConsolidate compiler generated dependencies of target lab2_random_test\n[ 91%] Building CXX object CMakeFiles/lab2_random_test.dir/tests/lab2_random.cpp.o\n[100%] Linking CXX executable lab2_random_test\n[100%] Built target lab2_random_test\n[ 83%] Built target lab2_core\n[ 91%] Building CXX object CMakeFiles/lab2_policy_test.dir/tests/lab2_policy.cpp.o\n[100%] Linking CXX executable lab2_policy_test\n[100%] Built target lab2_policy_test\n"
+    },
+    {
+      "name": "tsan-test",
+      "command": [
+        "ctest",
+        "--test-dir",
+        "build-tsan",
+        "-R",
+        "lab2_(parallel|random|policy)",
+        "--output-on-failure"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 2.4732760610058904,
+      "log": "benchmarks/work/final-validation-cfv1skht/tsan-test.log",
+      "log_tail": "Internal ctest changing into directory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-tsan\nTest project /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-tsan\n    Start 2: lab2_policy\n1/3 Test #2: lab2_policy ......................   Passed    1.14 sec\n    Start 7: lab2_parallel\n2/3 Test #7: lab2_parallel ....................   Passed    1.04 sec\n    Start 8: lab2_random\n3/3 Test #8: lab2_random ......................   Passed    0.20 sec\n\n100% tests passed, 0 tests failed out of 3\n\nTotal Test time (real) =   2.39 sec\n"
+    },
+    {
+      "name": "fuzz-configure",
+      "command": [
+        "cmake",
+        "-S",
+        ".",
+        "-B",
+        "build-fuzz",
+        "-DCMAKE_CXX_COMPILER=clang++-14",
+        "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+        "-DPDA_FUZZING=ON",
+        "-DBUILD_TESTING=OFF",
+        "-DPDA_STRICT_WARNINGS=ON",
+        "-DPDA_WARNINGS_AS_ERRORS=ON"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 0.5681913872249424,
+      "log": "benchmarks/work/final-validation-cfv1skht/fuzz-configure.log",
+      "log_tail": "-- Configuring done\n-- Generating done\n-- Build files have been written to: /mnt/ec/ness/max/Side-Projects/PDA-Lab/build-fuzz\n"
+    },
+    {
+      "name": "fuzz-build",
+      "command": [
+        "cmake",
+        "--build",
+        "build-fuzz",
+        "--parallel",
+        "4",
+        "--target",
+        "fuzz_lab1",
+        "fuzz_lab2",
+        "fuzz_lab3",
+        "fuzz_lab4"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 29.71206517331302,
+      "log": "benchmarks/work/final-validation-cfv1skht/fuzz-build.log",
+      "log_tail": "Consolidate compiler generated dependencies of target lab1_core\n[ 80%] Built target lab1_core\nConsolidate compiler generated dependencies of target fuzz_lab1\n[100%] Built target fuzz_lab1\nConsolidate compiler generated dependencies of target lab2_core\n[ 16%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/packing.cpp.o\n[ 16%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/parser.cpp.o\n[ 33%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/tree.cpp.o\n[ 33%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/annealer.cpp.o\n[ 41%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/progress_annealer.cpp.o\n[ 50%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/diagnostics.cpp.o\n[ 58%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/parallel.cpp.o\n[ 66%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/undo.cpp.o\n[ 75%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/report.cpp.o\n[ 83%] Linking CXX static library liblab2_core.a\n[ 83%] Built target lab2_core\nConsolidate compiler generated dependencies of target fuzz_lab2\n[ 91%] Building CXX object CMakeFiles/fuzz_lab2.dir/tests/fuzz/parsers.cpp.o\n[100%] Linking CXX executable fuzz_lab2\n[100%] Built target fuzz_lab2\nConsolidate compiler generated dependencies of target lab3_core\n[ 20%] Building CXX object CMakeFiles/lab3_core.dir/Lab03/parser.cpp.o\n[ 40%] Building CXX object CMakeFiles/lab3_core.dir/Lab03/legalizer.cpp.o\n[ 60%] Linking CXX static library liblab3_core.a\n[ 60%] Built target lab3_core\nConsolidate compiler generated dependencies of target fuzz_lab3\n[ 80%] Building CXX object CMakeFiles/fuzz_lab3.dir/tests/fuzz/parsers.cpp.o\n[100%] Linking CXX executable fuzz_lab3\n[100%] Built target fuzz_lab3\nConsolidate compiler generated dependencies of target lab4_core\n[ 42%] Building CXX object CMakeFiles/lab4_core.dir/Lab04/legacy_router.cpp.o\n[ 42%] Building CXX object CMakeFiles/lab4_core.dir/Lab04/routing_state.cpp.o\n[ 42%] Building CXX object CMakeFiles/lab4_core.dir/Lab04/layered_router.cpp.o\n[ 57%] Linking CXX static library liblab4_core.a\n[ 71%] Built target lab4_core\nConsolidate compiler generated dependencies of target fuzz_lab4\n[ 85%] Linking CXX executable fuzz_lab4\n[100%] Built target fuzz_lab4\n"
+    },
+    {
+      "name": "fuzz-test",
+      "command": [
+        "/mnt/ec/ness/max/miniconda3/bin/python3",
+        "tests/fuzz/run.py",
+        "--runs",
+        "20000",
+        "--seconds",
+        "30",
+        "--output",
+        "benchmarks/results/interview-final-fuzz.json"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 8.687508470844477,
+      "log": "benchmarks/work/final-validation-cfv1skht/fuzz-test.log",
+      "log_tail": "Lab01: passed\nLab02: passed\nLab03: passed\nLab04: passed\n"
+    },
+    {
+      "name": "static-analysis",
+      "command": [
+        "/mnt/ec/ness/max/miniconda3/bin/python3",
+        "tests/analyze.py",
+        "--build",
+        "build-fuzz",
+        "--output",
+        "benchmarks/results/interview-final-analysis.json"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 79.46245479909703,
+      "log": "benchmarks/work/final-validation-cfv1skht/static-analysis.log",
+      "log_tail": "Analyzed 26 files; 0 diagnostics\n"
+    },
+    {
+      "name": "pinned-resources",
+      "command": [
+        "/mnt/ec/ness/max/miniconda3/bin/python3",
+        "tests/fetch_resources.py",
+        "--check"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 1.01802490465343,
+      "log": "benchmarks/work/final-validation-cfv1skht/pinned-resources.log",
+      "log_tail": "Verified 66 resources and Lab04 archive contents.\n"
+    },
+    {
+      "name": "whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 0.11676898691803217,
+      "log": "benchmarks/work/final-validation-cfv1skht/whitespace.log",
+      "log_tail": ""
+    }
+  ],
+  "complete": true
+}

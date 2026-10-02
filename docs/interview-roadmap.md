@@ -1,7 +1,8 @@
 # EDA 軟體工程面試作品：下一階段規劃
 
 規劃日期：2026-10-02。檢視基準：`616d52e`。
-狀態：以下為待實作計畫；既有成果另見 [completion.md](completion.md)。
+狀態：本文件保留規劃時的問題與驗收標準；實作進度及證據見 [interview-progress.md](interview-progress.md)，
+本輪之前的成果見 [completion.md](completion.md)。
 
 建議定位為「可驗證、可重現實驗的 C++ 實體設計演算法工具組」。主要展示
 Lab02 的效能與平行搜尋工程，再把 Lab04 深化成可改善多 net 壅塞的演算法案例。

@@ -1,0 +1,6 @@
+{"kind":"iteration","round":0,"objective":2028.6500000000001,"overflow":22,"max_overflow":2,"wirelength":389,"vias":138,"elapsed_seconds":0.002614646,"rerouted":0}
+{"kind":"iteration","round":1,"objective":1922.8499999999999,"overflow":20,"max_overflow":2,"wirelength":391,"vias":148,"elapsed_seconds":0.0053251260000000003,"rerouted":24}
+{"kind":"iteration","round":2,"objective":1922.8499999999999,"overflow":20,"max_overflow":2,"wirelength":391,"vias":148,"elapsed_seconds":0.0079937540000000005,"rerouted":24}
+{"kind":"iteration","round":3,"objective":1922.8499999999999,"overflow":20,"max_overflow":2,"wirelength":391,"vias":148,"elapsed_seconds":0.010635113999999999,"rerouted":24}
+{"kind":"iteration","round":4,"objective":1922.8499999999999,"overflow":20,"max_overflow":2,"wirelength":391,"vias":148,"elapsed_seconds":0.013150547,"rerouted":24}
+{"kind":"summary","objective":1922.8499999999999,"overflow":20,"max_overflow":2,"wirelength":391,"vias":148,"budget_exhausted":false}

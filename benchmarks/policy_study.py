@@ -3,12 +3,11 @@
 import argparse
 import json
 from pathlib import Path
-import platform
 import statistics
-import subprocess
 import tempfile
 from types import SimpleNamespace
 from generated import floorplan
+from provenance import provenance
 from run import ROOT, build_metadata, course, run
 
 
@@ -38,9 +37,7 @@ def main():
     rows = []
     budgets = [300000] if args.suite == 'instrumentation' else args.budgets
     expected = len(cases)*len(seeds)*len(budgets)*len(variants)
-    report = dict(schema_version=1, suite=args.suite, platform=platform.platform(),
-                  revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
-                  dirty=bool(subprocess.check_output(['git','status','--porcelain'],cwd=ROOT)),
+    report = dict(schema_version=1, suite=args.suite, **provenance(ROOT),
                   build=build_metadata(ROOT/'build'), threads=1, expected_runs=expected,
                   seeds=seeds, budgets=budgets, generated_seeds=[503,509], results=rows,
                   method='Serial paired seeds, rotating policy order. Single restart. Fixed CPU budgets for quality; fixed iterations for instrumentation. All failures retained; cost pairs require both legal.',
