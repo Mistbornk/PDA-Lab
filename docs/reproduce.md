@@ -81,3 +81,13 @@ The [milestone record](interview-progress.md), [final validation record](intervi
 and [GitHub Actions](https://github.com/Mistbornk/PDA-Lab/actions/workflows/ci.yml)
 distinguish local checks from remote CI. The clean-checkout record identifies the
 exact archived revision used for the final offline build/test/demo verification.
+
+To repeat the isolated archive check on a committed revision (including all four Makefiles):
+
+```bash
+python3 scripts/clean_checkout.py --revision HEAD --output build/clean-checkout.json
+```
+
+The archived source has no ignored downloaded datasets or pre-existing CMake cache.
+Tracked historical course executables are preserved in the main checkout; Makefile
+rebuilds overwrite only their copies inside the isolated archive.

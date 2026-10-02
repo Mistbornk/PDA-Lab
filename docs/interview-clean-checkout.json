@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "revision": "a416e0308eb6d9565bc85b64096eb739447565de",
+  "source": "benchmarks/work/clean-checkout-kv1e9ce7/source",
+  "complete": true,
+  "method": "Fresh git archive of the committed tree; no ignored datasets, binaries or build cache copied. Root CMake/CTest includes the offline demo. Compatibility Makefiles run only in the isolated archive.",
+  "checks": [
+    {
+      "name": "configure",
+      "command": [
+        "cmake",
+        "-S",
+        ".",
+        "-B",
+        "build",
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPDA_STRICT_WARNINGS=ON",
+        "-DPDA_WARNINGS_AS_ERRORS=ON"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 3.624891664367169,
+      "log": "benchmarks/work/clean-checkout-kv1e9ce7/configure.log",
+      "log_tail": "-- The CXX compiler identification is GNU 11.4.0\n-- Detecting CXX compiler ABI info\n-- Detecting CXX compiler ABI info - done\n-- Check for working CXX compiler: /usr/bin/c++ - skipped\n-- Detecting CXX compile features\n-- Detecting CXX compile features - done\n-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version \"1.74.0\")  \n-- Looking for C++ include pthread.h\n-- Looking for C++ include pthread.h - found\n-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n-- Found Threads: TRUE  \n-- Found Python3: /mnt/ec/ness/max/miniconda3/bin/python3.1 (found version \"3.12.2\") found components: Interpreter \n-- Configuring done\n-- Generating done\n-- Build files have been written to: /mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/clean-checkout-kv1e9ce7/source/build\n"
+    },
+    {
+      "name": "build",
+      "command": [
+        "cmake",
+        "--build",
+        "build",
+        "--parallel",
+        "4"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 16.012461581733078,
+      "log": "benchmarks/work/clean-checkout-kv1e9ce7/build.log",
+      "log_tail": "[  4%] Building CXX object CMakeFiles/lab1_core.dir/Lab01/src/TileList.cpp.o\n[  4%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/parser.cpp.o\n[  6%] Building CXX object CMakeFiles/lab3_core.dir/Lab03/parser.cpp.o\n[  8%] Building CXX object CMakeFiles/lab4_core.dir/Lab04/parser.cpp.o\n[ 10%] Building CXX object CMakeFiles/lab4_core.dir/Lab04/legacy_router.cpp.o\n[ 12%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/packing.cpp.o\n[ 14%] Building CXX object CMakeFiles/lab3_core.dir/Lab03/legalizer.cpp.o\n[ 16%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/tree.cpp.o\n[ 18%] Building CXX object CMakeFiles/lab4_core.dir/Lab04/layered_router.cpp.o\nIn file included from /usr/include/boost/math/tools/cxx03_warn.hpp:9,\n                 from /usr/include/boost/math/constants/constants.hpp:11,\n                 from /usr/include/boost/geometry/util/math.hpp:29,\n                 from /usr/include/boost/geometry/core/radian_access.hpp:33,\n                 from /usr/include/boost/geometry/geometry.hpp:51,\n                 from /usr/include/boost/geometry.hpp:17,\n                 from /mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/clean-checkout-kv1e9ce7/source/Lab01/src/TileList.cpp:2:\n/usr/include/boost/detail/no_exceptions_support.hpp:17:1: note: \u2018#pragma message: This header is deprecated. Use <boost/core/no_exceptions_support.hpp> instead.\u2019\n   17 | BOOST_HEADER_DEPRECATED(\"<boost/core/no_exceptions_support.hpp>\")\n      | ^~~~~~~~~~~~~~~~~~~~~~~\n[ 20%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/annealer.cpp.o\nIn file included from /usr/include/boost/math/tools/cxx03_warn.hpp:9,\n                 from /usr/include/boost/math/constants/constants.hpp:11,\n                 from /usr/include/boost/geometry/util/math.hpp:29,\n                 from /usr/include/boost/geometry/core/radian_access.hpp:33,\n                 from /usr/include/boost/geometry/geometry.hpp:51,\n                 from /usr/include/boost/geometry.hpp:17,\n                 from /mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/clean-checkout-kv1e9ce7/source/Lab03/legalizer.cpp:4:\n/usr/include/boost/detail/no_exceptions_support.hpp:17:1: note: \u2018#pragma message: This header is deprecated. Use <boost/core/no_exceptions_support.hpp> instead.\u2019\n   17 | BOOST_HEADER_DEPRECATED(\"<boost/core/no_exceptions_support.hpp>\")\n      | ^~~~~~~~~~~~~~~~~~~~~~~\n[ 22%] Building CXX object CMakeFiles/lab4_core.dir/Lab04/routing_state.cpp.o\n[ 24%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/progress_annealer.cpp.o\n[ 26%] Building CXX object CMakeFiles/lab1_core.dir/Lab01/src/Block_Creating.cpp.o\n[ 28%] Linking CXX static library liblab4_core.a\n[ 28%] Built target lab4_core\n[ 30%] Building CXX object CMakeFiles/lab1_core.dir/Lab01/src/Point_Finding.cpp.o\n[ 32%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/diagnostics.cpp.o\n[ 34%] Building CXX object CMakeFiles/lab1_core.dir/Lab01/src/Neighbor_Finding.cpp.o\n[ 36%] Building CXX object CMakeFiles/lab1_core.dir/Lab01/src/parser.cpp.o\n[ 38%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/parallel.cpp.o\n[ 40%] Building CXX object CMakeFiles/D2DGRter.dir/Lab04/main.cpp.o\n[ 42%] Building CXX object CMakeFiles/lab1_core.dir/Lab01/src/layout.cpp.o\n[ 44%] Linking CXX executable Lab04/D2DGRter\n[ 44%] Built target D2DGRter\n[ 46%] Building CXX object CMakeFiles/lab1_core.dir/Lab01/src/report.cpp.o\n[ 48%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/undo.cpp.o\n[ 50%] Building CXX object CMakeFiles/lab2_core.dir/Lab02/src/report.cpp.o\n[ 52%] Linking CXX static library liblab1_core.a\n[ 52%] Built target lab1_core\n[ 56%] Building CXX object CMakeFiles/Lab1.dir/Lab01/src/main.cpp.o\n[ 56%] Linking CXX static library liblab3_core.a\n[ 56%] Built target lab3_core\n[ 58%] Building CXX object CMakeFiles/lab1_core_test.dir/tests/lab1_core.cpp.o\n[ 60%] Linking CXX static library liblab2_core.a\n[ 62%] Linking CXX executable Lab01/Lab1\n[ 62%] Built target lab2_core\n[ 62%] Built target Lab1\n[ 66%] Building CXX object CMakeFiles/Legalizer.dir/Lab03/main.cpp.o\n[ 66%] Building CXX object CMakeFiles/Lab2.dir/Lab02/main.cpp.o\n[ 68%] Building CXX object CMakeFiles/lab3_quality_test.dir/tests/lab3_quality.cpp.o\n[ 70%] Linking CXX executable lab1_core_test\n[ 70%] Built target lab1_core_test\n[ 72%] Building CXX object CMakeFiles/lab2_policy_test.dir/tests/lab2_policy.cpp.o\n[ 74%] Linking CXX executable Lab03/Legalizer\n[ 74%] Built target Legalizer\n[ 78%] Linking CXX executable Lab02/Lab2\n[ 78%] Building CXX object CMakeFiles/core_sessions_test.dir/tests/core_sessions.cpp.o\n[ 78%] Built target Lab2\n[ 80%] Building CXX object CMakeFiles/lab2_core_test.dir/tests/lab2_core.cpp.o\n[ 82%] Linking CXX executable lab3_quality_test\n[ 82%] Built target lab3_quality_test\n[ 84%] Building CXX object CMakeFiles/lab2_undo_test.dir/tests/lab2_undo.cpp.o\n[ 86%] Linking CXX executable lab2_policy_test\n[ 86%] Built target lab2_policy_test\n[ 88%] Building CXX object CMakeFiles/lab2_parallel_test.dir/tests/lab2_parallel.cpp.o\n[ 90%] Linking CXX executable lab2_undo_test\n[ 90%] Built target lab2_undo_test\n[ 94%] Linking CXX executable lab2_parallel_test\n[ 94%] Linking CXX executable core_sessions_test\n[ 96%] Building CXX object CMakeFiles/lab2_random_test.dir/tests/lab2_random.cpp.o\n[ 96%] Built target lab2_parallel_test\n[ 96%] Built target core_sessions_test\n[ 98%] Linking CXX executable lab2_core_test\n[ 98%] Built target lab2_core_test\n[100%] Linking CXX executable lab2_random_test\n[100%] Built target lab2_random_test\n"
+    },
+    {
+      "name": "test",
+      "command": [
+        "ctest",
+        "--test-dir",
+        "build",
+        "--output-on-failure"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 4.2771811950951815,
+      "log": "benchmarks/work/clean-checkout-kv1e9ce7/test.log",
+      "log_tail": "Internal ctest changing into directory: /mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/clean-checkout-kv1e9ce7/source/build\nTest project /mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/clean-checkout-kv1e9ce7/source/build\n      Start  1: lab3_quality\n 1/12 Test  #1: lab3_quality .....................   Passed    0.07 sec\n      Start  2: lab2_policy\n 2/12 Test  #2: lab2_policy ......................   Passed    0.18 sec\n      Start  3: core_sessions\n 3/12 Test  #3: core_sessions ....................   Passed    0.03 sec\n      Start  4: lab1_core\n 4/12 Test  #4: lab1_core ........................   Passed    0.74 sec\n      Start  5: lab2_core\n 5/12 Test  #5: lab2_core ........................   Passed    0.14 sec\n      Start  6: lab2_undo\n 6/12 Test  #6: lab2_undo ........................   Passed    0.18 sec\n      Start  7: lab2_parallel\n 7/12 Test  #7: lab2_parallel ....................   Passed    0.16 sec\n      Start  8: lab2_random\n 8/12 Test  #8: lab2_random ......................   Passed    0.05 sec\n      Start  9: offline_demo\n 9/12 Test  #9: offline_demo .....................   Passed    0.42 sec\n      Start 10: lab4_oracle\n10/12 Test #10: lab4_oracle ......................   Passed    1.22 sec\n      Start 11: regression\n11/12 Test #11: regression .......................   Passed    0.70 sec\n      Start 12: stress_smoke\n12/12 Test #12: stress_smoke .....................   Passed    0.32 sec\n\n100% tests passed, 0 tests failed out of 12\n\nTotal Test time (real) =   4.25 sec\n"
+    },
+    {
+      "name": "Lab01-make",
+      "command": [
+        "make",
+        "-B",
+        "-C",
+        "Lab01"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 12.397775309160352,
+      "log": "benchmarks/work/clean-checkout-kv1e9ce7/Lab01-make.log",
+      "log_tail": "make: Entering directory '/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/clean-checkout-kv1e9ce7/source/Lab01'\nmkdir -p obj\ng++ -std=c++17 -I../include -Wall -O0 -I./header -g -MMD -MP -c src/Block_Creating.cpp -o obj/Block_Creating.o\nmkdir -p obj\ng++ -std=c++17 -I../include -Wall -O0 -I./header -g -MMD -MP -c src/layout.cpp -o obj/layout.o\nmkdir -p obj\ng++ -std=c++17 -I../include -Wall -O0 -I./header -g -MMD -MP -c src/main.cpp -o obj/main.o\nmkdir -p obj\ng++ -std=c++17 -I../include -Wall -O0 -I./header -g -MMD -MP -c src/Neighbor_Finding.cpp -o obj/Neighbor_Finding.o\nmkdir -p obj\ng++ -std=c++17 -I../include -Wall -O0 -I./header -g -MMD -MP -c src/parser.cpp -o obj/parser.o\nmkdir -p obj\ng++ -std=c++17 -I../include -Wall -O0 -I./header -g -MMD -MP -c src/Point_Finding.cpp -o obj/Point_Finding.o\nmkdir -p obj\ng++ -std=c++17 -I../include -Wall -O0 -I./header -g -MMD -MP -c src/report.cpp -o obj/report.o\nmkdir -p obj\ng++ -std=c++17 -I../include -Wall -O0 -I./header -g -MMD -MP -c src/TileList.cpp -o obj/TileList.o\nIn file included from /usr/include/boost/math/tools/cxx03_warn.hpp:9,\n                 from /usr/include/boost/math/constants/constants.hpp:11,\n                 from /usr/include/boost/geometry/util/math.hpp:29,\n                 from /usr/include/boost/geometry/core/radian_access.hpp:33,\n                 from /usr/include/boost/geometry/geometry.hpp:51,\n                 from /usr/include/boost/geometry.hpp:17,\n                 from src/TileList.cpp:2:\n/usr/include/boost/detail/no_exceptions_support.hpp:17:1: note: \u2018#pragma message: This header is deprecated. Use <boost/core/no_exceptions_support.hpp> instead.\u2019\n   17 | BOOST_HEADER_DEPRECATED(\"<boost/core/no_exceptions_support.hpp>\")\n      | ^~~~~~~~~~~~~~~~~~~~~~~\ng++ -std=c++17 -I../include -Wall -O0 -I./header -g -MMD -MP -o Lab1 obj/Block_Creating.o obj/layout.o obj/main.o obj/Neighbor_Finding.o obj/parser.o obj/Point_Finding.o obj/report.o obj/TileList.o\nmake: Leaving directory '/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/clean-checkout-kv1e9ce7/source/Lab01'\n"
+    },
+    {
+      "name": "Lab02-make",
+      "command": [
+        "make",
+        "-B",
+        "-C",
+        "Lab02"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 11.345841887872666,
+      "log": "benchmarks/work/clean-checkout-kv1e9ce7/Lab02-make.log",
+      "log_tail": "make: Entering directory '/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/clean-checkout-kv1e9ce7/source/Lab02'\ng++ -std=c++17 -pthread -I../include -Iinclude -Wall -O3 -o Lab2 main.cpp src/annealer.cpp src/diagnostics.cpp src/packing.cpp src/parallel.cpp src/parser.cpp src/progress_annealer.cpp src/report.cpp src/tree.cpp src/undo.cpp\nmake: Leaving directory '/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/clean-checkout-kv1e9ce7/source/Lab02'\n"
+    },
+    {
+      "name": "Lab03-make",
+      "command": [
+        "make",
+        "-B",
+        "-C",
+        "Lab03"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 10.99505068687722,
+      "log": "benchmarks/work/clean-checkout-kv1e9ce7/Lab03-make.log",
+      "log_tail": "make: Entering directory '/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/clean-checkout-kv1e9ce7/source/Lab03'\ng++ -std=c++17 -I../include -Iinclude -Wall -O3 -static -o Legalizer main.cpp parser.cpp legalizer.cpp\nIn file included from /usr/include/boost/math/tools/cxx03_warn.hpp:9,\n                 from /usr/include/boost/math/constants/constants.hpp:11,\n                 from /usr/include/boost/geometry/util/math.hpp:29,\n                 from /usr/include/boost/geometry/core/radian_access.hpp:33,\n                 from /usr/include/boost/geometry/geometry.hpp:51,\n                 from /usr/include/boost/geometry.hpp:17,\n                 from legalizer.cpp:4:\n/usr/include/boost/detail/no_exceptions_support.hpp:17:1: note: \u2018#pragma message: This header is deprecated. Use <boost/core/no_exceptions_support.hpp> instead.\u2019\n   17 | BOOST_HEADER_DEPRECATED(\"<boost/core/no_exceptions_support.hpp>\")\n      | ^~~~~~~~~~~~~~~~~~~~~~~\nmake: Leaving directory '/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/clean-checkout-kv1e9ce7/source/Lab03'\n"
+    },
+    {
+      "name": "Lab04-make",
+      "command": [
+        "make",
+        "-B",
+        "-C",
+        "Lab04"
+      ],
+      "returncode": 0,
+      "status": "passed",
+      "wall_seconds": 6.73328783782199,
+      "log": "benchmarks/work/clean-checkout-kv1e9ce7/Lab04-make.log",
+      "log_tail": "make: Entering directory '/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/clean-checkout-kv1e9ce7/source/Lab04'\ng++ -std=c++17 -I../include -Iinc -Wall -O3 -o D2DGRter main.cpp parser.cpp legacy_router.cpp layered_router.cpp routing_state.cpp\nmake: Leaving directory '/mnt/ec/ness/max/Side-Projects/PDA-Lab/benchmarks/work/clean-checkout-kv1e9ce7/source/Lab04'\n"
+    }
+  ],
+  "subsequent_changes": "Only verification documentation changed after this archived source revision; build, test, demo and solver sources are identical."
+}

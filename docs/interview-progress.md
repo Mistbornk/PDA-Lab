@@ -79,7 +79,7 @@ multi-row cells, FIX invariance, failed planning and score/name-lifetime semanti
 See [design record](decisions/004-bounded-legalization.md) and the complete legalizer
 study JSONs. This is a quality/runtime option, not a claim of faster legalization.
 
-## M6 — Final verification
+## M6 — Reproducible delivery and final verification
 
 The offline SVG/HTML demo independently checks emitted geometry and original cost.
 Its routing case has 24 nets and 20 overflow units, which the view can inspect by
@@ -98,4 +98,16 @@ repair example's two moves, zero final distance and total cost 2.
 An additional [Lab01 distribution study](lab1-capacity.md) passes 72 comparisons of
 dense, strip, shared-boundary and fragmented layouts. It records all three sizes,
 RSS, tile counts and candidate visits; no speculative arena rewrite was added.
-Clean-checkout and remote CI verification are the final pending checks.
+A fresh archive of commit `a416e03` builds from scratch and passes all 12 tests,
+including the offline demo, without copying ignored resources or build caches.
+All four original Makefiles also build in that isolated tree. The following
+verification-record commit changes documentation only. Exact commands and logs:
+[clean checkout](interview-clean-checkout.json), [strict/sanitizer/fuzz checks](interview-final-validation.json).
+The [CI workflow](https://github.com/Mistbornk/PDA-Lab/actions/workflows/ci.yml)
+runs the compiler matrix, TSan, bounded fuzzing and static analysis on pushed code.
+
+All six roadmap milestones are implemented and locally validated. Optional full
+industry format adapters, timing-driven objectives, GPU/distributed solvers and
+arena rewrites remain outside this delivery; the roadmap conditions those on new
+requirements or profiling evidence. There is no claim that experimental policies
+universally improve runtime or solution quality.
