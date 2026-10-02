@@ -19,10 +19,14 @@ struct Input {
 };
 Input parse_placement(std::istream &input);
 std::vector<Step> parse_steps(std::istream &input);
+enum class Strategy { Legacy, MinimumDisplacement, Repair };
 struct Options {
     bool nearest = false;
     bool intervals = true;
     bool stats = false;
+    Strategy strategy = Strategy::Legacy;
+    std::size_t repair_cells = 2, repair_candidates = 16;
+    double repair_radius = 20;
 };
 struct CellId {
     std::size_t value;
@@ -30,6 +34,8 @@ struct CellId {
 };
 struct Stats {
     std::size_t spatial_queries = 0, rows_tested = 0, committed_steps = 0;
+    std::size_t repair_attempts = 0, moved_cells = 0;
+    double total_distance = 0, maximum_displacement = 0, objective = 0;
 };
 struct StepResult {
     Cell placed{};

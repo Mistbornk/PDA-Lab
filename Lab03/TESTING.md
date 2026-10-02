@@ -101,10 +101,32 @@ python3 Lab03/tests/tools/testcase_checker.py \
 
 ## 優化前已知差異與回歸重点
 
-原始 parser 依名字開頭推定 fixed 且將輸出座標存成整數；工程版本已改為讀取 `FIX/NOTFIX` 與保留 double 精度，並驗證 banking 名稱、重複 ID 與輸入格式。`testcase2_100.lg` 這個**檔名字串**在預設 legacy 模式仍會觸發不同 legalization 分支，故重命名 input 可能改變結果。新的實驗應明確指定 `--strategy first-fit` 或 `--strategy nearest`。現有輸出永遠填 0 個其他 moved cells，反映實作的限制，不是規格禁止移動其他 cell。
+原始 parser 依名字開頭推定 fixed 且將輸出座標存成整數；工程版本已改為讀取 `FIX/NOTFIX` 與保留 double 精度，並驗證 banking 名稱、重複 ID 與輸入格式。`testcase2_100.lg` 這個**檔名字串**在預設 legacy 模式仍會觸發不同 legalization 分支，故重命名 input 可能改變結果。新的實驗應明確指定 `--strategy first-fit` 或 `--strategy nearest`。legacy / minimum 輸出 0 個其他 moved cells；repair 可輸出非 FIX cell 的移動清單。
 
-目前回歸已涵蓋非零 die/row 原點、site 對齊、多 row cell、逐步合法性、FIX 屬性與浮點精度；生成壓力測試另外驗證 20 萬 cells、5,000 次 banking 的每一步占用狀態。現有 solver 不會移動其他既有 cells，這仍是未實作的演算法擴充。R-tree 查詢要區分邊界相碰與內部重疊，也要涵蓋包含與完全相同矩形。比較優化版本時需記錄合法性、Move Times、Total Distance、Total、solver runtime 及 peak memory；不要只看總執行時間，也不要將示範解視為唯一解。
+目前回歸已涵蓋非零 die/row 原點、site 對齊、多 row cell、逐步合法性、FIX 屬性與浮點精度；生成壓力測試另外驗證 20 萬 cells、5,000 次 banking 的每一步占用狀態。repair 已支援有限局部移動，legacy 保留原行為。R-tree 查詢要區分邊界相碰與內部重疊，也要涵蓋包含與完全相同矩形。比較優化版本時需記錄合法性、Move Times、Total Distance、Total、solver runtime 及 peak memory；不要只看總執行時間，也不要將示範解視為唯一解。
 
 ## 可比較的搜尋路徑
 
 `--search interval`（預設）每個嘗試 row 取得一次障礙物區間，排序後尋找第一個可放置空隙；`--search point` 保留逐候選 R-tree 查詢供比較。nearest 策略使用雙向逐候選搜尋，search 選項不改變此分支。`--stats` 在 stderr 印出 spatial query 與 row 計數。狀態改為 solver 私有，R-tree 僅儲存 box 與 cell ID，banking 透過名稱索引移除，已取消每步全表掃描。五組公開測資與原始程式輸出逐字一致；詳細效能結果見 [benchmark](../benchmarks/README.md)。
+
+## 最小位移與局部修復
+
+```bash
+build/Lab03/Legalizer input.lg input.opt result.lg --strategy minimum --stats
+build/Lab03/Legalizer input.lg input.opt result.lg --strategy repair \
+  --repair-cells 2 --repair-candidates 16 --repair-radius 20 --stats
+python3 benchmarks/legalizer_study.py --repeat 3 --output benchmarks/work/legalizer.json
+python3 benchmarks/legalizer_study.py --generated --output benchmarks/work/legalizer-generated.json
+```
+
+minimum 在其他 cells 不動的條件下，跨 rows / gaps 比較最近 site，平手依 y、x。
+repair 限制候選點、直接 blockers 數與每個搬移的曼哈頓半徑；不做無限連鎖推移。
+當步評分包含所有 moved cells 的位移變化與移動次數，不只新 FF。
+`--search` 僅影響 legacy first-fit；minimum / repair 使用自己的區間搜尋。
+`--stats` 增加 `move_times`、`total_distance`、`objective`、`maximum_displacement_seen`。
+最後一項是歷來回報位置中的最大原始位移，不是官方 score。官方計分保留已 banking cell
+的最後位移紀錄；同名重用也保留 evaluator 的首筆物件語義。
+
+預期無候選時 core placement 不變，CLI exit 3；輸出檔可能已含前面成功步驟，不能當作完整解。
+配置失敗等內部 commit 錯誤後須丟棄 session。詳見 [設計紀錄](../docs/decisions/004-bounded-legalization.md)。
+200 組小型 oracle 以全部 site 枚舉檢查 minimum，另測跨 row、FIX、重複移動、回復與名稱重用。
