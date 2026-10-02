@@ -1,8 +1,8 @@
-#ifndef STRUCT_H
-#define STRUCT_H
+#pragma once
 #include <utility>
 #include <vector>
 
+namespace lab4 {
 struct Chip {
     int x, y;
     int width, height;
@@ -49,4 +49,4 @@ typedef std::pair<int, int> Pair;
 // Creating a shortcut for pair<int, pair<int, int>> type
 typedef std::pair<double, std::pair<int, int>> pPair;
 
-#endif
+} // namespace lab4

@@ -18,11 +18,11 @@ int main(int argc, char *argv[]) {
             layered = mode == "layered";
         }
         auto input = lab4::parse(argv[1], argv[2], argv[3]);
+        const auto result = layered ? lab4::solve_layered(input) : lab4::solve_legacy(input);
         auto output = pda::output_file(argv[4]);
-        if (layered)
-            lab4::route_layered(std::move(input), output, stats ? &std::cerr : nullptr);
-        else
-            lab4::route_legacy(std::move(input), output);
+        lab4::write_report(output, input, result);
+        if (stats && layered)
+            lab4::write_stats(std::cerr, result);
         output.flush();
     } catch (const std::exception &error) {
         std::cerr << "D2DGRter: " << error.what() << '\n';

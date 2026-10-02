@@ -1,20 +1,18 @@
-#ifndef STRUCT_H
-#define STRUCT_H
-#include <cfloat> 
-#include <vector>
-#include <string>
+#pragma once
+#include <cfloat>
 #include <map>
+#include <string>
+#include <vector>
 
+namespace lab3 {
 struct Cell {
-	std::string name;
-	double x, y;
+    std::string name;
+    double x, y;
     double opt_x, opt_y;
-	double width, height;
-	bool fixed;
+    double width, height;
+    bool fixed;
     // Overload operator==
-    bool operator==(const Cell& other) const {
-        return this->name == other.name;
-    }
+    bool operator==(const Cell &other) const { return this->name == other.name; }
 };
 
 struct PlacementRow {
@@ -28,5 +26,4 @@ struct Die {
     double uRX, uRY;
 };
 
-
-#endif
+} // namespace lab3

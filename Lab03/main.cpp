@@ -33,7 +33,12 @@ int main(int argc, char *argv[]) {
         auto input = lab3::parse_placement(lg);
         auto steps = lab3::parse_steps(opt);
         auto output = pda::output_file(argv[3]);
-        lab3::legalize(std::move(input), steps, output, options);
+        lab3::Legalizer solver(std::move(input), options);
+        for (const auto &step : steps)
+            lab3::write_step(output, solver.apply(step));
+        if (options.stats)
+            lab3::write_stats(std::cerr, solver.stats());
+        output.flush();
     } catch (const std::exception &error) {
         std::cerr << "Legalizer: " << error.what() << '\n';
         return 1;

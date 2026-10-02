@@ -10,6 +10,7 @@
 
 using namespace std;
 namespace {
+using namespace lab4;
 template <class T> struct FlatGrid {
     std::size_t columns;
     std::vector<T> values;
@@ -19,11 +20,11 @@ template <class T> struct FlatGrid {
     T *operator[](int row) { return values.data() + static_cast<std::size_t>(row) * columns; }
 };
 class Router {
-    RoutingAreaInfo RA_info;
-    GridInfo grid_info;
-    vector<Net> nets;
+    const RoutingAreaInfo &RA_info;
+    const GridInfo &grid_info;
+    const vector<Net> &nets;
     vector<vector<GCell>> gcells;
-    CostInfo cost_info;
+    const CostInfo &cost_info;
     FlatGrid<Node> gcellDetails;
     FlatGrid<std::uint8_t> closedList;
     // Neighbor arithmetic uses signed coordinates; all accesses follow grid bounds
@@ -69,7 +70,7 @@ class Router {
         }
     }
 
-    void reconstructPath(Pair src, Pair dest, ostream &output) {
+    Route reconstructPath(Pair src, Pair dest) {
         vector<Pair> path; // {x,y}
         vector<Pair> path_capacity;
         int row = dest.first, col = dest.second;
@@ -87,34 +88,21 @@ class Router {
         reverse(path.begin(), path.end());
         reverse(path_capacity.begin(), path_capacity.end());
 
-        int currentLayer = 1;
-        if (path.size() > 1 && path[0].first != path[1].first) {
-            output << "via" << '\n';
-            currentLayer = 2;
-        }
-        int startX = path[0].first, startY = path[0].second;
-        size_t i;
-        for (i = 1; i < path.size(); i++) {
-            int layer = (path[i].first == path[i - 1].first) ? 1 : 2;
-            if (layer != currentLayer) {
-                output << "M" << currentLayer << " " << startX << " " << startY << " "
-                       << path[i - 1].first << " " << path[i - 1].second << '\n';
-                output << "via" << '\n';
-
-                startX = path[i - 1].first, startY = path[i - 1].second;
-                currentLayer = layer;
-            }
-        }
-        output << "M" << currentLayer << " " << startX << " " << startY << " " << path[i - 1].first
-               << " " << path[i - 1].second << '\n';
-
-        if (currentLayer != 1) {
-            output << "via" << '\n';
+        Route route;
+        for (std::size_t i = 0; i < path_capacity.size(); ++i) {
+            const auto [r, c] = path_capacity[i];
+            const auto layer =
+                i == 0 ? 0u : static_cast<unsigned>(c != path_capacity[i - 1].second);
+            route.states.push_back(
+                2 * (static_cast<std::size_t>(r) * static_cast<std::size_t>(RA_info.num_cols) +
+                     static_cast<std::size_t>(c)) +
+                layer);
         }
         updateCapacity(path_capacity);
+        return route;
     }
 
-    void AstarSearch(Pair src, Pair dest, ostream &output) {
+    Route AstarSearch(Pair src, Pair dest) {
         int NUM_ROW = RA_info.num_rows, NUM_COL = RA_info.num_cols;
         std::fill(closedList.values.begin(), closedList.values.end(), 0);
 
@@ -140,7 +128,6 @@ class Router {
         gcellDetails[srcRow][srcCol].layer = 1; // Start on M1
 
         openList.push({0.0, {srcRow, srcCol}});
-        bool foundDest = false;
 
         while (!openList.empty()) {
             pPair current = openList.top();
@@ -155,9 +142,7 @@ class Router {
             closedList[i][j] = true;
 
             if (i == dest.first && j == dest.second) {
-                foundDest = true;
-                reconstructPath(src, dest, output);
-                break;
+                return reconstructPath(src, dest);
             }
 
             static constexpr std::array<Pair, 2> directionsM1 = {{{1, 0}, {-1, 0}}}; // up and down
@@ -261,28 +246,39 @@ class Router {
             }
         }
 
-        pda::require(foundDest, "No path found");
+        throw std::runtime_error("No path found");
     }
 
   public:
-    explicit Router(lab4::Input input)
-        : RA_info(input.area), grid_info(input.grid), nets(std::move(input.nets)),
-          gcells(std::move(input.cells)), cost_info(std::move(input.costs)),
-          gcellDetails(RA_info.num_rows, RA_info.num_cols),
+    explicit Router(const lab4::Input &input)
+        : RA_info(input.area), grid_info(input.grid), nets(input.nets), gcells(input.cells),
+          cost_info(input.costs), gcellDetails(RA_info.num_rows, RA_info.num_cols),
           closedList(RA_info.num_rows, RA_info.num_cols) {}
-    void route(ostream &output) {
+    Result route() {
+        Result result;
         for (const auto &net : nets) {
             const Pair start{(net.bump1_y - RA_info.Routing_Area_Y) / grid_info.GridHeight,
                              (net.bump1_x - RA_info.Routing_Area_X) / grid_info.GridWidth};
             const Pair end{(net.bump2_y - RA_info.Routing_Area_Y) / grid_info.GridHeight,
                            (net.bump2_x - RA_info.Routing_Area_X) / grid_info.GridWidth};
-            output << "n" << net.idx << '\n';
-            AstarSearch(start, end, output);
-            output << ".end\n";
+            auto path = AstarSearch(start, end);
+            path.net = NetId{result.routes.size()};
+            result.routes.push_back(std::move(path));
         }
+        return result;
     }
 };
 } // namespace
 namespace lab4 {
-void route_legacy(Input input, std::ostream &output) { Router(std::move(input)).route(output); }
+Result solve_legacy(const Input &input) {
+    auto result = Router(input).route();
+    RoutingState state(input);
+    for (const auto &route : result.routes)
+        state.replace(route);
+    result.metrics = state.metrics();
+    return result;
+}
+void route_legacy(Input input, std::ostream &output) {
+    write_report(output, input, solve_legacy(input));
+}
 } // namespace lab4

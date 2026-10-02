@@ -10,7 +10,8 @@
 namespace lab4 {
 namespace {
 class Search {
-    Input &input;
+    RoutingState &routing;
+    const Input &input;
     const std::size_t cols, count, sink;
     std::vector<double> distance;
     std::vector<std::size_t> parent;
@@ -30,14 +31,11 @@ class Search {
                                            : m2) +
                (via ? c.delta * c.via_cost : 0);
     }
-    GCell &edge(std::size_t a, std::size_t b) {
-        return input.cells[std::max(row(a), row(b))][std::max(col(a), col(b))];
-    }
     double step_cost(std::size_t a, std::size_t b) {
         const int layer = static_cast<int>(b % 2);
-        const auto &e = edge(a, b);
-        const int usage = layer == 0 ? e.bottom_usage : e.left_usage;
-        const int capacity = layer == 0 ? e.bottom_capacity : e.left_capacity;
+        const auto id = routing.edge(a, b);
+        const auto usage = routing.usage()[id];
+        const auto capacity = routing.capacity(id);
         // Difference of total overflow before/after adding one unit of usage.
         const double overflow = usage >= capacity ? input.costs.max_cellcost / 2 : 0;
         const int length = layer == 0 ? input.grid.GridHeight : input.grid.GridWidth;
@@ -54,49 +52,17 @@ class Search {
             std::abs(static_cast<double>(row(state)) - static_cast<double>(row(destination)));
         return input.costs.alpha * (dx * input.grid.GridWidth + dy * input.grid.GridHeight);
     }
-    std::size_t state_at(int x, int y) const {
-        return 2 *
-               (static_cast<std::size_t>((y - input.area.Routing_Area_Y) / input.grid.GridHeight) *
-                    cols +
-                static_cast<std::size_t>((x - input.area.Routing_Area_X) / input.grid.GridWidth));
-    }
-    void emit(const std::vector<std::size_t> &path, std::ostream &output) {
-        std::size_t anchor = path.front();
-        int layer = 0;
-        const auto segment = [&](std::size_t end) {
-            const auto &a = input.cells[row(anchor)][col(anchor)];
-            const auto &b = input.cells[row(end)][col(end)];
-            output << 'M' << layer + 1 << ' ' << a.x << ' ' << a.y << ' ' << b.x << ' ' << b.y
-                   << '\n';
-        };
-        for (std::size_t i = 1; i < path.size(); ++i) {
-            const int next = static_cast<int>(path[i] % 2);
-            if (next != layer) {
-                if (i > 1)
-                    segment(path[i - 1]);
-                output << "via\n";
-                anchor = path[i - 1];
-                layer = next;
-            }
-            auto &e = edge(path[i - 1], path[i]);
-            if (next == 0)
-                ++e.bottom_usage;
-            else
-                ++e.left_usage;
-        }
-        segment(path.back());
-        if (layer != 0)
-            output << "via\n";
-    }
 
   public:
-    explicit Search(Input &data)
-        : input(data), cols(static_cast<std::size_t>(data.area.num_cols)),
-          count(static_cast<std::size_t>(data.area.num_rows) * cols), sink(count * 2),
+    explicit Search(RoutingState &state)
+        : routing(state), input(state.problem()),
+          cols(static_cast<std::size_t>(input.area.num_cols)),
+          count(static_cast<std::size_t>(input.area.num_rows) * cols), sink(count * 2),
           distance(sink + 1), parent(sink + 1) {}
-    void route(const Net &net, std::ostream &output, std::ostream *statistics) {
-        const auto source = state_at(net.bump1_x, net.bump1_y);
-        const auto destination = state_at(net.bump2_x, net.bump2_y);
+    Route route(NetId id) {
+        const auto &net = input.nets.at(id.value);
+        const auto source = routing.endpoint(net.bump1_x, net.bump1_y);
+        const auto destination = routing.endpoint(net.bump2_x, net.bump2_y);
         std::fill(distance.begin(), distance.end(), std::numeric_limits<double>::infinity());
         std::fill(parent.begin(), parent.end(), sink);
         std::priority_queue<Entry, std::vector<Entry>, std::greater<Entry>> open;
@@ -147,19 +113,21 @@ class Search {
             pda::require(path.size() <= sink, "Cycle in layered predecessor chain");
         }
         std::reverse(path.begin(), path.end());
-        output << 'n' << net.idx << '\n';
-        emit(path, output);
-        output << ".end\n";
-        if (statistics)
-            *statistics << std::setprecision(17) << "{\"net\":" << net.idx
-                        << ",\"incremental_cost\":" << distance[sink]
-                        << ",\"expanded\":" << expanded << "}\n";
+        return Route{id, std::move(path), distance[sink], expanded};
     }
 };
 } // namespace
+Result solve_layered(const Input &input) {
+    RoutingState state(input);
+    Search search(state);
+    for (std::size_t i = 0; i < input.nets.size(); ++i)
+        state.replace(search.route(NetId{i}));
+    return Result{state.routes(), state.metrics()};
+}
 void route_layered(Input input, std::ostream &output, std::ostream *statistics) {
-    Search search(input);
-    for (const auto &net : input.nets)
-        search.route(net, output, statistics);
+    const auto result = solve_layered(input);
+    write_report(output, input, result);
+    if (statistics)
+        write_stats(*statistics, result);
 }
 } // namespace lab4
